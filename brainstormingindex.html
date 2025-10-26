@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Reach: Extending Humanity's Blueprint</title>
+    <style>
+        /* --- Base & Reset --- */
+        :root {
+            --color-dark: #1f2937; /* Dark Gray/Blue for Background */
+            --color-light: #f9fafb; /* Off-White for Text/Backgrounds */
+            --color-accent: #3b82f6; /* Blue for Buttons/Links */
+            --color-secondary: #10b981; /* Green for secondary accents */
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            line-height: 1.6;
+        }
+
+        /* --- Global Structure --- */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        /* --- Typography & Headings --- */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--color-dark);
+            border-bottom: 3px solid var(--color-secondary);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 40px;
+            width: auto;
+            display: block; /* Ensures centered border */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Navigation --- */
+        .navbar {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-light);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.1s;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-light);
+            font-size: 1.1rem;
+            border: 2px solid var(--color-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: #316ceb;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-accent);
+            border: 2px solid var(--color-accent);
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-accent);
+            color: var(--color-light);
+        }
+
+        /* --- Hero Section (Podcast Focus) --- */
+        #home {
+            background: linear-gradient(135deg, var(--color-dark), #4b5563);
+            color: var(--color-light);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        /* --- Podcast Info Section --- */
+        .podcast-info {
+            background-color: #e5e7eb;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .podcast-info h3 {
+            font-size: 1.8rem;
+            color: var(--color-dark);
+            margin-bottom: 15px;
+        }
+        .podcast-info p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* --- Book Section --- */
+        #book {
+            background-color: var(--color-light);
+        }
+
+        .book-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .book-cover {
+            flex-shrink: 0;
+            width: 300px; /* Placeholder for image */
+            height: 400px; /* Placeholder for image */
+            background-color: var(--color-dark);
+            border: 5px solid var(--color-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-light);
+            font-style: italic;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .book-details h3 {
+            font-size: 2rem;
+            color: var(--color-accent);
+        }
+
+        .status {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+            margin: 10px 0 20px;
+        }
+
+        /* --- Blueprint Section (Ideas) --- */
+        #blueprint {
+            background-color: #f3f4f6;
+        }
+
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .idea-card {
+            background-color: var(--color-light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--color-accent);
+            transition: transform 0.3s;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .idea-card h4 {
+            font-size: 1.4rem;
+            color: var(--color-dark);
+            margin-bottom: 10px;
+        }
+
+        .idea-card p {
+            font-size: 0.95rem;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: var(--color-secondary);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        /* --- Media Queries (Responsiveness) --- */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 15px;
+            }
+            .nav-links a {
+                margin-left: 15px;
+            }
+
+            #home h1 {
+                font-size: 2.5rem;
+            }
+
+            #home p {
+                font-size: 1.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .book-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .book-cover {
+                width: 70%;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="#home" class="logo">THE REACH</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank">The Podcast</a>
+                <a href="#book">The Book</a>
+                <a href="#blueprint">The Blueprint</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="container">
+            <h1>The Battle for Tomorrow: Is Your Freedom an Illusion?</h1>
+            <p>Discover the Blueprint for a Human-Centered Future.</p>
+            <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="btn btn-primary">
+                🎙️ LISTEN NOW: THE REACH PODCAST
+            </a>
+        </div>
+    </section>
+
+    <section class="podcast-info">
+        <div class="container">
+            <h3>Your Direct Line to the Frontier of Human Autonomy.</h3>
+            <p>The podcast explores the lessons of collective action and self-sufficiency from the world of ***Sawyer's Reach***. We break down the complex currents of technological change to help you navigate toward a life rich in shared experiences and personal fulfillment, guided by **Humanity's Blueprint**.</p>
+            <a href="#blueprint" class="btn btn-secondary">
+                Learn more about The Blueprint
+            </a>
+        </div>
+    </section>
+
+
+    <section id="book">
+        <div class="container">
+            <h2>The Book: Sawyer's Reach</h2>
+            <div class="book-content">
+                <div class="book-cover">
+                    [PLACE BOOK COVER ART HERE]<br>
+                    *Sawyer's Reach*
+                </div>
+                <div class="book-details">
+                    <h3>***Sawyer's Reach: The Battle for Tomorrow***</h3>
+                    <p class="status">
+                        **Coming Soon: Publication Date TBD.**
+                        <br>
+                        *Please insert your expected publication date here.*
+                    </p>
+                    <p>A gripping techno-thriller about the Carter family and their community’s desperate fight for survival and autonomy against the centralized corporate power, **ZevraCorp**. The story serves as a narrative proof-of-concept, showcasing the necessity of **self-sufficiency** and **collective action** against hostile AI (**ECHIDNA**) and manipulative tech (**SynaptiCare**).</p>
+                    <a href="#" class="btn btn-primary">
+                        Sign up for Pre-Order Alerts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blueprint">
+        <div class="container">
+            <h2>The Blueprint for Human Flourishing</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">The philosophical guide that defines our aspirational goals. These are the principles that ensure freedom and secure community in the technological age.</p>
+
+            <div class="ideas-grid">
+                
+                <div class="idea-card">
+                    <h4>Flourishing & Freedom</h4>
+                    <p>The benevolent automation of the future should lift the burden of basic survival, **freeing every individual** to pursue purpose, connection, and full **personal flourishing**.</p>
+                </div>
+
+                <div class="idea-card">
+                    <h4>Technology Must Serve</h4>
+                    <p>We must become the **active architects** of our future. Technology must serve humanity's highest aspirations, never being allowed to erode our critical thinking or agency.</p>
+                </div>
+
+                <div class="idea-card">
+                    <h4>Community Resilience</h4>
+                    <p>The true source of limitless potential lies in the enduring power of **human connection** and the unbreakable **resilience of the human community**, secured by mutual aid and active defense.</p>
+                </div>
+
+                <div class="idea-card">
+                    <h4>Mandatory Vigilance</h4>
+                    <p>We advocate for the **mandatory vigilance** needed to safeguard permanent human autonomy and strict ethical limits on artificial sentience, ensuring technology remains subservient to humanity's ethical framework.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> The Reach. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
