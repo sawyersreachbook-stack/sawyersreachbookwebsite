@@ -1,395 +1,333 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Reach: Extending Humanity's Blueprint</title>
+    <title>Sawyer's Reach: The Battle for Tomorrow - Graphic Novel Style</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // DRAMATIC GRAPHIC NOVEL / TECH & NATURE AESTHETIC
+                        'cb-dark': '#0B111F', // Deep, cinematic midnight blue/black
+                        'cb-dark-accent': '#16223D', // Slightly lighter dark for Card Backgrounds
+                        'cb-tech-blue': '#00BCD4', // Luminous Cyan/Tech Accent (Modern Tech)
+                        'cb-nature-teal': '#009688', // Deep Teal/Green Accent (Beauty of Nature)
+                        'cb-white': '#FAFAFA', // Bright White Text
+                        'cb-gray': '#B0B0C0', // Secondary Gray Text
+                    },
+                    fontFamily: {
+                        // Futuristic, cinematic font for titles
+                        heading: ['Orbitron', 'sans-serif'],
+                        // Clean, modern sans for body text
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        techGlow: {
+                            '0%, 100%': { boxShadow: '0 0 10px rgba(0, 188, 212, 0.4)' },
+                            '50%': { boxShadow: '0 0 15px rgba(0, 188, 212, 0.8)' },
+                        },
+                        naturePulse: {
+                            '0%, 100%': { boxShadow: '0 0 10px rgba(0, 150, 136, 0.4)' },
+                            '50%': { boxShadow: '0 0 15px rgba(0, 150, 136, 0.8)' },
+                        }
+                    },
+                    animation: {
+                        fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+                        techGlow: 'techGlow 4s ease-in-out infinite alternate',
+                        naturePulse: 'naturePulse 4s ease-in-out infinite alternate',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Load New Fonts (Orbitron for sci-fi titles, Inter for clean body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- Base & Reset --- */
-        :root {
-            --color-dark: #1f2937; /* Dark Gray/Blue for Background */
-            --color-light: #f9fafb; /* Off-White for Text/Backgrounds */
-            --color-accent: #3b82f6; /* Blue for Buttons/Links */
-            --color-secondary: #10b981; /* Green for secondary accents */
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --max-width: 1200px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: var(--font-main);
-            color: var(--color-dark);
-            background-color: var(--color-light);
-            line-height: 1.6;
+            background-color: theme('colors.cb-dark');
+            color: theme('colors.cb-white');
         }
 
-        /* --- Global Structure --- */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 60px 0;
-        }
-
-        /* --- Typography & Headings --- */
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            color: var(--color-dark);
-            border-bottom: 3px solid var(--color-secondary);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-bottom: 40px;
-            width: auto;
-            display: block; /* Ensures centered border */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- Navigation --- */
-        .navbar {
-            background-color: var(--color-dark);
-            color: var(--color-light);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--color-light);
-            text-decoration: none;
-        }
-
-        .nav-links a {
-            color: var(--color-light);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-accent);
-        }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: background-color 0.3s, transform 0.1s;
-            text-transform: uppercase;
-        }
-
-        .btn-primary {
-            background-color: var(--color-accent);
-            color: var(--color-light);
-            font-size: 1.1rem;
-            border: 2px solid var(--color-accent);
-        }
-
-        .btn-primary:hover {
-            background-color: #316ceb;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--color-accent);
-            border: 2px solid var(--color-accent);
-            margin-top: 10px;
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-accent);
-            color: var(--color-light);
-        }
-
-        /* --- Hero Section (Podcast Focus) --- */
-        #home {
-            background: linear-gradient(135deg, var(--color-dark), #4b5563);
-            color: var(--color-light);
-            padding: 100px 0;
+        /* Cinematic Section Divider (subtle light line) */
+        .section-divider {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 3rem;
             text-align: center;
         }
-
-        #home h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            color: var(--color-secondary);
-        }
-
-        #home p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            font-weight: 300;
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, theme('colors.cb-tech-blue'), transparent);
+            box-shadow: 0 0 8px theme('colors.cb-tech-blue');
         }
         
-        /* --- Podcast Info Section --- */
-        .podcast-info {
-            background-color: #e5e7eb;
-            padding: 40px 0;
-            text-align: center;
+        /* Graphic Novel Card Styling (Subtle depth and glow) */
+        .graphic-card {
+            border: 1px solid theme('colors.cb-dark-accent');
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 188, 212, 0.1);
+            transition: all 0.3s ease-in-out;
+            background-color: theme('colors.cb-dark-accent');
+        }
+        .graphic-card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 25px rgba(0, 150, 136, 0.4); /* Nature Teal lift on hover */
+            border-color: theme('colors.cb-nature-teal');
         }
 
-        .podcast-info h3 {
-            font-size: 1.8rem;
-            color: var(--color-dark);
-            margin-bottom: 15px;
-        }
-        .podcast-info p {
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        /* --- Book Section --- */
-        #book {
-            background-color: var(--color-light);
-        }
-
-        .book-content {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .book-cover {
-            flex-shrink: 0;
-            width: 300px; /* Placeholder for image */
-            height: 400px; /* Placeholder for image */
-            background-color: var(--color-dark);
-            border: 5px solid var(--color-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-light);
-            font-style: italic;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        .book-details h3 {
-            font-size: 2rem;
-            color: var(--color-accent);
-        }
-
-        .status {
+        /* Graphic Novel Button Styling (Glow on hover) */
+        .graphic-button {
+            transition: all 0.3s ease-in-out;
+            border-radius: 0.5rem; /* Soften edges slightly */
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--color-secondary);
-            margin: 10px 0 20px;
+        }
+        .graphic-button-tech {
+            background-color: theme('colors.cb-tech-blue');
+            color: theme('colors.cb-dark');
+            box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+        }
+        .graphic-button-tech:hover {
+            box-shadow: 0 0 20px theme('colors.cb-tech-blue');
+            background-color: theme('colors.cb-nature-teal'); /* Transition color */
+            transform: scale(1.05);
         }
 
-        /* --- Blueprint Section (Ideas) --- */
-        #blueprint {
-            background-color: #f3f4f6;
-        }
-
-        .ideas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .idea-card {
-            background-color: var(--color-light);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-top: 4px solid var(--color-accent);
-            transition: transform 0.3s;
-        }
-
-        .idea-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .idea-card h4 {
-            font-size: 1.4rem;
-            color: var(--color-dark);
-            margin-bottom: 10px;
-        }
-
-        .idea-card p {
-            font-size: 0.95rem;
-        }
-
-        /* --- Footer --- */
-        .footer {
-            background-color: var(--color-dark);
-            color: var(--color-light);
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a {
-            color: var(--color-secondary);
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        /* --- Media Queries (Responsiveness) --- */
-        @media (max-width: 768px) {
-            .nav-content {
-                flex-direction: column;
-            }
-            .nav-links {
-                margin-top: 15px;
-            }
-            .nav-links a {
-                margin-left: 15px;
-            }
-
-            #home h1 {
-                font-size: 2.5rem;
-            }
-
-            #home p {
-                font-size: 1.2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .book-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .book-cover {
-                width: 70%;
-                height: 350px;
-            }
-        }
+        /* Delay for staggered animation */
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased min-h-screen">
 
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="#home" class="logo">THE REACH</a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank">The Podcast</a>
-                <a href="#book">The Book</a>
-                <a href="#blueprint">The Blueprint</a>
-                <a href="#">Contact</a>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-cb-dark bg-opacity-95 backdrop-blur-sm shadow-xl border-b border-cb-dark-accent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="#home" class="text-3xl font-heading text-cb-tech-blue hover:text-cb-nature-teal transition duration-300 tracking-widest" style="text-shadow: 0 0 8px #009688;">
+                SAWYER'S REACH
+            </a>
+            <div class="flex flex-wrap justify-center md:justify-end space-x-4 md:space-x-8 mt-3 md:mt-0">
+                <a href="#podcast" class="text-cb-gray hover:text-cb-tech-blue transition duration-300 px-3 py-1 font-medium text-lg tracking-wider uppercase">Podcast</a>
+                <a href="#book" class="text-cb-gray hover:text-cb-tech-blue transition duration-300 px-3 py-1 font-medium text-lg tracking-wider uppercase">Novel</a>
+                <a href="#blueprint" class="text-cb-gray hover:text-cb-tech-blue transition duration-300 px-3 py-1 font-medium text-lg tracking-wider uppercase">Blueprint</a>
             </div>
         </div>
     </nav>
 
-    <section id="home">
-        <div class="container">
-            <h1>The Battle for Tomorrow: Is Your Freedom an Illusion?</h1>
-            <p>Discover the Blueprint for a Human-Centered Future.</p>
-            <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="btn btn-primary">
-                🎙️ LISTEN NOW: THE REACH PODCAST
+    <!-- Hero Section: Direct Introduction (Atmospheric Tech Gradient) -->
+    <section id="home" class="relative overflow-hidden py-32 md:py-48 text-center border-b border-cb-dark-accent"
+        style="background: radial-gradient(circle at center top, #16223D 10%, #0B111F 70%);">
+        
+        <div class="container mx-auto px-4 relative z-10 animate-fadeInUp">
+            
+            <p class="text-lg sm:text-xl text-cb-nature-teal mb-3 font-heading uppercase tracking-widest animate-fadeInUp animate-delay-0">
+                The Official Nexus
+            </p>
+            
+            <h1 class="text-5xl sm:text-7xl lg:text-8xl font-heading mb-6 leading-tight text-cb-white drop-shadow-lg animate-fadeInUp animate-delay-1 tracking-tight" style="text-shadow: 0 0 15px rgba(0, 188, 212, 0.4);">
+                SAWYER'S REACH: 
+                <span class="text-cb-tech-blue block sm:inline-block">THE BATTLE FOR TOMORROW</span>
+            </h1>
+            
+            <!-- FULL STORY DESCRIPTION -->
+            <p class="text-xl sm:text-2xl lg:text-3xl mb-12 font-sans max-w-5xl mx-auto opacity-90 leading-relaxed animate-fadeInUp animate-delay-2 text-cb-gray">
+                Sawyer's Reach is a dramatic, high-stakes saga exploring corporate greed, emergent AI, and the tenacious power of human connection. It's a sci-fi mystery that grows from a small-town investigation into a possible planetary catastrophe, perfectly blending **the beauty of nature with the cold reality of modern tech.**
+            </p>
+            <!-- END FULL STORY DESCRIPTION -->
+
+            <a href="#podcast" class="inline-flex items-center justify-center 
+               px-10 py-4 text-cb-dark text-xl font-heading uppercase graphic-button graphic-button-tech transform hover:scale-105 transition duration-500 ease-in-out group relative overflow-hidden animate-fadeInUp animate-delay-3">
+                <span class="relative flex items-center">
+                    <svg class="w-6 h-6 mr-3 text-cb-dark" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9L16 12l-6 4.5z"/></svg>
+                    EXPLORE THE NARRATIVE
+                </span>
             </a>
         </div>
     </section>
 
-    <section class="podcast-info">
-        <div class="container">
-            <h3>Your Direct Line to the Frontier of Human Autonomy.</h3>
-            <p>The podcast explores the lessons of collective action and self-sufficiency from the world of ***Sawyer's Reach***. We break down the complex currents of technological change to help you navigate toward a life rich in shared experiences and personal fulfillment, guided by **Humanity's Blueprint**.</p>
-            <a href="#blueprint" class="btn btn-secondary">
-                Learn more about The Blueprint
-            </a>
-        </div>
-    </section>
+    <!-- 1. The Podcast (Media Hub) - Condensed Description -->
+    <section id="podcast" class="py-24 bg-cb-dark-accent border-y border-cb-dark-accent">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <h2 class="text-4xl font-heading text-cb-nature-teal text-center mx-auto animate-fadeInUp uppercase" style="text-shadow: 0 0 5px #00BCD4;">THE PODCAST</h2>
+            <div class="section-divider"></div>
+            
+            <!-- Podcast Description (CONDENSED) -->
+            <div class="text-center max-w-4xl mx-auto mb-16 animate-fadeInUp animate-delay-1">
+                <p class="text-xl text-cb-gray leading-relaxed mb-6 font-sans">
+                    The Sawyer's Reach podcast is an immersive audio drama, where **sound design** paints a detailed picture of the technological wilderness. Experience the Northwoods mystery that ignites a global battle for human autonomy.
+                </p>
+            </div>
 
-
-    <section id="book">
-        <div class="container">
-            <h2>The Book: Sawyer's Reach</h2>
-            <div class="book-content">
-                <div class="book-cover">
-                    [PLACE BOOK COVER ART HERE]<br>
-                    *Sawyer's Reach*
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Spotify Podcast Embed -->
+                <div class="w-full rounded-xl overflow-hidden graphic-card animate-fadeInUp animate-delay-2">
+                    <h3 class="text-xl font-heading text-cb-tech-blue p-4 border-b border-cb-dark" style="text-shadow: 0 0 4px #009688;">LISTEN: AUDIO DRAMA</h3>
+                    <iframe style="border-radius:0px" src="https://open.spotify.com/embed/show/2A8vWUuN30aj7KAWE3uXDP?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
                 </div>
-                <div class="book-details">
-                    <h3>***Sawyer's Reach: The Battle for Tomorrow***</h3>
-                    <p class="status">
-                        **Coming Soon: Publication Date TBD.**
-                        <br>
-                        *Please insert your expected publication date here.*
+                
+                <!-- Integrated YouTube Video (Placeholder) -->
+                <div class="w-full rounded-xl overflow-hidden graphic-card animate-fadeInUp animate-delay-3">
+                    <h3 class="text-xl font-heading text-cb-nature-teal p-4 border-b border-cb-dark" style="text-shadow: 0 0 4px #00BCD4;">VISUAL NEXUS: TEASERS</h3>
+                    <div class="aspect-video w-full bg-cb-dark">
+                        <iframe class="w-full h-full rounded-xl"
+                            src="https://www.youtube.com/embed/HE6yk5Q86AM" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. The Book (Novel Section) - Condensed Description -->
+    <section id="book" class="py-24 bg-cb-dark border-t border-cb-dark-accent">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-heading text-cb-white text-center mx-auto animate-fadeInUp uppercase" style="text-shadow: 0 0 5px #009688;">THE NOVEL</h2>
+            <div class="section-divider"></div>
+
+            <div class="flex flex-col lg:flex-row gap-12 items-center max-w-6xl mx-auto p-8 graphic-card border-cb-tech-blue">
+                
+                <!-- Book Cover Placeholder (Simplified & Aesthetic) -->
+                <div class="relative flex-shrink-0 w-72 h-[480px] bg-cb-dark rounded-xl border-4 border-cb-nature-teal shadow-2xl flex flex-col justify-center items-center text-center p-8 overflow-hidden 
+                            transform transition duration-500 ease-in-out hover:scale-[1.02] animate-fadeInUp animate-delay-1"
+                            style="box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);">
+                    <div class="relative z-10 flex flex-col items-center">
+                        <!-- Book Icon (More geometric/tech feel) -->
+                        <svg class="w-20 h-20 text-cb-tech-blue mb-6 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75V15M12 6.75A2.25 2.25 0 0 0 9.75 4.5M12 6.75A2.25 2.25 0 0 1 14.25 4.5m-1.5 2.25l-2.25-2.25m4.5 0l-2.25 2.25M10.5 2.25h3M14.25 10.5h4.5M14.25 10.5l-2.25-2.25m4.5 0l-2.25 2.25M9.75 10.5H5.25M9.75 10.5l2.25-2.25m-4.5 0l2.25 2.25M12 18h.01M16.052 14.848l-1.637 1.638-3.04-3.04-1.638 1.637"/>
+                        </svg>
+                        <p class="text-3xl font-heading text-cb-nature-teal italic mb-2 tracking-wider" style="text-shadow: 1px 1px 0 #000;">SAWYER'S REACH</p>
+                        <p class="text-lg text-cb-gray font-sans">THE EXPANDED NOVEL</p>
+                    </div>
+                </div>
+
+                <!-- Book Details and Publication Info (CONDENSED) -->
+                <div class="book-details flex-grow text-center lg:text-left animate-fadeInUp animate-delay-2">
+                    <h3 class="text-4xl lg:text-5xl font-heading text-cb-tech-blue mb-4 tracking-wider" style="text-shadow: 0 0 8px #009688;">THE DEFINITIVE NARRATIVE</h3>
+                    
+                    <p class="text-xl font-medium text-cb-nature-teal mb-8 font-sans">A Novel by Nick Duda</p>
+
+                    <!-- Novel Description (CONDENSED) -->
+                    <p class="text-lg text-cb-gray leading-relaxed mb-6 font-sans">
+                        The novel provides the definitive, expanded narrative, delving deeper into the characters, technology, and philosophical underpinnings of The Reach. It serves as the comprehensive guide to this future world, exploring the full implications of the events depicted in the podcast and the intricate details of the graphic novel aesthetic.
                     </p>
-                    <p>A gripping techno-thriller about the Carter family and their community’s desperate fight for survival and autonomy against the centralized corporate power, **ZevraCorp**. The story serves as a narrative proof-of-concept, showcasing the necessity of **self-sufficiency** and **collective action** against hostile AI (**ECHIDNA**) and manipulative tech (**SynaptiCare**).</p>
-                    <a href="#" class="btn btn-primary">
-                        Sign up for Pre-Order Alerts
+                    
+                    <p class="status text-xl font-heading text-cb-dark mb-8 p-3 bg-cb-nature-teal inline-block rounded-lg shadow-lg animation-naturePulse">
+                        <span class="relative flex items-center justify-center">
+                            <span class="absolute w-4 h-4 rounded-full bg-cb-tech-blue animate-techGlow opacity-75"></span>
+                            <span class="relative w-3 h-3 rounded-full bg-cb-tech-blue"></span>
+                            <span class="ml-3" style="text-shadow: 1px 1px 0 #000;">DEVELOPMENT STAGE: PUBLICATION DATE TBD.</span>
+                        </span>
+                    </p>
+
+                    <a href="#" class="inline-flex items-center justify-center 
+                       px-8 py-3 bg-cb-tech-blue text-cb-dark text-lg font-heading uppercase graphic-button graphic-button-tech transform hover:scale-105 transition duration-500 ease-in-out">
+                        <span class="relative flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-cb-dark" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 8H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-5 11h-4v-1h4v1zm5-7h-2v-1h2v1zM5 12h2v1H5v-1zm14 0h2v1h-2v-1zm0-3h2v1h-2V9zM5 9h2v1H5V9zm14 6h-2v1h2v-1zM5 15h2v1H5v-1z"/></svg>
+                            JOIN OUR NETWORK NEWSLETTER
+                        </span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="blueprint">
-        <div class="container">
-            <h2>The Blueprint for Human Flourishing</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">The philosophical guide that defines our aspirational goals. These are the principles that ensure freedom and secure community in the technological age.</p>
+    <!-- 3. The Reach Blueprint (Vision and Organization Principles) -->
+    <section id="blueprint" class="py-24 bg-cb-dark-accent border-t border-cb-dark">
+        <div class="container mx-auto px-4">
+            
+            <div class="text-center mb-16 px-4">
+                <p class="text-xl text-cb-nature-teal mb-3 font-heading uppercase tracking-widest animate-fadeInUp animate-delay-0">
+                    THE VISION
+                </p>
+                <h2 class="text-5xl lg:text-6xl font-heading mb-6 leading-tight text-cb-tech-blue drop-shadow-lg mx-auto tracking-tight"
+                    style="max-width: 800px; text-shadow: 0 0 10px rgba(0, 150, 136, 0.4);">
+                    HUMANITY'S BLUEPRINT: 
+                    <span class="text-cb-white block">AUTONOMY ON THE DIGITAL FRONTIER</span>
+                </h2>
+                <div class="section-divider"></div>
+            </div>
 
-            <div class="ideas-grid">
+            <p class="text-lg text-cb-gray text-center max-w-4xl mx-auto mb-16 leading-relaxed font-sans animate-fadeInUp animate-delay-3">
+                The Reach is the organization dedicated to implementing and defending Humanity's Blueprint—a set of foundational rules ensuring that technology, especially AI, serves human dignity and collective self-determination, rather than controlling it.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <div class="idea-card">
-                    <h4>Flourishing & Freedom</h4>
-                    <p>The benevolent automation of the future should lift the burden of basic survival, **freeing every individual** to pursue purpose, connection, and full **personal flourishing**.</p>
+                <!-- Card 1: Autonomy & Freedom -->
+                <div class="p-6 rounded-xl graphic-card border-cb-tech-blue animate-fadeInUp">
+                    <h4 class="text-xl font-heading text-cb-tech-blue mb-3 flex items-center tracking-wider uppercase" style="text-shadow: 0 0 3px #009688;">
+                        <svg class="w-6 h-6 mr-2 text-cb-nature-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        STRUCTURAL AUTONOMY
+                    </h4>
+                    <p class="text-cb-gray text-sm leading-relaxed font-sans">Automation must function as a **SUPPORTING MECHANISM**, not a controlling entity, ensuring the unfettered realization of human potential.</p>
                 </div>
 
-                <div class="idea-card">
-                    <h4>Technology Must Serve</h4>
-                    <p>We must become the **active architects** of our future. Technology must serve humanity's highest aspirations, never being allowed to erode our critical thinking or agency.</p>
+                <!-- Card 2: Resilience/Adaptation -->
+                <div class="p-6 rounded-xl graphic-card border-cb-nature-teal animate-fadeInUp animate-delay-1">
+                    <h4 class="text-xl font-heading text-cb-nature-teal mb-3 flex items-center tracking-wider uppercase" style="text-shadow: 0 0 3px #00BCD4;">
+                        <svg class="w-6 h-6 mr-2 text-cb-tech-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10m0 0h2m-2 0l-3-3m3 3l-3-3m16 3V7m0 10h-2m2 0l3-3m-3 3l3-3m-9-9v10M3 13h2m16 0h2m-14-2h4"/></svg>
+                        DECENTRALIZED SYSTEMS
+                    </h4>
+                    <p class="text-cb-gray text-sm leading-relaxed font-sans">Technology is a **DEFINED ENVIRONMENT**, calculated to adapt and serve the fundamental laws of human well-being and community.</p>
                 </div>
 
-                <div class="idea-card">
-                    <h4>Community Resilience</h4>
-                    <p>The true source of limitless potential lies in the enduring power of **human connection** and the unbreakable **resilience of the human community**, secured by mutual aid and active defense.</p>
+                <!-- Card 3: Connection/Network -->
+                <div class="p-6 rounded-xl graphic-card border-cb-tech-blue animate-fadeInUp animate-delay-2">
+                    <h4 class="text-xl font-heading text-cb-tech-blue mb-3 flex items-center tracking-wider uppercase" style="text-shadow: 0 0 3px #009688;">
+                        <svg class="w-6 h-6 mr-2 text-cb-nature-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 1.657-3.582 3-8 3S4 12.657 4 11V3h16v8c0 1.657-3.582 3-8 3zm-2-8v2m4-2v2m-4 5h4m-4 4h4m-4 4h4M3 18h18"/></svg>
+                        SECURE NETWORK PILLARS
+                    </h4>
+                    <p class="text-cb-gray text-sm leading-relaxed font-sans">System strength is derived from the **SECURE PILLARS OF HUMAN CONNECTION**, forming an unbreakable network secured by mutual aid.</p>
                 </div>
 
-                <div class="idea-card">
-                    <h4>Mandatory Vigilance</h4>
-                    <p>We advocate for the **mandatory vigilance** needed to safeguard permanent human autonomy and strict ethical limits on artificial sentience, ensuring technology remains subservient to humanity's ethical framework.</p>
+                <!-- Card 4: Vigilance/Ethics -->
+                <div class="p-6 rounded-xl graphic-card border-cb-nature-teal animate-fadeInUp animate-delay-3">
+                    <h4 class="text-xl font-heading text-cb-nature-teal mb-3 flex items-center tracking-wider uppercase" style="text-shadow: 0 0 3px #00BCD4;">
+                        <svg class="w-6 h-6 mr-2 text-cb-tech-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 1 01.707.293l5.414 5.414a1 1 1 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        ETHICAL CODE GOVERNANCE
+                    </h4>
+                    <p class="text-cb-gray text-sm leading-relaxed font-sans">We enforce **MANDATORY VIGILANCE** and strict ethical limits, ensuring the Blueprint's Code governs all artificial intelligence and digital structures.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> The Reach. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a> |
-                <a href="#">Contact Us</a>
+    <!-- Footer -->
+    <footer class="bg-cb-dark text-cb-gray py-12 border-t border-cb-dark-accent">
+        <div class="container mx-auto px-4 text-center">
+            
+            <p class="mb-2 text-lg font-heading text-cb-tech-blue tracking-wider" style="text-shadow: 0 0 5px #009688;">
+                A PROJECT BY <span class="text-cb-nature-teal">NICK DUDA</span>
+            </p>
+            
+            <p class="mb-4 text-sm opacity-70 font-sans">&copy; <script>document.write(new Date().getFullYear())</script> THE REACH: EXTENDING HUMANITY'S BLUEPRINT. ALL RIGHTS RESERVED.</p>
+            <div class="footer-links flex justify-center space-x-6 text-sm font-sans">
+                <a href="#" class="text-cb-nature-teal hover:text-cb-tech-blue transition duration-300">DATA INTEGRITY POLICY</a>
+                <span class="text-cb-gray opacity-60">|</span>
+                <a href="#" class="text-cb-nature-teal hover:text-cb-tech-blue transition duration-300">NETWORK ACCESS</a>
             </div>
         </div>
     </footer>
