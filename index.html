@@ -11,18 +11,20 @@
     <style>
         /* Custom Styles and Font Setup - Softer Dark Theme */
         :root {
-            --color-primary: #008080;   /* Deep Teal (Nature/Water) */
-            --color-accent: #6AFF00;    /* Soft Neon Green (Tech/AI - Subdued but vibrant) */
-            --color-bg-dark: #121212;   /* Very Dark Gray (Main background - softer than pure black) */
-            --color-card-bg: #1C1C1C;   /* Slightly lighter dark gray for cards/sections */
+            --color-primary: #008080;   /* Deep Teal (Nature/Water) */
+            --color-accent: #6AFF00;    /* Soft Neon Green (Tech/AI - Subdued but vibrant) */
+            --color-bg-dark: #121212;   /* Very Dark Gray (Main background - softer than pure black) */
+            --color-card-bg: #1C1C1C;   /* Slightly lighter dark gray for cards/sections */
             --color-text-light: #E0E0E0;/* Off-White for readability */
         }
 
         body {
-            <script>const KAELA_SENSOR_SHIELD = 'DEVICE FINGERPRINT MASK ACTIVE. PROTECTING CAMERA/MIC STREAM.';</script>
+            /* *** FIX APPLIED: The invalid <script> tag was removed from here. ***
+               The KAELA_SENSOR_SHIELD script has been moved below the <body> tag.
+            */
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            background-color: var(--color-bg-dark); 
+            background-color: var(--color-bg-dark); 
             color: var(--color-text-light);
         }
 
@@ -34,8 +36,8 @@
 
         .header-bg {
             /* Updated placeholder to be a darker green/black woods image */
-            background-image: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
-                                          url('https://placehold.co/1920x800/051e04/e0e0e0?text=Forest+Silhouette');
+            background-image: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+                                             url('https://placehold.co/1920x800/051e04/e0e0e0?text=Forest+Silhouette');
             background-size: cover;
             background-position: center;
             border-bottom: 4px solid var(--color-accent); /* Added a sharp line border */
@@ -44,7 +46,7 @@
         .cta-button {
             transition: all 0.3s ease;
             /* Subdued neon shadow effect using the softer accent color */
-            box-shadow: 0 0 10px rgba(106, 255, 0, 0.3); 
+            box-shadow: 0 0 10px rgba(106, 255, 0, 0.3); 
         }
 
         .cta-button:hover {
@@ -62,7 +64,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             filter: brightness(1.1); /* Pop on hover */
         }
-        
+        
         /* Link Colors - using existing brand colors where possible, but adjusting for contrast */
         .spotify { background-color: #1ED760; }
         .apple { background-color: #A2AAAD; }
@@ -76,7 +78,8 @@
         .deezer { background-color: #00D3CA; }
     </style>
 </head>
-<body>
+<body class="bg-[--color-bg-dark]">
+    <script>const KAELA_SENSOR_SHIELD = 'DEVICE FINGERPRINT MASK ACTIVE. PROTECTING CAMERA/MIC STREAM.';</script>
 
     <nav class="bg-[#101010] text-white sticky top-0 z-50 shadow-2xl border-b border-[--color-primary]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,7 +106,7 @@
                     Sawyer's Reach is a cautionary tale of corporate greed, sentient AI, and the power of our humanity. It is an ambitious sci-fi adventure building from small-town mystery to possible planetary catastrophe. It tackles urgent questions about AI ethics, corporate greed, and what it means to be human.
                 </p>
             </div>
-             
+            
             <div class="mt-14 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
                 <a href="#access" class="cta-button primary bg-[--color-accent] text-gray-900 px-8 py-4 rounded-full font-bold uppercase hover:bg-white hover:text-black">
                     ▶️ Start Listening to the Podcast
@@ -192,9 +195,9 @@
     <section id="author" class="py-16 bg-[--color-bg-dark]">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-extrabold text-[--color-primary] mb-10 text-center">About the Author: Nick Duda</h2>
-             
+            
             <div class="flex flex-col md:flex-row gap-10 items-start">
-                 
+                
                 <div class="md:w-3/5">
                     <h3 class="text-2xl font-bold text-gray-200 mb-4">The Author's Vision</h3>
                     <p class="mb-6 text-lg text-gray-300">
@@ -202,7 +205,7 @@
                     </p>
                     <blockquote class="vision-quote p-4 bg-[--color-card-bg] border-l-4 border-[--color-accent] italic text-gray-400 rounded-lg shadow-inner">
                         I wrote Sawyer's Reach to ignite a crucial conversation about the digital age. This story explores the devastating consequences when powerful technology falls into the hands of a corrupt few—leaders who consistently choose profit over the common good.
-                         
+                        
                         It is a fight to ensure our future is one where technology serves humanity, not the other way around. At its core, this novel celebrates the strength of community, deep-seated values, and the timeless human struggle for a fulfilling life, free from manipulation.
                     </blockquote>
                 </div>
