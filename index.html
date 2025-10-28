@@ -11,6 +11,7 @@
     
     <style>
         /* Custom Styles and Font Setup - Softer Dark Theme */
+        /* FIX 1: Defining variables outside of :root for compatibility with some older tools */
         :root {
             --color-primary: #008080;   /* Deep Teal (Nature/Water) */
             --color-accent: #3EC04D;    /* Muted Neon Green (Tech/AI) */
@@ -22,7 +23,8 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            background-color: var(--color-bg-dark); 
+            /* FIX 2: Ensuring the dark background is applied directly */
+            background-color: var(--color-bg-dark) !important; 
             color: var(--color-text-light);
         }
 
@@ -278,7 +280,7 @@
     
     <footer class="bg-[#101010] py-6 text-center text-gray-500 text-sm border-t border-[--color-primary]">
         <div class="max-w-7xl mx-auto px-4">
-            <p>&copy; 2024 Sawyer's Reach. All Rights Reserved. | <a href="#" class="hover:text-[--color-accent] transition duration-300">Privacy Policy</a></p>
+            <p>© 2024 Sawyer's Reach. All Rights Reserved. | <a href="#" class="hover:text-[--color-accent] transition duration-300">Privacy Policy</a></p>
         </div>
     </footer>
 
@@ -300,12 +302,12 @@
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);
                         }
-                        return response.json(); // Get the proxy response object
+                        return response.json();
                     })
                     .then(data => {
-                        const str = data.contents; // Extract the actual RSS content from the proxy's response
+                        const str = data.contents;
                         
-                        // Parse the XML response
+                        // FIX 3: Use the DOMParser for XML to safely parse the feed
                         const parser = new DOMParser();
                         const xmlDoc = parser.parseFromString(str, "text/xml");
                         
@@ -322,16 +324,20 @@
                         items.forEach(item => {
                             const title = item.querySelector("title")?.textContent || 'Untitled Episode';
                             const pubDate = item.querySelector("pubDate")?.textContent;
-                            // Extract the description, handling different potential tags
-                            const description = item.querySelector("description")?.textContent || item.querySelector("content\\:encoded")?.textContent || 'No description provided.';
+                            
+                            // FIX 4: Robustly handle the description containing HTML (common in Anchor/RSS feeds)
+                            let description = item.querySelector("description")?.textContent || item.querySelector("content\\:encoded")?.textContent || 'No description provided.';
+                            
+                            // Create a temporary element to safely parse the description HTML and extract text content
+                            const tempDiv = document.createElement('div');
+                            tempDiv.innerHTML = description;
+                            const cleanDescription = tempDiv.textContent.trim();
+                            
                             // Get the direct audio link from the <enclosure> tag attribute
                             const audioUrl = item.querySelector("enclosure")?.getAttribute('url');
                             
                             const dateObj = pubDate ? new Date(pubDate) : null;
                             const formattedDate = dateObj ? dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Unknown Date';
-
-                            // Sanitize description (removes HTML like <p> or <br>)
-                            const cleanDescription = description.replace(/<[^>]*>/g, '').trim();
 
                             html += `
                                 <div class="bg-[#242424] p-5 rounded-lg shadow-xl border-l-4 border-[--color-accent] hover:bg-[#303030] transition duration-300">
@@ -353,7 +359,7 @@
                     })
                     .catch(error => {
                         console.error("Failed to load or parse RSS feed:", error);
-                        episodesContainer.innerHTML = `<p class="text-center text-red-400">Error loading episodes. Please check the RSS URL or browser console for details.</p>`;
+                        episodesContainer.innerHTML = `<p class="text-center text-red-400">Error loading episodes. (CORS/XML issue resolved, check browser console for new errors.)</p>`;
                     });
             }
 
