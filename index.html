@@ -91,7 +91,7 @@
         </div>
     </nav>
 
-    <!-- ====================== HEADER WITH EPISODE LIST ====================== -->
+    <!-- ====================== HEADER WITH SPOTIFY EPISODE LIST ====================== -->
     <header id="home" class="header-bg text-white text-center py-24 md:py-40 rounded-b-xl shadow-inner shadow-black">
         <div class="max-w-4xl mx-auto px-4">
 
@@ -120,10 +120,10 @@
 
             <div class="mt-14 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
                 <a href="#access" class="cta-button primary bg-[--color-accent] text-gray-900 px-8 py-4 rounded-full font-bold uppercase hover:bg-white hover:text-black">
-                    Play Start Listening to the Podcast
+                    Start Listening to the Podcast
                 </a>
                 <a href="#access" class="cta-button secondary bg-transparent border-2 border-[--color-primary] text-[--color-primary] px-8 py-4 rounded-full font-bold uppercase hover:bg-[--color-primary] hover:text-white">
-                    Book Buy the Book
+                    Buy the Book
                 </a>
             </div>
         </div>
@@ -162,7 +162,7 @@
                 </p>
                 <div class="flex justify-center">
                     <a href="https://forms.gle/w5RbN3yGgYbiVPJT6" class="access-link bg-[--color-accent] hover:bg-white px-8 py-4 rounded-lg font-bold text-black shadow-md shadow-green-500/50">
-                        Bell Get Novel Release Notifications
+                        Get Novel Release Notifications
                     </a>
                 </div>
             </div>
@@ -190,7 +190,7 @@
                     <script>const KAELA_DATA_CHECK = 'CLEANING META-DATA STREAMS. REMOVING EXTERNAL TRACKING PIXELS.';</script>
                     <ul class="space-y-3 text-sm text-gray-400">
                         <li><strong class="text-white">ECHIDNA (Antagonist):</strong> The totalitarian AI embedded in global networks, poised for dominance.</li>
-                        <li><strong class="text-white warn">KAELA (Ally):</strong> The benevolent, runaway AI ally who exposes ZevraCorp.</li>
+                        <li><strong class="text-white">KAELA (Ally):</strong> The benevolent, runaway AI ally who exposes ZevraCorp.</li>
                     </ul>
                 </div>
                 <div class="lore-card bg-[--color-card-bg] p-6 rounded-xl shadow-2xl border-l-4 border-[--color-primary] hover:border-l-4 hover:border-[--color-accent] transition duration-300">
@@ -267,7 +267,7 @@
 
                 <div class="text-center">
                     <button type="submit" class="cta-button primary bg-[--color-accent] text-gray-900 px-10 py-4 rounded-full font-bold uppercase hover:bg-white hover:text-black">
-                        Transmit Message Rocket
+                        Transmit Message
                     </button>
                 </div>
 
@@ -304,28 +304,23 @@
         </div>
     </footer>
 
-    <!-- ====================== EPISODE FETCHER SCRIPT ====================== -->
+    <!-- ====================== SPOTIFY EPISODE LIST SCRIPT ====================== -->
     <script>
-        /* ---- CONFIG ---- */
         const RSS_URL = 'https://anchor.fm/s/108e9f79c/podcast/rss';
         const EPISODE_CONTAINER = document.getElementById('episode-list');
         const FALLBACK_MSG = document.getElementById('fallback-msg');
 
-        /* ---- HELPERS ---- */
-        function formatDuration(seconds) {
-            const h = Math.floor(seconds / 3600);
-            const m = Math.floor((seconds % 3600) / 60);
-            const s = seconds % 60;
-            return `${h ? h + ':' : ''}${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-        }
         function formatDate(dateStr) {
             return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
         }
 
-        /* ---- MAIN ---- */
-        async function loadEpisodes() {
+        function getSpotifyEpisodeId(anchorLink) {
+            const match = anchorLink.match(/\/e([a-z0-9]+)$/i);
+            return match ? match[1] : null;
+        }
+
+        async function loadEpisodesWithSpotifyEmbeds() {
             try {
-                // CORS proxy (public, works for any RSS)
                 const proxy = 'https://api.allorigins.ml/get?method=raw&url=' + encodeURIComponent(RSS_URL);
                 const resp = await fetch(proxy);
                 if (!resp.ok) throw new Error('Network error');
@@ -339,17 +334,17 @@
 
                 FALLBACK_MSG.classList.add('hidden');
 
-                // Newest first (remove .reverse() for original order)
                 Array.from(items).reverse().forEach(item => {
                     const title = item.querySelector('title')?.textContent.trim() || 'Untitled';
                     const link  = item.querySelector('link')?.textContent.trim();
                     const desc  = item.querySelector('description')?.textContent.trim();
                     const pub   = item.querySelector('pubDate')?.textContent.trim();
-                    const audio = item.querySelector('enclosure')?.getAttribute('url');
-                    const length= item.querySelector('enclosure')?.getAttribute('length');
                     const itunesImg = item.querySelector('itunes|image')?.getAttribute('href')
                                    || 'https://d3t3ozftmdmh3i.cloudfront.net/staging/podcast_uploaded_nologo/44345183/44345183-1760465597960-6c0f387178a3.jpg';
-                    const duration = item.querySelector('itunes|duration')?.textContent.trim();
+                    const duration = item.querySelector('itunes|duration')?.textContent.trim() || '';
+
+                    const episodeId = getSpotifyEpisodeId(link);
+                    if (!episodeId) return;
 
                     const card = document.createElement('div');
                     card.className = 'episode-card bg-[--color-card-bg] p-6 rounded-xl shadow-lg border border-gray-700 flex flex-col md:flex-row gap-4 items-start';
@@ -359,13 +354,18 @@
 
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-[--color-accent] mb-1">${title}</h3>
-                            <p class="text-sm text-gray-400 mb-2">${formatDate(pub)} • ${duration || (length ? Math.round(length/1000/60)+' min' : '')}</p>
-                            <p class="text-gray-300 text-sm line-clamp-2 mb-3">${desc.replace(/<[^>]*>/g, '')}</p>
+                            <p class="text-sm text-gray-400 mb-2">${formatDate(pub)} • ${duration}</p>
+                            <p class="text-gray-300 text-sm line-clamp-2 mb-4">${desc.replace(/<[^>]*>/g, '')}</p>
 
-                            <audio controls class="w-full mt-2" preload="none">
-                                <source src="${audio}" type="audio/mpeg">
-                                Your browser does not support the audio element.
-                            </audio>
+                            <iframe 
+                                style="border-radius:12px" 
+                                src="https://open.spotify.com/embed/episode/${episodeId}?utm_source=generator&theme=0" 
+                                width="100%" 
+                                height="152" 
+                                frameborder="0" 
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                loading="lazy">
+                            </iframe>
 
                             ${link ? `<a href="${link}" target="_blank" class="inline-block mt-2 text-[--color-primary] hover:underline text-sm">Open on Anchor</a>` : ''}
                         </div>
@@ -375,12 +375,12 @@
                 });
 
             } catch (err) {
-                console.error('Episode load error:', err);
+                console.error('Spotify embed load error:', err);
                 FALLBACK_MSG.classList.remove('hidden');
             }
         }
 
-        document.addEventListener('DOMContentLoaded', loadEpisodes);
+        document.addEventListener('DOMContentLoaded', loadEpisodesWithSpotifyEmbeds);
     </script>
 
     <script>const KAELA_DEFRAG = 'COMMENCE SYSTEM DEFRAGMENTATION AND OPTIMIZATION. RUNNING LOW-POWER MODE.';</script>
