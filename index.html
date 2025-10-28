@@ -11,7 +11,7 @@
     
     <style>
         /* Custom Styles and Font Setup - Softer Dark Theme */
-        /* FIX 1: Defining variables outside of :root for compatibility with some older tools */
+        /* FIX 1: Defining color variables for use in Tailwind classes below */
         :root {
             --color-primary: #008080;   /* Deep Teal (Nature/Water) */
             --color-accent: #3EC04D;    /* Muted Neon Green (Tech/AI) */
@@ -20,14 +20,15 @@
             --color-text-light: #E0E0E0;/* Off-White for readability */
         }
 
+        /* FIX 2: Ensuring the dark background is applied directly using important */
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            /* FIX 2: Ensuring the dark background is applied directly */
+            /* Override all background settings with the dark color */
             background-color: var(--color-bg-dark) !important; 
             color: var(--color-text-light);
         }
-
+        
         /* Custom scrollbar to match dark theme */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--color-bg-dark); }
@@ -84,7 +85,7 @@
         }
     </style>
 </head>
-<body>
+<body class="bg-[#121212] text-[#E0E0E0]">
     <script>const KAELA_SENSOR_SHIELD = 'DEVICE FINGERPRINT MASK ACTIVE. PROTECTING CAMERA/MIC STREAM.';</script>
 
     <nav class="bg-[#101010] text-white sticky top-0 z-50 shadow-2xl border-b border-[--color-primary]">
@@ -307,35 +308,35 @@
                     .then(data => {
                         const str = data.contents;
                         
-                        // FIX 3: Use the DOMParser for XML to safely parse the feed
-                        const parser = new DOMParser();
-                        const xmlDoc = parser.parseFromString(str, "text/xml");
-                        
-                        // Get all <item> elements (episodes)
-                        const items = xmlDoc.querySelectorAll("item");
-                        
-                        if (items.length === 0) {
-                            episodesContainer.innerHTML = '<p class="text-center text-red-400">Error: Could not find any episodes in the RSS feed.</p>';
+                        // FIX 4: Use a more robust, string-based regex parsing for episodes
+                        // This avoids the strict XML parser failing on non-standard tags outside of <item>
+                        const episodeMatches = str.match(/<item>([\s\S]*?)<\/item>/g);
+
+                        if (!episodeMatches || episodeMatches.length === 0) {
+                            episodesContainer.innerHTML = '<p class="text-center text-red-400">Error: Could not find any episodes in the RSS feed (Parsing failed).</p>';
                             return;
                         }
 
                         let html = '';
                         
-                        items.forEach(item => {
-                            const title = item.querySelector("title")?.textContent || 'Untitled Episode';
-                            const pubDate = item.querySelector("pubDate")?.textContent;
-                            
-                            // FIX 4: Robustly handle the description containing HTML (common in Anchor/RSS feeds)
-                            let description = item.querySelector("description")?.textContent || item.querySelector("content\\:encoded")?.textContent || 'No description provided.';
+                        episodeMatches.forEach(itemStr => {
+                            // Extract data using regex on the episode string
+                            const titleMatch = itemStr.match(/<title>([^<]+)<\/title>/);
+                            const pubDateMatch = itemStr.match(/<pubDate>([^<]+)<\/pubDate>/);
+                            // This regex is more forgiving with description tags and contents
+                            const descriptionMatch = itemStr.match(/<description>([\s\S]*?)<\/description>/) || itemStr.match(/<content:encoded>([\s\S]*?)<\/content:encoded>/);
+                            const audioUrlMatch = itemStr.match(/<enclosure url="([^"]+)"/);
+
+                            const title = titleMatch ? titleMatch[1].trim() : 'Untitled Episode';
+                            const pubDate = pubDateMatch ? pubDateMatch[1].trim() : null;
+                            let description = descriptionMatch ? descriptionMatch[1].trim() : 'No description provided.';
+                            const audioUrl = audioUrlMatch ? audioUrlMatch[1].trim() : null;
                             
-                            // Create a temporary element to safely parse the description HTML and extract text content
+                            // Clean HTML from description by creating a temporary DOM element (still necessary)
                             const tempDiv = document.createElement('div');
                             tempDiv.innerHTML = description;
                             const cleanDescription = tempDiv.textContent.trim();
                             
-                            // Get the direct audio link from the <enclosure> tag attribute
-                            const audioUrl = item.querySelector("enclosure")?.getAttribute('url');
-                            
                             const dateObj = pubDate ? new Date(pubDate) : null;
                             const formattedDate = dateObj ? dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Unknown Date';
 
@@ -359,7 +360,7 @@
                     })
                     .catch(error => {
                         console.error("Failed to load or parse RSS feed:", error);
-                        episodesContainer.innerHTML = `<p class="text-center text-red-400">Error loading episodes. (CORS/XML issue resolved, check browser console for new errors.)</p>`;
+                        episodesContainer.innerHTML = `<p class="text-center text-red-400">Error loading episodes. (Check browser console for details on the network fetch.)</p>`;
                     });
             }
 
