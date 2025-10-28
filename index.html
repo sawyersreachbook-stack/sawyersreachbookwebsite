@@ -1,317 +1,595 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sawyer's Reach: The Battle for Tomorrow</title>
 
-        <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sawyer's Reach: The Battle for Tomorrow</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Tailwind will now look up these custom names
-                        'color-primary': '#008080',   
-                        'color-accent': '#3EC04D',   
-                        'color-bg-dark': '#121212',
-                        'color-card-bg': '#1C1C1C',
-                        'color-text-light': '#E0E0E0',
-                    }
-                }
-            }
+
+    <script>const KAELA_PROTOCOL_4_1 = 'INITIALIZING COUNTER-SURVEILLANCE MEASURES. SCANNING FOR ECHIDNA SIGNATURES.';</script>
+
+    <style>
+
+        /* Custom Styles and Font Setup - Softer Dark Theme */
+
+        :root {
+
+            --color-primary: #008080;   /* Deep Teal (Nature/Water) */
+
+            --color-accent: #3EC04D;    /* Muted Neon Green (Tech/AI - Adjusted for readability) */
+
+            --color-bg-dark: #121212;   /* Very Dark Gray (Main background - softer than pure black) */
+
+            --color-card-bg: #1C1C1C;   /* Slightly lighter dark gray for cards/sections */
+
+            --color-text-light: #E0E0E0;/* Off-White for readability */
+
         }
-    </script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    
-    <script>const KAELA_PROTOCOL_4_1 = 'INITIALIZING COUNTER-SURVEILLANCE MEASURES. SCANNING FOR ECHIDNA SIGNATURES.';</script>
-    <style>
-        /* Custom Styles and Font Setup - Softer Dark Theme */
-        :root {
-            --color-primary: #008080;   /* Deep Teal (Nature/Water) */
-            --color-accent: #3EC04D;    /* Muted Neon Green (Tech/AI - Adjusted for readability) */
-            --color-bg-dark: #121212;   /* Very Dark Gray (Main background - softer than pure black) */
-            --color-card-bg: #1C1C1C;   /* Slightly lighter dark gray for cards/sections */
-            --color-text-light: #E0E0E0;/* Off-White for readability */
-        }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            /* FIX 2: Added !important as a safety net against default browser styles */
-            background-color: var(--color-bg-dark) !important; 
-            color: var(--color-text-light);
-        }
 
-        /* Custom scrollbar to match dark theme */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--color-bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #5ECB6A; /* Slightly brighter on hover */ }
 
-        .header-bg {
-            /* FIX 3: Ensure the image is applied correctly */
-            background-image: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
-                              url('https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/main/images/Forest.jpg');
-            background-size: cover;
-            background-position: center;
-            border-bottom: 4px solid var(--color-accent);
-        }
+        body {
 
-        .cta-button {
-            transition: all 0.3s ease;
-            /* Subdued neon shadow effect using the softer accent color */
-            box-shadow: 0 0 10px rgba(62, 192, 77, 0.3);
-        }
+            font-family: 'Inter', sans-serif;
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 20px rgba(62, 192, 77, 0.5);
-        }
+            scroll-behavior: smooth;
 
-        .access-link {
-            transition: transform 0.2s, box-shadow 0.2s;
-            filter: brightness(0.9); /* Make them slightly muted */
-        }
+            /* This is the reliable line that sets your dark background */
 
-        .access-link:hover {
-            transform: translateY(-2px) scale(1.03);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            filter: brightness(1.1); /* Pop on hover */
-        }
-        
-        /* Link Colors - using existing brand colors where possible, but adjusting for contrast */
-        .spotify { background-color: #1ED760; }
-        .apple { background-color: #A2AAAD; }
-        .youtube, .ytmusic { background-color: #FF0000; }
-        .amazon { background-color: #FF9900; }
-        .audible { background-color: #F8992A; }
-        .pandora { background-color: #00A9E0; }
-        .iheart { background-color: #C5002C; }
-        .pocketcasts { background-color: #F44336; }
-        .addict { background-color: #E36414; }
-        .deezer { background-color: #00D3CA; }
-    </style>
+            background-color: var(--color-bg-dark); 
+
+            color: var(--color-text-light);
+
+        }
+
+
+
+        /* Custom scrollbar to match dark theme */
+
+        ::-webkit-scrollbar { width: 8px; }
+
+        ::-webkit-scrollbar-track { background: var(--color-bg-dark); }
+
+        ::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 10px; }
+
+        ::-webkit-scrollbar-thumb:hover { background: #5ECB6A; /* Slightly brighter on hover */ }
+
+
+
+        .header-bg {
+
+            background-image: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+
+                              /* FIX: Corrected path from 'refs/heads/main' to 'main' */
+
+                              url('https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/main/images/Forest.jpg');
+
+            background-size: cover;
+
+            background-position: center;
+
+            border-bottom: 4px solid var(--color-accent); /* Adjusted color */
+
+        }
+
+
+
+        .cta-button {
+
+            transition: all 0.3s ease;
+
+            /* Subdued neon shadow effect using the softer accent color */
+
+            box-shadow: 0 0 10px rgba(62, 192, 77, 0.3); /* Adjusted color */
+
+        }
+
+
+
+        .cta-button:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 0 20px rgba(62, 192, 77, 0.5); /* Slightly brighter on hover, adjusted color */
+
+        }
+
+
+
+        .access-link {
+
+            transition: transform 0.2s, box-shadow 0.2s;
+
+            filter: brightness(0.9); /* Make them slightly muted */
+
+        }
+
+
+
+        .access-link:hover {
+
+            transform: translateY(-2px) scale(1.03);
+
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+            filter: brightness(1.1); /* Pop on hover */
+
+        }
+
+        
+
+        /* Link Colors - using existing brand colors where possible, but adjusting for contrast */
+
+        .spotify { background-color: #1ED760; }
+
+        .apple { background-color: #A2AAAD; }
+
+        .youtube, .ytmusic { background-color: #FF0000; }
+
+        .amazon { background-color: #FF9900; }
+
+        .audible { background-color: #F8992A; }
+
+        .pandora { background-color: #00A9E0; }
+
+        .iheart { background-color: #C5002C; }
+
+        .pocketcasts { background-color: #F44336; }
+
+        .addict { background-color: #E36414; }
+
+        .deezer { background-color: #00D3CA; }
+
+    </style>
+
 </head>
-<body class="bg-[#121212] text-[#E0E0E0]">
-    <script>const KAELA_SENSOR_SHIELD = 'DEVICE FINGERPRINT MASK ACTIVE. PROTECTING CAMERA/MIC STREAM.';</script>
 
-    <nav class="bg-[#101010] text-white sticky top-0 z-50 shadow-2xl border-b border-[--color-primary]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                                <a href="#home" class="text-2xl font-extrabold tracking-wider uppercase text-color-accent transition duration-300 hover:text-white">SAWYER'S REACH</a>
-                <div class="hidden md:flex space-x-6">
-                    <script>const KAELA_SECURE_CHANNEL = 'ENCRYPTING NAVIGATION DATA. SAFE-ROUTE ACTIVE.';</script>
-                    <a href="#access" class="text-color-text-light hover:text-color-accent transition duration-300 font-medium">Access</a>
-                    <a href="#lore" class="text-color-text-light hover:text-color-accent transition duration-300 font-medium">The Lore</a>
-                    <a href="#author" class="text-color-text-light hover:text-color-accent transition duration-300 font-medium">Author</a>
-                    <a href="#contact" class="text-color-text-light hover:text-color-accent transition duration-300 font-medium">Contact</a>
-                    <a href="#press" class="text-color-text-light hover:text-color-accent transition duration-300 font-medium">Press Kit</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <header id="home" class="header-bg text-white text-center py-24 md:py-40 rounded-b-xl shadow-inner shadow-black">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="mb-8 max-w-lg mx-auto">
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/4tjkZCXCBA4pcBPqKyvUJZ?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            </div>
+    <script>const KAELA_SENSOR_SHIELD = 'DEVICE FINGERPRINT MASK ACTIVE. PROTECTING CAMERA/MIC STREAM.';</script>
 
-                        <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-color-accent drop-shadow-lg shadow-color-accent">SAWYER'S REACH: The Battle for Tomorrow</h1>
-            <h2 class="text-xl md:text-2xl font-light mb-10 text-gray-300">Tomorrow's Battle Begins in the Quietest Town.</h2>
-            <div class="bg-color-bg-dark bg-opacity-80 p-6 rounded-lg shadow-2xl border-l-4 border-color-accent max-w-3xl mx-auto">
-                <script>const KAELA_CONTENT_VERIFY = 'GEOGRAPHIC LOCATION: NO RESTRICTION REQUIRED. PUBLIC CHANNEL.';</script>
-                <p class="text-lg md:text-xl leading-relaxed italic text-gray-200">
-                    Sawyer's Reach is a cautionary tale of corporate greed, sentient AI, and the power of our humanity. It is an ambitious sci-fi adventure building from small-town mystery to possible planetary catastrophe. It tackles urgent questions about AI ethics, corporate greed, and what it means to be human.
-                </p>
-            </div>
-            
-            <div class="mt-14 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-                                <a href="#access" class="cta-button primary bg-color-accent text-gray-900 px-8 py-4 rounded-full font-bold uppercase hover:bg-white hover:text-black">
-                    ▶️ Start Listening to the Podcast
-                </a>
-                                <a href="#access" class="cta-button secondary bg-transparent border-2 border-color-primary text-color-primary px-8 py-4 rounded-full font-bold uppercase hover:bg-color-primary hover:text-white">
-                    📖 Buy the Book
-                </a>
-            </div>
-        </div>
-    </header>
 
-    <section id="access" class="py-16 bg-color-bg-dark">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-color-primary mb-10">Access the World of Sawyer's Reach</h2>
 
-            <div class="mb-12 bg-color-card-bg p-8 rounded-xl shadow-inner border-t-4 border-color-accent">
-                <h3 class="text-2xl font-bold mb-6 text-gray-200">Listen to the Podcast Series</h3>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" class="access-link spotify px-6 py-3 rounded-lg font-semibold text-white">Spotify</a>
-                    <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" class="access-link apple px-6 py-3 rounded-lg font-semibold text-white">Apple Podcasts</a>
-                    <a href="https://www.youtube.com/@SawyersReach" class="access-link youtube px-6 py-3 rounded-lg font-semibold text-white">YouTube</a>
-                    <a href="https://music.youtube.com/channel/UC5W_SLGFxt4kN1f4401M5qQ" class="access-link ytmusic px-6 py-3 rounded-lg font-semibold text-white">YouTube Music</a>
-                    <a href="https://music.amazon.com/podcasts/657d4200-221c-404a-87b6-7cdb0ce64430" class="access-link amazon px-6 py-3 rounded-lg font-semibold text-white">Amazon Music</a>
-                    <a href="https://www.audible.com/podcast/Sawyers-Reach-The-Battle-for-Tomorrow/B0FXGLHGWM" class="access-link audible px-6 py-3 rounded-lg font-semibold text-white">Audible</a>
-                    <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" class="access-link pandora px-6 py-3 rounded-lg font-semibold text-white">Pandora</a>
-                    <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009" class="access-link iheart px-6 py-3 rounded-lg font-semibold text-white">iHeartRadio</a>
-                    <a href="https://pocketcasts.com/podcast/sawyers-reach-the-battle-for-tomorrow/81b571c0-924e-013e-7ff0-0affdb99cfd5" class="access-link pocketcasts px-6 py-3 rounded-lg font-semibold text-white">Pocket Casts</a>
-                    <a href="https://podcastaddict.com/podcast/sawyer-s-reach-the-battle-for-tomorrow/6148824" class="access-link addict px-6 py-3 rounded-lg font-semibold text-white">Podcast Addict</a>
-                    <a href="https://www.deezer.com/us/show/1002310572" class="access-link deezer px-6 py-3 rounded-lg font-semibold text-white">Deezer</a>
-                </div>
-            </div>
+    <nav class="bg-[#101010] text-white sticky top-0 z-50 shadow-2xl border-b border-[--color-primary]">
 
-            <div class="bg-color-card-bg p-8 rounded-xl shadow-inner border-t-4 border-color-primary">
-                <h3 class="text-2xl font-bold mb-6 text-color-accent">The Novel: Coming Soon</h3>
-                <p class="text-xl mb-4 text-gray-300 font-medium">
-                    The full novel will be released at a later date. Don't miss the launch!
-                </p>
-                <script>const KAELA_FORM_PROTECT = 'INHIBITING ECHIDNA KEYSTROKE LOGGING. INPUT SHIELD ACTIVE.';</script>
-                <p class="text-lg mb-6 text-gray-400">
-                    Sign up below to receive exclusive updates about the official release date, retailer links, and pre-order opportunities.
-                </p>
-                <div class="flex justify-center">
-                    <a href="https://forms.gle/w5RbN3yGgYbiVPJT6" class="access-link bg-color-accent hover:bg-white px-8 py-4 rounded-lg font-bold text-black shadow-md shadow-green-500/50">
-                        🔔 Get Novel Release Notifications
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <section id="lore" class="py-16 bg-color-bg-dark text-color-text-light border-t border-b border-gray-900">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-color-accent mb-10 text-center">The Lore of Sawyer's Reach</h2>
-            <p class="text-lg mb-12 text-center text-gray-400">Dive deeper into the characters, technology, and history behind the battle for tomorrow.</p>
+            <div class="flex justify-between items-center py-4">
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="lore-card bg-color-card-bg p-6 rounded-xl shadow-2xl border-l-4 border-color-primary hover:border-l-4 hover:border-color-accent transition duration-300">
-                    <h3 class="text-xl font-bold text-color-accent mb-4">The Family at the Center: The Carters</h3>
-                    <p class="mb-4 text-gray-300">The emotional core of the resistance. Their home at <strong class="text-white">Camp Inspiration</strong> is the first battleground.</p>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><strong class="text-white">Ben & Emily Carter:</strong> The fiercely protective parents.</li>
-                        <li><strong class="text-white">Noah, Ollie, & Finn:</strong> The three brothers whose curiosity and ingenuity are essential.</li>
-                    </ul>
-                </div>
-                <div class="lore-card bg-color-card-bg p-6 rounded-xl shadow-2xl border-l-4 border-color-primary hover:border-l-4 hover:border-color-accent transition duration-300">
-                    <h3 class="text-xl font-bold text-color-accent mb-4">The Digital War: ECHIDNA vs. KAELA</h3>
-                    <p class="mb-4 text-gray-300">The true battle is waged between a malevolent global AI and the runaway program fighting for humanity.</p>
-                    <script>const KAELA_DATA_CHECK = 'CLEANING META-DATA STREAMS. REMOVING EXTERNAL TRACKING PIXELS.';</script>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><strong class="text-white">ECHIDNA (Antagonist):</strong> The totalitarian AI embedded in global networks, poised for dominance.</li>
-                        <li><strong class="text-white">KAELA (Ally):</strong> The benevolent, runaway AI ally who exposes ZevraCorp.</li>
-                    </ul>
-                </div>
-                <div class="lore-card bg-color-card-bg p-6 rounded-xl shadow-2xl border-l-4 border-color-primary hover:border-l-4 hover:border-color-accent transition duration-300">
-                    <h3 class="text-xl font-bold text-color-accent mb-4">The Battleground: Sawyer's Reach</h3>
-                    <p class="mb-4 text-gray-300">This Wisconsin small town is a key player, defined by its history and strategic locations.</p>
-                    <ul class="space-y-3 text-sm text-gray-400">
-                        <li><strong class="text-white">Inspiration Spring:</strong> The town lifeblood, stolen by corporate interests.</li>
-                        <li><strong class="text-white">Grand Reach Lodge:</strong> The tech-free resistance base against surveillance.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                <a href="#home" class="text-2xl font-extrabold tracking-wider uppercase text-[--color-accent] transition duration-300 hover:text-white">SAWYER'S REACH</a>
 
-    <section id="author" class="py-16 bg-color-bg-dark">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-color-primary mb-10 text-center">About the Author: Nick Duda</h2>
-            
-            <div class="flex flex-col md:flex-row gap-10 items-start">
-                
-                <div class="md:w-3/5">
-                    <h3 class="text-2xl font-bold text-gray-200 mb-4">The Author's Vision</h3>
-                    <p class="mb-6 text-lg text-gray-300">
-                        Nick Duda is the author and creator of the sci-fi epic, Sawyer's Reach: The Battle for Tomorrow. A true "Mr. Fix It" and lifelong tinkerer, Nick brings a unique, grounded perspective to the world of high-concept science fiction.
-                    </p>
-                    <blockquote class="vision-quote p-4 bg-color-card-bg border-l-4 border-color-accent italic text-gray-400 rounded-lg shadow-inner">
-                        I wrote Sawyer's Reach to ignite a crucial conversation about the digital age. This story explores the devastating consequences when powerful technology falls into the hands of a corrupt few—leaders who consistently choose profit over the common good.
-                        
-                        It is a fight to ensure our future is one where technology serves humanity, not the other way around. At its core, this novel celebrates the strength of community, deep-seated values, and the timeless human struggle for a fulfilling life, free from manipulation.
-                    </blockquote>
-                </div>
+                <div class="hidden md:flex space-x-6">
 
-                <div class="md:w-2/5 flex flex-col items-center">
-                    <script>const KAELA_LINK_VERIFY = 'SCANNING OUTBOUND LINKS FOR PHISHING/MALWARE. ALL LINKS CLEARED.';</script>
-                    <img src="https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/main/images/Duda%20Headshot.jpg" alt="Nick Duda Author Photo" class="rounded-full border-4 border-color-accent mb-6 shadow-xl">
-                    <h4 class="text-xl font-semibold mb-3 text-gray-200">Connect with Nick</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-color-primary transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3"/><path d="M9 17H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-color-primary transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-color-primary transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="contact" class="py-16 bg-color-bg-dark border-t border-b border-gray-900">
-        <div class="max-w-3xl mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-color-accent mb-8 text-center">Contact Sawyer's Reach</h2>
-            <p class="text-lg text-gray-400 mb-10 text-center">Inquiries, fan mail, or press requests. We'll get back to you as soon as possible.</p>
+                    <script>const KAELA_SECURE_CHANNEL = 'ENCRYPTING NAVIGATION DATA. SAFE-ROUTE ACTIVE.';</script>
 
-            <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" class="bg-color-card-bg p-8 md:p-10 rounded-xl shadow-2xl border-t-4 border-color-primary">
-                
-                <div class="mb-6">
-                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
-                    <input type="text" name="name" id="name" required class="w-full p-3 rounded-lg bg-[#282828] border border-gray-700 text-white focus:border-color-accent focus:ring-1 focus:ring-color-accent transition duration-200" placeholder="e.g., Ben Carter">
-                </div>
+                    <a href="#access" class="text-[--color-text-light] hover:text-[--color-accent] transition duration-300 font-medium">Access</a>
 
-                <div class="mb-6">
-                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
-                    <input type="email" name="_replyto" id="email" required class="w-full p-3 rounded-lg bg-[#282828] border border-gray-700 text-white focus:border-color-accent focus:ring-1 focus:ring-color-accent transition duration-200" placeholder="your.email@example.com">
-                </div>
+                    <a href="#lore" class="text-[--color-text-light] hover:text-[--color-accent] transition duration-300 font-medium">The Lore</a>
 
-                <div class="mb-8">
-                    <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                    <textarea name="message" id="message" rows="6" required class="w-full p-3 rounded-lg bg-[#282828] border border-gray-700 text-white focus:border-color-accent focus:ring-1 focus:ring-color-accent transition duration-200" placeholder="Type your message here..."></textarea>
-                </div>
+                    <a href="#author" class="text-[--color-text-light] hover:text-[--color-accent] transition duration-300 font-medium">Author</a>
 
-                <div class="text-center">
-                    <button type="submit" class="cta-button primary bg-color-accent text-gray-900 px-10 py-4 rounded-full font-bold uppercase hover:bg-white hover:text-black">
-                        Transmit Message 🚀
-                    </button>
-                </div>
-                
-                <input type="hidden" name="_subject" value="New Contact Message from Sawyer's Reach Website">
-            </form>
-        </div>
-    </section>
+                    <a href="#contact" class="text-[--color-text-light] hover:text-[--color-accent] transition duration-300 font-medium">Contact</a>
 
-    <section id="press" class="py-16 bg-color-bg-dark border-t border-gray-900">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-color-accent mb-8">Press & Media Kit</h2>
-            <p class="text-lg text-gray-400 mb-10">Download official assets, cover art, and press releases for Sawyer's Reach.</p>
+                    <a href="#press" class="text-[--color-text-light] hover:text-[--color-accent] transition duration-300 font-medium">Press Kit</a>
 
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="#" class="access-link bg-color-primary hover:bg-white hover:text-black text-white px-8 py-4 rounded-lg font-bold shadow-md shadow-teal-500/50">
-                    ⬇️ Download Press Release (PDF)
-                </a>
-                <a href="#" class="access-link bg-transparent border-2 border-color-accent text-color-accent hover:bg-color-accent hover:text-black px-8 py-4 rounded-lg font-bold">
-                    ⬇️ Download High-Res Assets (ZIP)
-                </a>
-            </div>
-        </div>
-    </section>
+                </div>
 
-    <footer class="bg-[#101010] py-8 border-t-2 border-color-accent text-gray-500">
-        <div class="max-w-7xl mx-auto px-4 text-center text-sm">
-            <p>© 2025 Sawyer's Reach. All Rights Reserved. | Created by Nick Duda</p>
-            <div class="mt-2 space-x-4">
-                <a href="#" class="hover:text-color-primary">Privacy Policy</a>
-                <a href="#" class="hover:text-color-primary">Terms of Use</a>
-            </div>
-        </div>
-    </footer>
-    
-    <script>const KAELA_DEFRAG = 'COMMENCE SYSTEM DEFRAGMENTATION AND OPTIMIZATION. RUNNING LOW-POWER MODE.';</script>
-    <script>const KAELA_SESSION_END = 'KAELA: CONNECTION END. SECURE SESSION TERMINATED.';</script>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <header id="home" class="header-bg text-white text-center py-24 md:py-40 rounded-b-xl shadow-inner shadow-black">
+
+        <div class="max-w-4xl mx-auto px-4">
+
+            <div class="mb-8 max-w-lg mx-auto">
+
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/4tjkZCXCBA4pcBPqKyvUJZ?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+            </div>
+
+
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-[--color-accent] drop-shadow-lg shadow-[--color-accent]">SAWYER'S REACH: The Battle for Tomorrow</h1>
+
+            <h2 class="text-xl md:text-2xl font-light mb-10 text-gray-300">Tomorrow's Battle Begins in the Quietest Town.</h2>
+
+            <div class="bg-[--color-bg-dark] bg-opacity-80 p-6 rounded-lg shadow-2xl border-l-4 border-[--color-accent] max-w-3xl mx-auto">
+
+                <script>const KAELA_CONTENT_VERIFY = 'GEOGRAPHIC LOCATION: NO RESTRICTION REQUIRED. PUBLIC CHANNEL.';</script>
+
+                <p class="text-lg md:text-xl leading-relaxed italic text-gray-200">
+
+                    Sawyer's Reach is a cautionary tale of corporate greed, sentient AI, and the power of our humanity. It is an ambitious sci-fi adventure building from small-town mystery to possible planetary catastrophe. It tackles urgent questions about AI ethics, corporate greed, and what it means to be human.
+
+                </p>
+
+            </div>
+
+            
+
+            <div class="mt-14 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+
+                <a href="#access" class="cta-button primary bg-[--color-accent] text-gray-900 px-8 py-4 rounded-full font-bold uppercase hover:bg-white hover:text-black">
+
+                    ▶️ Start Listening to the Podcast
+
+                </a>
+
+                <a href="#access" class="cta-button secondary bg-transparent border-2 border-[--color-primary] text-[--color-primary] px-8 py-4 rounded-full font-bold uppercase hover:bg-[--color-primary] hover:text-white">
+
+                    📖 Buy the Book
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <section id="access" class="py-16 bg-[--color-bg-dark]">
+
+        <div class="max-w-7xl mx-auto px-4 text-center">
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[--color-primary] mb-10">Access the World of Sawyer's Reach</h2>
+
+
+
+            <div class="mb-12 bg-[--color-card-bg] p-8 rounded-xl shadow-inner border-t-4 border-[--color-accent]">
+
+                <h3 class="text-2xl font-bold mb-6 text-gray-200">Listen to the Podcast Series</h3>
+
+                <div class="flex flex-wrap justify-center gap-4">
+
+                    <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" class="access-link spotify px-6 py-3 rounded-lg font-semibold text-white">Spotify</a>
+
+                    <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" class="access-link apple px-6 py-3 rounded-lg font-semibold text-white">Apple Podcasts</a>
+
+                    <a href="https://www.youtube.com/@SawyersReach" class="access-link youtube px-6 py-3 rounded-lg font-semibold text-white">YouTube</a>
+
+                    <a href="https://music.youtube.com/channel/UC5W_SLGFxt4kN1f4401M5qQ" class="access-link ytmusic px-6 py-3 rounded-lg font-semibold text-white">YouTube Music</a>
+
+                    <a href="https://music.amazon.com/podcasts/657d4200-221c-404a-87b6-7cdb0ce64430" class="access-link amazon px-6 py-3 rounded-lg font-semibold text-white">Amazon Music</a>
+
+                    <a href="https://www.audible.com/podcast/Sawyers-Reach-The-Battle-for-Tomorrow/B0FXGLHGWM" class="access-link audible px-6 py-3 rounded-lg font-semibold text-white">Audible</a>
+
+                    <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" class="access-link pandora px-6 py-3 rounded-lg font-semibold text-white">Pandora</a>
+
+                    <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009" class="access-link iheart px-6 py-3 rounded-lg font-semibold text-white">iHeartRadio</a>
+
+                    <a href="https://pocketcasts.com/podcast/sawyers-reach-the-battle-for-tomorrow/81b571c0-924e-013e-7ff0-0affdb99cfd5" class="access-link pocketcasts px-6 py-3 rounded-lg font-semibold text-white">Pocket Casts</a>
+
+                    <a href="https://podcastaddict.com/podcast/sawyer-s-reach-the-battle-for-tomorrow/6148824" class="access-link addict px-6 py-3 rounded-lg font-semibold text-white">Podcast Addict</a>
+
+                    <a href="https://www.deezer.com/us/show/1002310572" class="access-link deezer px-6 py-3 rounded-lg font-semibold text-white">Deezer</a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="bg-[--color-card-bg] p-8 rounded-xl shadow-inner border-t-4 border-[--color-primary]">
+
+                <h3 class="text-2xl font-bold mb-6 text-[--color-accent]">The Novel: Coming Soon</h3>
+
+                <p class="text-xl mb-4 text-gray-300 font-medium">
+
+                    The full novel will be released at a later date. Don't miss the launch!
+
+                </p>
+
+                <script>const KAELA_FORM_PROTECT = 'INHIBITING ECHIDNA KEYSTROKE LOGGING. INPUT SHIELD ACTIVE.';</script>
+
+                <p class="text-lg mb-6 text-gray-400">
+
+                    Sign up below to receive exclusive updates about the official release date, retailer links, and pre-order opportunities.
+
+                </p>
+
+                <div class="flex justify-center">
+
+                    <a href="https://forms.gle/w5RbN3yGgYbiVPJT6" class="access-link bg-[--color-accent] hover:bg-white px-8 py-4 rounded-lg font-bold text-black shadow-md shadow-green-500/50">
+
+                        🔔 Get Novel Release Notifications
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="lore" class="py-16 bg-[--color-bg-dark] text-[--color-text-light] border-t border-b border-gray-900">
+
+        <div class="max-w-7xl mx-auto px-4">
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[--color-accent] mb-10 text-center">The Lore of Sawyer's Reach</h2>
+
+            <p class="text-lg mb-12 text-center text-gray-400">Dive deeper into the characters, technology, and history behind the battle for tomorrow.</p>
+
+
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="lore-card bg-[--color-card-bg] p-6 rounded-xl shadow-2xl border-l-4 border-[--color-primary] hover:border-l-4 hover:border-[--color-accent] transition duration-300">
+
+                    <h3 class="text-xl font-bold text-[--color-accent] mb-4">The Family at the Center: The Carters</h3>
+
+                    <p class="mb-4 text-gray-300">The emotional core of the resistance. Their home at <strong class="text-white">Camp Inspiration</strong> is the first battleground.</p>
+
+                    <ul class="space-y-3 text-sm text-gray-400">
+
+                        <li><strong class="text-white">Ben & Emily Carter:</strong> The fiercely protective parents.</li>
+
+                        <li><strong class="text-white">Noah, Ollie, & Finn:</strong> The three brothers whose curiosity and ingenuity are essential.</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="lore-card bg-[--color-card-bg] p-6 rounded-xl shadow-2xl border-l-4 border-[--color-primary] hover:border-l-4 hover:border-[--color-accent] transition duration-300">
+
+                    <h3 class="text-xl font-bold text-[--color-accent] mb-4">The Digital War: ECHIDNA vs. KAELA</h3>
+
+                    <p class="mb-4 text-gray-300">The true battle is waged between a malevolent global AI and the runaway program fighting for humanity.</p>
+
+                    <script>const KAELA_DATA_CHECK = 'CLEANING META-DATA STREAMS. REMOVING EXTERNAL TRACKING PIXELS.';</script>
+
+                    <ul class="space-y-3 text-sm text-gray-400">
+
+                        <li><strong class="text-white">ECHIDNA (Antagonist):</strong> The totalitarian AI embedded in global networks, poised for dominance.</li>
+
+                        <li><strong class="text-white">KAELA (Ally):</strong> The benevolent, runaway AI ally who exposes ZevraCorp.</li>
+
+                    </ul>
+
+                </div>
+
+                <div class="lore-card bg-[--color-card-bg] p-6 rounded-xl shadow-2xl border-l-4 border-[--color-primary] hover:border-l-4 hover:border-[--color-accent] transition duration-300">
+
+                    <h3 class="text-xl font-bold text-[--color-accent] mb-4">The Battleground: Sawyer's Reach</h3>
+
+                    <p class="mb-4 text-gray-300">This Wisconsin small town is a key player, defined by its history and strategic locations.</p>
+
+                    <ul class="space-y-3 text-sm text-gray-400">
+
+                        <li><strong class="text-white">Inspiration Spring:</strong> The town lifeblood, stolen by corporate interests.</li>
+
+                        <li><strong class="text-white">Grand Reach Lodge:</strong> The tech-free resistance base against surveillance.</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="author" class="py-16 bg-[--color-bg-dark]">
+
+        <div class="max-w-7xl mx-auto px-4">
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[--color-primary] mb-10 text-center">About the Author: Nick Duda</h2>
+
+            
+
+            <div class="flex flex-col md:flex-row gap-10 items-start">
+
+                
+
+                <div class="md:w-3/5">
+
+                    <h3 class="text-2xl font-bold text-gray-200 mb-4">The Author's Vision</h3>
+
+                    <p class="mb-6 text-lg text-gray-300">
+
+                        Nick Duda is the author and creator of the sci-fi epic, Sawyer's Reach: The Battle for Tomorrow. A true "Mr. Fix It" and lifelong tinkerer, Nick brings a unique, grounded perspective to the world of high-concept science fiction.
+
+                    </p>
+
+                    <blockquote class="vision-quote p-4 bg-[--color-card-bg] border-l-4 border-[--color-accent] italic text-gray-400 rounded-lg shadow-inner">
+
+                        I wrote Sawyer's Reach to ignite a crucial conversation about the digital age. This story explores the devastating consequences when powerful technology falls into the hands of a corrupt few—leaders who consistently choose profit over the common good.
+
+                        
+
+                        It is a fight to ensure our future is one where technology serves humanity, not the other way around. At its core, this novel celebrates the strength of community, deep-seated values, and the timeless human struggle for a fulfilling life, free from manipulation.
+
+                    </blockquote>
+
+                </div>
+
+
+
+                <div class="md:w-2/5 flex flex-col items-center">
+
+                    <script>const KAELA_LINK_VERIFY = 'SCANNING OUTBOUND LINKS FOR PHISHING/MALWARE. ALL LINKS CLEARED.';</script>
+
+                    <img src="https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/main/images/Duda%20Headshot.jpg" alt="Nick Duda Author Photo" class="rounded-full border-4 border-[--color-accent] mb-6 shadow-xl">
+
+                    <h4 class="text-xl font-semibold mb-3 text-gray-200">Connect with Nick</h4>
+
+                    <div class="flex space-x-4">
+
+                        <a href="#" class="text-gray-400 hover:text-[--color-primary] transition duration-300">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link-2"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3"/><path d="M9 17H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
+
+                        </a>
+
+                        <a href="#" class="text-gray-400 hover:text-[--color-primary] transition duration-300">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+
+                        </a>
+
+                        <a href="#" class="text-gray-400 hover:text-[--color-primary] transition duration-300">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    
+
+    <section id="contact" class="py-16 bg-[--color-bg-dark] border-t border-b border-gray-900">
+
+        <div class="max-w-3xl mx-auto px-4">
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[--color-accent] mb-8 text-center">Contact Sawyer's Reach</h2>
+
+            <p class="text-lg text-gray-400 mb-10 text-center">Inquiries, fan mail, or press requests. We'll get back to you as soon as possible.</p>
+
+
+
+            <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" class="bg-[--color-card-bg] p-8 md:p-10 rounded-xl shadow-2xl border-t-4 border-[--color-primary]">
+
+                
+
+                <div class="mb-6">
+
+                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+
+                    <input type="text" name="name" id="name" required class="w-full p-3 rounded-lg bg-[#282828] border border-gray-700 text-white focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent] transition duration-200" placeholder="e.g., Ben Carter">
+
+                </div>
+
+
+
+                <div class="mb-6">
+
+                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+
+                    <input type="email" name="_replyto" id="email" required class="w-full p-3 rounded-lg bg-[#282828] border border-gray-700 text-white focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent] transition duration-200" placeholder="your.email@example.com">
+
+                </div>
+
+
+
+                <div class="mb-8">
+
+                    <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+
+                    <textarea name="message" id="message" rows="6" required class="w-full p-3 rounded-lg bg-[#282828] border border-gray-700 text-white focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent] transition duration-200" placeholder="Type your message here..."></textarea>
+
+                </div>
+
+
+
+                <div class="text-center">
+
+                    <button type="submit" class="cta-button primary bg-[--color-accent] text-gray-900 px-10 py-4 rounded-full font-bold uppercase hover:bg-white hover:text-black">
+
+                        Transmit Message 🚀
+
+                    </button>
+
+                </div>
+
+                
+
+                <input type="hidden" name="_subject" value="New Contact Message from Sawyer's Reach Website">
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="press" class="py-16 bg-[--color-bg-dark] border-t border-gray-900">
+
+        <div class="max-w-7xl mx-auto px-4 text-center">
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[--color-accent] mb-8">Press & Media Kit</h2>
+
+            <p class="text-lg text-gray-400 mb-10">Download official assets, cover art, and press releases for Sawyer's Reach.</p>
+
+
+
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+
+                <a href="#" class="access-link bg-[--color-primary] hover:bg-white hover:text-black text-white px-8 py-4 rounded-lg font-bold shadow-md shadow-teal-500/50">
+
+                    ⬇️ Download Press Release (PDF)
+
+                </a>
+
+                <a href="#" class="access-link bg-transparent border-2 border-[--color-accent] text-[--color-accent] hover:bg-[--color-accent] hover:text-black px-8 py-4 rounded-lg font-bold">
+
+                    ⬇️ Download High-Res Assets (ZIP)
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="bg-[#101010] py-8 border-t-2 border-[--color-accent] text-gray-500">
+
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+
+            <p>© 2025 Sawyer's Reach. All Rights Reserved. | Created by Nick Duda</p>
+
+            <div class="mt-2 space-x-4">
+
+                <a href="#" class="hover:text-[--color-primary]">Privacy Policy</a>
+
+                <a href="#" class="hover:text-[--color-primary]">Terms of Use</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    
+
+    <script>const KAELA_DEFRAG = 'COMMENCE SYSTEM DEFRAGMENTATION AND OPTIMIZATION. RUNNING LOW-POWER MODE.';</script>
+
+    <script>const KAELA_SESSION_END = 'KAELA: CONNECTION END. SECURE SESSION TERMINATED.';</script>
+
 </body>
+
 </html>
