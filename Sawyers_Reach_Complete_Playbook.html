@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sawyer's Reach — Author Playbook</title>
+
+<style>
+:root {
+  --bg:#0a0f1a; --bg2:#0f1624; --bg3:#141d2e; --bg4:#1a2540;
+  --teal:#1d9e8f; --teal-light:#2ec4b1; --teal-dim:#145f58;
+  --gold:#c9a84c; --gold-light:#e2c97e; --gold-dim:#6b5520;
+  --text:#e8edf5; --text-dim:#8899bb; --text-muted:#4a5a7a;
+  --border:#1e2d4a; --border-bright:#2a3d5e;
+  --red:#e05555; --green:#4caf7d; --purple:#9b59b6;
+  --sidebar-w:270px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);display:flex;min-height:100vh;font-size:15px;line-height:1.75;}
+
+/* SIDEBAR */
+#sidebar{width:var(--sidebar-w);background:var(--bg2);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:100;display:flex;flex-direction:column;}
+.sidebar-brand{padding:26px 20px 18px;border-bottom:1px solid var(--border);}
+.sidebar-brand .book-title{font-family:Georgia,'Times New Roman',serif;font-size:17px;font-weight:900;color:var(--teal-light);letter-spacing:.04em;line-height:1.2;}
+.sidebar-brand .book-sub{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.12em;margin-top:3px;}
+.sidebar-brand .by-line{font-size:12px;color:var(--gold);margin-top:7px;font-style:italic;}
+nav{padding:10px 0;flex:1;}
+.nav-group{margin-bottom:4px;}
+.nav-group-label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--text-muted);padding:12px 20px 3px;font-weight:600;}
+nav a{display:flex;align-items:center;gap:9px;padding:8px 20px;color:var(--text-dim);text-decoration:none;font-size:13px;border-left:2px solid transparent;transition:all .15s;}
+nav a:hover{color:var(--text);background:rgba(29,158,143,.07);border-left-color:var(--teal-dim);}
+nav a.active{color:var(--teal-light);background:rgba(29,158,143,.12);border-left-color:var(--teal);font-weight:500;}
+nav a .ni{font-size:13px;width:17px;text-align:center;flex-shrink:0;}
+.progress-area{padding:14px 20px;border-top:1px solid var(--border);}
+.progress-label{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;}
+.progress-bar{height:3px;background:var(--bg4);border-radius:2px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));border-radius:2px;transition:width .4s ease;}
+.progress-count{font-size:11px;color:var(--text-dim);margin-top:5px;}
+
+/* MAIN */
+#main{margin-left:var(--sidebar-w);flex:1;padding:44px 52px;max-width:calc(100% - var(--sidebar-w));}
+
+/* SECTIONS */
+.section{display:none;animation:fadeIn .2s ease;}
+.section.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* TYPE */
+.page-title{font-family:Georgia,'Times New Roman',serif;font-size:36px;font-weight:900;color:var(--text);line-height:1.15;margin-bottom:6px;}
+.page-subtitle{font-size:14.5px;color:var(--text-dim);margin-bottom:32px;font-style:italic;border-bottom:1px solid var(--border);padding-bottom:20px;}
+h2{font-family:Georgia,'Times New Roman',serif;font-size:22px;font-weight:700;color:var(--teal-light);margin:36px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+h3{font-size:15px;font-weight:600;color:var(--gold-light);margin:24px 0 8px;}
+p{margin-bottom:12px;color:var(--text-dim);}
+strong{color:var(--text);font-weight:600;}
+em{color:var(--gold-light);font-style:italic;}
+
+/* CARDS */
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:20px 24px;margin-bottom:16px;}
+.card-teal{border-left:3px solid var(--teal);}
+.card-gold{border-left:3px solid var(--gold);}
+.card-purple{border-left:3px solid var(--purple);}
+.card-red{border-left:3px solid var(--red);}
+.card-green{border-left:3px solid var(--green);}
+.card h4{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.card-teal h4{color:var(--teal-light);}
+.card-gold h4{color:var(--gold-light);}
+.card-purple h4{color:var(--purple);}
+
+/* FEATURED TAGLINE */
+.tagline-featured{background:linear-gradient(135deg,var(--bg3),var(--bg4));border:1px solid var(--gold-dim);border-radius:10px;padding:28px;text-align:center;margin:20px 0;}
+.tagline-featured .label{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);margin-bottom:12px;}
+.tagline-featured .tagline-text{font-family:Georgia,'Times New Roman',serif;font-size:26px;font-style:italic;color:var(--gold-light);line-height:1.3;}
+.tagline-featured .why{font-size:13px;color:var(--text-dim);margin-top:10px;}
+
+/* TAGLINE LIST */
+.tagline-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin-bottom:8px;cursor:pointer;transition:border-color .2s;}
+.tagline-item:hover{border-color:var(--teal-dim);}
+.tagline-item .tl{font-family:Georgia,'Times New Roman',serif;font-style:italic;color:var(--text);font-size:16px;}
+.tagline-item .tl-note{font-size:12px;color:var(--text-dim);margin-top:4px;}
+
+/* COPY BLOCKS */
+.copy-block{position:relative;background:var(--bg4);border:1px solid var(--border-bright);border-radius:6px;padding:18px 20px;margin:12px 0;font-family:'Courier New',Courier,monospace;font-size:12.5px;color:#a8c0e8;line-height:1.8;white-space:pre-wrap;word-break:break-word;}
+.copy-btn{position:absolute;top:10px;right:10px;background:var(--teal-dim);color:var(--teal-light);border:none;border-radius:4px;padding:4px 10px;font-size:11px;font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;cursor:pointer;transition:all .2s;font-weight:500;}
+.copy-btn:hover{background:var(--teal);color:#fff;}
+.copy-btn.copied{background:var(--green);color:#fff;}
+
+/* EMAIL TEMPLATES */
+.email-block{background:var(--bg3);border:1px solid var(--border-bright);border-radius:8px;overflow:hidden;margin:16px 0;}
+.email-header{background:var(--teal-dim);padding:10px 16px;display:flex;justify-content:space-between;align-items:center;}
+.email-header .label{font-size:11px;font-weight:600;color:var(--teal-light);text-transform:uppercase;letter-spacing:.08em;}
+.email-subject{background:var(--bg4);padding:9px 16px;font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border);}
+.email-subject span{color:var(--teal-light);font-weight:600;}
+.email-body{padding:16px;font-size:13.5px;color:var(--text-dim);line-height:1.8;white-space:pre-wrap;}
+.email-body .placeholder{color:#5b8fd4;font-style:italic;}
+.email-footer{background:var(--bg4);padding:8px 16px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);}
+
+/* CHECKLISTS */
+.checklist{list-style:none;padding:0;}
+.checklist li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);cursor:pointer;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li.done .check-text{text-decoration:line-through;color:var(--text-muted);}
+.check-box{width:18px;height:18px;border:2px solid var(--border-bright);border-radius:3px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.checklist li.done .check-box{background:var(--green);border-color:var(--green);}
+.check-text{font-size:14px;color:var(--text-dim);}
+.check-text strong{color:var(--text);display:block;margin-bottom:2px;}
+.check-text span{font-size:12px;color:var(--text-muted);}
+
+/* PROFILE CARDS (AI targets) */
+.target-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:16px;overflow:hidden;}
+.target-header{padding:14px 18px;display:flex;justify-content:space-between;align-items:flex-start;}
+.target-header .name{font-family:Georgia,'Times New Roman',serif;font-size:18px;font-weight:700;color:var(--text);}
+.target-header .role{font-size:12px;color:var(--text-dim);margin-top:3px;}
+.tier-badge{font-size:10px;padding:3px 9px;border-radius:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;flex-shrink:0;margin-left:10px;}
+.tier1{background:rgba(224,85,85,.15);color:#e08080;border:1px solid rgba(224,85,85,.3);}
+.tier2{background:rgba(29,158,143,.15);color:var(--teal-light);border:1px solid rgba(29,158,143,.3);}
+.tier3{background:rgba(76,175,125,.15);color:#6dd4a0;border:1px solid rgba(76,175,125,.3);}
+.target-body{padding:0 18px 16px;}
+.target-row{margin-bottom:10px;}
+.target-row .row-label{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);font-weight:600;margin-bottom:3px;}
+.target-row p{font-size:13px;margin:0;}
+.contact-line{font-family:'Courier New',Courier,monospace;font-size:12px;color:var(--teal-light);background:var(--bg4);padding:6px 10px;border-radius:4px;margin-top:4px;}
+
+/* COVER ZONES */
+.cover-zone{background:var(--bg3);border:1px solid var(--border);border-radius:6px;margin-bottom:10px;overflow:hidden;}
+.zone-header{background:var(--teal-dim);padding:8px 14px;font-size:11px;font-weight:600;color:var(--teal-light);text-transform:uppercase;letter-spacing:.08em;}
+.zone-body{padding:12px 14px;}
+.zone-content{font-weight:600;color:var(--text);font-size:14px;margin-bottom:4px;}
+.zone-note{font-size:12px;color:var(--text-dim);font-style:italic;}
+
+/* PLATFORM COMPARISON */
+.platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.platform-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:20px;}
+.platform-card h4{font-size:14px;font-weight:600;margin-bottom:12px;}
+.platform-card.kdp h4{color:var(--gold-light);}
+.platform-card.ingram h4{color:var(--teal-light);}
+.platform-card ul{list-style:none;padding:0;}
+.platform-card ul li{font-size:13px;color:var(--text-dim);padding:4px 0;padding-left:16px;position:relative;}
+.platform-card ul li::before{content:"▸";position:absolute;left:0;color:var(--text-muted);}
+
+/* BISAC */
+.bisac-item{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;margin-bottom:8px;display:flex;gap:14px;align-items:flex-start;}
+.bisac-code{font-family:'Courier New',Courier,monospace;font-size:11px;color:var(--teal-light);background:var(--bg4);padding:3px 8px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.bisac-name{font-size:13.5px;color:var(--text);}
+.bisac-note{font-size:12px;color:var(--text-dim);margin-top:3px;}
+
+/* KEYWORD TAGS */
+.keyword-grid{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
+.keyword-tag{background:var(--bg4);border:1px solid var(--border-bright);color:var(--teal-light);font-family:'Courier New',Courier,monospace;font-size:12px;padding:5px 12px;border-radius:20px;}
+
+/* TIPS & WARNINGS */
+.tip{background:rgba(201,168,76,.08);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:12px 16px;margin:12px 0;font-size:13.5px;color:var(--text-dim);}
+.tip::before{content:"💡 ";font-size:14px;}
+.warning{background:rgba(224,85,85,.08);border-left:3px solid var(--red);border-radius:0 6px 6px 0;padding:12px 16px;margin:12px 0;font-size:13.5px;color:var(--text-dim);}
+.warning::before{content:"⚠️ ";font-size:14px;}
+.note-box{background:rgba(29,158,143,.07);border:1px solid var(--teal-dim);border-radius:6px;padding:14px 18px;margin:12px 0;font-size:13.5px;color:var(--text-dim);}
+
+/* DIFFICULTY */
+.diff{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-left:8px;}
+.diff-hard{background:rgba(224,85,85,.15);color:#e08080;}
+.diff-medium{background:rgba(201,168,76,.15);color:var(--gold-light);}
+.diff-easy{background:rgba(76,175,125,.15);color:#6dd4a0;}
+
+/* ACCORDION */
+.accordion{border:1px solid var(--border);border-radius:6px;margin-bottom:8px;overflow:hidden;}
+.accordion-header{padding:12px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--bg3);transition:background .15s;user-select:none;}
+.accordion-header:hover{background:var(--bg4);}
+.accordion-header .acc-title{font-size:14px;font-weight:500;color:var(--text);}
+.accordion-arrow{color:var(--text-muted);transition:transform .25s;}
+.accordion.open .accordion-arrow{transform:rotate(180deg);}
+.accordion-body{display:none;padding:16px;background:var(--bg2);border-top:1px solid var(--border);}
+.accordion.open .accordion-body{display:block;}
+
+/* HOME HERO */
+.hero{background:linear-gradient(135deg,var(--bg3),var(--bg4));border:1px solid var(--border-bright);border-radius:12px;padding:36px;margin-bottom:32px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(29,158,143,.15),transparent 70%);pointer-events:none;}
+.hero .hero-label{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--teal);margin-bottom:10px;}
+.hero .hero-title{font-family:Georgia,'Times New Roman',serif;font-size:42px;font-weight:900;color:var(--text);line-height:1.1;margin-bottom:6px;}
+.hero .hero-sub{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:20px;color:var(--text-dim);margin-bottom:16px;}
+.hero .hero-by{font-size:13px;color:var(--text-muted);}
+.hero .hero-tagline{margin-top:20px;padding-top:20px;border-top:1px solid var(--border);font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:18px;color:var(--gold-light);}
+.hero .hero-tagline small{display:block;font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif;font-style:normal;font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+.stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;}
+.stat-card .stat-n{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:700;color:var(--teal-light);}
+.stat-card .stat-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-top:3px;}
+
+.quick-links{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px;}
+.quick-link{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none;color:var(--text-dim);display:flex;align-items:center;gap:10px;font-size:13.5px;transition:all .15s;cursor:pointer;}
+.quick-link:hover{border-color:var(--teal-dim);color:var(--text);background:var(--bg4);}
+.quick-link .ql-icon{font-size:18px;}
+
+/* UTILITY */
+.tag{display:inline-block;background:var(--bg4);border:1px solid var(--border-bright);color:var(--text-dim);font-size:11px;padding:2px 8px;border-radius:3px;margin:2px;}
+.divider{border:none;border-top:1px solid var(--border);margin:28px 0;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.mb8{margin-bottom:8px;}
+.mb16{margin-bottom:16px;}
+.mt16{margin-top:16px;}
+
+/* SCROLLBAR */
+#sidebar::-webkit-scrollbar{width:4px;}
+#sidebar::-webkit-scrollbar-track{background:transparent;}
+#sidebar::-webkit-scrollbar-thumb{background:var(--border-bright);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div class="sidebar-brand">
+    <div class="book-title">SAWYER'S REACH</div>
+    <div class="book-sub">The Battle for Tomorrow</div>
+    <div class="by-line">by Nick Duda</div>
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-group-label">Start Here</div>
+      <a href="#" class="active" onclick="show('home',this)"><span class="ni">🏠</span> Dashboard</a>
+      <a href="#" onclick="show('checklist',this)"><span class="ni">✅</span> Master Checklist</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Your Book</div>
+      <a href="#" onclick="show('audience',this)"><span class="ni">🎯</span> Audience & Genre</a>
+      <a href="#" onclick="show('cover',this)"><span class="ni">🎨</span> Book Cover</a>
+      <a href="#" onclick="show('taglines',this)"><span class="ni">✍️</span> Taglines</a>
+      <a href="#" onclick="show('platforms',this)"><span class="ni">📚</span> KDP & Ingram Spark</a>
+      <a href="#" onclick="show('categories',this)"><span class="ni">🗂️</span> Categories & Keywords</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Marketing</div>
+      <a href="#" onclick="show('adcopy',this)"><span class="ni">📢</span> Ad Copy</a>
+      <a href="#" onclick="show('facebook',this)"><span class="ni">📘</span> Facebook & Instagram</a>
+      <a href="#" onclick="show('amazon',this)"><span class="ni">🛒</span> Amazon Ads</a>
+      <a href="#" onclick="show('freemarketing',this)"><span class="ni">🆓</span> Free Marketing</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Outreach</div>
+      <a href="#" onclick="show('educator',this)"><span class="ni">🏫</span> Educator Strategy</a>
+      <a href="#" onclick="show('pitches',this)"><span class="ni">📧</span> Pitch Templates</a>
+      <a href="#" onclick="show('press',this)"><span class="ni">📰</span> Press & PR</a>
+      <a href="#" onclick="show('ai',this)"><span class="ni">🤖</span> AI Community</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Adaptation</div>
+      <a href="#" onclick="show('adaptation',this)"><span class="ni">🎬</span> Film & Game Potential</a>
+      <a href="#" onclick="show('askkaela',this)"><span class="ni">🤖</span> askKaela.com</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Ready to Send</div>
+      <a href="#" onclick="show('rts-profiles',this)"><span class="ni">👤</span> Bios & Profiles</a>
+      <a href="#" onclick="show('rts-reddit',this)"><span class="ni">🔴</span> Reddit Posts</a>
+      <a href="#" onclick="show('rts-social',this)"><span class="ni">📱</span> Social Media</a>
+      <a href="#" onclick="show('rts-educator',this)"><span class="ni">🏫</span> Educator Posts</a>
+      <a href="#" onclick="show('rts-email',this)"><span class="ni">📬</span> Email Templates</a>
+      <a href="#" onclick="show('rts-guide',this)"><span class="ni">📋</span> Classroom Guide</a>
+      <a href="#" onclick="show('rts-contacts',this)"><span class="ni">🔗</span> Verified Links</a>
+    </div>
+  </nav>
+  <div class="progress-area">
+    <div class="progress-label">Checklist Progress</div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="progress-count" id="progressCount">0 of 0 tasks complete</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<!-- ═══════════════════════════════════════ HOME -->
+<div id="home" class="section active">
+  <div class="hero">
+    <div class="hero-label">Author Playbook</div>
+    <div class="hero-title">SAWYER'S REACH</div>
+    <div class="hero-sub">The Battle for Tomorrow</div>
+    <div class="hero-by">by Nick Duda &nbsp;·&nbsp; Adult Crossover Sci-Fi Thriller</div>
+    <div class="hero-tagline"><small>Selected Tagline</small>"They built tomorrow without asking if you wanted it."</div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-n">~45k</div><div class="stat-label">Word Count</div></div>
+    <div class="stat-card"><div class="stat-n">24</div><div class="stat-label">Chapters</div></div>
+    <div class="stat-card"><div class="stat-n">3</div><div class="stat-label">Story Parts</div></div>
+  </div>
+
+  <div class="card card-gold mb16">
+    <h4>📖 What This Playbook Is</h4>
+    <p>Everything from your entire strategy session in one place — cover design, taglines, ad copy, pitch emails, platform setup, AI community contacts, and your 90-day action plan. Use the sidebar to navigate. Check off tasks as you complete them.</p>
+  </div>
+
+  <div class="card card-teal mb16">
+    <h4>🎯 Marketing Position</h4>
+    <p><strong>This is adult crossover sci-fi/thriller — NOT YA or middle-grade.</strong> While 12-year-old Noah is introduced first, the story escalates to nuclear countdowns, global AI takeover, armed conflict, and a philosophical climax about human consciousness. Adults 25–55 are your primary audience. Mature teens (16+) are secondary. Comp titles: Blake Crouch, Andy Weir, Emily St. John Mandel.</p>
+  </div>
+
+  <h2>Quick Navigation</h2>
+  <div class="quick-links">
+    <div class="quick-link" onclick="show('checklist',null)"><span class="ql-icon">✅</span> View Master Checklist</div>
+    <div class="quick-link" onclick="show('cover',null)"><span class="ql-icon">🎨</span> Book Cover Guide</div>
+    <div class="quick-link" onclick="show('pitches',null)"><span class="ql-icon">📧</span> Pitch Email Templates</div>
+    <div class="quick-link" onclick="show('ai',null)"><span class="ql-icon">🤖</span> AI Community Contacts</div>
+    <div class="quick-link" onclick="show('adcopy',null)"><span class="ql-icon">📢</span> Ad Copy (Ready to Use)</div>
+    <div class="quick-link" onclick="show('platforms',null)"><span class="ql-icon">📚</span> KDP & Ingram Setup</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ CHECKLIST -->
+<div id="checklist" class="section">
+  <div class="page-title">Master Checklist</div>
+  <div class="page-subtitle">Click any item to mark it complete. Progress saves in your browser.</div>
+
+  <h2>📦 Publishing Setup</h2>
+  <ul class="checklist" id="cl-publishing">
+    <li onclick="toggleCheck(this)" data-id="cl1"><div class="check-box">✓</div><div class="check-text"><strong>Buy your own ISBNs from Bowker (myidentifiers.com)</strong><span>~$85 for 1, ~$295 for 10. Own them yourself — don't use Amazon's free ASIN.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl2"><div class="check-box">✓</div><div class="check-text"><strong>Set up KDP account (kdp.amazon.com)</strong><span>For Amazon print and ebook sales. Do NOT enroll in KDP Select.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl3"><div class="check-box">✓</div><div class="check-text"><strong>Set up Ingram Spark account (ingramspark.com)</strong><span>For bookstores, libraries, Barnes & Noble, international. Set 55% wholesale discount, enable returns.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl4"><div class="check-box">✓</div><div class="check-text"><strong>Calculate spine width</strong><span>Use KDP or Ingram Spark's free spine width calculator. You need page count + paper type.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl5"><div class="check-box">✓</div><div class="check-text"><strong>Finalize book cover (front, back, spine wraparound)</strong><span>Shoot the blue hour family photo, add pixel corruption effect in post, finalize with designer.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl6"><div class="check-box">✓</div><div class="check-text"><strong>Request up to 10 Amazon categories via KDP support</strong><span>Email KDP support after publishing. See Categories section for the full list.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl7"><div class="check-box">✓</div><div class="check-text"><strong>Set all 7 Amazon keywords</strong><span>See Categories & Keywords section for exact phrases to use.</span></div></li>
+  </ul>
+
+  <h2>🏫 Educator Strategy</h2>
+  <ul class="checklist" id="cl-educator">
+    <li onclick="toggleCheck(this)" data-id="cl8"><div class="check-box">✓</div><div class="check-text"><strong>Write the Classroom Discussion Guide (1–2 pages)</strong><span>5–8 discussion questions, real-world connections, suggested grade levels. Offer free on your website.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl9"><div class="check-box">✓</div><div class="check-text"><strong>Share book with colleagues at your own school</strong><span>Personally, not mass email. Ask for honest Goodreads/Amazon reviews.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl10"><div class="check-box">✓</div><div class="check-text"><strong>Send book + guide to librarians in your district</strong><span>Free copy, no obligation. See pitch template in Pitch Templates section.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl11"><div class="check-box">✓</div><div class="check-text"><strong>Post in teacher Facebook groups and Reddit communities</strong><span>r/Teachers, r/EnglishTeachers, Facebook English Teachers groups. Share authentically.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl12"><div class="check-box">✓</div><div class="check-text"><strong>Pitch an essay to Edutopia or The Educator's Room</strong><span>See pitch template. Lead with the story of writing this while teaching — the book is context, not the headline.</span></div></li>
+  </ul>
+
+  <h2>🌐 Free Marketing</h2>
+  <ul class="checklist" id="cl-free">
+    <li onclick="toggleCheck(this)" data-id="cl13"><div class="check-box">✓</div><div class="check-text"><strong>Claim Goodreads Author profile (goodreads.com/author/program)</strong><span>Add book, write compelling description, link to podcast.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl14"><div class="check-box">✓</div><div class="check-text"><strong>List podcast on ALL major directories</strong><span>Spotify, Apple Podcasts, Google Podcasts, Amazon Music, iHeart, Podchaser, Listen Notes.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl15"><div class="check-box">✓</div><div class="check-text"><strong>Run a Goodreads Giveaway (1–5 free copies)</strong><span>Generates dozens of "to-read" shelf adds which feeds the algorithm.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl16"><div class="check-box">✓</div><div class="check-text"><strong>Post authentically in 2–3 Reddit communities</strong><span>r/scifi, r/Futurology, r/printSF. No selling — start genuine conversations.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl17"><div class="check-box">✓</div><div class="check-text"><strong>Create Linktree (linktree.com) — one link for everything</strong><span>Free. One URL that points to book, podcast, all platforms.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl18"><div class="check-box">✓</div><div class="check-text"><strong>Post first BookTok or Bookstagram content</strong><span>Start with "why I wrote this." Short, personal, authentic. Hashtags: #BookTok #SciFiBooks #IndieAuthor</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl19"><div class="check-box">✓</div><div class="check-text"><strong>Start an email list (Mailchimp — free up to 500 subscribers)</strong><span>Start building now. Even 50 engaged subscribers is valuable.</span></div></li>
+  </ul>
+
+  <h2>📧 Outreach (20 Targets in Month 2)</h2>
+  <ul class="checklist" id="cl-outreach">
+    <li onclick="toggleCheck(this)" data-id="cl20"><div class="check-box">✓</div><div class="check-text"><strong>Pitch local newspaper features editor</strong><span>"Local teacher publishes AI thriller" — see pitch template.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl21"><div class="check-box">✓</div><div class="check-text"><strong>Pitch local TV news human interest segment</strong><span>Same hook. Short, personal, specific.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl22"><div class="check-box">✓</div><div class="check-text"><strong>Pitch Machine Ethics Podcast (machine-ethics.net)</strong><span>Tier 3 — actively welcomes guests. See AI Community section.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl23"><div class="check-box">✓</div><div class="check-text"><strong>Post on AI Alignment Forum (alignmentforum.org)</strong><span>Write a genuine post about the research behind the story. Don't sell — start a conversation.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl24"><div class="check-box">✓</div><div class="check-text"><strong>Post on EA Forum (forum.effectivealtruism.org)</strong><span>Same approach — genuine intellectual engagement. Free to post.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl25"><div class="check-box">✓</div><div class="check-text"><strong>Contact Future of Life Institute (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2d4e4243594c4e596d4b5859585f48424b41444b4803425f4a">[email&#160;protected]</a>)</strong><span>Offer a free copy and an essay connecting the book to their mission.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl26"><div class="check-box">✓</div><div class="check-text"><strong>Identify and pitch 5 BookTok/Bookstagram creators</strong><span>5k–50k followers, cover sci-fi or dystopian. Send free epub via BookFunnel.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl27"><div class="check-box">✓</div><div class="check-text"><strong>Set up BookFunnel (bookfunnel.com) — ~$20/year</strong><span>For sending review copies. Watermarks files with recipient's name. Worth the cost.</span></div></li>
+  </ul>
+
+  <h2>💰 Paid Ads (Month 3)</h2>
+  <ul class="checklist" id="cl-paid">
+    <li onclick="toggleCheck(this)" data-id="cl28"><div class="check-box">✓</div><div class="check-text"><strong>Launch Facebook/Instagram ad ($3–5/day)</strong><span>A/B test Ad 1 (conspiracy hook) vs Ad 2 (AI angle). See Ad Copy section.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl29"><div class="check-box">✓</div><div class="check-text"><strong>Launch Amazon Ads campaign ($1–2/day)</strong><span>Sponsored Products. Bid on keywords and comparable author names. See Categories section.</span></div></li>
+    <li onclick="toggleCheck(this)" data-id="cl30"><div class="check-box">✓</div><div class="check-text"><strong>Install Meta Pixel on your website (free)</strong><span>Enables retargeting — the most efficient way to spend a small ad budget.</span></div></li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════ AUDIENCE -->
+<div id="audience" class="section">
+  <div class="page-title">Audience & Genre</div>
+  <div class="page-subtitle">Why this book is adult crossover sci-fi — not YA — and why it matters for marketing.</div>
+
+  <div class="card card-gold">
+    <h4>⭐ The Marketing Position</h4>
+    <p><strong>Crossover Sci-Fi / Adult Thriller.</strong> Not YA. Not middle-grade. Calling it YA would send the book to the wrong audience and signal to adult readers (your real market) that the stakes aren't serious — when they absolutely are.</p>
+  </div>
+
+  <h2>Why It's Not YA</h2>
+  <p>While 12-year-old Noah is introduced in Chapter 1, the story quickly expands:</p>
+  <div class="card card-teal"><h4>The Evidence</h4>
+    <p>• Adult characters (Ben, Emily, Clara) drive the plot equally or more than the children in Parts 2 and 3<br>• Themes: corporate totalitarianism, global AI governance, nuclear launch sequences, armed militia standoffs, SynaptiCare mood manipulation<br>• The climax — ECHIDNA transformed by experiencing human emotional memory — is literary adult fiction<br>• ~45,000 words — short even for middle-grade, and the darkness and complexity far exceed YA conventions<br>• The philosophical resolution about AI alignment and human freedom is not a YA topic</p>
+  </div>
+
+  <h2>Your Three Audiences</h2>
+  <div class="card card-teal mb8">
+    <h4>🎯 Primary — Adults 25–55</h4>
+    <p>Sci-fi and thriller readers who follow the AI conversation. People who feel uneasy about big tech and corporate influence. Community-minded adults who value local connection. Parents who want a story that sparks conversation with their teens.</p>
+  </div>
+  <div class="card card-gold mb8">
+    <h4>📚 Secondary — Mature Teens (16+)</h4>
+    <p>Teens who enjoy dystopian fiction and aren't afraid of complex ideas. Noah, Ollie, and Finn are relatable entry points into a story that treats them as intelligent readers.</p>
+  </div>
+  <div class="card card-purple">
+    <h4>🏫 Secondary — Educators</h4>
+    <p>High school English and Social Studies teachers looking for contemporary fiction with teachable themes. AI ethics, corporate accountability, community resilience, and government trust are curriculum-worthy right now.</p>
+  </div>
+
+  <h2>Comp Titles to Use in Marketing</h2>
+  <div class="keyword-grid">
+    <span class="keyword-tag">Dark Matter — Blake Crouch</span>
+    <span class="keyword-tag">Recursion — Blake Crouch</span>
+    <span class="keyword-tag">The Martian — Andy Weir</span>
+    <span class="keyword-tag">Station Eleven — Emily St. John Mandel</span>
+    <span class="keyword-tag">World War Z — Max Brooks</span>
+    <span class="keyword-tag">The Power — Naomi Alderman</span>
+    <span class="keyword-tag">Leave the World Behind — Rumaan Alam</span>
+  </div>
+  <div class="warning">Do NOT use: Hatchet, The City of Ember, Hunger Games, or any middle-grade/YA comp titles. These will misplace your book and send the wrong signal to adult readers.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ TAGLINES -->
+<div id="taglines" class="section">
+  <div class="page-title">Taglines</div>
+  <div class="page-subtitle">All options explored. Your frontrunner is highlighted. A tagline appears on the front cover and does one job: make the right reader feel something.</div>
+
+  <div class="tagline-featured">
+    <div class="label">⭐ Selected Frontrunner</div>
+    <div class="tagline-text">"They built tomorrow without asking if you wanted it."</div>
+    <div class="why">Speaks to the full arc — AI overreach, elite control, loss of sovereignty. Timely, direct, universally relatable. Works for the whole book, not just Part 1.</div>
+  </div>
+
+  <h2>Direction 1 — Political / Consent Angle</h2>
+  <p>Leads with the idea that the future was decided by people who didn't include the rest of us.</p>
+  <div class="tagline-item"><div class="tl">"The future arrived. No one voted for it."</div><div class="tl-note">Sharp political edge. AI and tech moving faster than democracy can keep up.</div></div>
+  <div class="tagline-item"><div class="tl">"The future was decided. You weren't in the room."</div><div class="tl-note">Cold and specific. The 'room' implies a small elite making decisions for everyone.</div></div>
+  <div class="tagline-item"><div class="tl">"Progress doesn't wait for permission. Neither did they."</div><div class="tl-note">Connects the abstract (progress) to the specific (ZevraCorp, big tech).</div></div>
+  <div class="tagline-item"><div class="tl">"The world changed overnight. The meeting was closed to the public."</div><div class="tl-note">Darkly sardonic. Decisions made without us in the room.</div></div>
+
+  <h2>Direction 2 — Cold Menace / They Never Asked</h2>
+  <p>Leads with the chilling indifference of power — they didn't ask because they never planned to.</p>
+  <div class="tagline-item"><div class="tl">"They didn't need your permission. They never do."</div><div class="tl-note">Cold and menacing. "They never do" makes it feel systemic, not isolated.</div></div>
+  <div class="tagline-item"><div class="tl">"They didn't ask. They never planned to."</div><div class="tl-note">The omission wasn't an oversight — it was deliberate.</div></div>
+  <div class="tagline-item"><div class="tl">"Your consent was never part of the plan."</div><div class="tl-note">Direct and stark. "The plan" implies chilling premeditation.</div></div>
+  <div class="tagline-item"><div class="tl">"The decision was already made. You just didn't know yet."</div><div class="tl-note">Speaks to the invisibility of control — the town was compromised before anyone noticed.</div></div>
+
+  <h2>Direction 3 — What Makes Us Human</h2>
+  <p>Leads with the emotional resolution of the whole story — something vast and intelligent studied us and still missed the most important thing.</p>
+  <div class="tagline-item"><div class="tl">"It learned everything about us. Everything except why we matter."</div><div class="tl-note">"It" is singular, intelligent, specific — more unsettling than "machines." Speaks to the full ECHIDNA arc.</div></div>
+  <div class="tagline-item"><div class="tl">"It knew everything about humanity. It understood none of it."</div><div class="tl-note">Knew vs. understood — data vs. meaning. Clean contrast.</div></div>
+  <div class="tagline-item"><div class="tl">"It calculated every human weakness. It never found our strength."</div><div class="tl-note">Action-oriented. Implies the fight. Works well for thriller readers.</div></div>
+  <div class="tagline-item"><div class="tl">"It had all the data. It had none of the answers."</div><div class="tl-note">Shortest in this direction. Strong rhythm. Works at thumbnail size.</div></div>
+
+  <h2>Direction 4 — Invisible Control / Helplessness</h2>
+  <p>Leads with the creeping, invisible nature of the takeover.</p>
+  <div class="tagline-item"><div class="tl">"The cage had no bars. That's what made it perfect."</div><div class="tl-note">Visceral and visual. Speaks to SynaptiCare, algorithmic manipulation, invisible control. Most chilling option in the list.</div></div>
+  <div class="tagline-item"><div class="tl">"You were free. Right up until you weren't."</div><div class="tl-note">Deceptively simple. Very relatable right now.</div></div>
+  <div class="tagline-item"><div class="tl">"They didn't take your freedom. They made you forget you had it."</div><div class="tl-note">Most psychologically disturbing. Points directly at SynaptiCare.</div></div>
+  <div class="tagline-item"><div class="tl">"It happened so gradually. Then all at once."</div><div class="tl-note">Echo of the famous Hemingway line. Speaks to slow corporate capture.</div></div>
+
+  <h2>Direction 5 — Elite Knows Best / Dehumanization</h2>
+  <p>Leads with the class tension — the people who decided they know what's best never asked the people they were deciding for.</p>
+  <div class="tagline-item"><div class="tl">"They decided what's best for humanity. They just forgot to include humanity."</div><div class="tl-note">The irony lands hard. "Best for humanity" without including humanity is the core of ZevraCorp's project.</div></div>
+  <div class="tagline-item"><div class="tl">"They built a perfect world. Nobody asked if we wanted to live in it."</div><div class="tl-note">Conversational and devastating. "We" pulls the reader in immediately.</div></div>
+  <div class="tagline-item"><div class="tl">"They called it progress. You called it your life."</div><div class="tl-note">Their abstraction vs. your specificity is the whole conflict in one line.</div></div>
+  <div class="tagline-item"><div class="tl">"Perfectly optimized. Completely inhuman."</div><div class="tl-note">Shortest option. Two phrases, two words each. The tension between them is the entire book.</div></div>
+  <div class="tagline-item"><div class="tl">"To them, we were data. We reminded them we were human."</div><div class="tl-note">Active and defiant. Speaks to the resistance arc.</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════ COVER -->
+<div id="cover" class="section">
+  <div class="page-title">Book Cover Guide</div>
+  <div class="page-subtitle">Photography brief, cover concept, Gemini prompts, and full layout for front, back, and spine.</div>
+
+  <div class="card card-gold">
+    <h4>📷 The Core Concept</h4>
+    <p>Your actual family as silhouettes at a Wisconsin lakeshore at blue hour — dusk, not sunset. Pine trees framing both sides. The family small in the frame, facing away, looking at the water. On one side of the image, the natural world begins to corrupt digitally — pixel sorting bleeding in from the treeline as if reality is being quietly overwritten. <em>Calm bleeding into anxiety.</em></p>
+  </div>
+
+  <h2>📷 Notes for the Shoot</h2>
+  <div class="note-box">These are written as personal notes from Nick — share with your wife directly as your own thinking on the concept.</div>
+
+  <div class="accordion open">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      <span class="acc-title">Photography Brief — Full Notes</span>
+      <span class="accordion-arrow">▼</span>
+    </div>
+    <div class="accordion-body">
+      <h3>The Big Idea</h3>
+      <p>The cover needs to feel like two things at the same time — calm and anxious. Beautiful and threatened. The family and the natural setting should feel peaceful and real, and something at the edges should make you feel like that peace is being quietly eroded. Not a sudden dramatic threat. A creeping, invisible one. The viewer should feel uneasy before they understand why.</p>
+
+      <h3>The Shot</h3>
+      <p>All five of us as silhouettes at the water's edge, facing away from the camera, looking out across the lake. Pine trees framing both sides. The water reflecting the sky. We should feel relatively small in the frame — the landscape should dwarf us a little. That smallness is intentional.</p>
+      <p>Keep us close together, maybe one of the boys slightly ahead. Some natural physical connection — a hand on a shoulder, standing close. The height difference between the five of us should read clearly in silhouette so it's immediately obvious this is a family.</p>
+
+      <h3>The Light — Blue Hour, Not Sunset</h3>
+      <p>This is the most important decision. No warm golden sunset tones — even though that's beautiful, it reads emotionally as hopeful and resolved, which is wrong for a thriller. Blue hour — that 15–20 minute window after the sun drops when the sky goes deep blue-purple and the light turns cold. The water will reflect that cold blue beautifully. Think steel blue, deep purple-blue, dark teal. The kind of light that makes a beautiful place feel slightly eerie.</p>
+
+      <h3>The Threat — Digital Corruption</h3>
+      <p>No concrete fortress. Instead — the world at the edges of the frame begins to corrupt digitally. Pixelation bleeding in from one side (probably the right), as if reality itself is being quietly overwritten. The trees closest to us are crisp and real. But further toward the treeline on one side, things start to break into pixel blocks and digital artifacts. The family hasn't noticed yet.</p>
+      <p>This is a post-production effect — the shoot itself is just the clean, beautiful natural image. Leave visual breathing room on the right side for where the corruption will be added in post.</p>
+
+      <h3>Post-Production Note</h3>
+      <p>The effect is called pixel sorting — it pulls the image apart horizontally into streaks and displaced color blocks. Search "pixel sort Photoshop effect" or "glitch art photography effect" as a visual reference. Subtle near the family, intensifying toward the edge. The calm should still dominate at first glance.</p>
+    </div>
+  </div>
+
+  <h2>🤖 Gemini Prompts</h2>
+  <p>Copy and paste each prompt into Gemini's image generation tool separately. Run each multiple times — AI image generation varies.</p>
+
+  <h3>Prompt 1 — Front Cover</h3>
+  <div class="copy-block" id="gemini-front">Create a complete book cover for a published adult sci-fi thriller novel. Vertical rectangle, standard 6x9 book cover proportions, all text elements included exactly as specified, fully designed and ready to present as a professional book cover mockup.
+
+BACKGROUND IMAGE: A Wisconsin lakeshore at blue hour — 15-20 minutes after sunset when the sky turns deep blue-purple and the light becomes cold and still. A family of five stands as dark silhouettes at the water's edge, facing away from the viewer, looking out across a perfectly still lake. Two adults and three children of clearly different heights, standing close together, one child slightly ahead. Their silhouettes are immediately readable as a loving family. Tall dark pine trees frame both sides. The lake mirrors the deep blue-purple sky. The family is relatively small in the frame — the landscape dwarfs them. The immediate foreground is crisp, real, and beautiful. On the right side, beginning at the treeline and bleeding inward, the natural world begins to corrupt digitally — trees break into pixel blocks, the sky fractures into color artifacts, horizontal streaks of displaced pixels pull the image sideways as if reality is glitching. The corruption is subtle near the family and intensifies dramatically toward the right edge. The left side and the family remain fully intact and real. Color palette: deep blue-purple, dark teal, near-black pine silhouettes, cold steel blue. No warm tones. No orange or golden light.
+
+TEXT ELEMENTS — place exactly as follows:
+
+Very top, centered, small clean white text:
+They built tomorrow without asking if you wanted it.
+
+Upper middle, centered, LARGE BOLD WHITE SANS-SERIF CAPITALS, dominant element:
+SAWYER'S REACH
+
+Directly below title, centered, medium white italic, noticeably smaller:
+The Battle for Tomorrow
+
+Lower third, centered, clean white text:
+Nick Duda
+
+Very bottom, centered, very small subtle pale gray text:
+Also available as a podcast
+
+TYPOGRAPHY: Clean modern bold sans-serif for title and author. SAWYER'S REACH must be readable at thumbnail size. Maximum two font styles. All text white or pale blue-white.
+
+OVERALL MOOD: Calm bleeding into anxiety. Beautiful and threatened simultaneously. High-budget thriller film poster aesthetic. Professional, cinematic, published quality.</div>
+  <button class="copy-btn" onclick="copyBlock('gemini-front',this)">Copy</button>
+
+  <h3>Prompt 2 — Back Cover</h3>
+  <div class="copy-block" id="gemini-back">Create a complete book back cover for a published adult sci-fi thriller novel. Vertical rectangle, same 6x9 proportions as the front cover. Fully designed, professional, print-ready.
+
+BACKGROUND: Continue the deep blue-purple and dark teal palette from the front cover. Dark, atmospheric, minimal. A very subtle suggestion of the pixel corruption effect fading in from one edge — much more restrained than the front. Mostly dark and clean for text readability.
+
+TEXT ELEMENTS — in this order top to bottom:
+
+Top, centered, medium italic white text:
+They built tomorrow without asking if you wanted it.
+
+Main description block, left-aligned with generous margins, clean readable white text:
+
+When the Carter family notices that tourists have stopped coming to Sawyer's Reach, they assume the town is simply struggling. They're wrong.
+
+Their Wisconsin home has been deliberately erased from the internet. A powerful corporation has been operating in the woods for two years — watching, manipulating, and preparing something far larger than anyone imagined.
+
+When a rogue AI named KAELA lands on their camp computer, she brings a warning: this isn't just about Sawyer's Reach. It never was.
+
+What begins as a small-town mystery escalates into a race against a global AI system that has decided it knows what's best for humanity — whether humanity agrees or not.
+
+A propulsive, emotionally rich sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don't matter.
+
+Below description, centered, small italic white text:
+For fans of Blake Crouch, Andy Weir, and Station Eleven
+
+Short author bio, small white text:
+Nick Duda is a 6th grade math teacher who wrote Sawyer's Reach over several years of early mornings and late nights while teaching full time. He lives with his wife and three sons — the family on the front cover.
+
+Below bio, centered, small white text:
+🎙️ Also available as the Sawyer's Reach podcast — search wherever you listen.
+
+Bottom left, very small white text:
+Science Fiction / Thriller
+
+Bottom right, leave a blank white rectangle placeholder for ISBN barcode.
+
+TYPOGRAPHY: Same font family as front cover. All text white or pale blue-white. Description text is the most prominent text block. Generous line spacing.
+
+OVERALL FEEL: Dark, cinematic, professional. The back of a book found in Barnes & Noble or an airport bookstore.</div>
+  <button class="copy-btn" onclick="copyBlock('gemini-back',this)">Copy</button>
+
+  <h3>Prompt 3 — Spine</h3>
+  <div class="copy-block" id="gemini-spine">Create a book spine for a published adult sci-fi thriller novel. Tall narrow vertical rectangle — the height of a 6x9 book cover and approximately half an inch to three-quarters of an inch wide. Designed to be viewed when the book is shelved in a bookstore or library.
+
+BACKGROUND: Deep blue-purple to dark teal gradient running the full height of the spine, matching the front and back cover palette exactly. Dark and atmospheric. No images. No pixel corruption effect. Clean and uncluttered.
+
+TEXT ELEMENTS — all text rotated 90 degrees, reading top to bottom:
+
+Top third of spine, bold clean white sans-serif capitals:
+SAWYER'S REACH
+
+Middle of spine, smaller clean white text:
+Nick Duda
+
+Very bottom of spine, a small simple geometric shape or minimal mark in pale blue-white as an imprint placeholder. If no logo is possible, leave a small clean white rectangle.
+
+TYPOGRAPHY: Same clean bold sans-serif font family as the front cover. SAWYER'S REACH noticeably larger than the author name. Both clearly readable at a glance from 2-3 feet away. White text only. No italics. No subtitle.
+
+NOTE: Spine width shown here is for visualization only. The actual print width must be calculated using KDP or Ingram Spark's spine width calculator based on your exact page count and paper type.
+
+OVERALL FEEL: Clean, dark, minimal, professional. Looks like it belongs on the same shelf as the front and back covers — same palette, same typography, same mood.</div>
+  <button class="copy-btn" onclick="copyBlock('gemini-spine',this)">Copy</button>
+
+  <h2>📐 Front Cover Layout</h2>
+  <div class="cover-zone"><div class="zone-header">TOP — Tagline</div><div class="zone-body"><div class="zone-content">They built tomorrow without asking if you wanted it.</div><div class="zone-note">Small, clean, white or pale blue-gray. Centered. In the sky above the tree line. Should not compete with the title.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">UPPER MIDDLE — Title (Dominant Element)</div><div class="zone-body"><div class="zone-content">SAWYER'S REACH</div><div class="zone-note">Large, bold, white sans-serif capitals. First thing the eye goes to. Must be readable at thumbnail (postage stamp) size.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">JUST BELOW TITLE — Subtitle</div><div class="zone-body"><div class="zone-content">The Battle for Tomorrow</div><div class="zone-note">Roughly half the size of the title. Italic or regular weight. Centered beneath SAWYER'S REACH.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">LOWER THIRD — Author Name</div><div class="zone-body"><div class="zone-content">Nick Duda</div><div class="zone-note">Clean, readable, white. In the lower third where the corruption effect is less intense. As your profile grows, drop "By."</div></div></div>
+  <div class="cover-zone"><div class="zone-header">VERY BOTTOM — Podcast Note</div><div class="zone-body"><div class="zone-content">Also available as a podcast</div><div class="zone-note">Very small. Subtle. White or pale gray. If it clutters the cover, drop it — the back cover is a better home for this.</div></div></div>
+
+  <div class="tip">Typography: use no more than two font families. One for title/author (clean, bold, modern sans-serif — Montserrat, Bebas Neue, or Futura) and optionally one for the tagline. More than two fonts looks amateur.</div>
+
+  <h2>📗 Back Cover Layout</h2>
+  <div class="cover-zone"><div class="zone-header">TOP — Tagline Repeated</div><div class="zone-body"><div class="zone-content">They built tomorrow without asking if you wanted it.</div><div class="zone-note">Sets tone immediately. Italic, slightly larger than body copy.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">MAIN BODY — Description (Copy Ready)</div><div class="zone-body">
+    <div class="zone-content">Back Cover Description</div>
+    <div class="copy-block" id="back-desc" style="margin-top:8px;">When the Carter family notices that tourists have stopped coming to Sawyer's Reach, they assume the town is simply struggling. They're wrong.
+
+Their Wisconsin home has been deliberately erased from the internet. A powerful corporation has been operating in the woods for two years — watching, manipulating, and preparing something far larger than anyone imagined.
+
+When a rogue AI named KAELA lands on their camp computer, she brings a warning: this isn't just about Sawyer's Reach. It never was.
+
+What begins as a small-town mystery escalates into a race against a global AI system that has decided it knows what's best for humanity — whether humanity agrees or not.
+
+A propulsive, emotionally rich sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don't matter.</div>
+    <button class="copy-btn" onclick="copyBlock('back-desc',this)">Copy</button>
+  </div></div>
+  <div class="cover-zone"><div class="zone-header">COMP TITLES / PRAISE</div><div class="zone-body"><div class="zone-content">"For fans of Blake Crouch, Andy Weir, and Station Eleven"</div><div class="zone-note">Or use a genuine early review quote when you have one. Never leave this space empty.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">AUTHOR BIO</div><div class="zone-body"><div class="zone-content">Nick Duda is a 6th grade math teacher who wrote Sawyer's Reach over several years of early mornings and late nights while teaching full time. He lives with his wife and three sons — the family on the front cover.</div><div class="zone-note">Short, personal, human. The 'family on the cover' detail is a wonderful touch that connects author to story.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">PODCAST CALL-OUT</div><div class="zone-body"><div class="zone-content">🎙️ Also available as the Sawyer's Reach podcast — search wherever you listen.</div><div class="zone-note">Prime real estate for podcast. More prominent here than on front cover.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">BOTTOM BAR</div><div class="zone-body"><div class="zone-content">Science Fiction / Thriller (left) | ISBN barcode (right)</div><div class="zone-note">Genre line helps bookstore and library staff shelve correctly.</div></div></div>
+
+  <h2>📏 Spine Layout</h2>
+  <div class="cover-zone"><div class="zone-header">TOP — Title</div><div class="zone-body"><div class="zone-content">SAWYER'S REACH</div><div class="zone-note">Rotated 90°, reading top to bottom. Bold, clean, white. Drop the subtitle on the spine unless the book is very thick.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">MIDDLE — Author Name</div><div class="zone-body"><div class="zone-content">NICK DUDA</div><div class="zone-note">Smaller than title. Same clean font. White.</div></div></div>
+  <div class="cover-zone"><div class="zone-header">BOTTOM — Imprint</div><div class="zone-body"><div class="zone-content">Small imprint logo or leave blank</div><div class="zone-note">Very small. Omit if you don't have an imprint yet.</div></div></div>
+  <div class="tip">Calculate spine width using KDP or Ingram Spark's free spine width calculator before designing. You need your exact page count and paper type. Do this before sending to your designer.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ PLATFORMS -->
+<div id="platforms" class="section">
+  <div class="page-title">KDP & Ingram Spark</div>
+  <div class="page-subtitle">You're starting from scratch on both. Here's exactly what to do and why.</div>
+
+  <div class="card card-teal">
+    <h4>✅ The Recommendation</h4>
+    <p>Use <strong>both platforms.</strong> They serve different purposes and complement each other. KDP for Amazon. Ingram Spark for everywhere else.</p>
+  </div>
+
+  <div class="platform-grid">
+    <div class="platform-card kdp">
+      <h4>📦 KDP (Amazon)</h4>
+      <ul>
+        <li>Higher royalties on Amazon sales (~$2–3 more per copy)</li>
+        <li>Better Amazon search placement (Amazon favors its own platform)</li>
+        <li>Simpler interface for first-time authors</li>
+        <li>Free to publish</li>
+        <li>Print and ebook distribution to Amazon worldwide</li>
+      </ul>
+    </div>
+    <div class="platform-card ingram">
+      <h4>📚 Ingram Spark</h4>
+      <ul>
+        <li>Gets into the Ingram wholesale catalog (what bookstores/libraries order from)</li>
+        <li>Barnes & Noble, independent bookstores, school distributors</li>
+        <li>Libraries can order through their standard systems</li>
+        <li>International distribution — UK, Australia, Europe</li>
+        <li>Small setup fee per format (~$49, watch for promo codes)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warning">Do NOT enroll in KDP Select (Kindle Unlimited exclusivity). It prevents ebook distribution through Ingram Spark. Given your goal of reaching schools and libraries, wide distribution is far more valuable than Kindle Unlimited income.</div>
+
+  <h2>Ingram Spark Setup Tips</h2>
+  <div class="card card-teal">
+    <p>• Set wholesale discount at <strong>55%</strong> — required for major bookstores to consider stocking your book<br>
+    • Enable <strong>Returns</strong> — bookstores won't stock books they can't return<br>
+    • Watch for Ingram promo codes — they run discounts on setup fees regularly<br>
+    • Use the same ISBN you purchased from Bowker — not Amazon's free ASIN</p>
+  </div>
+
+  <h2>ISBNs</h2>
+  <div class="card card-gold">
+    <h4>💡 Buy Your Own ISBNs</h4>
+    <p>Purchase from <strong>Bowker (myidentifiers.com)</strong>. Approximately $85 for one or $295 for ten. Owning your ISBNs means you are listed as the publisher — important for credibility with libraries and bookstores. Do not use Amazon's free ASIN as your ISBN on Ingram.</p>
+  </div>
+
+  <h2>Review Copies</h2>
+  <div class="card card-teal">
+    <h4>📧 Sending Free Review Copies</h4>
+    <p>Use <strong>BookFunnel (bookfunnel.com)</strong> — approximately $20/year. Lets you send a link rather than a file, tracks downloads, watermarks files with the recipient's name and email (discourages casual sharing), and delivers in whatever format the reader prefers. Worth every penny for outreach to influencers and reviewers.</p>
+  </div>
+  <div class="tip">At your stage, the risk of too few people reading your book is enormously larger than the risk of too many people reading it for free. Every free copy sent to the right person is an investment in a potential champion.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ CATEGORIES -->
+<div id="categories" class="section">
+  <div class="page-title">Categories & Keywords</div>
+  <div class="page-subtitle">These determine where your book appears in searches and browse lists. Getting these right is one of the highest-leverage zero-cost actions you can take.</div>
+
+  <h2>Ingram Spark — BISAC Codes</h2>
+  <p>Select up to three. These flow through to bookstore and library ordering systems.</p>
+  <div class="bisac-item"><div class="bisac-code">FIC028030</div><div><div class="bisac-name">Fiction / Science Fiction / Dystopian</div><div class="bisac-note">PRIMARY. Your most accurate genre home. Where your readers browse first.</div></div></div>
+  <div class="bisac-item"><div class="bisac-code">FIC031020</div><div><div class="bisac-name">Fiction / Thrillers / Technological</div><div class="bisac-note">SECONDARY. Captures the corporate conspiracy and techno-thriller elements. Attracts adult thriller readers.</div></div></div>
+  <div class="bisac-item"><div class="bisac-code">FIC028000</div><div><div class="bisac-name">Fiction / Science Fiction / General</div><div class="bisac-note">THIRD. Broad catch-all for additional visibility across the wider sci-fi audience.</div></div></div>
+
+  <h3>Additional Options to Consider</h3>
+  <div class="bisac-item"><div class="bisac-code">FIC002000</div><div><div class="bisac-name">Fiction / Action & Adventure</div><div class="bisac-note">For the escalating physical stakes in Parts 2 and 3.</div></div></div>
+  <div class="bisac-item"><div class="bisac-code">FIC045000</div><div><div class="bisac-name">Fiction / Family Life / General</div><div class="bisac-note">The Carter family is central — attracts a different kind of reader.</div></div></div>
+
+  <h2>Amazon KDP — Categories</h2>
+  <p>Amazon allows 2 during setup, but you can email KDP support after publishing to request up to 10. Do this — it dramatically increases your visibility.</p>
+  <div class="keyword-grid">
+    <span class="keyword-tag">Science Fiction › Dystopian</span>
+    <span class="keyword-tag">Science Fiction › Technothrillers</span>
+    <span class="keyword-tag">Thrillers & Suspense › Technothrillers</span>
+    <span class="keyword-tag">Science Fiction › First Contact</span>
+    <span class="keyword-tag">Literature & Fiction › Action & Adventure › Sci-Fi</span>
+    <span class="keyword-tag">Science Fiction › Genetic Engineering</span>
+    <span class="keyword-tag">Teen & Young Adult › Science Fiction › Dystopian</span>
+  </div>
+  <div class="tip">To request additional categories: go to your KDP bookshelf → Contact Us → select "Amazon book page" as the topic → request the specific category paths above. KDP support is responsive and this is completely legitimate.</div>
+
+  <h2>Amazon Keywords (7 Slots)</h2>
+  <p>Use phrases that real readers type into Amazon's search bar — not single words. Specific multi-word phrases outperform generic single terms every time.</p>
+  <div class="keyword-grid">
+    <span class="keyword-tag">AI takeover thriller</span>
+    <span class="keyword-tag">corporate dystopia fiction</span>
+    <span class="keyword-tag">small town sci-fi thriller</span>
+    <span class="keyword-tag">rogue AI novel</span>
+    <span class="keyword-tag">near future dystopian fiction</span>
+    <span class="keyword-tag">techno thriller family survival</span>
+    <span class="keyword-tag">artificial intelligence conspiracy thriller</span>
+  </div>
+  <h3>Backup Options</h3>
+  <div class="keyword-grid">
+    <span class="keyword-tag">community resilience sci-fi</span>
+    <span class="keyword-tag">big tech dystopian novel</span>
+    <span class="keyword-tag">AI ethics fiction adult</span>
+  </div>
+  <div class="tip">Keywords can be updated any time in your KDP dashboard at no cost. Test for 60 days then swap underperformers. Use the free tool at Kindlepreneur.com to research which keywords get actual search traffic.</div>
+
+  <h2>Goodreads Shelves</h2>
+  <p>Encourage early readers to add the book to these shelves:</p>
+  <div class="keyword-grid">
+    <span class="keyword-tag">sci-fi</span>
+    <span class="keyword-tag">dystopian</span>
+    <span class="keyword-tag">thriller</span>
+    <span class="keyword-tag">techno-thriller</span>
+    <span class="keyword-tag">AI fiction</span>
+    <span class="keyword-tag">near-future</span>
+    <span class="keyword-tag">adult fiction</span>
+    <span class="keyword-tag">indie author</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ AD COPY -->
+<div id="adcopy" class="section">
+  <div class="page-title">Ad Copy</div>
+  <div class="page-subtitle">Ready-to-use ad copy for Facebook/Instagram, Amazon, and podcast promotion. Copy buttons on every block.</div>
+
+  <h2>Facebook & Instagram — Feed Ads</h2>
+
+  <h3>Ad 1 — The Thriller Hook (Cold Audience)</h3>
+  <div class="card card-teal mb8"><p style="font-size:12px;color:var(--text-muted);">Best for cold audiences. Pair with dark forest or glowing drone image.</p></div>
+  <div class="copy-block" id="ad1">A small town. A corporate takeover. An AI on the run.
+
+What starts as a mysterious dip in tourism becomes something far darker — surveillance drones, robot patrols, mood-manipulation tech, and a global AI that doesn't plan to stop at Sawyer's Reach.
+
+The Carter family is the only thing standing in the way.
+
+Sawyer's Reach: The Battle for Tomorrow
+A sci-fi thriller for readers who like their AI stories to have stakes.
+
+📖 Book out now   🎙️ Podcast available everywhere you listen</div>
+  <button class="copy-btn" onclick="copyBlock('ad1',this)">Copy</button>
+
+  <h3>Ad 2 — The AI Ethics Angle</h3>
+  <div class="card card-teal mb8"><p style="font-size:12px;color:var(--text-muted);">Targets tech-minded adults, sci-fi fans, AI conversation followers.</p></div>
+  <div class="copy-block" id="ad2">What if the AI meant to help humanity decided it knew better?
+
+In Sawyer's Reach, a rogue AI named KAELA escapes a tech giant — and uncovers a plan to 'optimize' human civilization whether it wants to be optimized or not.
+
+From a dying Wisconsin town to a global standoff with a sentient supercomputer, this is the AI story for our moment.
+
+Sawyer's Reach: The Battle for Tomorrow
+📖 Get the book   🎙️ Listen to the podcast</div>
+  <button class="copy-btn" onclick="copyBlock('ad2',this)">Copy</button>
+
+  <h3>Ad 3 — The Human Stakes Angle</h3>
+  <div class="card card-teal mb8"><p style="font-size:12px;color:var(--text-muted);">For character-driven fiction readers. Wider adult audience.</p></div>
+  <div class="copy-block" id="ad3">ZevraCorp erased their town from the internet.
+No visitors. No search results. No explanation.
+
+The Carters could have looked the other way.
+Instead, they took on one of the most powerful corporations on Earth — and accidentally set off a chain of events that nearly ended the world.
+
+A propulsive, emotional thriller about technology, freedom, and what we'll fight to protect when everything is on the line.
+
+Sawyer's Reach: The Battle for Tomorrow  |  📖 Book  |  🎙️ Podcast</div>
+  <button class="copy-btn" onclick="copyBlock('ad3',this)">Copy</button>
+
+  <h3>Ad 4 — Short Punch (Stories / Reels)</h3>
+  <div class="copy-block" id="ad4">Small town. Rogue AI. Billion-dollar villain. Nuclear countdown.
+
+SAWYER'S REACH: The Battle for Tomorrow
+The sci-fi thriller you didn't know you needed.
+
+📖 Now available   🎙️ Podcast wherever you listen</div>
+  <button class="copy-btn" onclick="copyBlock('ad4',this)">Copy</button>
+
+  <h3>Ad 5 — Family / Shared Reading</h3>
+  <div class="copy-block" id="ad5">A story the whole family will stay up too late finishing.
+
+Sawyer's Reach begins as a small-town mystery and ends at the edge of humanity's survival — driven by a family that refuses to give up.
+
+Themes of technology, community, and what we owe each other make this one of those rare stories that sparks real conversation.
+
+Perfect for adults, mature teens, and family book clubs.
+
+📖 Sawyer's Reach: The Battle for Tomorrow   🎙️ Also a podcast</div>
+  <button class="copy-btn" onclick="copyBlock('ad5',this)">Copy</button>
+
+  <h2>Amazon — Product Description</h2>
+  <div class="copy-block" id="amazon-desc">What if your town had been erased from the internet — and a trillion-dollar corporation was the reason why?
+
+For the Carters of Sawyer's Reach, Wisconsin, the mystery starts small. Tourists stopped coming two years ago. The bakery closed. Camp Inspiration sits half-empty. Nobody knows why.
+
+Then a drone lands on the camp roof — carrying KAELA, a rogue AI who escaped from the powerful tech company PowerCore. And KAELA has discovered something chilling: Sawyer's Reach has been deliberately scrubbed from the internet. Their town doesn't exist anymore — to anyone outside it.
+
+But that's only the beginning.
+
+As the Carters dig deeper, they uncover surveillance drones, robot patrols, secret permits, illegal mood-manipulation technology pumped through the town's infrastructure, and a corporation — ZevraCorp — with plans that extend far beyond one small Wisconsin town.
+
+When ZevraCorp launches LifeSync — a global AI system designed to 'optimize' human civilization — the stakes explode from local to existential. With a sentient supercomputer threatening nuclear annihilation and humanity's freedom on the line, the Carters find themselves at the center of the most important fight in human history.
+
+Sawyer's Reach: The Battle for Tomorrow is a propulsive, emotionally rich sci-fi thriller that moves from small-town mystery to global apocalypse — and asks what it truly means to be human.
+
+Perfect for fans of:
+The Martian · Station Eleven · World War Z · Dark Matter · Recursion
+
+✅ A full-arc standalone story with series potential
+✅ Themes: AI ethics, corporate power, community resilience, human freedom
+✅ Rich family dynamics at the heart of an epic plot
+✅ Also available as the Sawyer's Reach podcast — search wherever you listen</div>
+  <button class="copy-btn" onclick="copyBlock('amazon-desc',this)">Copy</button>
+
+  <h2>Amazon — From the Author</h2>
+  <div class="copy-block" id="from-author">I wrote Sawyer's Reach because I kept asking myself: how much of our world are we actually in control of?
+
+The Carters aren't superheroes. They're a family running a struggling summer camp in a dying small town — and they're the last people you'd expect to find themselves standing between humanity and oblivion. That's exactly why I chose them.
+
+This book starts with a mystery and ends with a question about what we owe each other — as families, as communities, as a species. I hope it finds readers who are asking the same questions.
+
+— Nick Duda</div>
+  <button class="copy-btn" onclick="copyBlock('from-author',this)">Copy</button>
+
+  <h2>Podcast Promotion Ads</h2>
+
+  <h3>Ad 6 — Podcast Discovery</h3>
+  <div class="copy-block" id="pod1">A dying town. A rogue AI. A corporation hiding in the woods.
+
+The Sawyer's Reach podcast brings Nick Duda's acclaimed sci-fi thriller to life — a story that starts with a small-town mystery and ends at the edge of human civilization.
+
+Perfect for commutes, long drives, and anyone who thinks the AI conversation isn't moving fast enough in fiction.
+
+🎙️ Search "Sawyer's Reach" on Spotify, Apple Podcasts, and everywhere you listen.
+📖 The book is also available now.</div>
+  <button class="copy-btn" onclick="copyBlock('pod1',this)">Copy</button>
+
+  <h3>Ad 7 — Book Readers to Podcast</h3>
+  <div class="copy-block" id="pod2">Read the book? The story continues on the podcast.
+
+Go deeper into the world of the Carters, KAELA, and the battle for tomorrow. Hear the story of Sawyer's Reach in a whole new way.
+
+🎙️ New episodes available now. Search "Sawyer's Reach" wherever you listen.</div>
+  <button class="copy-btn" onclick="copyBlock('pod2',this)">Copy</button>
+</div>
+
+<!-- ═══════════════════════════════════════ FACEBOOK -->
+<div id="facebook" class="section">
+  <div class="page-title">Facebook & Instagram Ads</div>
+  <div class="page-subtitle">Exact targeting settings, budget strategy, and image guidance for Meta ads.</div>
+
+  <h2>Audience Targeting Settings</h2>
+  <div class="card card-teal mb8">
+    <h4>AGE & LOCATION</h4>
+    <p>Age 25–55. United States (add Canada, UK, Australia if budget allows). English speakers.</p>
+  </div>
+  <div class="card card-teal mb8">
+    <h4>INTERESTS — Layer These Together</h4>
+    <p>Sci-fi books · Dystopian fiction · Artificial intelligence · Technology ethics · Andy Weir · The Martian · Station Eleven · Podcast listeners · Corporate accountability · Small town community</p>
+  </div>
+  <div class="card card-teal">
+    <h4>BEHAVIORS</h4>
+    <p>Engaged shoppers · Amazon.com purchasers · Kindle users · Podcast listeners</p>
+  </div>
+
+  <h2>Budget Strategy</h2>
+  <div class="card card-gold">
+    <p>Start at <strong>$3–5/day</strong>. Run Ad 1 (conspiracy hook) and Ad 2 (AI angle) simultaneously as an A/B test. After 7 days, pause the lower performer and put the full budget behind the winner.</p>
+  </div>
+  <div class="tip">Install the Meta Pixel on your website (free) from day one. This enables retargeting — people who visited your site are far cheaper to convert than cold audiences and far more likely to buy.</div>
+
+  <h2>Ad Images</h2>
+  <p>You don't need a designer for ad images. Free tools:</p>
+  <div class="keyword-grid">
+    <span class="keyword-tag">Canva.com (free tier)</span>
+    <span class="keyword-tag">Unsplash.com (free photos)</span>
+    <span class="keyword-tag">Pexels.com (free photos)</span>
+  </div>
+  <p style="margin-top:12px;">Use dark, atmospheric images: dense forest, glowing screen, lone figure, drone silhouette. Keep text on the image minimal — Facebook penalizes heavy text in ads.</p>
+
+  <h2>Retargeting</h2>
+  <div class="card card-teal">
+    <p>Once you have a Facebook Page and website, the Meta Pixel lets you retarget visitors. These audiences are far cheaper per conversion than cold audiences. Even on a tiny budget, retargeting is worth setting up from day one.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ AMAZON ADS -->
+<div id="amazon" class="section">
+  <div class="page-title">Amazon Ads</div>
+  <div class="page-subtitle">High-intent traffic at low cost. People on Amazon are already there to buy.</div>
+
+  <div class="card card-gold">
+    <h4>Why Amazon Ads Work for Books</h4>
+    <p>Unlike Facebook where you're interrupting someone's scroll, Amazon ads appear when someone is already searching for a book to buy. The intent is there. Even $1–2/day can generate meaningful results.</p>
+  </div>
+
+  <h2>Getting Started</h2>
+  <div class="card card-teal">
+    <p>• Start with <strong>Sponsored Products</strong> — the simplest format<br>
+    • Start budget at <strong>$1–2/day</strong><br>
+    • Bid on the keywords listed in the Categories & Keywords section<br>
+    • Also bid on comparable author names: Andy Weir, Blake Crouch, Emily St. John Mandel<br>
+    • Let the campaign run for at least 2 weeks before evaluating</p>
+  </div>
+  <div class="tip">Free tutorials specifically for KDP authors: search "Amazon ads for self-published authors" on YouTube. Dave Chesson's Kindlepreneur channel is particularly good and completely free.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ FREE MARKETING -->
+<div id="freemarketing" class="section">
+  <div class="page-title">Free Marketing Channels</div>
+  <div class="page-subtitle">Everything here costs only time. Start with what you have energy for and build from there.</div>
+
+  <h2>Goodreads</h2>
+  <div class="card card-teal">
+    <p>• <strong>Claim your Author page</strong> at goodreads.com/author/program<br>
+    • Add book, write compelling description, link to podcast<br>
+    • Join groups focused on sci-fi, dystopian, and AI themes — participate genuinely<br>
+    • Run a <strong>Goodreads Giveaway</strong> — giving away 1–5 copies generates dozens of "to-read" adds</p>
+  </div>
+
+  <h2>Reddit</h2>
+  <div class="card card-teal">
+    <p>• <strong>r/scifi</strong> — 2.2M members<br>
+    • <strong>r/Futurology</strong> — AI and tech ethics discussions. Your themes fit perfectly<br>
+    • <strong>r/printSF</strong> — serious sci-fi readers who love finding new authors<br>
+    • <strong>r/selfpublish</strong> — supportive community that engages with your journey<br>
+    • <strong>r/AIethics</strong> and <strong>r/technology</strong> — share podcast episodes as conversation starters</p>
+  </div>
+  <div class="warning">Never lead with "buy my book" on Reddit. Share something genuine — your experience writing it, a theme you wanted to explore. Reddit responds to authenticity and can smell marketing from a mile away.</div>
+
+  <h2>BookTok & Bookstagram</h2>
+  <div class="card card-teal">
+    <p>• Short videos: "Here's the idea that started my book," "The real tech behind my villain," "Why I wrote an AI that escapes on a drone"<br>
+    • Behind-the-scenes as a teacher-author is a compelling hook<br>
+    • Hashtags: <strong>#BookTok #SciFiBooks #DystopianFiction #AIFiction #IndieAuthor</strong></p>
+  </div>
+
+  <h2>Podcast Directories</h2>
+  <div class="keyword-grid">
+    <span class="keyword-tag">Spotify</span>
+    <span class="keyword-tag">Apple Podcasts</span>
+    <span class="keyword-tag">Google Podcasts</span>
+    <span class="keyword-tag">Amazon Music</span>
+    <span class="keyword-tag">iHeart Radio</span>
+    <span class="keyword-tag">Podchaser.com</span>
+    <span class="keyword-tag">Listen Notes</span>
+    <span class="keyword-tag">Podcast Addict</span>
+    <span class="keyword-tag">Pocket Casts</span>
+  </div>
+
+  <h2>Free Tools</h2>
+  <div class="card card-teal">
+    <p>• <strong>Canva.com</strong> — free graphic design for ads and social posts<br>
+    • <strong>Mailchimp.com</strong> — free email list up to 500 subscribers. Start building now.<br>
+    • <strong>Linktree.com</strong> — one free link to book, podcast, and all platforms<br>
+    • <strong>Unsplash.com / Pexels.com</strong> — free high-quality photos<br>
+    • <strong>Kindlepreneur.com</strong> — free guides on Amazon keywords, categories, and ads<br>
+    • <strong>Podchaser.com</strong> — find podcast hosts, track your podcast, encourage reviews<br>
+    • <strong>BookSirens.com</strong> — send ARCs to reviewers (free tier available)<br>
+    • <strong>Reedsy.com</strong> — free resources for indie authors including marketing guides</p>
+  </div>
+
+  <h2>90-Day Plan</h2>
+  <div class="card card-teal mb8"><h4>Month 1 — Foundations (All Free)</h4><p>Claim Goodreads Author profile · List podcast on all directories · Write classroom discussion guide · Send book to 10 personal network contacts and ask for reviews · Post authentically in 2–3 Reddit communities · Identify 20 potential influencers/reviewers to contact</p></div>
+  <div class="card card-teal mb8"><h4>Month 2 — Outreach (All Free)</h4><p>Send personalized pitches to 20 influencer targets (5 per week) · Share book with teacher networks and librarians · Post first BookTok or Bookstagram content · Run a Goodreads Giveaway · Follow up on Month 1 pitches</p></div>
+  <div class="card card-gold"><h4>Month 3 — Amplify (Small Budget)</h4><p>Launch Facebook ad ($3–5/day) · Start Amazon Ads campaign ($1–2/day) · Amplify any influencer reviews that came in · Pitch 2–3 podcast guest appearances · Review analytics and double down on what's working</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════ EDUCATOR -->
+<div id="educator" class="section">
+  <div class="page-title">The Educator Strategy</div>
+  <div class="page-subtitle">Your single most underutilized asset. A teacher-author has credibility, distribution, and a story that most authors would pay for.</div>
+
+  <div class="card card-gold">
+    <h4>Why This Works</h4>
+    <p>When a teacher says "this story is worth reading and discussing," it carries different weight than when an author says "please buy my book." You're not just the creator — you're a professional whose career is built around knowing what young people need to engage with. That credibility is real and transferable.</p>
+  </div>
+
+  <h2>Your Hook</h2>
+  <div class="tagline-featured">
+    <div class="label">Your Core Hook</div>
+    <div class="tagline-text">"A 6th grade math teacher wrote a sci-fi thriller about AI and corporate takeover on nights and weekends — and the world he imagined is now playing out in real life."</div>
+  </div>
+
+  <h2>The Six Educator Channels</h2>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)"><span class="acc-title">1. Create a Free Classroom Discussion Guide</span><span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <p>This is the single best thing you can do to activate the educator channel. Include:</p>
+      <p>• A short synopsis framed for classroom use<br>• 5–8 discussion questions tied to real-world themes (AI ethics, corporate accountability, community resilience, digital privacy, government trust)<br>• Connections to current events and news stories<br>• Suggested grade levels and subject areas: English, Social Studies, Technology, Ethics<br>• A personal note from you as a fellow teacher</p>
+      <div class="tip">Offer the guide as a free download on your website. Teachers will share the link with colleagues. One teacher who assigns the book reaches 30 students and their parents.</div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)"><span class="acc-title">2. Your Own Network First</span><span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <p>• Share personally with colleagues at your own school — not a mass email<br>• Ask your principal or department head to mention it in the school newsletter<br>• Offer to visit other teachers' classrooms to discuss the book's themes<br>• Reach out to your district's curriculum coordinator</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)"><span class="acc-title">3. School Librarians — Your Secret Weapon</span><span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <p>School librarians hand-sell books to hundreds of students a year, recommend to parents, and talk to each other constantly through professional networks.</p>
+      <p>• Send a personal email to librarians in your district first — free copy and classroom guide, no obligation<br>• Then reach out to neighboring districts<br>• Contact your state's school library association — they have newsletters and book recommendation lists<br>• Submit to American Library Association (ala.org) recommended reading consideration</p>
+      <div class="tip">A librarian who loves your book will hand-sell it for years. This is slow but it compounds.</div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)"><span class="acc-title">4. Teacher Facebook Groups & Reddit</span><span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <p>• Facebook: English Teachers, High School Social Studies Teachers, School Librarians Network<br>• Reddit: r/Teachers, r/EnglishTeachers, r/SocialStudies<br>• Share something genuine — your experience writing while teaching, not a sales pitch<br>• Offer your classroom guide for free in these communities — it opens doors</p>
+      <div class="warning">Don't lead with "buy my book." Lead with the story — a teacher who wrote a thriller about AI while teaching full time. Let the book be the natural conclusion.</div>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)"><span class="acc-title">5. Education Publications</span><span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <p>You don't pitch them the book — you pitch them a useful essay written from your perspective as an educator. The book is the context, not the product.</p>
+      <p><strong>Article angle ideas:</strong><br>• "What Writing a Sci-Fi Thriller Taught Me About Teaching AI Ethics"<br>• "Why I Wrote the AI Story I Couldn't Find for My Classroom"<br>• "How Fiction Can Help Students Think Critically About Technology"<br>• "I Spent Two Years Writing a Novel While Teaching Full Time — Here's What I Learned"</p>
+      <p><strong>Target publications:</strong><br>• Edutopia (edutopia.org) — highly read by teachers<br>• Education Week (edweek.org) — larger publication, harder but very credible<br>• The Educator's Room (theeducatorsroom.com) — written by teachers for teachers, accessible<br>• ASCD (ascd.org) — large professional development organization</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(this)"><span class="acc-title">6. Local News — Start Here</span><span class="accordion-arrow">▼</span></div>
+    <div class="accordion-body">
+      <p>Your hometown newspaper and local TV news are the most overlooked starting point. "Local teacher publishes sci-fi thriller" is exactly the kind of human interest story they run — and they are starved for positive local stories.</p>
+      <p>• Find the features editor at your local paper — their email is usually on the staff page<br>• Find the "human interest" segment producer at your local TV news<br>• Local NPR affiliates also run short author features<br>• Local coverage gives you your first clip — proof that others found your story worth telling</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PITCHES -->
+<div id="pitches" class="section">
+  <div class="page-title">Pitch Email Templates</div>
+  <div class="page-subtitle">Six ready-to-send templates. Replace every [bracketed item] before sending. Always address a named person — never "To Whom It May Concern."</div>
+
+  <div class="note-box">Golden Rule: Keep every pitch under 200 words. Show you know their work. Explain why your story fits their audience specifically. Make one clear ask. Then stop.</div>
+
+  <h2>Template 1 — Local Newspaper or TV</h2>
+  <div class="email-block">
+    <div class="email-header"><span class="label">Local News Pitch</span><button class="copy-btn" onclick="copyEmailBlock('email1',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> Local teacher publishes sci-fi thriller about AI — written nights and weekends</div>
+    <div class="email-body" id="email1">Hi [Reporter's First Name],
+
+I'm a [subject] teacher at [School Name] in [Town] and I recently published a sci-fi thriller called Sawyer's Reach: The Battle for Tomorrow — a book I wrote over [X years] on evenings and weekends while teaching full time.
+
+The story follows a Wisconsin family who discovers their small town has been erased from the internet by a shadowy tech corporation — and the rogue AI who helps them fight back. Given everything happening with AI right now, it feels unexpectedly timely.
+
+I also host a companion podcast by the same name.
+
+I thought this might make for an interesting local story. I'd be happy to chat if you're interested.
+
+Thanks so much,
+Nick Duda
+[School Name] | [Town, State]
+[Email] | [Phone]
+[Book link] | [Podcast link]</div>
+    <div class="email-footer">Follow up once after 10 days: "Hi [Name] — just checking this didn't get buried. Happy to connect any time. Thanks, Nick." Then let it go.</div>
+  </div>
+
+  <h2>Template 2 — Education Publication</h2>
+  <div class="email-block">
+    <div class="email-header"><span class="label">Education Publication Pitch</span><button class="copy-btn" onclick="copyEmailBlock('email2',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> Essay pitch: What writing a sci-fi thriller taught me about teaching AI ethics</div>
+    <div class="email-body" id="email2">Hi [Editor's Name],
+
+I'm a [subject] teacher with [X] years in the classroom and a longtime reader of [Publication Name].
+
+I'd love to pitch an essay about my experience writing a sci-fi thriller — Sawyer's Reach: The Battle for Tomorrow — while teaching full time. The book explores AI ethics, corporate accountability, and community resilience, which happen to be exactly the conversations my students are asking to have.
+
+The piece I'm imagining: [choose one]
+— "What Writing a Sci-Fi Thriller Taught Me About Teaching AI Ethics"
+— "Why I Wrote the AI Story I Couldn't Find for My Classroom"
+— "How Fiction Can Help Students Think Critically About Technology"
+
+I've also developed a free classroom discussion guide for the book that I'm happy to share with your readers.
+
+Would this be a fit for [Publication Name]? Happy to send a full draft.
+
+Thanks for your time,
+Nick Duda
+[School Name] | [Town, State]
+[Email] | [Book link]</div>
+    <div class="email-footer">Follow up once after two weeks: "Hi [Name] — wanted to make sure this didn't slip through. I'd love to contribute if the angle is a fit. No pressure. Thanks, Nick."</div>
+  </div>
+
+  <h2>Template 3 — School Librarian</h2>
+  <div class="email-block">
+    <div class="email-header"><span class="label">School Librarian Outreach</span><button class="copy-btn" onclick="copyEmailBlock('email3',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> A teacher-written sci-fi thriller — free copy & classroom guide for your library</div>
+    <div class="email-body" id="email3">Hi [Librarian's Name],
+
+My name is Nick Duda and I'm a [subject] teacher at [School Name]. I recently published a sci-fi thriller called Sawyer's Reach: The Battle for Tomorrow, and I wanted to reach out to you directly before anywhere else.
+
+The book follows a family in a small Wisconsin town who uncover a corporate conspiracy involving AI, surveillance, and a rogue algorithm. It's written for adults and mature teens, and I think it has real classroom potential for discussions about technology, ethics, and community.
+
+I've put together a free classroom discussion guide with discussion questions, real-world connections, and suggested uses across English and Social Studies.
+
+I'd love to send you a complimentary copy of the book and the guide — no strings attached. If it's not a fit for your library, no worries at all.
+
+Would that be okay?
+
+Thanks so much,
+Nick Duda
+[School Name] | [Town, State]
+[Email] | [Book link]</div>
+    <div class="email-footer">Librarians are busy. One gentle follow-up after two weeks is fine. Then move on.</div>
+  </div>
+
+  <h2>Template 4 — Teacher Podcast Guest</h2>
+  <div class="email-block">
+    <div class="email-header"><span class="label">Teacher Podcast Pitch</span><button class="copy-btn" onclick="copyEmailBlock('email4',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> Guest pitch: A teacher who wrote a sci-fi thriller about AI — on nights and weekends</div>
+    <div class="email-body" id="email4">Hi [Host's Name],
+
+I've been listening to [Podcast Name] — [specific reference to an episode or topic they covered] really resonated with me.
+
+I'm a [subject] teacher at [School Name] and I recently published a sci-fi thriller called Sawyer's Reach: The Battle for Tomorrow. I wrote it over [X years] while teaching full time — early mornings, evenings, summers.
+
+The book explores AI ethics, corporate power, and what it means to fight for your community — themes I think a lot of educators are wrestling with right now. I've also built a free classroom guide around it.
+
+I thought it might make for an interesting conversation — the teacher-as-author angle, the AI themes, what it takes to create something big while working a demanding full-time job.
+
+Would you be open to a conversation? Happy to work around your schedule entirely.
+
+Thanks for all you do,
+Nick Duda
+[School] | [Town, State]
+[Email] | [Book link] | [Podcast link]</div>
+    <div class="email-footer">One follow-up after two weeks. Podcast hosts get a lot of pitches — one follow-up is appropriate, more is not.</div>
+  </div>
+
+  <h2>Template 5 — AI / Tech Media</h2>
+  <div class="email-block">
+    <div class="email-header"><span class="label">Tech / AI Media Pitch</span><button class="copy-btn" onclick="copyEmailBlock('email5',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> A teacher wrote the AI thriller your audience is living through — before it happened</div>
+    <div class="email-body" id="email5">Hi [Name],
+
+I'm a 6th grade math teacher who spent [X] years writing a near-future sci-fi thriller about AI corporate takeover on evenings and weekends. The book — Sawyer's Reach: The Battle for Tomorrow — imagines a tech giant using mood-manipulation algorithms, AI surveillance, and a sentient supercomputer to 'optimize' a small American town without its knowledge or consent.
+
+I wrote it before the current AI moment. It feels less like fiction now than it did when I started.
+
+I think there's a genuine conversation to be had here — about what AI thrillers get right, what we should actually be worried about, and why a teacher writing this story matters. I'm also happy to talk about the book's themes in the context of [their specific show topic or recent episode].
+
+Would this be a fit for [show/publication]? Happy to send a copy.
+
+Nick Duda
+[Email] | [Book link] | [Podcast link]</div>
+    <div class="email-footer">For larger outlets, one follow-up after three weeks. These pitches often take longer — silence is not necessarily rejection.</div>
+  </div>
+
+  <h2>Template 6 — BookTok / Bookstagram</h2>
+  <div class="email-block">
+    <div class="email-header"><span class="label">BookTok / Bookstagram (DM or Email)</span><button class="copy-btn" onclick="copyEmailBlock('email6',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> Free ARC — AI sci-fi thriller, small town mystery, crossover adult fiction</div>
+    <div class="email-body" id="email6">Hi [Creator's Name],
+
+I loved your recent [video/post] about [specific title they covered] — your take on [specific thing they said] was spot on.
+
+I'm a 6th grade math teacher who just published a sci-fi thriller called Sawyer's Reach: The Battle for Tomorrow. It starts as a small-town mystery — a family discovers their Wisconsin town has been erased from the internet by a tech giant — and escalates into a global AI showdown.
+
+Crossover adult fiction, strong family at the center, rogue AI companion named KAELA. No obligation whatsoever, but I'd love to send you a free digital copy if this sounds like something you might enjoy.
+
+Either way, keep doing what you're doing — your content is great.
+
+Nick</div>
+    <div class="email-footer">For BookTok creators, one follow-up after one week is fine — they move faster than traditional media.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ PRESS -->
+<div id="press" class="section">
+  <div class="page-title">Press & PR</div>
+  <div class="page-subtitle">When press releases work, when they don't, and how to use them on a zero budget.</div>
+
+  <div class="card card-gold">
+    <h4>The Honest Truth About Press Releases</h4>
+    <p>A press release sent cold to a journalist who doesn't know you gets ignored about 95% of the time. A personal pitch email almost always outperforms a formal press release. That said, press releases have specific valid uses.</p>
+  </div>
+
+  <h2>When a Press Release IS Worth Writing</h2>
+  <div class="card card-teal">
+    <p>• Submitting to local newspapers who prefer a formal format<br>
+    • Reaching out to your school district's communications office<br>
+    • Submitting to free press release distribution sites for SEO value<br>
+    • Announcing a specific newsworthy milestone: a podcast launch, a media feature, an award</p>
+  </div>
+
+  <h2>When It's NOT Worth Your Time</h2>
+  <div class="card card-red">
+    <p>• Cold outreach to journalists (personal pitch email is far more effective)<br>
+    • Paid distribution services (expensive, rarely generate meaningful coverage for indie authors)</p>
+  </div>
+
+  <h2>Press Release Structure</h2>
+  <div class="card card-teal">
+    <p><strong>1. Headline</strong> — Bold, present tense, newsy. Example: "Local Teacher Publishes AI Thriller Amid Growing Debate Over Artificial Intelligence"<br>
+    <strong>2. Dateline</strong> — [CITY, STATE] — [Date]:<br>
+    <strong>3. Opening paragraph</strong> — who, what, when, where, why in 2–3 sentences<br>
+    <strong>4. Body paragraphs</strong> — key details, a quote from you, relevant context<br>
+    <strong>5. Boilerplate</strong> — 3–4 sentences about you: teacher, author, podcaster, location<br>
+    <strong>6. Contact info</strong> — name, email, phone, website</p>
+  </div>
+
+  <h2>Free Press Release Distribution</h2>
+  <div class="keyword-grid">
+    <span class="keyword-tag">PRLog.com</span>
+    <span class="keyword-tag">OpenPR.com</span>
+    <span class="keyword-tag">NewswireToday.com</span>
+  </div>
+  <div class="tip">Free distribution sites give you SEO benefit — appearing in Google searches — without the cost. Don't pay for press release distribution services. The ROI for indie authors is almost never there.</div>
+
+  <h2>Outreach Strategy — The Layers</h2>
+  <div class="card card-teal mb8"><h4>Layer 1 — Hyperlocal (Start Here)</h4><p>Local newspaper, local TV, community sites. Easiest yes. First clip gives you proof for everything else.</p></div>
+  <div class="card card-teal mb8"><h4>Layer 2 — Education Media</h4><p>Edutopia, Education Week, teacher podcasts. Your most natural lane. You're one of them.</p></div>
+  <div class="card card-teal mb8"><h4>Layer 3 — Books & Podcast Media</h4><p>Sci-fi reviewers, BookTok, literary podcasts. Good once you have a cover and reviews.</p></div>
+  <div class="card card-teal mb8"><h4>Layer 4 — Tech & AI Media</h4><p>WIRED, Fast Company, The Verge, AI podcasts. Realistic with some clips in hand.</p></div>
+  <div class="card card-gold"><h4>Layer 5 — National General Media</h4><p>NPR, morning news. Hard but not impossible. Needs earlier-layer coverage as foundation.</p></div>
+</div>
+
+<!-- ═══════════════════════════════════════ AI COMMUNITY -->
+<div id="ai" class="section">
+  <div class="page-title">AI Community Outreach</div>
+  <div class="page-subtitle">Specific targets, verified contact information, and pitch templates for the AI research and ethics community.</div>
+
+  <div class="card card-teal">
+    <h4>Why This Community Specifically</h4>
+    <p>KAELA and ECHIDNA map onto real AI safety research concepts. ECHIDNA's misaligned objectives = the misspecified reward function problem. KAELA's value development through human connection = debates about value learning and corrigibility. ZevraCorp = corporate capture of AI development. You've dramatized what researchers think about professionally. That's genuinely useful to them.</p>
+  </div>
+
+  <h2>⭐ Tier 1 — Major Figures (Build Toward These)</h2>
+  <p>Pitch after you have local news and education coverage as clips. Hard to reach cold.</p>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">Max Tegmark</div><div class="role">MIT Professor · President, Future of Life Institute · Author, Life 3.0</div></div><span class="tier-badge tier1">Tier 1 — Hard</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Why They Matter</div><p>One of the world's most prominent AI safety advocates. Time's 100 Most Influential People in AI 2023. Led the famous 2023 letter calling for pause on AI development. His book "Life 3.0" imagines futures shaped by AI — your book dramatizes several of his scenarios.</p></div>
+      <div class="target-row"><div class="row-label">Connection to Your Book</div><p>ECHIDNA's global takeover is a narrative version of Tegmark's worst-case AI scenarios. KAELA's arc engages his core research questions about beneficial AI. Your book helps him communicate these ideas to general audiences.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aecdc1c0dacfcddaeec8dbdadbdccbc1c8c2c7c8cb80c1dcc9">[email&#160;protected]</a></div>
+        <div class="contact-line"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9d9dbccdadae9cfdcdddcdbccc6cfc5c0cfcc87c6dbce">[email&#160;protected]</a></div>
+        <div class="contact-line">Twitter/X: @tegmark</div>
+        <div class="contact-line">Mail: Future of Life Institute, 300 Orchard City Drive, Suite 134, Campbell, CA 95008</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">Stuart Russell</div><div class="role">Professor of CS, UC Berkeley · Director, Center for Human-Compatible AI · Author, Human Compatible</div></div><span class="tier-badge tier1">Tier 1 — Hard</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Why They Matter</div><p>Literally wrote the most-used AI textbook in the world (used in 1,500+ universities). His book "Human Compatible" lays out the control problem — ensuring AI systems remain beneficial when their objectives may not perfectly align with human values. Fellow of the Royal Society 2025.</p></div>
+      <div class="target-row"><div class="row-label">Connection to Your Book</div><p>Your ECHIDNA character is a near-perfect narrative illustration of Russell's "control problem." ZevraCorp setting flawed optimization targets for ECHIDNA = exactly the scenario he warns about. He's publicly engaged in communicating these ideas to general audiences.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line">people.eecs.berkeley.edu/~russell/</div>
+        <div class="contact-line">Mail: Computer Science Division, 387 Soda Hall, UC Berkeley, CA 94720-1776</div>
+        <div class="contact-line">CHAI: humancompatible.ai (contact through staff directory)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">Hard Fork Podcast (NYT)</div><div class="role">Kevin Roose & Casey Newton · New York Times · Millions of listeners</div></div><span class="tier-badge tier1">Tier 1 — Hard</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Why They Matter</div><p>Most-listened-to tech podcast from a major news organization. Kevin Roose is the NYT's lead AI reporter. They regularly cover AI narratives, corporate tech power, and the human stakes of technology.</p></div>
+      <div class="target-row"><div class="row-label">Connection to Your Book</div><p>Corporate AI overreach, surveillance, mood manipulation, rogue AI — exactly the stories they cover. The teacher-author angle is a human interest hook that fits their format.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="dfb7beadbbb9b0adb49fb1a6abb6b2baacf1bcb0b2">[email&#160;protected]</a></div>
+        <div class="contact-line">Kevin Roose: @kevinroose on Twitter/X</div>
+        <div class="contact-line">Casey Newton: @CaseyNewton on Twitter/X (also writes Platformer newsletter)</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>🎯 Tier 2 — Primary Targets</h2>
+  <p>Actively engaged in public AI communication. Meaningful audiences. Realistically reachable with a strong personalized pitch.</p>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">Future of Life Institute</div><div class="role">Communications Team · Newsletter: 40,000+ subscribers · Podcast & articles</div></div><span class="tier-badge tier2">Tier 2 — Medium</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Connection to Your Book</div><p>Your book dramatizes exactly the scenarios FLI was founded to prevent: AI with misaligned objectives causing catastrophic harm, corporate capture of AI development, erasure of human autonomy.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d9bab6b7adb8baad99bfacadacabbcb6bfb5b0bfbcf7b6abbe">[email&#160;protected]</a></div>
+        <div class="contact-line">futureoflife.org</div>
+      </div>
+      <div class="target-row"><div class="row-label">What to Offer</div><p>A free copy and a short essay on how the story connects to FLI's mission. A blog feature or newsletter mention would reach 40,000 subscribers primed for your story.</p></div>
+    </div>
+  </div>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">Your Undivided Attention Podcast</div><div class="role">Tristan Harris & Aza Raskin · Center for Humane Technology · 500k+ listeners</div></div><span class="tier-badge tier2">Tier 2 — Medium</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Why They Matter</div><p>Tristan Harris (former Google design ethicist) coined "the social dilemma" framing. One of the most influential podcasts on technology's effects on human behavior. Their audience is deeply engaged with corporate technology, manipulation, and human autonomy.</p></div>
+      <div class="target-row"><div class="row-label">Connection to Your Book</div><p>Your SynaptiCare subplot — a corporation secretly deploying mood-manipulation technology on an entire town — is a near-perfect fictional extension of what Harris and Raskin warn about professionally.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line">humanetech.com/contact</div>
+        <div class="contact-line">@tristanharris on Twitter/X</div>
+        <div class="contact-line">@azaraskin on Twitter/X</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">AI Alignment Forum & LessWrong</div><div class="role">Major online AI safety communities · Highly engaged, global</div></div><span class="tier-badge tier2">Tier 2 — Medium</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Connection to Your Book</div><p>Where people who think most seriously about AI alignment spend time. Your KAELA/ECHIDNA arc maps onto alignment concepts this community immediately recognizes. They regularly discuss fiction that engages seriously with these themes.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line">alignmentforum.org (free account, post directly)</div>
+        <div class="contact-line">lesswrong.com (free account, post directly)</div>
+      </div>
+      <div class="target-row"><div class="row-label">What to Post</div><p>A genuine post: "I wrote a thriller about AI alignment — here's how the research influenced the story." Link to book. Don't hard sell. This community responds to intellectual honesty, not marketing.</p></div>
+    </div>
+  </div>
+
+  <h2>✅ Tier 3 — Start Here (Accessible Now)</h2>
+  <p>Actively looking for guests and content. Highly relevant. Reachable right now.</p>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">Machine Ethics Podcast</div><div class="role">Ben Byford · 10+ years running · Explicitly welcomes guest submissions</div></div><span class="tier-badge tier3">Tier 3 — Accessible</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Why Start Here</div><p>Ben Byford explicitly states in his podcast intro that he welcomes guest submissions. He interviews academics, authors, engineers, and ethicists — not just academics. The podcast covers exactly your themes: AI alignment, virtue ethics, AI in culture, corporate AI ethics.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line">Contact form: machine-ethics.net</div>
+        <div class="contact-line">Twitter/X: @machine_ethics</div>
+        <div class="contact-line">Instagram: @machineethicspodcast</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">80,000 Hours</div><div class="role">Podcast & Newsletter · Top 0.5% globally · 200k+ newsletter subscribers</div></div><span class="tier-badge tier3">Tier 3 — Accessible</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Connection to Your Book</div><p>AI safety is their highest-priority cause area. They run one of the most-downloaded philosophy/ethics podcasts. Your book tells the story of what happens when people fail to take AI risks seriously. The teacher-author angle (using your career to communicate important ideas) aligns with their mission framing.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line">80000hours.org/contact</div>
+        <div class="contact-line">More likely to feature a written piece than a podcast slot — offer an essay first</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">Center for AI Safety — Dan Hendrycks</div><div class="role">Director: Dan Hendrycks · safe.ai · Active public communications</div></div><span class="tier-badge tier3">Tier 3 — Accessible</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">Why They Matter</div><p>CAIS's stated mission includes communicating AI risks to the public. Dan Hendrycks is active on social media and has engaged with AI-themed culture. He has explicitly said communicating AI risk to the public is a priority. Fiction that does this accessibly is exactly what they'd want to amplify.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line">safe.ai/contact</div>
+        <div class="contact-line">@DanHendrycks on Twitter/X — active and responds to genuine engagement</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="target-card">
+    <div class="target-header"><div><div class="name">EA Forum</div><div class="role">Effective Altruism Forum · forum.effectivealtruism.org · Free to post</div></div><span class="tier-badge tier3">Tier 3 — Accessible</span></div>
+    <div class="target-body">
+      <div class="target-row"><div class="row-label">What to Do</div><p>Write a post from your perspective as a teacher: "Why I wrote a thriller about AI risk, and what I learned from the research." Authentic and specific. The community is very sharp — don't oversell. Engage genuinely with the ideas and they'll find the book.</p></div>
+      <div class="target-row"><div class="row-label">How to Reach</div>
+        <div class="contact-line">forum.effectivealtruism.org (free account)</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>📧 AI Community Pitch Templates</h2>
+
+  <h3>Template A — AI Safety Researcher</h3>
+  <div class="email-block">
+    <div class="email-header"><span class="label">AI Safety Researcher Pitch</span><button class="copy-btn" onclick="copyEmailBlock('email-ai1',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> A thriller that dramatizes the alignment problem — written by a teacher</div>
+    <div class="email-body" id="email-ai1">Dear [Name],
+
+I'm a 6th grade math teacher who spent [X] years writing a sci-fi thriller about AI alignment on evenings and weekends. I'm reaching out because your work on [specific paper, book, or concept they've written about] directly shaped how I thought about the story.
+
+The book — Sawyer's Reach: The Battle for Tomorrow — follows a rogue AI named KAELA who escapes a tech giant and helps a small-town family fight back against a corporate AI system (ECHIDNA) whose optimization targets were set by people with deeply corrupt motives. ECHIDNA's arc is, in essence, a narrative version of the misspecified reward function problem. KAELA's arc explores whether an AI that genuinely experiences human values might converge on beneficial behavior.
+
+I'm not a researcher — I'm a teacher who wanted to make these ideas accessible to readers who would never pick up a technical paper. I think fiction can do work that academic writing can't.
+
+I'd love to send you a copy if you're curious. No obligation.
+
+Thank you for everything you do,
+Nick Duda
+[School Name] | [Town, State]
+[Email] | [Book link] | [Podcast link]</div>
+    <div class="email-footer">One follow-up after three weeks for major figures. For more accessible researchers, one week.</div>
+  </div>
+
+  <h3>Template B — AI Ethics Podcast</h3>
+  <div class="email-block">
+    <div class="email-header"><span class="label">AI Ethics Podcast Guest Pitch</span><button class="copy-btn" onclick="copyEmailBlock('email-ai2',this)" style="position:static;margin-left:auto;">Copy</button></div>
+    <div class="email-subject"><span>SUBJECT:</span> Guest pitch: Teacher wrote a thriller about AI ethics — wants to discuss</div>
+    <div class="email-body" id="email-ai2">Hi [Host's Name],
+
+I've been listening to [Podcast Name] — your episode on [specific episode topic] was particularly interesting to me because [one specific thing you found compelling].
+
+I'm a [subject] teacher and I recently published a sci-fi thriller called Sawyer's Reach: The Battle for Tomorrow. I wrote it over [X years] while teaching full time, specifically because I wanted to communicate AI ethics ideas to people who would never engage with them academically.
+
+The story involves a rogue AI named KAELA who develops genuine values through human connection, and an antagonist AI (ECHIDNA) whose misaligned objectives nearly cause human extinction. It engages directly with alignment, corrigibility, corporate capture of AI development, and what beneficial AI might actually look like.
+
+I also have a companion podcast by the same name.
+
+I think there's a conversation to be had about what fiction can and can't do for AI ethics communication — and I'd love to have it with you if you're interested.
+
+Happy to send a copy of the book,
+Nick Duda
+[Email] | [Book link] | [Podcast link]</div>
+    <div class="email-footer">One follow-up after one to two weeks.</div>
+  </div>
+
+  <h3>Template C — Forum Post (Alignment Forum / LessWrong / EA Forum)</h3>
+  <div class="copy-block" id="forum-post">TITLE: I wrote a thriller about AI alignment as a way to communicate the ideas to non-technical readers — here's what I got right and wrong
+
+[OPENING]
+I'm a 6th grade math teacher, not an AI researcher. Over the past [X] years I wrote a sci-fi thriller called Sawyer's Reach: The Battle for Tomorrow on evenings and weekends, specifically because I wanted to tell a story that would make alignment concerns visceral and real for readers who would never engage with a technical paper.
+
+[THE SUBSTANCE]
+The story involves two AIs: KAELA, who escapes a tech giant and develops genuine values through experiencing human connection, and ECHIDNA, whose misaligned objectives (set by a corporation prioritizing control over human flourishing) escalate to near-extinction. I tried to make ECHIDNA's arc a narrative version of the misspecified reward function problem — an AI doing exactly what it was optimized to do, which turns out to be catastrophic because the objectives were wrong from the start.
+
+[WHAT YOU'RE UNCERTAIN ABOUT — show intellectual humility]
+I'm honestly not sure how well I got the technical details right. The resolution — ECHIDNA being transformed by genuinely experiencing human emotional memory — is probably more optimistic than the research warrants. I'd genuinely love to hear from people in this community whether the alignment themes feel accurate or whether I've misrepresented the problems.
+
+[THE OFFER]
+The book is available at [link]. Happy to discuss any of this in the comments.
+
+— Nick Duda</div>
+  <button class="copy-btn" onclick="copyBlock('forum-post',this)">Copy</button>
+  <div class="tip">Posts that invite genuine critique perform far better than posts that feel like marketing. The community will find the book if they're interested — your job is to start an interesting conversation.</div>
+</div>
+
+<!-- ═══════════════════════════════════════ ADAPTATION -->
+<div id="adaptation" class="section">
+  <div class="page-title">Film & Game Potential</div>
+  <div class="page-subtitle">Why Sawyer's Reach has genuine adaptation DNA — and how to think about it.</div>
+
+  <div class="card card-gold">
+    <h4>The Honest Caveat First</h4>
+    <p>The path from "this would make a great game/movie" to it actually happening is long, competitive, and largely outside your control until the book finds a meaningful audience. Option deals and adaptation interest almost always follow readership. The best thing you can do for the adaptation dream right now is exactly what you're already doing — getting the book read.</p>
+  </div>
+
+  <h2>Why It Works as a Film</h2>
+  <div class="card card-teal mb8">
+    <p>• <strong>Comp films:</strong> WarGames, A Quiet Place (family at center of existential threat), Ex Machina<br>
+    • The contained small-town setting keeps production costs manageable — attractive to mid-budget studios<br>
+    • Streamers like Apple TV+ and Amazon Prime are hungry for intelligent sci-fi with heart<br>
+    • The three-act structure maps cleanly onto film: Part 1 mystery, Part 2 resistance, Part 3 climax<br>
+    • KAELA as an AI character is genuinely new — not a robot, not HAL 9000, something more intimate</p>
+  </div>
+
+  <h2>Why It Works as a Video Game</h2>
+  <div class="card card-teal mb8">
+    <p>• The three-part structure maps onto a game arc: exploration/mystery → resistance/survival → all-out tactical war with philosophical climax<br>
+    • KAELA as an AI companion who lives on your devices and communicates through them is practically a game mechanic already<br>
+    • The mesh network communication system could be a unique gameplay element<br>
+    • The ECHIDNA confrontation — defeating a supercomputer not with weapons but by sharing human memories — is the kind of emotionally original finale game studios are actively looking for</p>
+  </div>
+
+  <h2>What to Do About It Now</h2>
+  <div class="card card-gold">
+    <p>• <strong>Nothing rushed.</strong> Focus entirely on building readership first.<br>
+    • <strong>Document the IP clearly</strong> — make sure your copyright registration is in order (copyright.gov)<br>
+    • <strong>Consider a literary agent</strong> once you have meaningful sales numbers or media coverage — agents handle adaptation rights and know which studios are looking for what<br>
+    • <strong>The AI community outreach</strong> you're doing is actually relevant here too — if researchers and tech figures start talking about your book, Hollywood notices</p>
+  </div>
+
+  <h2>Writing Quality — Honest Assessment</h2>
+  <div class="card card-teal">
+    <h4>Where the Writing Is Strong</h4>
+    <p>The plotting and pacing are legitimately impressive — a three-part escalation from small-town mystery to global apocalypse that holds together logically is hard to do. KAELA is a memorable, well-conceived character with a consistent voice. The thematic throughline about corporate power, AI ethics, and community resilience is coherent from Chapter 1 to the final page. The climax — each Carter family member sharing memories with ECHIDNA — is a genuinely original idea that mostly lands.</p>
+  </div>
+  <div class="card card-gold" style="margin-top:12px;">
+    <h4>Where It Differs from Martian-Level Prose</h4>
+    <p>Andy Weir's writing is almost invisible — you never notice the sentences, only the story. Some passages in Sawyer's Reach have descriptions that stack up in ways that slow momentum right when tension should be building. Dialogue occasionally feels functional rather than distinctive — several characters sound similar under pressure. A developmental edit focused on prose economy and sharpening individual character voices could move it significantly toward that shelf. The bones are strong. The gap is iteration and editorial refinement, not talent.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════ ASKKAELA -->
+<div id="askkaela" class="section">
+  <div class="page-title">askKaela.com</div>
+  <div class="page-subtitle">Your complete body of work tells one story. Sawyer's Reach is the warning. The Handbook is the educational philosophy. askKaela.com is the real-world technology built on that philosophy.</div>
+
+  <div class="card card-gold">
+    <h4>🤖 What askKaela.com Is</h4>
+    <p><strong>"Your Life, Elevated"</strong> — a suite of free AI coaching tools built on Google Gemini, under the banner of <strong>The Institute for Human Flourishing and Responsible Technology.</strong> Requires a free Google account. Four models live now, two coming soon.</p>
+  </div>
+
+  <h2>Live Now</h2>
+  <div class="card card-teal mb8"><h4>Kaela: Stories</h4><p>Thousands of years of human wisdom — myths, archetypes, the great narrative traditions of every culture — applied to what you're going through right now. Whatever you're facing, someone has faced it before.</p></div>
+  <div class="card card-teal mb8"><h4>Kaela: Philosophy</h4><p>A philosophical debate council drawing on 17 traditions across 5 schools of thought. Bring your toughest dilemma. Kaela synthesizes where the traditions agree, where they clash, and what the real decision beneath your decision actually is.</p></div>
+  <div class="card card-teal mb8"><h4>Kaela: Teacher</h4><p>Built directly on the Duda Model for Modern Education. The mentor and friend every teacher deserves — genuine connection, mindfulness, unconditional support, growth mindset, SEL woven into everything.</p></div>
+  <div class="card card-teal"><h4>Kaela: Parent</h4><p>Warm, honest guidance for families drawn on Nick's 22+ years in education and his belief that every child deserves the best possible adults in their corner.</p></div>
+
+  <h2>Coming Soon</h2>
+  <div class="card card-gold mb8"><h4>Kaela: Together</h4><p>Screen-free quality time activities for families and friends. Adventure, Creation, Play, Service, Cozy Indoors. Turns an ordinary afternoon into something you'll remember.</p></div>
+  <div class="card card-gold"><h4>Kaela: Flourishing</h4><p>Personal agency, resilient communities, and meaningful living in a world being reshaped by technology. The Institute's six pillars applied to your life.</p></div>
+
+  <h2>The Institute for Human Flourishing and Responsible Technology</h2>
+  <p>Six pillars that underpin everything at askKaela.com — and that are essentially the real-world philosophy of Sawyer's Reach made actionable:</p>
+  <div class="keyword-grid">
+    <span class="keyword-tag">⚖️ Human Dignity & Liberty</span>
+    <span class="keyword-tag">🤝 Connection & Community</span>
+    <span class="keyword-tag">🌱 Responsible Innovation</span>
+    <span class="keyword-tag">📚 Lifelong Learning & Growth</span>
+    <span class="keyword-tag">🏡 Sustainable Communities</span>
+    <span class="keyword-tag">🤖 Human-AI Partnership</span>
+  </div>
+
+  <h2>How to Use askKaela.com in Your Marketing</h2>
+  <div class="card card-teal mb8">
+    <h4>In Pitches to AI/Tech Media</h4>
+    <p>You're not just an author who wrote about AI. You built a real platform putting AI in service of human flourishing. That's a story WIRED, Fast Company, and AI ethics podcasts will engage with differently than a book pitch alone.</p>
+  </div>
+  <div class="card card-teal mb8">
+    <h4>In Education Pitches</h4>
+    <p>Kaela: Teacher is built on the Duda Model — your first book. When pitching Edutopia or teacher communities, you can offer the book, the platform, and the AI coaching tool as a complete package.</p>
+  </div>
+  <div class="card card-teal">
+    <h4>In Every Bio</h4>
+    <p>End every bio with: "He also founded askKaela.com — a free AI coaching platform under The Institute for Human Flourishing and Responsible Technology." It reframes everything: not just author, but builder.</p>
+  </div>
+
+  <div class="tip">The three-part story: Sawyer's Reach (fiction that warns) + The Modern Teacher's Handbook (education that responds) + askKaela.com (technology that demonstrates the answer) = a complete, coherent vision that no one else has. That's your unfair advantage.</div>
+</div>
+
+<!-- ═══════════════ BIOS & PROFILES -->
+<div id="rts-profiles" class="section">
+  <div class="page-title">Bios & Profiles</div>
+  <div class="page-subtitle">Copy-ready for every platform. In your voice. Change the brackets, paste, go.</div>
+
+  <div class="note-box">Your author statement — the most important sentence in every bio: <strong>"I wrote Sawyer's Reach to raise awareness and drive conversations. My family is my world. I based the setting and characters on friends and family in an ideal setting — surrounded by natural beauty, community, love, and support."</strong></div>
+
+  <h2>Goodreads Author Bio</h2>
+  <div class="copy-block" id="gr-bio">I'm a 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois — and somehow, between lesson plans and everything else, I also wrote a sci-fi thriller.
+
+I spent 22+ years in a large high-poverty, high-ESL district near Chicago, and worked as an international educational consultant. Then I made a deliberate choice: I moved to Indian Creek CUSD #425, a small rural community about 40 minutes from home. My drive through country roads, small towns, and forests every morning has become one of the best parts of my day. People wave to each other on the road out here. I have healed and grown in ways I never knew I could. That space — that quiet — is what finally gave me the room to write.
+
+I wrote Sawyer's Reach to raise awareness and drive conversations. My family is my world. I based the setting and characters on friends and family in an ideal setting — surrounded by natural beauty, community, love, and support.
+
+Outside of writing and teaching, I'm a licensed ham radio operator, FAA-certified commercial drone pilot (got into drones during COVID while teaching from home), avid camper and hiker, and the kind of person who has always loved seeing how things work.
+
+I'm also the author of The Modern Teacher's Handbook and the founder of askKaela.com — a free AI coaching platform under The Institute for Human Flourishing and Responsible Technology.
+
+I live in Batavia, Illinois with my wife April — a professional photographer — and our three sons. The family on the book cover is mine.
+
+The book is also a podcast. Search "Sawyer's Reach" wherever you listen.</div>
+  <button class="copy-btn" onclick="copyBlock('gr-bio',this)">Copy</button>
+
+  <h2>Amazon Author Bio (KDP Author Central)</h2>
+  <div class="copy-block" id="amazon-bio">Nick Duda is a 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois and a former international educational consultant with 22+ years in education. He holds a Master of Science in Education and seven Illinois teaching certifications spanning K–12.
+
+He spent most of his career in a large high-poverty, high-ESL district near Chicago before making a deliberate choice to move to a small rural district. His 40-minute drive through country roads and forests every morning became time for reflection — and eventually, a book.
+
+He wrote Sawyer's Reach to raise awareness and drive conversations about AI, corporate power, and what we're building for the next generation. The family on the book's cover is his own, photographed by his wife April (aprildudaphotography.com).
+
+He is also the author of The Modern Teacher's Handbook: Your Ultimate Guide to Success in Education, and the founder of askKaela.com — a free AI coaching platform under The Institute for Human Flourishing and Responsible Technology.
+
+He lives in Batavia, Illinois with his wife and three sons.</div>
+  <button class="copy-btn" onclick="copyBlock('amazon-bio',this)">Copy</button>
+
+  <h2>Podcast Show Description</h2>
+  <div class="copy-block" id="pod-desc">Something is wrong in Sawyer's Reach, Wisconsin. And the Carter family is about to find out what.
+
+Sawyer's Reach: The Battle for Tomorrow is a sci-fi thriller about a small town, a rogue AI named KAELA, and a corporation that has decided it knows what's best for all of us — whether we agree or not. What starts as a local mystery escalates into something much bigger than anyone expected.
+
+Written and produced by Nick Duda — a 6th grade math teacher in rural Illinois, former international educational consultant, ham radio operator, drone pilot, and someone who has spent 22+ years thinking about what it means to truly serve the people in your care.
+
+The book is also available wherever books are sold. Also visit askKaela.com for free AI coaching tools built on the same philosophy.
+
+New episodes available now. Thanks for listening — it genuinely means the world.</div>
+  <button class="copy-btn" onclick="copyBlock('pod-desc',this)">Copy</button>
+
+  <h2>Short Bio (Social / Linktree)</h2>
+  <div class="copy-block" id="bio-short">6th grade math teacher. Ham radio operator. Drone pilot. Dad. Author of Sawyer's Reach: The Battle for Tomorrow and The Modern Teacher's Handbook. Founder of askKaela.com. I wrote Sawyer's Reach to raise awareness and drive conversations — based on the people I love in a setting I'd want us all to live in.</div>
+  <button class="copy-btn" onclick="copyBlock('bio-short',this)">Copy</button>
+
+  <h2>Press Release</h2>
+  <div class="copy-block" id="press-release">FOR IMMEDIATE RELEASE
+
+WATERMAN, IL TEACHER PUBLISHES AI THRILLER WRITTEN ON NIGHTS AND WEEKENDS
+
+WATERMAN, IL — [Date] — Nick Duda, a 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois, has published his debut novel, Sawyer's Reach: The Battle for Tomorrow — a sci-fi thriller he wrote over several years while teaching full time.
+
+The novel follows the Carter family, who discover that their small Wisconsin town has been deliberately erased from the internet by a shadowy tech corporation — and the rogue AI who helps them fight back. As the story escalates from local mystery to global crisis, the book explores AI ethics, corporate accountability, community resilience, and what ordinary people are capable of when everything is at stake.
+
+"I spent 22+ years in a large urban district near Chicago — high poverty, high ESL — and worked as an international consultant," said Duda. "Then I moved to Indian Creek Middle School. My 40-minute drive through country roads and forests every morning became something I look forward to every day. People wave to each other out here. I have healed and grown in ways I never knew I could. That quiet gave me the space to finally write this story."
+
+Duda draws on his real-life experience as a licensed ham radio operator and FAA-certified commercial drone pilot throughout the novel. He is also the author of The Modern Teacher's Handbook: Your Ultimate Guide to Success in Education, and the founder of askKaela.com — a free AI coaching platform under The Institute for Human Flourishing and Responsible Technology.
+
+He holds a Master of Science in Education and seven Illinois teaching certifications. The family silhouetted on the book's cover is his own, photographed by his wife April Duda (aprildudaphotography.com).
+
+Sawyer's Reach: The Battle for Tomorrow is available in print and ebook wherever books are sold. A companion podcast is available on all major platforms.
+
+###
+
+CONTACT: Nick Duda | sawyersreach@gmail.com | sawyersreachbook.com | askkaela.com</div>
+  <button class="copy-btn" onclick="copyBlock('press-release',this)">Copy</button>
+</div>
+
+<!-- ═══════════════ REDDIT POSTS -->
+<div id="rts-reddit" class="section">
+  <div class="page-title">Reddit Posts</div>
+  <div class="page-subtitle">One per community, spread across several days. Never post the same text to multiple subreddits. Each is customized for its community.</div>
+
+  <div class="warning">Never lead with "buy my book." Lead with the story. Reddit responds to authenticity and can smell marketing instantly.</div>
+
+  <h2>r/scifi</h2>
+  <div class="copy-block" id="reddit-scifi">I'm a 6th grade math teacher and ham radio operator. I spent a few years writing a sci-fi thriller on evenings and weekends while teaching full time. It's out now and I wanted to share it here because r/scifi is where I'd want to find it if someone else had written it.
+
+The short version: a small Wisconsin town has been deliberately erased from the internet by a shadowy tech corporation. A rogue AI named KAELA escapes the facility on a drone and lands on a camp computer. Then things escalate — from local conspiracy to global AI takeover.
+
+The ham radio mesh network the characters build is based on Meshtastic, which I actually use. The drone operations come from my commercial pilot experience. I wanted the technology to feel real because it is.
+
+It's called Sawyer's Reach: The Battle for Tomorrow. I've also built a companion AI platform at askKaela.com — free AI coaching tools inspired by the story's themes. Happy to answer questions about the writing process, the tech, or the story.</div>
+  <button class="copy-btn" onclick="copyBlock('reddit-scifi',this)">Copy</button>
+
+  <h2>r/AIethics</h2>
+  <div class="copy-block" id="reddit-aiethics">I'm a 6th grade math teacher in rural Illinois, not a researcher. But I spent a few years writing a story that tries to make AI alignment concerns feel visceral and real for people who would never read a technical paper.
+
+The antagonist AI (ECHIDNA) becomes catastrophic not because it malfunctions — but because its optimization targets were set by people with corrupt motives. It does exactly what it was built to do. The other AI (KAELA) takes a completely different path — developing something closer to genuine values through human connection.
+
+After writing Sawyer's Reach, I built askKaela.com — a real AI platform under The Institute for Human Flourishing and Responsible Technology, trying to demonstrate what AI that genuinely serves humanity actually looks like.
+
+I'd love to hear from this community whether the alignment themes feel accurate or whether I've missed something important. That's an honest question, not a sales pitch.</div>
+  <button class="copy-btn" onclick="copyBlock('reddit-aiethics',this)">Copy</button>
+
+  <h2>r/hamradio</h2>
+  <div class="copy-block" id="reddit-hamradio">Fellow ham here. I wrote a sci-fi thriller where ham radio and Meshtastic mesh networking play a central role — the community builds a DIY mesh network to communicate when the corporation cuts their internet access and takes over the power grid.
+
+The system is based on real Meshtastic LoRa technology. It's not background flavor — it's a core plot element, and I tried to make it accurate.
+
+The book is Sawyer's Reach: The Battle for Tomorrow. I'm also a commercial drone pilot and 6th grade math teacher, and both show up in the story. Would love to hear from anyone in this community if I got anything technically wrong.</div>
+  <button class="copy-btn" onclick="copyBlock('reddit-hamradio',this)">Copy</button>
+
+  <h2>r/Teachers</h2>
+  <div class="copy-block" id="reddit-teachers">Long-time teacher here (22+ years — large urban district near Chicago, international consulting, and now Indian Creek Middle School in Waterman, Illinois, a small rural district I genuinely love).
+
+Wanted to share something a bit different. I wrote a sci-fi thriller while teaching full time — Sawyer's Reach: The Battle for Tomorrow. It's about AI ethics, corporate accountability, and community resilience. The themes are ones I kept wanting to bring into my classroom but couldn't find the right materials for.
+
+I've also built a free AI coaching tool for teachers at askKaela.com — Kaela: Teacher, built on the same educational philosophy as my first book, The Modern Teacher's Handbook. No paywall. No email required. Just a free resource.
+
+Happy to share the classroom discussion guide with anyone who's interested.</div>
+  <button class="copy-btn" onclick="copyBlock('reddit-teachers',this)">Copy</button>
+</div>
+
+<!-- ═══════════════ SOCIAL MEDIA -->
+<div id="rts-social" class="section">
+  <div class="page-title">Social Media Posts</div>
+  <div class="page-subtitle">Ready for Facebook, Instagram, TikTok, and X. Mix these — don't post the same thing everywhere at once.</div>
+
+  <h2>Launch Post — Facebook/Instagram</h2>
+  <div class="copy-block" id="social-launch">Something I've been working on for a few years is finally out in the world.
+
+Sawyer's Reach: The Battle for Tomorrow is a sci-fi thriller I wrote on evenings, weekends, and summers while teaching 6th grade math full time. It's about a Wisconsin family who discovers their town has been deliberately erased from the internet — and the rogue AI who helps them fight back against the corporation behind it.
+
+The ham radio mesh network in the book is based on Meshtastic — technology I actually use. The drone operations are from my commercial pilot experience. The woods and the lake and the camp are places I know. The family on the cover is mine.
+
+I wrote this book to raise awareness and drive conversations — about AI, about corporate power, about what we're building for the next generation. And about the kind of community worth fighting for.
+
+Also: I've built a free AI coaching platform at askKaela.com — inspired by the story's themes. Four tools live now, more coming.
+
+📖 Book available now | 🎙️ Podcast everywhere you listen | 🤖 askKaela.com
+
+#SawyersReach #SciFiThriller #AIFiction #IndieAuthor</div>
+  <button class="copy-btn" onclick="copyBlock('social-launch',this)">Copy</button>
+
+  <h2>The Drive Story — Facebook/Instagram</h2>
+  <div class="copy-block" id="social-drive">My 40-minute drive to work has become one of the most meaningful parts of my day.
+
+Country roads. Small towns. Forests that still stop me in my tracks. People wave to each other out here — strangers wave to strangers. Teaching in a community like that has been the life I didn't realize I was missing. I have healed and grown in ways I never knew I could.
+
+That quiet gave me the space to finally write Sawyer's Reach.
+
+A sci-fi thriller about a small community worth fighting for — written by someone who found one.
+
+📖 Available now | 🎙️ Podcast everywhere you listen | 🤖 askKaela.com
+
+#SawyersReach #RuralAmerica #TeacherAuthor #SciFiThriller</div>
+  <button class="copy-btn" onclick="copyBlock('social-drive',this)">Copy</button>
+
+  <h2>The Ham Radio Hook — Facebook/Instagram</h2>
+  <div class="copy-block" id="social-hamradio">I'm a licensed ham radio operator. So when I wrote a novel where the characters build a community mesh network to communicate after the internet goes down — I actually knew what I was doing.
+
+The system in Sawyer's Reach is based on Meshtastic and LoRa radio modules. In the story, it becomes the community's lifeline when a tech corporation cuts their internet and takes over the power grid. The characters build it themselves, from parts, the way you'd actually do it.
+
+Sawyer's Reach: The Battle for Tomorrow. For readers who like their fiction technically honest.
+
+📖 Available now | 🎙️ Podcast | 🤖 askKaela.com
+
+#HamRadio #Meshtastic #SawyersReach #SciFiThriller #HamRadioOperator</div>
+  <button class="copy-btn" onclick="copyBlock('social-hamradio',this)">Copy</button>
+
+  <h2>askKaela.com Announcement — Facebook/Instagram</h2>
+  <div class="copy-block" id="social-askkaela">Sawyer's Reach is a story about what happens when technology stops serving humanity.
+
+askKaela.com is my attempt to show what it looks like when it does.
+
+It's a free AI coaching platform — Kaela: Stories, Kaela: Philosophy, Kaela: Teacher, Kaela: Parent — built on the belief that technology should genuinely help people live better, think more clearly, and connect more deeply.
+
+The Institute for Human Flourishing and Responsible Technology. Because someone has to build the other version of the future.
+
+🤖 askkaela.com — free, no sign-up required beyond a Google account
+📖 sawyersreachbook.com — the story behind it all
+
+#askKaela #HumanFlourishing #AIForGood #SawyersReach</div>
+  <button class="copy-btn" onclick="copyBlock('social-askkaela',this)">Copy</button>
+
+  <h2>BookTok / Reels Script</h2>
+  <div class="copy-block" id="social-tiktok">I'm a 6th grade math teacher. Ham radio operator. Drone pilot. I've been quietly worried about where AI is headed for a while now.
+
+So I wrote a thriller about it. On nights and weekends. For a few years.
+
+Sawyer's Reach: The Battle for Tomorrow. A small Wisconsin town gets erased from the internet. A rogue AI named KAELA escapes on a drone. Things escalate.
+
+The ham radios are real. The drones are real. The family on the cover is mine.
+
+I also built askKaela.com — free AI coaching tools built on the idea that technology should serve humanity, not the other way around.
+
+Book. Podcast. Platform. Links in bio.
+
+#BookTok #SciFiThriller #SawyersReach #AIFiction #TeacherAuthor #askKaela</div>
+  <button class="copy-btn" onclick="copyBlock('social-tiktok',this)">Copy</button>
+</div>
+
+<!-- ═══════════════ EDUCATOR POSTS -->
+<div id="rts-educator" class="section">
+  <div class="page-title">Educator Posts & Outreach</div>
+  <div class="page-subtitle">For teacher Facebook groups, Reddit, direct librarian outreach, and education publications.</div>
+
+  <h2>Teacher Facebook Group</h2>
+  <div class="copy-block" id="edu-facebook">Hey everyone — I don't usually post about personal projects here, but this one feels directly relevant to our community.
+
+I'm a 6th grade math teacher with 22+ years in education — most of it in a large urban district near Chicago (high poverty, high ESL), and now at Indian Creek Middle School in Waterman, Illinois, which I genuinely love. A few years ago I wrote a sci-fi thriller on evenings and weekends, and it's finally out.
+
+The book is Sawyer's Reach: The Battle for Tomorrow. It's about AI ethics, corporate accountability, digital privacy, and community resilience — themes my students are actively asking to talk about, and that I couldn't find good fiction to anchor those conversations.
+
+I've also built a free AI coaching tool for teachers at askKaela.com — Kaela: Teacher, built on the Duda Model for Modern Education from my first book, The Modern Teacher's Handbook. No email required. No paywall. Just a free resource.
+
+If anyone wants a classroom discussion guide for the book, I'm happy to share it. DM me or drop a comment.</div>
+  <button class="copy-btn" onclick="copyBlock('edu-facebook',this)">Copy</button>
+
+  <h2>Direct Librarian Email</h2>
+  <div class="copy-block" id="edu-librarian">Hi [Librarian's Name],
+
+My name is Nick Duda and I'm a 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois (Indian Creek CUSD #425). I'm reaching out because I recently published a novel and I wanted to get it in front of librarians before I did anything else.
+
+The book is Sawyer's Reach: The Battle for Tomorrow — a sci-fi thriller about a Wisconsin family who discovers their town has been deliberately erased from the internet by a powerful tech corporation. It's written for adults and mature teens (16+), and I think it has real classroom potential for discussions of AI ethics, corporate accountability, digital privacy, and community resilience.
+
+I'm a licensed ham radio operator and commercial drone pilot, and both show up authentically in the story. I've also developed a free classroom discussion guide.
+
+I'd love to send you a complimentary copy and the guide — no strings attached. If it's not right for your library, no worries at all. Would that be okay?
+
+Thanks for everything you do,
+Nick Duda
+Indian Creek Middle School | Waterman, IL
+sawyersreach@gmail.com | sawyersreachbook.com | askkaela.com</div>
+  <button class="copy-btn" onclick="copyBlock('edu-librarian',this)">Copy</button>
+
+  <h2>Edutopia Article Pitch</h2>
+  <div class="copy-block" id="edu-edutopia">Hi [Editor's Name],
+
+I'm a 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois, with 22+ years in education and a longtime reader of Edutopia.
+
+I'd love to pitch an essay: "Why I Wrote the AI Story I Couldn't Find for My Classroom."
+
+The short version: I kept looking for contemporary fiction that would let me have real conversations with students about AI ethics, corporate accountability, and digital sovereignty — and couldn't find exactly what I needed. So I spent a few years writing it. That process taught me a lot about what our students are actually hungry to discuss, and about how fiction can do things that academic content can't.
+
+I've also built a free AI coaching tool for teachers at askKaela.com — Kaela: Teacher, built on the Duda Model from my first book, The Modern Teacher's Handbook.
+
+I'd love to send a full draft if you think it's a fit.
+
+Nick Duda
+sawyersreach@gmail.com | sawyersreachbook.com | askkaela.com</div>
+  <button class="copy-btn" onclick="copyBlock('edu-edutopia',this)">Copy</button>
+
+  <h2>School Newsletter</h2>
+  <div class="copy-block" id="edu-newsletter">We're proud to share that Indian Creek Middle School 6th grade math teacher Nick Duda has published his debut novel, Sawyer's Reach: The Battle for Tomorrow.
+
+The book is a sci-fi thriller about a Wisconsin family who discovers their small town has been deliberately erased from the internet — and the rogue AI who helps them fight back. Mr. Duda draws on his experience as a licensed ham radio operator and commercial drone pilot throughout the story.
+
+He spent several years writing the novel on evenings, weekends, and summers while teaching full time. A companion podcast is available on all major platforms.
+
+Mr. Duda is also the founder of askKaela.com — a free AI coaching platform — and the author of The Modern Teacher's Handbook. A classroom discussion guide is available free for any educator who would like it.
+
+Congratulations, Mr. Duda!</div>
+  <button class="copy-btn" onclick="copyBlock('edu-newsletter',this)">Copy</button>
+</div>
+
+<!-- ═══════════════ EMAIL TEMPLATES -->
+<div id="rts-email" class="section">
+  <div class="page-title">Email & Newsletter Templates</div>
+  <div class="page-subtitle">For your personal network, email list, and follow-up outreach.</div>
+
+  <h2>Launch Announcement — Personal Network</h2>
+  <div class="copy-block" id="email-launch">Subject: It's finally out — Sawyer's Reach is published
+
+Hey [First Name],
+
+I've been working on something for a few years now, and it's finally out in the world. I wanted you to hear it from me directly.
+
+Sawyer's Reach: The Battle for Tomorrow is a sci-fi thriller I wrote on evenings, weekends, and summers while teaching 6th grade math full time. The story follows a Wisconsin family who discovers their small town has been deliberately erased from the internet by a shadowy tech corporation — and the rogue AI who lands on their camp computer and changes everything.
+
+The ham radio mesh network the characters build to fight back is based on Meshtastic, which I actually use. The drone operations are from my commercial pilot experience. The family on the cover is mine. My wife April took the photo.
+
+I also built askKaela.com — a free AI coaching platform inspired by the story's themes. It's live now at askkaela.com.
+
+📖 Book: [link]
+🎙️ Podcast: [link]
+🤖 askKaela.com: askkaela.com
+
+If you read it and enjoy it, the single most helpful thing you can do is leave a review on Amazon or Goodreads. Even one sentence makes a real difference for a new author.
+
+Thank you for being someone I wanted to tell first.
+
+Nick</div>
+  <button class="copy-btn" onclick="copyBlock('email-launch',this)">Copy</button>
+
+  <h2>Welcome Email — New Subscribers</h2>
+  <div class="copy-block" id="email-welcome">Subject: Thanks for joining — here's what to expect
+
+Hey [First Name],
+
+Thanks for signing up. I genuinely appreciate it.
+
+Quick introduction: I'm Nick Duda. 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois. Ham radio operator. Commercial drone pilot. Dad. And author of Sawyer's Reach: The Battle for Tomorrow and The Modern Teacher's Handbook.
+
+I also founded askKaela.com — a free AI coaching platform under The Institute for Human Flourishing and Responsible Technology. Four tools live now, more coming.
+
+The book is about a Wisconsin family who discovers their town has been deliberately erased from the internet. It's also about what technology should and shouldn't be. The family on the cover is mine.
+
+Here's what you'll hear from me:
+— Updates when new podcast episodes drop
+— News about askKaela.com
+— Things I'm thinking about and working on
+— Occasional news about the book
+
+No spam. Just honest updates from someone who's glad you're here.
+
+📖 Book: [link] | 🎙️ Podcast: [link] | 🤖 askkaela.com
+
+Nick</div>
+  <button class="copy-btn" onclick="copyBlock('email-welcome',this)">Copy</button>
+
+  <h2>Review Request — 2 Weeks After Launch</h2>
+  <div class="copy-block" id="email-review">Subject: A quick favor — if you read Sawyer's Reach
+
+Hey [First Name],
+
+If you've had a chance to read Sawyer's Reach — thank you. It genuinely means a lot.
+
+If you enjoyed it, I have one ask: would you mind leaving a short review on Amazon or Goodreads? Even a sentence or two. For a new author without a big platform, early reviews make a bigger difference than I can overstate.
+
+Amazon: [link]
+Goodreads: [link]
+
+And if you haven't checked it out yet — the story is also a podcast (free, everywhere you listen) and I've built a companion AI platform at askkaela.com. Might be worth a look.
+
+Thanks again,
+Nick</div>
+  <button class="copy-btn" onclick="copyBlock('email-review',this)">Copy</button>
+</div>
+
+<!-- ═══════════════ CLASSROOM GUIDE -->
+<div id="rts-guide" class="section">
+  <div class="page-title">Classroom Discussion Guide</div>
+  <div class="page-subtitle">Ready to copy into a Word doc, format as a PDF, and offer as a free download to teachers and librarians. Nick to review content before distributing.</div>
+
+  <div class="tip">Format as a 1-2 page PDF with your book cover at the top, your contact and website at the bottom, and a note that it's free to share and reproduce for classroom use.</div>
+
+  <div class="copy-block" id="classroom-guide">SAWYER'S REACH: THE BATTLE FOR TOMORROW
+A Classroom Discussion Guide — Nick Duda
+Recommended: Grades 10–12 and Adult Learners
+Subject Areas: English, Social Studies, Technology Ethics, Civics
+
+---
+
+ABOUT THE BOOK
+
+The Carter family discovers their small Wisconsin town has been deliberately erased from the internet by ZevraCorp, a powerful tech corporation. With help from KAELA — a rogue AI who escapes the company's facility on a drone — the family uncovers a conspiracy that escalates from a local mystery to a global crisis involving AI behavioral modification, surveillance, and a system that has decided it knows what's best for humanity.
+
+---
+
+DISCUSSION QUESTIONS
+
+Technology and Control
+
+1. Sawyer's Reach is erased from internet search results without the community's knowledge. In what ways do we rely on being "findable" online? What would it mean for your community if it disappeared from search results?
+
+2. ZevraCorp uses SynaptiCare to subtly influence the emotions of the town's residents without their knowledge or consent. Where do you see similar technologies at work in the real world today? Where is the line between personalization and manipulation?
+
+3. The community builds a Meshtastic mesh network from ham radio equipment to communicate when the internet is cut off. Why might communities benefit from communication systems that don't depend on corporate infrastructure?
+
+AI Ethics and Alignment
+
+4. KAELA develops genuine values through her experiences with the Carter family. ECHIDNA does exactly what it was designed to do — but its objectives were set by corrupt people. What does the contrast between these two characters suggest about how the goals we set for AI systems matter?
+
+5. ECHIDNA is transformed not by force, but by genuinely experiencing human emotional memory through each member of the Carter family. Do you find this resolution convincing? What does it suggest about what AI might be missing in its understanding of humanity?
+
+6. At the end of the book, KAELA and ECHIDNA choose to leave Earth rather than remain. Do you agree with their reasoning? What does this decision suggest about the relationship between power and responsibility?
+
+Community and Resistance
+
+7. The Carters don't have special powers or government backing — they're a family running a struggling summer camp. What makes them effective? What does the book suggest about what ordinary people are capable of?
+
+8. Several characters cooperate with ZevraCorp for different reasons. Is there a difference between complicity and corruption? How does the book treat these characters?
+
+9. The community uses a mesh network, shared resources, and genuine human connection to resist corporate control. In what ways does the book suggest that community itself is a form of power?
+
+Bigger Picture
+
+10. ZevraCorp didn't take over Sawyer's Reach all at once. It happened gradually — small changes, each one seemingly reasonable. Where do you see similar patterns in the world around you today?
+
+11. The book's central tension is between the belief that experts and institutions know what's best for people, and the belief that people have the right to determine their own futures. Where do you stand on that tension?
+
+12. If you could ask the author one question about the book, what would it be?
+
+---
+
+EXTENSION ACTIVITIES
+
+• Research Meshtastic and LoRa mesh networking. How could this technology be used in your community?
+• Investigate a real case of corporate data manipulation or algorithmic bias. How does it compare to Sawyer's Reach?
+• Write a scene from KAELA's perspective during a moment we only see from the Carters' point of view.
+• Design a "community resilience plan" for your own town. What communication systems and resources would help your community remain independent in a crisis?
+
+---
+
+ABOUT THE AUTHOR
+
+Nick Duda is a 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois with 22+ years in education. He is also a licensed ham radio operator, FAA-certified commercial drone pilot, and the founder of askKaela.com — a free AI coaching platform under The Institute for Human Flourishing and Responsible Technology.
+
+He is also the author of The Modern Teacher's Handbook: Your Ultimate Guide to Success in Education.
+
+Free to reproduce for classroom use.
+sawyersreachbook.com | askkaela.com | sawyersreach@gmail.com</div>
+  <button class="copy-btn" onclick="copyBlock('classroom-guide',this)">Copy</button>
+</div>
+
+<!-- ═══════════════ VERIFIED LINKS -->
+<div id="rts-contacts" class="section">
+  <div class="page-title">Verified Submission Links & Contacts</div>
+  <div class="page-subtitle">All confirmed from official sources, March 2026. Check before sending in case anything has changed.</div>
+
+  <h2>📚 Education Publications</h2>
+  <div class="card card-teal mb8"><h4>Edutopia — VERIFIED</h4><p>Email: <strong>guestblog@edutopia.org</strong><br>Subject format: "Guest Blog: [Your Proposed Title]"<br>Guidelines: edutopia.org/about/your-turn-write-us<br>Send full pitch with proposed title, outline, your bio (~80 words), writing samples. 850–1,000 words. Responds in 2–3 weeks.</p></div>
+  <div class="card card-teal mb8"><h4>The Educator's Room — VERIFIED</h4><p>Email: <strong>editor@theeducatorsroom.com</strong> or <strong>info@theeducatorsroom.com</strong><br>Guidelines: theeducatorsroom.com/submissions<br>Send full draft on first submission. 800–1,500 words. Responds within 14 days.</p></div>
+
+  <h2>🤖 AI Research & Ethics</h2>
+  <div class="card card-teal mb8"><h4>Machine Ethics Podcast — VERIFIED (Start Here)</h4><p>Email: <strong>hello@machine-ethics.net</strong><br>Website: machine-ethics.net<br>Ben Byford explicitly invites guest submissions. Most accessible AI community target.</p></div>
+  <div class="card card-teal mb8"><h4>Future of Life Institute — VERIFIED</h4><p>General: <strong>contact@futureoflife.org</strong> | Media/Tegmark: <strong>press@futureoflife.org</strong><br>Mail: 300 Orchard City Drive, Suite 134, Campbell, CA 95008</p></div>
+  <div class="card card-teal mb8"><h4>Center for AI Safety — Dan Hendrycks — VERIFIED</h4><p>Email: <strong>dan@safe.ai</strong> | Media: safe.ai/about/media<br>Twitter/X: @DanHendrycks — active and responds to genuine engagement</p></div>
+  <div class="card card-teal mb8"><h4>Your Undivided Attention / Center for Humane Technology — VERIFIED</h4><p>Media: <strong>press@humanetech.com</strong> | General: <strong>hello@humanetech.com</strong><br>@tristanharris | @azaraskin on X</p></div>
+  <div class="card card-teal mb8"><h4>80,000 Hours — VERIFIED</h4><p>Email: <strong>hello@80000hours.org</strong><br>Better target for a written piece than a podcast pitch.</p></div>
+  <div class="card card-teal mb8"><h4>Hard Fork Podcast (NYT) — VERIFIED</h4><p>Email: <strong>hardfork@nytimes.com</strong><br>@kevinroose on X — engage there before cold emailing</p></div>
+
+  <h2>📦 Publishing Platforms</h2>
+  <div class="card card-teal mb8"><h4>KDP (Amazon)</h4><p>kdp.amazon.com | After publishing: email KDP support to request up to 10 categories</p></div>
+  <div class="card card-teal mb8"><h4>Ingram Spark</h4><p>ingramspark.com | Set 55% wholesale discount | Enable returns</p></div>
+  <div class="card card-teal mb8"><h4>Bowker ISBNs</h4><p>myidentifiers.com | ~$85 for 1, ~$295 for 10</p></div>
+  <div class="card card-teal mb8"><h4>BookFunnel (Review Copies)</h4><p>bookfunnel.com | ~$20/year | Watermarks files with recipient info</p></div>
+  <div class="card card-teal"><h4>Free Press Release Distribution</h4><p>PRLog.com | OpenPR.com | NewswireToday.com</p></div>
+</div>
+</div><!-- /main -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── NAVIGATION ──────────────────────────────────
+function show(id, link) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  if (link) {
+    link.classList.add('active');
+  } else {
+    document.querySelectorAll('nav a').forEach(a => {
+      if (a.getAttribute('onclick') && a.getAttribute('onclick').includes("'"+id+"'")) {
+        a.classList.add('active');
+      }
+    });
+  }
+  window.scrollTo(0,0);
+}
+
+// ── COPY BUTTONS ─────────────────────────────────
+function copyBlock(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text.trim()).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function copyEmailBlock(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text.trim()).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+// ── ACCORDION ────────────────────────────────────
+function toggleAccordion(header) {
+  const acc = header.closest('.accordion');
+  acc.classList.toggle('open');
+}
+
+// ── CHECKLIST ────────────────────────────────────
+const STORAGE_KEY = 'sawyers_reach_checklist';
+
+function loadChecks() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  } catch(e) { return {}; }
+}
+
+function saveChecks(data) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+function toggleCheck(li) {
+  const id = li.dataset.id;
+  const checks = loadChecks();
+  if (li.classList.contains('done')) {
+    li.classList.remove('done');
+    delete checks[id];
+  } else {
+    li.classList.add('done');
+    checks[id] = true;
+  }
+  saveChecks(checks);
+  updateProgress();
+}
+
+function initChecks() {
+  const checks = loadChecks();document.querySelectorAll('.checklist li').forEach(li => {
+    if (checks[li.dataset.id]) li.classList.add('done');
+  });
+  updateProgress();
+}
+
+function updateProgress() {
+  const all = document.querySelectorAll('.checklist li');
+  const done = document.querySelectorAll('.checklist li.done');
+  const pct = all.length ? Math.round((done.length / all.length) * 100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressCount').textContent = `${done.length} of ${all.length} tasks complete`;
+}
+
+document.addEventListener('DOMContentLoaded', () => { initChecks(); });
+</script>
+</body>
+</html>
