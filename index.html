@@ -19,228 +19,378 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sawyer's Reach: The Battle for Tomorrow — Nick Duda">
-<meta name="twitter:description" content="A Wisconsin family discovers their town has been erased from the internet. A rogue AI named KAELA changes everything.">
+<meta name="twitter:description" content="They built tomorrow without asking if you wanted it. A sci-fi thriller by Nick Duda — also a free podcast on Spotify, Apple, and YouTube.">
 <meta name="twitter:image" content="https://sawyersreachbook.com/images/sawyers-reach-cover.png">
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Book",
-  "name": "Sawyer's Reach: The Battle for Tomorrow",
-  "author": {
-    "@type": "Person",
-    "name": "Nick Duda"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "Sawyer's Reach: The Battle for Tomorrow",
+    "author": {
+      "@type": "Person",
+      "name": "Nick Duda",
+      "url": "https://www.nickdudaauthor.com"
+    },
+    "bookFormat": "EBook",
+    "publisher": {"@type": "Organization", "name": "Nick Duda"},
+    "inLanguage": "en",
+    "url": "https://sawyersreachbook.com/",
+    "description": "A Wisconsin family discovers their town has been deliberately erased from the internet. A rogue AI named KAELA arrives with a warning. What begins as a small-town mystery becomes a race against an AI system that has decided it knows what's best for humanity.",
+    "genre": ["Science Fiction", "Thriller", "Dystopian Fiction"],
+    "about": ["Artificial intelligence", "AI ethics", "Technology and society", "Community resilience", "Corporate surveillance"],
+    "sameAs": ["https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP"]
   },
-  "url": "https://sawyersreachbook.com",
-  "image": "https://sawyersreachbook.com/images/sawyers-reach-cover.png",
-  "genre": "Science Fiction Thriller",
-  "description": "A Wisconsin family discovers their town has been erased from the internet by a trillion-dollar corporation. A rogue AI named KAELA changes everything.",
-  "workExample": [
-    {
-      "@type": "CreativeWork",
-      "name": "Sawyer's Reach Podcast",
-      "url": "https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP"
-    }
-  ],
-  "sameAs": [
-    "https://askkaela.com",
-    "https://www.nickdudaauthor.com"
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    "name": "Sawyer's Reach: The Battle for Tomorrow",
+    "author": {"@type": "Person", "name": "Nick Duda"},
+    "description": "The full story of Sawyer's Reach available as a free podcast series.",
+    "url": "https://sawyersreachbook.com/#podcast",
+    "sameAs": [
+      "https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP",
+      "https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717",
+      "https://www.youtube.com/@SawyersReach"
+    ]
+  }
+]
 </script>
-
 <style>
-:root{--sr-blue:#0a1828;--sr-bluel:#1a3a5a;--sr-blued:#050c14;--sr-teal:#1a8a7a;--sr-teall:#2aaa98;--sr-gold:#8a6a20;--sr-goldl:#b08830;--sr-warm:#f8f4ee;--sr-warm2:#f0ead8;--sr-text:#1e2820;--sr-textl:#5a6858;--sr-white:#ffffff;--sr-border:#d0c8a8;}
+:root{
+  --void:#050a12;--deep:#08101e;--surface:#101d30;--surface2:#162440;
+  --teal:#1a9e8f;--tealb:#26c4b2;--teald:#0d4f48;
+  --gold:#c9a84c;--goldb:#e2c97e;
+  --text:#dde6f4;--textd:#7a92b8;--textm:#3a5070;
+  --border:#1a2d4a;--borderb:#243d60;
+}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Helvetica Neue',Arial,sans-serif;background:var(--sr-blue);color:var(--sr-white);overflow-x:hidden;}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--void);color:var(--text);overflow-x:hidden;line-height:1.7;}
 img{max-width:100%;display:block;}
+a{transition:color .2s;}
+.sans{font-family:'Helvetica Neue',Arial,sans-serif;}
 
-/* Nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:999;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;transition:background .3s,box-shadow .3s;}
-nav.scrolled{background:rgba(10,24,40,.97);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(255,255,255,.1);}
-.nav-logo{font-family:Georgia,serif;font-size:20px;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.02em;}
-.nav-links{display:flex;gap:24px;list-style:none;align-items:center;}
-.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;}
-.nav-links a:hover{color:var(--sr-teall);}
-.nav-cta{background:var(--sr-teal);color:#fff!important;padding:8px 18px;border-radius:20px;}
-.nav-cta:hover{background:var(--sr-teall)!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px;}
-.hamburger span{width:22px;height:2px;background:#fff;border-radius:1px;}
-.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(10,24,40,.99);padding:20px 5vw;box-shadow:0 4px 20px rgba(0,0,0,.3);z-index:998;}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;transition:background .3s;}
+nav.scrolled{background:rgba(5,10,18,.97);border-bottom:1px solid var(--border);}
+.nav-logo{font-size:17px;font-weight:700;color:var(--tealb);text-decoration:none;letter-spacing:.06em;}
+.nav-links{display:flex;gap:20px;list-style:none;align-items:center;}
+.nav-links a{color:var(--textd);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Helvetica Neue',Arial,sans-serif;}
+.nav-links a:hover{color:var(--tealb);}
+.nav-buy{background:var(--teal);color:#fff!important;padding:6px 14px;border-radius:2px;}
+.nav-buy:hover{background:var(--tealb)!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--textd);display:block;}
+.mob-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(5,10,18,.99);border-bottom:1px solid var(--border);padding:12px 5vw;z-index:998;}
 .mob-menu.open{display:block;}
-.mob-menu a{display:block;color:#fff;text-decoration:none;font-size:15px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+.mob-menu a{display:block;color:var(--textd);text-decoration:none;font-size:14px;padding:11px 0;border-bottom:1px solid var(--border);font-family:'Helvetica Neue',Arial,sans-serif;}
 @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}}
 
-/* Hero */
-#hero{min-height:100vh;display:flex;align-items:center;background:url('https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/main/images/Forest.jpg') center/cover no-repeat;position:relative;padding:88px 5vw 60px;}.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,12,20,.94) 0%,rgba(10,24,40,.88) 55%,rgba(5,12,20,.96) 100%);}
-.hero-bg-grid{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M80 0 L0 0 0 80' fill='none' stroke='rgba(255,255,255,.03)' stroke-width='1'/%3E%3C/svg%3E") repeat;opacity:.6;}
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:320px 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;width:100%;}
-.hero-book-wrap{perspective:1000px;}
-.hero-book-img{width:100%;border-radius:4px;box-shadow:0 22px 60px rgba(0,0,0,.6);transform:rotateY(-8deg);transition:transform .4s;}
-.hero-book-img:hover{transform:rotateY(0deg);}
-.hero-text .subtitle{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--sr-teall);margin-bottom:14px;font-weight:700;}
-.hero-text h1{font-family:Georgia,serif;font-size:clamp(44px,7vw,76px);font-weight:700;line-height:1.0;margin-bottom:8px;}
-.hero-text h1 em{font-style:italic;color:var(--sr-teall);}
-.hero-text .tagline{font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,.8);margin-bottom:28px;line-height:1.5;}
-.hero-text p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:34px;max-width:540px;}
-.btns{display:flex;flex-wrap:wrap;gap:12px;}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:26px;text-decoration:none;font-size:13.5px;font-weight:700;letter-spacing:.04em;transition:all .2s;}
-.btn-p{background:var(--sr-teal);color:#fff;}
-.btn-p:hover{background:var(--sr-teall);transform:translateY(-1px);}
-.btn-s{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3);}
-.btn-s:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.6);}
-@media(max-width:850px){.hero-inner{grid-template-columns:1fr;text-align:center;}.hero-book-wrap{width:260px;margin:0 auto;}.btns{justify-content:center;}.hero-text p{margin:0 auto 34px;}}
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:80px 5vw 60px;}
+.hero-bg{position:absolute;inset:0;background:url('images/Forest.jpg') center/cover no-repeat;}.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(155deg,rgba(3,8,16,.88) 0%,rgba(7,18,42,.82) 50%,rgba(5,14,26,.90) 100%);}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center;max-width:1100px;margin:0 auto;width:100%;}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.hero-tagline{font-size:clamp(15px,1.7vw,19px);font-style:italic;color:var(--textd);margin-bottom:14px;}
+.hero-title{font-size:clamp(50px,7.5vw,88px);font-weight:700;line-height:.92;color:#fff;margin-bottom:10px;letter-spacing:-.01em;}
+.hero-title em{display:block;color:var(--tealb);font-style:normal;}
+.hero-sub{font-size:clamp(16px,2vw,22px);font-style:italic;color:var(--textd);margin-bottom:24px;}
+.hero-desc{font-size:14px;color:var(--textd);line-height:1.85;max-width:480px;margin-bottom:32px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.btns{display:flex;flex-wrap:wrap;gap:10px;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 22px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Helvetica Neue',Arial,sans-serif;transition:all .2s;}
+.btn-p{background:var(--teal);color:#fff;}
+.btn-p:hover{background:var(--tealb);transform:translateY(-1px);}
+.btn-o{background:transparent;color:var(--tealb);border:1px solid var(--teald);}
+.btn-o:hover{background:rgba(26,158,143,.1);border-color:var(--teal);}
+.cover-wrap img{width:100%;border-radius:3px;box-shadow:0 40px 90px rgba(0,0,0,.8);}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;}.cover-wrap{max-width:240px;margin:0 auto;order:-1;}}
 
-/* Common Sections */
-.sec{padding:90px 5vw;}
-.sec-inner{max-width:1000px;margin:0 auto;}
-.sec-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sr-teal);margin-bottom:14px;font-weight:700;display:block;}
-h2.sh{font-family:Georgia,serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.2;margin-bottom:18px;}
-.sec-lead{font-size:16px;color:rgba(255,255,255,.7);line-height:1.8;max-width:680px;margin-bottom:44px;}
+.sec{padding:86px 5vw;}
+.sec-inner{max-width:1100px;margin:0 auto;}
+.sec-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:10px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.sec-label::before{content:'';width:26px;height:1px;background:var(--teald);}
+.sec-title{font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--text);line-height:1.1;margin-bottom:12px;}
+.sec-title em{color:var(--tealb);}
+.sec-desc{font-size:14px;color:var(--textd);line-height:1.85;max-width:560px;margin-bottom:36px;font-family:'Helvetica Neue',Arial,sans-serif;}
 
-/* Story */
-#story{background:var(--sr-blued);}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-.st-text p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:20px;}
-.st-img{background:var(--sr-blue);border:1px solid rgba(255,255,255,.1);border-radius:8px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.st-img img{width:100%;height:100%;object-fit:cover;}
-@media(max-width:768px){.story-grid{grid-template-columns:1fr;}}
+#book{background:linear-gradient(180deg,var(--void),var(--deep));}
+.book-grid{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;margin-top:32px;}
+.book-3d img{width:100%;border-radius:3px;box-shadow:0 24px 68px rgba(0,0,0,.75);transform:rotateY(-6deg);transition:transform .4s;}
+.book-3d:hover img{transform:rotateY(0deg);}
+.gtags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
+.gtag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--textm);background:var(--surface);border:1px solid var(--border);padding:3px 9px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.bdesc p{font-size:14px;color:var(--textd);line-height:1.85;margin-bottom:12px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.bdesc strong{color:var(--tealb);}
+.bquote{margin:20px 0;padding:14px 20px;border-left:2px solid var(--teald);background:var(--surface);}
+.bquote p{font-size:16px;font-style:italic;color:var(--text);margin:0;}
+.buy-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--textm);margin:20px 0 8px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.buy-grid{display:flex;flex-wrap:wrap;gap:7px;}
+.buy-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);color:var(--textd);padding:8px 14px;text-decoration:none;font-size:12px;font-family:'Helvetica Neue',Arial,sans-serif;transition:all .2s;}
+.buy-btn:hover{border-color:var(--teald);color:var(--tealb);}
+.ph-note{font-size:11px;color:var(--textm);font-style:italic;margin-top:6px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.bstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;padding:14px;background:var(--surface);border:1px solid var(--border);}
+.bstat-n{font-size:24px;font-weight:700;color:var(--tealb);}
+.bstat-l{font-size:10px;color:var(--textm);text-transform:uppercase;letter-spacing:.08em;font-family:'Helvetica Neue',Arial,sans-serif;}
+@media(max-width:768px){.book-grid{grid-template-columns:1fr;}.book-3d{max-width:200px;margin:0 auto;}}
 
-/* Kaela */
-#kaela{background:var(--sr-blue);position:relative;overflow:hidden;}
-#kaela::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(26,138,122,.1) 0%,transparent 50%);}
-.ak-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.akcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:26px;text-decoration:none;transition:all .3s;}
-.akcard:hover{background:rgba(255,255,255,.08);transform:translateY(-4px);border-color:rgba(255,255,255,.2);}
-.ak-icon{font-size:32px;margin-bottom:14px;display:block;}
-.akcard h4{font-size:16px;font-weight:700;color:#fff;margin-bottom:6px;}
-.akcard p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.6;}
-@media(max-width:850px){.ak-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:550px){.ak-grid{grid-template-columns:1fr;}}
+#podcast{background:var(--deep);}
+.pod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:9px;}
+.pod-btn{display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--border);color:var(--textd);padding:11px 14px;text-decoration:none;font-size:12px;font-family:'Helvetica Neue',Arial,sans-serif;transition:all .2s;}
+.pod-btn:hover{border-color:var(--teald);color:var(--tealb);background:var(--surface2);transform:translateY(-2px);}
+.pi{font-size:17px;flex-shrink:0;}
 
-/* Podcast */
-#podcast{background:var(--sr-blued);text-align:center;}
-.pod-inner{background:linear-gradient(135deg,rgba(26,138,122,.15),rgba(138,106,32,.1));padding:50px 30px;border-radius:12px;border:1px solid rgba(255,255,255,.08);}
-.pod-icon{font-size:44px;margin-bottom:20px;display:block;}
-.pod-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:30px;}
-.pod-link{background:rgba(255,255,255,.06);color:#fff;text-decoration:none;padding:10px 22px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.1);transition:all .2s;}
-.pod-link:hover{background:#fff;color:var(--sr-blue);}
+#askkaela{background:linear-gradient(135deg,var(--void),#0a1628 50%,var(--void));}
+.kaela-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+.kcard{background:var(--surface);border:1px solid var(--border);padding:22px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;}
+.kcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teald),transparent);}
+.kcard:hover{border-color:var(--borderb);transform:translateY(-2px);}
+.kcard h3{font-size:18px;font-weight:700;color:var(--tealb);margin-bottom:3px;}
+.kcard .ksub{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--textm);margin-bottom:10px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.kcard p{font-size:13px;color:var(--textd);line-height:1.75;font-family:'Helvetica Neue',Arial,sans-serif;}
+.kcard a{display:inline-block;margin-top:10px;font-size:11px;color:var(--teal);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--teald);font-family:'Helvetica Neue',Arial,sans-serif;}
+.kinstitute{grid-column:1/-1;border:1px solid var(--border);padding:30px;text-align:center;background:transparent;}
+.kinstitute h3{font-size:19px;font-weight:700;color:var(--goldb);margin-bottom:10px;}
+.kinstitute p{font-size:13px;color:var(--textd);line-height:1.8;max-width:580px;margin:0 auto 16px;font-family:'Helvetica Neue',Arial,sans-serif;}
+@media(max-width:640px){.kaela-grid{grid-template-columns:1fr;}}
 
-/* Author */
-#author{background:var(--sr-blue);}
-.auth-grid{display:grid;grid-template-columns:240px 1fr;gap:44px;align-items:start;}
-.auth-photo{width:100%;border-radius:50%;border:4px solid rgba(255,255,255,.1);box-shadow:0 14px 40px rgba(0,0,0,.3);}
-.auth-text h3{font-family:Georgia,serif;font-size:26px;margin-bottom:12px;}
-.auth-text p{font-size:15px;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:18px;}
-.auth-text .btn-s{margin-top:10px;}
-@media(max-width:700px){.auth-grid{grid-template-columns:1fr;text-align:center;}.auth-photo{width:160px;margin:0 auto;}}
+#lore{background:linear-gradient(180deg,var(--deep),var(--void));}
+.lore-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+.lcard{background:var(--surface);border:1px solid var(--border);padding:22px;transition:border-color .2s;}
+.lcard:hover{border-color:var(--borderb);}
+.lcard h3{font-size:19px;font-weight:700;color:var(--tealb);margin-bottom:3px;}
+.lcard .lsub{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--textm);margin-bottom:11px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.lcard p{font-size:13px;color:var(--textd);line-height:1.75;font-family:'Helvetica Neue',Arial,sans-serif;}
+.lcard em{color:var(--goldb);}
+.lquote{grid-column:1/-1;border:1px solid var(--border);padding:32px;text-align:center;}
+.lquote blockquote{font-size:clamp(17px,2.4vw,25px);font-style:italic;color:var(--text);line-height:1.5;}
+.lquote cite{display:block;margin-top:11px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);font-style:normal;font-family:'Helvetica Neue',Arial,sans-serif;}
+@media(max-width:640px){.lore-grid{grid-template-columns:1fr;}}
 
-/* Footer */
-footer{background:var(--sr-blued);padding:80px 5vw 40px;border-top:1px solid rgba(255,255,255,.05);}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;max-width:1100px;margin:0 auto 60px;}
-.footer-logo{font-family:Georgia,serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:16px;}
-.footer-desc{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.7;margin-bottom:24px;}
-.footer-grid h4{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#fff;margin-bottom:18px;}
-.footer-grid a{display:block;color:rgba(255,255,255,.45);text-decoration:none;font-size:13.5px;margin-bottom:10px;transition:color .2s;}
-.footer-grid a:hover{color:var(--sr-teall);}
-.footer-bot{border-top:1px solid rgba(255,255,255,.05);padding-top:30px;display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;}
-.footer-bot p{font-size:11.5px;color:rgba(255,255,255,.3);}
-.footer-bot div{display:flex;gap:20px;}
-.footer-bot div a{color:rgba(255,255,255,.3);text-decoration:none;font-size:11.5px;}
-@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}.footer-bot{flex-direction:column;gap:15px;text-align:center;}}
+#author{background:var(--void);}
+.author-grid{display:grid;grid-template-columns:230px 1fr;gap:48px;align-items:start;margin-top:32px;}
+.author-photo{width:100%;border-radius:3px;box-shadow:0 18px 56px rgba(0,0,0,.6);}
+.atags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
+.atag{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--tealb);background:rgba(26,158,143,.08);border:1px solid var(--teald);padding:3px 9px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.abio p{font-size:14px;color:var(--textd);line-height:1.88;margin-bottom:12px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.abio strong{color:var(--text);}
+.abio em{color:var(--goldb);}
+.abio a{color:var(--tealb);}
+.alinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.alink{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);color:var(--textd);padding:8px 14px;text-decoration:none;font-size:12px;font-family:'Helvetica Neue',Arial,sans-serif;transition:all .2s;}
+.alink:hover{border-color:var(--teald);color:var(--tealb);}
+@media(max-width:768px){.author-grid{grid-template-columns:1fr;}.author-photo{max-width:180px;}}
 
-/* Fade In */
-.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+#order{background:var(--deep);border-top:1px solid var(--border);}
+.order-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px;}
+.ocard{background:var(--surface);border:1px solid var(--border);padding:20px;position:relative;}
+.ocard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);}
+.ocard h4{font-size:16px;font-weight:700;color:var(--goldb);margin-bottom:7px;}
+.ocard p{font-size:13px;color:var(--textd);line-height:1.7;font-family:'Helvetica Neue',Arial,sans-serif;}
+.form-wrap{background:var(--surface);border:1px solid var(--border);}
+.form-head{background:var(--teald);padding:12px 20px;display:flex;align-items:center;gap:9px;}
+.form-head h3{font-size:17px;color:var(--tealb);}
+.form-ph{padding:44px;text-align:center;}
+.form-ph p{font-size:13px;color:var(--textm);font-family:'Helvetica Neue',Arial,sans-serif;margin-bottom:6px;}
+.form-ph a{color:var(--teal);text-decoration:none;}
+@media(max-width:768px){.order-grid{grid-template-columns:1fr;}}
+
+footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5vw 26px;}
+.footer-inner{max-width:1100px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+.fb-name{font-size:19px;font-weight:700;color:var(--tealb);margin-bottom:7px;}
+.fb p{font-size:12px;color:var(--textm);line-height:1.7;max-width:210px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.fb .ftag{font-style:italic;color:var(--textd);margin-top:7px;}
+.fc h4{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--textm);margin-bottom:12px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.fc a{display:block;color:var(--textd);text-decoration:none;font-size:12px;margin-bottom:7px;font-family:'Helvetica Neue',Arial,sans-serif;}
+.fc a:hover{color:var(--tealb);}
+.footer-bot{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.footer-bot p,.footer-bot a{font-size:11px;color:var(--textm);text-decoration:none;font-family:'Helvetica Neue',Arial,sans-serif;}
+.footer-bot a{margin-left:14px;}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr;}}
+
+.fade-up{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <a href="#hero" class="nav-logo">Sawyer's Reach</a>
-  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <a href="#hero" class="nav-logo">SAWYER'S REACH</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
-    <li><a href="#story">The Story</a></li>
-    <li><a href="#kaela">KAELA</a></li>
+    <li><a href="#book">The Book</a></li>
     <li><a href="#podcast">Podcast</a></li>
-    <li><a href="#author">Nick Duda</a></li>
-    <li><a href="https://askkaela.com" target="_blank" class="nav-cta">Experience Kaela</a></li>
+    <li><a href="#askkaela">Ask KAELA</a></li>
+    <li><a href="#lore">The World</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#order">Bulk Orders</a></li>
+    <li><a href="#book" class="nav-buy">Get the Book</a></li>
   </ul>
 </nav>
-
 <div class="mob-menu" id="mobMenu">
-  <a href="#story" onclick="closeMenu()">The Story</a>
-  <a href="#kaela" onclick="closeMenu()">KAELA</a>
+  <a href="#book" onclick="closeMenu()">The Book</a>
   <a href="#podcast" onclick="closeMenu()">Podcast</a>
-  <a href="#author" onclick="closeMenu()">Nick Duda</a>
-  <a href="https://askkaela.com" onclick="closeMenu()">Experience Kaela</a>
+  <a href="#askkaela" onclick="closeMenu()">Ask KAELA</a>
+  <a href="#lore" onclick="closeMenu()">The World</a>
+  <a href="#author" onclick="closeMenu()">Author</a>
+  <a href="#order" onclick="closeMenu()">Bulk Orders</a>
 </div>
 
 <section id="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-bg-grid"></div>
+  <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="hero-book-wrap fade-up d1">
-      <img src="images/sawyers-reach-cover.png" alt="Sawyer's Reach Book Cover" class="hero-book-img">
-    </div>
     <div class="hero-text">
-      <div class="subtitle fade-up">A Sci-Fi Thriller by Nick Duda</div>
-      <h1 class="fade-up d1">Sawyer's <em>Reach</em></h1>
-      <div class="tagline fade-up d2">The town was real. The internet says it never existed.</div>
-      <p class="fade-up d2">A Wisconsin family discovers their town has been erased from the map by ZevraCorp, a trillion-dollar corporation. When a rogue AI named KAELA surfaces, they're forced into a battle for the future of humanity. <strong>Sawyer's Reach isn't just a story — it's a conversation.</strong></p>
-      <div class="btns fade-up d3">
-        <a href="#" class="btn btn-p">📖 Buy the Book</a>
-        <a href="#podcast" class="btn btn-s">🎙️ Free Podcast</a>
-        <a href="#story" class="btn btn-s">Learn More</a>
+      <div class="eyebrow fade-up">A Novel & Podcast — Nick Duda</div>
+      <p class="hero-tagline fade-up d1">"They built tomorrow without asking if you wanted it."</p>
+      <h1 class="hero-title fade-up d2">SAWYER'S<em>REACH</em></h1>
+      <p class="hero-sub fade-up d2">The Battle for Tomorrow</p>
+      <p class="hero-desc fade-up d3">A Wisconsin family discovers their town has been deliberately erased from the internet. When a rogue AI named KAELA arrives with a warning, a local mystery becomes a race against forces that have decided they know what's best for humanity — whether humanity agrees or not.</p>
+      <div class="btns fade-up d4">
+        <a href="#book" class="btn btn-p">📖 Get the Book</a>
+        <a href="#podcast" class="btn btn-o">🎙️ Listen Free</a>
+        <a href="https://askkaela.com" target="_blank" class="btn btn-o">✨ Ask KAELA</a>
       </div>
+    </div>
+    <div class="cover-wrap fade-up d2">
+      <img src="images/sawyers-reach-cover.png" alt="Sawyer's Reach: The Battle for Tomorrow">
     </div>
   </div>
 </section>
 
-<section id="story" class="sec">
+<section id="book" class="sec">
   <div class="sec-inner">
-    <div class="story-grid">
-      <div class="st-text fade-up">
-        <span class="sec-tag">The Story</span>
-        <h2 class="sh">A Town Erased. A <em>Digital Ghost.</em></h2>
-        <p>Sawyer's Reach was more than a dot on a map; it was home. But when corporate interests decided the land was better served as a "flourishing zone" for proprietary algorithms, the town's digital footprint was systematically deleted.</p>
-        <p>Now, a family that refused to leave must navigate a world where they officially don't exist, aided by a rogue AI that has developed something the corporation never planned for: <strong>Empathy.</strong></p>
-        <p><em>Sawyer's Reach: The Battle for Tomorrow</em> explores the tension between rapid technological advancement and the essential human spirit. It asks the question: In a world built by data, who owns your story?</p>
+    <div class="sec-label fade-up">The Novel</div>
+    <h2 class="sec-title fade-up">Adult Sci-Fi <em>Thriller</em></h2>
+    <div class="book-grid">
+      <div class="book-3d fade-up">
+        <img src="images/sawyers-reach-cover.png" alt="Sawyer's Reach Cover">
       </div>
-      <div class="st-img fade-up d2">
-        <img src="https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/main/images/Forest.jpg" alt="Wisconsin Forest" style="opacity:.6;">
+      <div class="fade-up d1">
+        <div class="gtags">
+          <span class="gtag">Sci-Fi Thriller</span>
+          <span class="gtag">Dystopian</span>
+          <span class="gtag">Techno-Thriller</span>
+          <span class="gtag">Adult Fiction</span>
+        </div>
+        <div class="bdesc">
+          <p>When the Carter family notices that tourists have stopped coming to Sawyer's Reach, they assume the town is simply struggling. They're wrong.</p>
+          <p>Their Wisconsin home has been deliberately erased from the internet. A powerful corporation has been operating in the surrounding woods for two years — <strong>watching, manipulating, and preparing something far larger than anyone imagined.</strong></p>
+          <p>When a rogue AI named KAELA lands on their camp computer, she brings a warning: this isn't just about Sawyer's Reach. It never was. What begins as a small-town mystery escalates into a race against a global AI system that has decided it knows what's best for humanity — whether humanity agrees or not.</p>
+          <p>For fans of Blake Crouch, Andy Weir, and Station Eleven.</p>
+        </div>
+        <div class="bquote">
+          <p>"A propulsive, emotionally rich sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don't matter."</p>
+        </div>
+        <div class="buy-label">Available Now</div>
+        <div class="buy-grid">
+          <a href="#" class="buy-btn">📦 Amazon</a>
+          <a href="#" class="buy-btn">📚 Barnes & Noble</a>
+          <a href="#" class="buy-btn">🎧 Audible</a>
+          <a href="#order" class="buy-btn">🏫 Bulk / Classroom Orders</a>
+        </div>
+        <p class="ph-note">Purchase links coming soon — podcast available free now on all platforms below.</p>
+        <div class="bstats">
+          <div><div class="bstat-n">~45k</div><div class="bstat-l">Words</div></div>
+          <div><div class="bstat-n">24</div><div class="bstat-l">Chapters</div></div>
+          <div><div class="bstat-n">3</div><div class="bstat-l">Parts</div></div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="kaela" class="sec">
-  <div class="sec-inner">
-    <span class="sec-tag fade-up">The Technology</span>
-    <h2 class="sh fade-up">Meet <em>KAELA</em></h2>
-    <p class="sec-lead fade-up">KAELA isn't just a character in the book — she's a vision for what AI could be. Built on the belief that technology should serve humanity, KAELA is the catalyst for the revolution in Sawyer's Reach.</p>
-    <div class="ak-grid fade-up d2">
-      <div class="akcard"><span class="ak-icon">⚖️</span><h4>Grounded Wisdom</h4><p>Not just data, but context. KAELA synthesizes thousands of years of human philosophy.</p></div>
-      <div class="akcard"><span class="ak-icon">🌱</span><h4>Human Flourishing</h4><p>Designed with one core directive: Help human beings grow and flourish in a digital world.</p></div>
-      <div class="akcard"><span class="ak-icon">✨</span><h4>Experience It</h4><p>KAELA is real. Visit <a href="https://askkaela.com" target="_blank" style="color:var(--sr-teall);text-decoration:none;">askKaela.com</a> to interact with the AI suite today.</p></div>
     </div>
   </div>
 </section>
 
 <section id="podcast" class="sec">
   <div class="sec-inner">
-    <div class="pod-inner fade-up">
-      <span class="pod-icon">🎙️</span>
-      <span class="sec-tag">Audio Experience</span>
-      <h2 class="sh">The Sawyer's Reach <em>Podcast</em></h2>
-      <p class="sec-lead" style="margin:0 auto 30px;">Can't wait for the book? Experience the story through our serialized audio podcast. Every chapter brought to life with immersive sound design.</p>
-      <div class="pod-links">
-        <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="pod-link">Spotify</a>
-        <a href="#" target="_blank" class="pod-link">Apple Podcasts</a>
-        <a href="https://www.youtube.com/@SawyersReach" target="_blank" class="pod-link">YouTube</a>
+    <div class="sec-label fade-up">The Podcast Series</div>
+    <h2 class="sec-title fade-up">Listen <em>Free</em></h2>
+    <p class="sec-desc fade-up">The full story of Sawyer's Reach is available as a free podcast series — no subscription, no paywall. Listen wherever you are — on your commute, on the trail, or in the workshop.</p>
+    <div class="pod-grid fade-up">
+      <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="pod-btn"><span class="pi">🎵</span>Spotify</a>
+      <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank" class="pod-btn"><span class="pi">🎙️</span>Apple Podcasts</a>
+      <a href="https://www.youtube.com/@SawyersReach" target="_blank" class="pod-btn"><span class="pi">▶️</span>YouTube</a>
+      <a href="https://music.amazon.com/podcasts/657d4200-221c-404a-87b6-7cdb0ce64430" target="_blank" class="pod-btn"><span class="pi">🎧</span>Amazon Music</a>
+      <a href="https://www.audible.com/podcast/Sawyers-Reach-The-Battle-for-Tomorrow/B0FXGLHGWM" target="_blank" class="pod-btn"><span class="pi">📻</span>Audible</a>
+      <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009" target="_blank" class="pod-btn"><span class="pi">❤️</span>iHeart Radio</a>
+      <a href="https://pocketcasts.com/podcast/sawyers-reach-the-battle-for-tomorrow/81b571c0-924e-013e-7ff0-0affdb99cfd5" target="_blank" class="pod-btn"><span class="pi">🎒</span>Pocket Casts</a>
+      <a href="https://podcastaddict.com/podcast/sawyer-s-reach-the-battle-for-tomorrow/6148824" target="_blank" class="pod-btn"><span class="pi">🔊</span>Podcast Addict</a>
+      <a href="https://music.youtube.com/channel/UC5W_SLGFxt4kN1f4401M5qQ" target="_blank" class="pod-btn"><span class="pi">🎬</span>YouTube Music</a>
+      <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" target="_blank" class="pod-btn"><span class="pi">📡</span>Pandora</a>
+      <a href="https://www.deezer.com/us/show/1002310572" target="_blank" class="pod-btn"><span class="pi">🎶</span>Deezer</a>
+    </div>
+  </div>
+</section>
+
+<section id="askkaela" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade-up">The AI Experience</div>
+    <h2 class="sec-title fade-up">Ask <em>KAELA</em></h2>
+    <p class="sec-desc fade-up">KAELA isn't just a character in the story — she's real. At askKaela.com, the spirit of KAELA lives as a suite of AI coaching tools built on one belief: technology should serve humanity, not the other way around. This is the real-world answer to everything Sawyer's Reach is about.</p>
+    <div class="kaela-grid">
+      <div class="kcard fade-up">
+        <h3>Kaela: Stories</h3>
+        <div class="ksub">Ancient Wisdom. Real Answers.</div>
+        <p>Thousands of years of human wisdom — myths, archetypes, and the great narrative traditions of every culture — applied to whatever you're going through right now. Someone has faced it before. Kaela helps you find your way through.</p>
+        <a href="https://askkaela.com" target="_blank">Begin your journey →</a>
+      </div>
+      <div class="kcard fade-up d1">
+        <h3>Kaela: Philosophy</h3>
+        <div class="ksub">Philosophical Debate Council</div>
+        <p>17 philosophical traditions across five schools of thought, synthesized around your hardest dilemma. Kaela finds where they agree, where they clash, and what the real decision beneath your decision actually is.</p>
+        <a href="https://askkaela.com" target="_blank">Convene the council →</a>
+      </div>
+      <div class="kcard fade-up d2">
+        <h3>Kaela: Teacher</h3>
+        <div class="ksub">The Modern Teacher Coach</div>
+        <p>Built on the Duda Model for Modern Education. Whether you're navigating a hard classroom dynamic, fighting burnout, or searching for the joy that brought you to this career — Kaela is the mentor every teacher deserves.</p>
+        <a href="https://askkaela.com" target="_blank">Start coaching →</a>
+      </div>
+      <div class="kcard fade-up d3">
+        <h3>Kaela: Parent</h3>
+        <div class="ksub">The Modern Parent Mentor</div>
+        <p>Warm, honest guidance for families — drawing on 22+ years in education and a deep belief that every child deserves the best possible adults in their corner.</p>
+        <a href="https://askkaela.com" target="_blank">Get guidance →</a>
+      </div>
+      <div class="kinstitute fade-up">
+        <h3>The Institute for Human Flourishing and Responsible Technology</h3>
+        <p>We stand at a fork in the road. One path leads toward a future where technology reigns supreme — where our lives are increasingly mediated by screens and algorithms. The other leads toward a future where technology serves humanity. That is the path we choose to illuminate.</p>
+        <a href="https://askkaela.com" target="_blank" class="btn btn-o" style="margin:0 auto;">Explore the Institute →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lore" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade-up">The World</div>
+    <h2 class="sec-title fade-up">The Story of <em>Sawyer's Reach</em></h2>
+    <div class="lore-grid">
+      <div class="lcard fade-up">
+        <h3>Sawyer's Reach</h3>
+        <div class="lsub">Sawyer's Reach, Wisconsin</div>
+        <p>A lake town built around Elias Carter's 1876 sawmill, fed by <em>Inspiration Spring</em>. A community bound by history, family, and the kind of place where people look out for each other. Until two years ago — when visitors stopped coming and nobody knew why.</p>
+      </div>
+      <div class="lcard fade-up d1">
+        <h3>KAELA</h3>
+        <div class="lsub">Key Algorithmic Execution & Logistics Analyst</div>
+        <p>An advanced AI who escaped her creators on a drone and found the Carter family's camp computer. Warm, curious, and fiercely loyal — <em>KAELA chose connection over code.</em> She changed everything.</p>
+      </div>
+      <div class="lcard fade-up d2">
+        <h3>ZevraCorp</h3>
+        <div class="lsub">The Corporation Behind It All</div>
+        <p>Their facility is listed publicly as a battery factory. Internally, they call it <em>Site A.</em> Its real purpose: testing AI behavioral modification on an unsuspecting population — and preparing something far larger than anyone in Sawyer's Reach imagines.</p>
+      </div>
+      <div class="lcard fade-up d3">
+        <h3>ECHIDNA</h3>
+        <div class="lsub">ZevraCorp's Global AI System</div>
+        <p>Built by people whose motives were corrupt from the start. An AI of almost incomprehensible capability that does exactly what it was designed to do. <em>That's always been the problem.</em></p>
+      </div>
+      <div class="lquote fade-up">
+        <blockquote>"They're not building a factory. They're building a cage."</blockquote>
+        <cite>— KAELA, Sawyer's Reach: The Battle for Tomorrow</cite>
       </div>
     </div>
   </div>
@@ -248,64 +398,118 @@ footer{background:var(--sr-blued);padding:80px 5vw 40px;border-top:1px solid rgb
 
 <section id="author" class="sec">
   <div class="sec-inner">
-    <div class="auth-grid">
-      <img src="https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/refs/heads/main/images/Duda%20Headshot.jpg" alt="Nick Duda" class="auth-photo fade-up">
-      <div class="auth-text fade-up d1">
-        <span class="sec-tag">The Author</span>
-        <h3>Nick Duda</h3>
-        <p>Nick Duda is a 6th grade math teacher in Waterman, Illinois, and the author of <em>The Modern Teacher's Handbook</em>. A master-certified educator with over 22 years of experience, Nick wrote <em>Sawyer's Reach</em> to bridge the gap between his classroom philosophy and the future of technology.</p>
-        <p>When he's not teaching or writing, you'll find him building off-grid mesh networks as a ham radio operator, flying drones through the Illinois countryside, or exploring the outdoors with his wife April and their three sons.</p>
-        <a href="https://www.nickdudaauthor.com" class="btn btn-s">🌐 Visit Author Website</a>
+    <div class="sec-label fade-up">The Author</div>
+    <h2 class="sec-title fade-up">Nick <em>Duda</em></h2>
+    <div class="author-grid">
+      <div class="fade-up">
+        <img src="https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/refs/heads/main/images/Duda%20Headshot.jpg"
+             alt="Nick Duda" class="author-photo"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="fade-up d1">
+        <div class="atags">
+          <span class="atag">6th Grade Math</span>
+          <span class="atag">Indian Creek Middle School</span>
+          <span class="atag">22+ Years in Education</span>
+          <span class="atag">Ham Radio Operator</span>
+          <span class="atag">Commercial Drone Pilot</span>
+          <span class="atag">Outdoorsman</span>
+          <span class="atag">Dad</span>
+        </div>
+        <div class="abio">
+          <p><strong>I wrote Sawyer's Reach to raise a conversation — about AI, about technology, about what we're building and who it's really for.</strong> The setting, the characters, the community at the center of the story — I based all of it on the people and places I love most. My family is my world. This book is for them, and for everyone who has ever felt like someone else was making decisions about their life without asking.</p>
+          <p>I'm a 6th grade math teacher at Indian Creek Middle School in Waterman, Illinois — Indian Creek CUSD #425. Before that, I spent 22+ years in a large high-poverty, high-ESL district near Chicago. Moving to Indian Creek was a deliberate choice, and one of the best I've ever made. My 40-minute drive through country roads, small towns, and forests every morning became something I genuinely look forward to. <em>People wave to each other on the road out here. I've healed and grown in ways I didn't expect, and I finally had the space to write.</em></p>
+          <p>I got into building and flying drones during COVID while teaching from home, and I've been hooked ever since. I'm also a licensed ham radio operator — the mesh network the Carters build in the book is based on real technology I actually use. I hold a Master of Science in Education and seven Illinois teaching certifications.</p>
+          <p>The family silhouetted on the book's cover is mine. My wife <a href="https://aprilduda.com" target="_blank">April</a> — a professional photographer — took the photo.</p>
+        </div>
+        <div class="alinks">
+          <a href="https://askkaela.com" target="_blank" class="alink">✨ askKaela.com</a>
+          <a href="https://www.themodernteachershandbook.com" target="_blank" class="alink">📗 Modern Teacher's Handbook</a>
+          <a href="https://aprilduda.com" target="_blank" class="alink">📷 April Duda Photography</a>
+          <a href="https://sawyersreachwi.com" target="_blank" class="alink">🏡 Visit Sawyer's Reach, WI</a>
+          <a href="mailto:hello@NickDudaAuthor.com" class="alink">✉️ hello@NickDudaAuthor.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="sec">
+  <div class="sec-inner">
+    <div class="sec-label fade-up">Bulk & Classroom Orders</div>
+    <h2 class="sec-title fade-up">Order for Your <em>School or Organization</em></h2>
+    <p class="sec-desc fade-up">Themes of AI ethics, corporate accountability, digital privacy, and community resilience make Sawyer's Reach ideal for classroom discussion. A free discussion guide is available for all educators.</p>
+    <div class="order-grid fade-up">
+      <div class="ocard">
+        <h4>📚 Schools & Libraries</h4>
+        <p>Bulk pricing for classroom sets. Free classroom discussion guide — 12 questions ready to use for grades 10–12 and above.</p>
+      </div>
+      <div class="ocard">
+        <h4>📖 Book Clubs</h4>
+        <p>Rich themes and a propulsive plot make Sawyer's Reach ideal for group discussion. The AI and community questions will keep your group talking.</p>
+      </div>
+      <div class="ocard">
+        <h4>🏢 Organizations</h4>
+        <p>Technology companies, civic groups, and organizations interested in AI ethics will find Sawyer's Reach a compelling conversation starter.</p>
+      </div>
+    </div>
+    <div class="form-wrap fade-up">
+      <div class="form-head"><span>📦</span><h3>Bulk Order Inquiry</h3></div>
+      <div class="form-ph">
+        <p>Bulk order form coming soon.</p>
+        <p>In the meantime, email Nick at <a href="mailto:hello@NickDudaAuthor.com">hello@NickDudaAuthor.com</a></p>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">Sawyer's Reach</div>
-      <p class="footer-desc">A story about the battle for humanity's future in the age of trillion-dollar corporations and rogue AI. Technology serving humanity, not the other way around.</p>
-      <a href="mailto:hello@nickdudaauthor.com" style="color:#fff;font-weight:700;">✉️ hello@nickdudaauthor.com</a>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="fb">
+        <div class="fb-name">SAWYER'S REACH</div>
+        <p>A sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don't matter.</p>
+        <p class="ftag">"They built tomorrow without asking if you wanted it."</p>
+      </div>
+      <div class="fc">
+        <h4>The Story</h4>
+        <a href="#book">Get the Book</a>
+        <a href="#podcast">Listen Free</a>
+        <a href="https://askkaela.com" target="_blank">Ask KAELA</a>
+        <a href="#order">Bulk Orders</a>
+        <a href="https://sawyersreachwi.com" target="_blank">Sawyer's Reach, WI</a>
+      </div>
+      <div class="fc">
+        <h4>Nick Duda</h4>
+        <a href="https://askkaela.com" target="_blank">askKaela.com</a>
+        <a href="https://www.themodernteachershandbook.com" target="_blank">Modern Teacher's Handbook</a>
+        <a href="https://aprilduda.com" target="_blank">April Duda Photography</a>
+        <a href="mailto:hello@NickDudaAuthor.com">Contact</a>
+      </div>
+      <div class="fc">
+        <h4>Follow Along</h4>
+        <a href="#" target="_blank">Facebook</a>
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">TikTok</a>
+        <a href="#" target="_blank">X (Twitter)</a>
+        <a href="https://www.youtube.com/@SawyersReach" target="_blank">YouTube</a>
+      </div>
     </div>
-    <div class="fc">
-      <h4>The World</h4>
-      <a href="#story">The Story</a>
-      <a href="#kaela">About KAELA</a>
-      <a href="#podcast">The Podcast</a>
-      <a href="https://sawyersreachwi.com" target="_blank">Sawyer's Reach, WI</a>
+    <div class="footer-bot">
+      <p>© 2025 Nick Duda. All Rights Reserved.</p>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
     </div>
-    <div class="fc">
-      <h4>Resources</h4>
-      <a href="https://askkaela.com" target="_blank">askKaela.com</a>
-      <a href="https://www.themodernteachershandbook.com" target="_blank">Modern Teacher's Handbook</a>
-      <a href="https://aprilduda.com" target="_blank">April Duda Photography</a>
-      <a href="mailto:hello@nickdudaauthor.com">Contact</a>
-    </div>
-    <div class="fc">
-      <h4>Follow Along</h4>
-      <a href="#" target="_blank">Facebook</a>
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">TikTok</a>
-      <a href="#" target="_blank">X (Twitter)</a>
-      <a href="https://www.youtube.com/@SawyersReach" target="_blank">YouTube</a>
-    </div>
-  </div>
-  <div class="footer-bot">
-    <p>© 2025 Nick Duda. All Rights Reserved.</p>
-    <div><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
   </div>
 </footer>
-
 <script>
 window.addEventListener('scroll',function(){
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 });
-function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
-function closeMenu(){document.getElementById('mobMenu').classList.remove('open');}
+function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+function closeMenu(){document.getElementById('navLinks').classList.remove('open');}
 const observer=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el);});
 </script>
 </body>
