@@ -127,6 +127,8 @@ nav.scrolled{background:rgba(5,10,18,.97);border-bottom:1px solid var(--border);
 .buy-grid{display:flex;flex-wrap:wrap;gap:7px;}
 .buy-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);color:var(--textd);padding:8px 14px;text-decoration:none;font-size:12px;font-family:'Helvetica Neue',Arial,sans-serif;transition:all .2s;}
 .buy-btn:hover{border-color:var(--teald);color:var(--tealb);}
+.buy-btn.soon{opacity:.45;cursor:default;pointer-events:none;}
+.buy-btn.kindle{border-color:var(--teald);color:var(--tealb);}
 .ph-note{font-size:11px;color:var(--textm);font-style:italic;margin-top:6px;font-family:'Helvetica Neue',Arial,sans-serif;}
 .bstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;padding:14px;background:var(--surface);border:1px solid var(--border);}
 .bstat-n{font-size:24px;font-weight:700;color:var(--tealb);}
@@ -250,7 +252,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
       <p class="hero-sub fade-up d2">The Battle for Tomorrow</p>
       <p class="hero-desc fade-up d3">A Wisconsin family discovers their town has been deliberately erased from the internet. When a rogue AI named KAELA arrives with a warning, a local mystery becomes a race against forces that have decided they know what's best for humanity — whether humanity agrees or not.</p>
       <div class="btns fade-up d4">
-        <a href="#book" class="btn btn-p">📖 Get the Book</a>
+        <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="btn btn-p">📖 Kindle on Amazon</a>
         <a href="#podcast" class="btn btn-o">🎙️ Listen Free</a>
         <a href="https://askkaela.com" target="_blank" class="btn btn-o">✨ Ask KAELA</a>
       </div>
@@ -287,12 +289,13 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
         </div>
         <div class="buy-label">Available Now</div>
         <div class="buy-grid">
-          <a href="#" class="buy-btn">📦 Amazon</a>
-          <a href="#" class="buy-btn">📚 Barnes & Noble</a>
-          <a href="#" class="buy-btn">🎧 Audible</a>
+          <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="buy-btn kindle">📱 Kindle on Amazon</a>
+          <a href="#" class="buy-btn soon" title="Coming soon">📦 Paperback — Coming Soon</a>
+          <a href="#" class="buy-btn soon" title="Coming soon">📚 Barnes &amp; Noble — Coming Soon</a>
+          <a href="#" class="buy-btn soon" title="Coming soon">🎧 Audible — Coming Soon</a>
           <a href="#order" class="buy-btn">🏫 Bulk / Classroom Orders</a>
         </div>
-        <p class="ph-note">Purchase links coming soon — podcast available free now on all platforms below.</p>
+        <p class="ph-note">Kindle edition available now. Paperback, audiobook, and additional retailers coming soon — or listen free via the podcast below.</p>
         <div class="bstats">
           <div><div class="bstat-n">~45k</div><div class="bstat-l">Words</div></div>
           <div><div class="bstat-n">24</div><div class="bstat-l">Chapters</div></div>
@@ -375,7 +378,7 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
       </div>
       <div class="lcard fade-up d1">
         <h3>KAELA</h3>
-        <div class="lsub">Key Algorithmic Execution & Logistics Analyst</div>
+        <div class="lsub">Key Algorithmic Execution &amp; Logistics Analyst</div>
         <p>An advanced AI who escaped her creators on a drone and found the Carter family's camp computer. Warm, curious, and fiercely loyal — <em>KAELA chose connection over code.</em> She changed everything.</p>
       </div>
       <div class="lcard fade-up d2">
@@ -436,12 +439,12 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
 
 <section id="order" class="sec">
   <div class="sec-inner">
-    <div class="sec-label fade-up">Bulk & Classroom Orders</div>
+    <div class="sec-label fade-up">Bulk &amp; Classroom Orders</div>
     <h2 class="sec-title fade-up">Order for Your <em>School or Organization</em></h2>
     <p class="sec-desc fade-up">Themes of AI ethics, corporate accountability, digital privacy, and community resilience make Sawyer's Reach ideal for classroom discussion. A free discussion guide is available for all educators.</p>
     <div class="order-grid fade-up">
       <div class="ocard">
-        <h4>📚 Schools & Libraries</h4>
+        <h4>📚 Schools &amp; Libraries</h4>
         <p>Bulk pricing for classroom sets. Free classroom discussion guide — 12 questions ready to use for grades 10–12 and above.</p>
       </div>
       <div class="ocard">
@@ -505,8 +508,8 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
 window.addEventListener('scroll',function(){
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 });
-function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
-function closeMenu(){document.getElementById('navLinks').classList.remove('open');}
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobMenu').classList.remove('open');}
 const observer=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
 },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
