@@ -72,7 +72,7 @@ img{max-width:100%;display:block;}
 a{transition:color .2s;}
 .sans{font-family:'Helvetica Neue',Arial,sans-serif;}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;transition:background .3s;}
+nav{position:fixed;top:44px;left:0;right:0;z-index:999;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;transition:background .3s;}
 nav.scrolled{background:rgba(5,10,18,.97);border-bottom:1px solid var(--border);}
 .nav-logo{font-size:17px;font-weight:700;color:var(--tealb);text-decoration:none;letter-spacing:.06em;}
 .nav-links{display:flex;gap:20px;list-style:none;align-items:center;}
@@ -82,12 +82,12 @@ nav.scrolled{background:rgba(5,10,18,.97);border-bottom:1px solid var(--border);
 .nav-buy:hover{background:var(--tealb)!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
 .hamburger span{width:22px;height:2px;background:var(--textd);display:block;}
-.mob-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(5,10,18,.99);border-bottom:1px solid var(--border);padding:12px 5vw;z-index:998;}
+.mob-menu{display:none;position:fixed;top:104px;left:0;right:0;background:rgba(5,10,18,.99);border-bottom:1px solid var(--border);padding:12px 5vw;z-index:998;}
 .mob-menu.open{display:block;}
 .mob-menu a{display:block;color:var(--textd);text-decoration:none;font-size:14px;padding:11px 0;border-bottom:1px solid var(--border);font-family:'Helvetica Neue',Arial,sans-serif;}
 @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}}
 
-#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:80px 5vw 60px;}
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 5vw 60px;}
 .hero-bg{position:absolute;inset:0;background:url('images/Forest.jpg') center/cover no-repeat;}.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(155deg,rgba(3,8,16,.88) 0%,rgba(7,18,42,.82) 50%,rgba(5,14,26,.90) 100%);}
 .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;gap:56px;align-items:center;max-width:1100px;margin:0 auto;width:100%;}
 .eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;font-family:'Helvetica Neue',Arial,sans-serif;}
@@ -127,8 +127,6 @@ nav.scrolled{background:rgba(5,10,18,.97);border-bottom:1px solid var(--border);
 .buy-grid{display:flex;flex-wrap:wrap;gap:7px;}
 .buy-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);color:var(--textd);padding:8px 14px;text-decoration:none;font-size:12px;font-family:'Helvetica Neue',Arial,sans-serif;transition:all .2s;}
 .buy-btn:hover{border-color:var(--teald);color:var(--tealb);}
-.buy-btn.soon{opacity:.45;cursor:default;pointer-events:none;}
-.buy-btn.kindle{border-color:var(--teald);color:var(--tealb);}
 .ph-note{font-size:11px;color:var(--textm);font-style:italic;margin-top:6px;font-family:'Helvetica Neue',Arial,sans-serif;}
 .bstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;padding:14px;background:var(--surface);border:1px solid var(--border);}
 .bstat-n{font-size:24px;font-weight:700;color:var(--tealb);}
@@ -218,7 +216,12 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
 </head>
 <body>
 
-<nav id="nav">
+<div id="launch-banner" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:linear-gradient(90deg,#0d4f48,#1a9e8f 50%,#0d4f48);padding:9px 5vw;display:flex;align-items:center;justify-content:center;gap:14px;border-bottom:1px solid #26c4b2;">
+  <span style="font-size:13px;font-weight:700;color:#fff;letter-spacing:.04em;font-family:'Helvetica Neue',Arial,sans-serif;">🎉 NOW AVAILABLE IN PRINT — Hardcover &amp; Paperback</span>
+  <a href="#book" style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#e2c97e;text-decoration:none;border:1px solid rgba(226,201,126,.5);padding:4px 10px;font-family:'Helvetica Neue',Arial,sans-serif;white-space:nowrap;" onclick="document.getElementById('launch-banner').style.display='none'">Order Now →</a>
+  <button onclick="document.getElementById('launch-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,.5);cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;" aria-label="Dismiss">×</button>
+</div>
+<nav id="nav" style="top:44px;">
   <a href="#hero" class="nav-logo">SAWYER'S REACH</a>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -246,13 +249,13 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="eyebrow fade-up">A Novel & Podcast — Nick Duda</div>
+      <div class="eyebrow fade-up">A Novel &amp; Podcast — Nick Duda</div>
       <p class="hero-tagline fade-up d1">"They built tomorrow without asking if you wanted it."</p>
       <h1 class="hero-title fade-up d2">SAWYER'S<em>REACH</em></h1>
       <p class="hero-sub fade-up d2">The Battle for Tomorrow</p>
       <p class="hero-desc fade-up d3">A Wisconsin family discovers their town has been deliberately erased from the internet. When a rogue AI named KAELA arrives with a warning, a local mystery becomes a race against forces that have decided they know what's best for humanity — whether humanity agrees or not.</p>
       <div class="btns fade-up d4">
-        <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="btn btn-p">📖 Kindle on Amazon</a>
+        <a href="#book" class="btn btn-p">📗 Order Now — In Print!</a>
         <a href="#podcast" class="btn btn-o">🎙️ Listen Free</a>
         <a href="https://askkaela.com" target="_blank" class="btn btn-o">✨ Ask KAELA</a>
       </div>
@@ -287,15 +290,15 @@ footer{background:var(--void);border-top:1px solid var(--border);padding:48px 5v
         <div class="bquote">
           <p>"A propulsive, emotionally rich sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don't matter."</p>
         </div>
-        <div class="buy-label">Available Now</div>
+        <div class="buy-label" style="color:var(--goldb);">🎉 Just Published — Order Your Copy</div>
         <div class="buy-grid">
-          <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="buy-btn kindle">📱 Kindle on Amazon</a>
-          <a href="#" class="buy-btn soon" title="Coming soon">📦 Paperback — Coming Soon</a>
-          <a href="#" class="buy-btn soon" title="Coming soon">📚 Barnes &amp; Noble — Coming Soon</a>
-          <a href="#" class="buy-btn soon" title="Coming soon">🎧 Audible — Coming Soon</a>
+          <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank" class="buy-btn" style="border-color:#c9a84c;color:#e2c97e;">📗 Hardcover</a>
+          <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank" class="buy-btn" style="border-color:#c9a84c;color:#e2c97e;">📘 Paperback</a>
+          <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="buy-btn">📖 Kindle Edition</a>
+          <span class="buy-btn" style="opacity:.4;cursor:default;pointer-events:none;">🎧 Audible <span style="font-size:10px;color:var(--textm);">(coming soon)</span></span>
           <a href="#order" class="buy-btn">🏫 Bulk / Classroom Orders</a>
         </div>
-        <p class="ph-note">Kindle edition available now. Paperback, audiobook, and additional retailers coming soon — or listen free via the podcast below.</p>
+        <p class="ph-note">Hardcover and paperback editions are available now. Kindle edition available on Amazon. Audiobook coming soon — the full story is free as a podcast on all platforms below.</p>
         <div class="bstats">
           <div><div class="bstat-n">~45k</div><div class="bstat-l">Words</div></div>
           <div><div class="bstat-n">24</div><div class="bstat-l">Chapters</div></div>
