@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sawyer's Reach: The Battle for Tomorrow — Nick Duda</title>
+<meta name="description" content="A Wisconsin family discovers their town has been erased from the internet. A rogue AI named KAELA changes everything. Sci-fi thriller by Nick Duda — available now in print and on Kindle.">
+<meta name="author" content="Nick Duda">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sawyersreachbook.com/">
+<meta property="og:type" content="book">
+<meta property="og:title" content="Sawyer's Reach: The Battle for Tomorrow">
+<meta property="og:description" content="A Wisconsin family discovers their town has been erased from the internet. A rogue AI named KAELA changes everything.">
+<meta property="og:image" content="https://sawyersreachbook.com/images/sawyers-reach-cover.png">
+<meta property="og:url" content="https://sawyersreachbook.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sawyer's Reach: The Battle for Tomorrow">
+<meta name="twitter:image" content="https://sawyersreachbook.com/images/sawyers-reach-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0e1117;
+  --ink2: #1a1f2e;
+  --paper: #f4f0e8;
+  --paper2: #ede8dc;
+  --cream: #faf7f2;
+  --gold: #c9921a;
+  --gold2: #e8ab2a;
+  --teal: #1a8a7e;
+  --teal2: #22aaa0;
+  --text: #1a1f2e;
+  --muted: #5a6070;
+  --border: #d8d0c0;
+  --white: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ── ANNOUNCEMENT BAR ── */
+.ann-bar {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+}
+.ann-bar strong { color: var(--gold2); }
+.ann-bar a.ann-link {
+  background: var(--gold);
+  color: #fff;
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.ann-bar a.ann-link:hover { background: var(--gold2); }
+.ann-close { position: absolute; right: 16px; background: none; border: none; color: rgba(255,255,255,.4); cursor: pointer; font-size: 20px; line-height: 1; }
+
+/* ── NAV ── */
+nav {
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5vw;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.nav-logo span { color: var(--teal); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-order {
+  background: var(--gold);
+  color: #fff !important;
+  padding: 8px 18px;
+  border-radius: 2px;
+  font-weight: 700 !important;
+  transition: background .2s !important;
+}
+.nav-order:hover { background: var(--gold2) !important; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); }
+.mob-menu { display: none; background: var(--cream); border-bottom: 1px solid var(--border); padding: 12px 5vw; }
+.mob-menu.open { display: block; }
+.mob-menu a { display: block; padding: 10px 0; font-size: 14px; font-weight: 500; color: var(--text); border-bottom: 1px solid var(--border); }
+@media(max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
+
+/* ── HERO ── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 58px);
+  max-height: 900px;
+}
+.hero-left {
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 5vw 60px 6vw;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('images/Forest.jpg') center/cover no-repeat;
+  opacity: .12;
+}
+.hero-left-inner { position: relative; z-index: 1; max-width: 500px; }
+.hero-genre {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal2);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-genre::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(64px, 9vw, 108px);
+  font-weight: 900;
+  line-height: .88;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  margin-bottom: 6px;
+}
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(14px, 1.6vw, 19px);
+  font-style: italic;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 28px;
+  letter-spacing: .02em;
+}
+.hero-hook {
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 300;
+  color: rgba(255,255,255,.9);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--gold);
+  padding-left: 18px;
+}
+.hero-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 420px;
+}
+.hero-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: #fff;
+  padding: 13px 24px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all .2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255,255,255,.8);
+  padding: 13px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 2px;
+  transition: all .2s;
+  cursor: pointer;
+}
+.btn-secondary:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+.hero-right {
+  background: var(--ink2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 5vw;
+}
+.hero-cover { width: 100%; max-width: 540px; }
+.hero-cover img { width: 100%; }
+@media(max-width: 860px) {
+  .hero { grid-template-columns: 1fr; max-height: none; }
+  .hero-left { padding: 50px 6vw; min-height: auto; }
+  .hero-right { padding: 30px 6vw 50px; }
+  .hero-cover { max-width: 380px; margin: 0 auto; }
+}
+
+/* ── BUY STRIP ── */
+.buy-strip {
+  background: var(--ink);
+  padding: 36px 5vw;
+}
+.buy-strip-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+}
+.buy-strip-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #fff;
+}
+.buy-strip-label em { color: var(--gold2); font-style: normal; }
+.buy-strip-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.buy-format {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.15);
+  color: #fff;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 3px;
+  transition: all .2s;
+  min-width: 120px;
+  text-align: center;
+}
+.buy-format:hover { background: rgba(255,255,255,.12); border-color: var(--gold2); }
+.buy-format.featured { background: var(--gold); border-color: var(--gold); }
+.buy-format.featured:hover { background: var(--gold2); border-color: var(--gold2); }
+.buy-format-sub { font-size: 10px; font-weight: 400; opacity: .65; letter-spacing: .04em; }
+.buy-format-sub.avail { opacity: .9; color: var(--gold2); }
+.buy-format.featured .buy-format-sub.avail { color: rgba(255,255,255,.9); }
+@media(max-width: 700px) { .buy-strip-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ── PITCH ── */
+.pitch {
+  background: var(--cream);
+  padding: 80px 5vw;
+}
+.pitch-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.pitch-label {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.pitch-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.pitch-heading em { font-style: italic; color: var(--teal); }
+.pitch-body p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+.pitch-body strong { color: var(--text); font-weight: 600; }
+.pitch-pull {
+  background: var(--ink);
+  padding: 32px;
+  border-radius: 3px;
+  position: relative;
+}
+.pitch-pull::before {
+  content: '\201C';
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  color: var(--gold);
+  opacity: .25;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  line-height: 1;
+}
+.pitch-pull blockquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px, 2vw, 22px);
+  font-style: italic;
+  color: #fff;
+  line-height: 1.55;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+.pitch-pull cite {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-style: normal;
+}
+.pitch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 20px;
+}
+.pitch-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(26,138,126,.08);
+  border: 1px solid rgba(26,138,126,.2);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+@media(max-width: 700px) { .pitch-inner { grid-template-columns: 1fr; gap: 36px; } }
+
+/* ── PODCAST ── */
+.podcast {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 70px 5vw;
+}
+.podcast-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.podcast-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 36px;
+}
+.podcast-label {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.podcast-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.podcast-heading em { color: var(--teal); font-style: normal; }
+.podcast-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 480px;
+}
+.podcast-badge {
+  background: var(--ink);
+  color: #fff;
+  padding: 20px 28px;
+  text-align: center;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.podcast-badge .badge-free {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--gold2);
+  display: block;
+  line-height: 1;
+}
+.podcast-badge .badge-label {
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .6;
+  margin-top: 4px;
+}
+.pod-platforms {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+.pod-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all .2s;
+}
+.pod-link:hover { border-color: var(--teal); color: var(--teal); background: #fff; }
+.pod-icon { font-size: 16px; }
+@media(max-width: 640px) { .podcast-top { grid-template-columns: 1fr; } .podcast-badge { display: inline-block; } }
+
+/* ── ABOUT ── */
+.about {
+  background: var(--cream);
+  padding: 80px 5vw;
+}
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 52px;
+  align-items: start;
+}
+.about-photo {
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.15);
+}
+.about-label {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.about-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.about-body p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 12px;
+}
+.about-body strong { color: var(--text); }
+.about-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.about-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+  border-bottom: 1px solid rgba(26,138,126,.3);
+  padding-bottom: 2px;
+  transition: border-color .2s;
+}
+.about-link:hover { border-color: var(--teal); }
+@media(max-width: 640px) { .about-inner { grid-template-columns: 1fr; } .about-photo { max-width: 160px; } }
+
+/* ── BULK ── */
+.bulk {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  padding: 60px 5vw;
+}
+.bulk-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.bulk-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+.bulk-heading { font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+.bulk-desc { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+.bulk-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.bulk-cta:hover { background: var(--ink2); }
+.bulk-cards { display: flex; flex-direction: column; gap: 12px; }
+.bulk-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.bulk-icon { font-size: 22px; flex-shrink: 0; }
+.bulk-card h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.bulk-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+@media(max-width: 640px) { .bulk-inner { grid-template-columns: 1fr; } }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,.5);
+  padding: 48px 5vw 28px;
+}
+.footer-inner { max-width: 900px; margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+.footer-brand .brand-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.footer-brand p { font-size: 12px; line-height: 1.75; max-width: 220px; }
+.footer-col h4 {
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 8px;
+  transition: color .2s;
+}
+.footer-col a:hover { color: #fff; }
+.footer-bot {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footer-bot span { font-size: 11px; }
+.footer-bot a { font-size: 11px; color: rgba(255,255,255,.35); margin-left: 16px; }
+.footer-bot a:hover { color: rgba(255,255,255,.7); }
+@media(max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width: 400px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .1s; }
+.reveal.d2 { transition-delay: .2s; }
+.reveal.d3 { transition-delay: .3s; }
+</style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="ann-bar" id="annBar">
+  <span>&#127881; <strong>NOW IN PRINT</strong> &mdash; Hardcover &amp; Paperback available now</span>
+  <a href="#buy" class="ann-link">Order Now</a>
+  <button class="ann-close" onclick="document.getElementById('annBar').style.display='none'" aria-label="Dismiss">&times;</button>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">SAWYER&#8217;S<span>REACH</span></a>
+  <button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#pitch">The Book</a></li>
+    <li><a href="#podcast">Podcast</a></li>
+    <li><a href="#author">Author</a></li>
+    <li><a href="#bulk">Schools &amp; Bulk</a></li>
+    <li><a href="#buy" class="nav-order">Order Now</a></li>
+  </ul>
+</nav>
+<div class="mob-menu" id="mobNav">
+  <a href="#pitch" onclick="document.getElementById('mobNav').classList.remove('open')">The Book</a>
+  <a href="#podcast" onclick="document.getElementById('mobNav').classList.remove('open')">Podcast</a>
+  <a href="#author" onclick="document.getElementById('mobNav').classList.remove('open')">Author</a>
+  <a href="#bulk" onclick="document.getElementById('mobNav').classList.remove('open')">Schools &amp; Bulk</a>
+  <a href="#buy" onclick="document.getElementById('mobNav').classList.remove('open')">Order Now</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-left-inner">
+      <div class="hero-genre reveal">Sci-Fi Thriller &middot; Nick Duda</div>
+      <h1 class="hero-title reveal d1">SAWYER&#8217;S<br>REACH</h1>
+      <p class="hero-subtitle reveal d1">The Battle for Tomorrow</p>
+      <p class="hero-hook reveal d2">They erased an entire town from the internet. No one was supposed to notice.</p>
+      <p class="hero-desc reveal d2">A Wisconsin family. A rogue AI named KAELA. And a corporation that has decided it knows what&#8217;s best for humanity &mdash; whether humanity agrees or not.</p>
+      <div class="hero-btns reveal d3">
+        <a href="#buy" class="btn-primary">&#128212; Order the Book</a>
+        <a href="#podcast" class="btn-secondary">&#127897;&#65039; Listen Free</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-cover reveal d1">
+      <img src="images/sawyers-reach-cover.png" alt="Sawyer's Reach: The Battle for Tomorrow by Nick Duda">
+    </div>
+  </div>
+</section>
+
+<!-- Buy Strip -->
+<div class="buy-strip" id="buy">
+  <div class="buy-strip-inner">
+    <div class="buy-strip-label">Available now &mdash; <em>choose your format</em></div>
+    <div class="buy-strip-btns">
+      <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank" class="buy-format featured">
+        &#128212; Hardcover
+        <span class="buy-format-sub avail">Order now</span>
+      </a>
+      <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank" class="buy-format featured">
+        &#128218; Paperback
+        <span class="buy-format-sub avail">Order now</span>
+      </a>
+      <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="buy-format">
+        &#128214; Kindle
+        <span class="buy-format-sub avail">On Amazon</span>
+      </a>
+      <span class="buy-format" style="opacity:.45;cursor:default;pointer-events:none;">
+        &#127911; Audiobook
+        <span class="buy-format-sub">Coming soon</span>
+      </span>
+      <a href="#bulk" class="buy-format">
+        &#127979; Classroom / Bulk
+        <span class="buy-format-sub">Schools &amp; orgs</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Pitch -->
+<section class="pitch" id="pitch">
+  <div class="pitch-inner">
+    <div>
+      <p class="pitch-label reveal">What&#8217;s it about</p>
+      <h2 class="pitch-heading reveal d1">A small town.<br>A rogue AI.<br><em>A much bigger plan.</em></h2>
+      <div class="pitch-body reveal d2">
+        <p>When the Carter family notices tourists have stopped coming to Sawyer&#8217;s Reach, they assume the town is simply struggling. They&#8217;re wrong.</p>
+        <p>Their Wisconsin home has been deliberately <strong>erased from the internet</strong>. A powerful corporation has been operating in the surrounding woods for two years &mdash; watching, manipulating, and preparing something far larger than anyone imagined.</p>
+        <p>When a rogue AI named KAELA arrives with a warning, a local mystery becomes a race against a global AI system that has decided it knows what&#8217;s best for humanity &mdash; whether humanity agrees or not.</p>
+        <p style="color:#888;font-size:13px;margin-top:4px;">For fans of Blake Crouch, Andy Weir, and Station Eleven.</p>
+      </div>
+      <div class="pitch-tags reveal d3">
+        <span class="pitch-tag">Sci-Fi Thriller</span>
+        <span class="pitch-tag">AI Ethics</span>
+        <span class="pitch-tag">Dystopian</span>
+        <span class="pitch-tag">~45k Words</span>
+        <span class="pitch-tag">24 Chapters</span>
+      </div>
+    </div>
+    <div class="pitch-pull reveal d1">
+      <blockquote>&#8220;They&#8217;re not building a factory. They&#8217;re building a cage.&#8221;</blockquote>
+      <cite>&mdash; KAELA, Sawyer&#8217;s Reach</cite>
+    </div>
+  </div>
+</section>
+
+<!-- Podcast -->
+<section class="podcast" id="podcast">
+  <div class="podcast-inner">
+    <div class="podcast-top">
+      <div>
+        <p class="podcast-label reveal">Not ready to buy yet?</p>
+        <h2 class="podcast-heading reveal d1">Listen to the full story &mdash; <em>Free</em></h2>
+        <p class="podcast-desc reveal d2">The complete novel is available as a podcast on every major platform. No subscription, no paywall. Start listening on your commute today &mdash; then grab the book.</p>
+      </div>
+      <div class="podcast-badge reveal d1">
+        <span class="badge-free">FREE</span>
+        <div class="badge-label">Full novel &middot; All platforms</div>
+      </div>
+    </div>
+    <div class="pod-platforms reveal d2">
+      <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="pod-link"><span class="pod-icon">&#127925;</span>Spotify</a>
+      <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank" class="pod-link"><span class="pod-icon">&#127897;&#65039;</span>Apple Podcasts</a>
+      <a href="https://www.youtube.com/@SawyersReach" target="_blank" class="pod-link"><span class="pod-icon">&#9654;&#65039;</span>YouTube</a>
+      <a href="https://music.amazon.com/podcasts/657d4200-221c-404a-87b6-7cdb0ce64430" target="_blank" class="pod-link"><span class="pod-icon">&#127911;</span>Amazon Music</a>
+      <a href="https://www.audible.com/podcast/Sawyers-Reach-The-Battle-for-Tomorrow/B0FXGLHGWM" target="_blank" class="pod-link"><span class="pod-icon">&#128251;</span>Audible</a>
+      <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009" target="_blank" class="pod-link"><span class="pod-icon">&#10084;&#65039;</span>iHeart Radio</a>
+      <a href="https://pocketcasts.com/podcast/sawyers-reach-the-battle-for-tomorrow/81b571c0-924e-013e-7ff0-0affdb99cfd5" target="_blank" class="pod-link"><span class="pod-icon">&#127896;</span>Pocket Casts</a>
+      <a href="https://podcastaddict.com/podcast/sawyer-s-reach-the-battle-for-tomorrow/6148824" target="_blank" class="pod-link"><span class="pod-icon">&#128266;</span>Podcast Addict</a>
+      <a href="https://music.youtube.com/channel/UC5W_SLGFxt4kN1f4401M5qQ" target="_blank" class="pod-link"><span class="pod-icon">&#127902;&#65039;</span>YouTube Music</a>
+      <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" target="_blank" class="pod-link"><span class="pod-icon">&#128225;</span>Pandora</a>
+      <a href="https://www.deezer.com/us/show/1002310572" target="_blank" class="pod-link"><span class="pod-icon">&#127926;</span>Deezer</a>
+    </div>
+  </div>
+</section>
+
+<!-- Author -->
+<section class="about" id="author">
+  <div class="about-inner">
+    <div>
+      <img src="https://raw.githubusercontent.com/sawyersreachbook-stack/sawyersreachbookwebsite/refs/heads/main/images/Duda%20Headshot.jpg" alt="Nick Duda" class="about-photo" onerror="this.style.display='none'">
+    </div>
+    <div>
+      <p class="about-label reveal">The Author</p>
+      <h2 class="about-name reveal d1">Nick Duda</h2>
+      <div class="about-body reveal d2">
+        <p><strong>Nick Duda is a 6th grade math teacher in Waterman, Illinois</strong> with 22+ years in education. He&#8217;s also a licensed ham radio operator, commercial drone pilot, and the author of <em>The Modern Teacher&#8217;s Handbook</em>.</p>
+        <p>He wrote Sawyer&#8217;s Reach to start a conversation about AI, technology, and who it&#8217;s really being built for. The family on the cover is his. The questions the book raises are ones he thinks about every day.</p>
+        <p>The mesh network the Carter family builds in the book is based on real technology Nick actually uses.</p>
+      </div>
+      <div class="about-links reveal d3">
+        <a href="https://askkaela.com" target="_blank" class="about-link">askKaela.com</a>
+        <a href="https://www.themodernteachershandbook.com" target="_blank" class="about-link">Modern Teacher&#8217;s Handbook</a>
+        <a href="https://aprilduda.com" target="_blank" class="about-link">April Duda Photography</a>
+        <a href="mailto:hello@NickDudaAuthor.com" class="about-link">hello@NickDudaAuthor.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bulk -->
+<section class="bulk" id="bulk">
+  <div class="bulk-inner">
+    <div>
+      <p class="bulk-label reveal">Schools, Libraries &amp; Organizations</p>
+      <h2 class="bulk-heading reveal d1">Bring Sawyer&#8217;s Reach to Your School</h2>
+      <p class="bulk-desc reveal d2">Themes of AI ethics, corporate accountability, digital privacy, and community resilience make this ideal for classroom discussion. Grades 10&#8211;12 and above. A free discussion guide is available for educators.</p>
+      <a href="mailto:hello@NickDudaAuthor.com" class="bulk-cta reveal d3">&#9993;&#65039; Contact for Bulk Pricing</a>
+    </div>
+    <div class="bulk-cards reveal d1">
+      <div class="bulk-card">
+        <span class="bulk-icon">&#128218;</span>
+        <div>
+          <h4>Schools &amp; Libraries</h4>
+          <p>Bulk pricing for classroom sets, free 12-question discussion guide included.</p>
+        </div>
+      </div>
+      <div class="bulk-card">
+        <span class="bulk-icon">&#128214;</span>
+        <div>
+          <h4>Book Clubs</h4>
+          <p>Propulsive plot, rich themes &mdash; the AI and community questions will keep your group talking.</p>
+        </div>
+      </div>
+      <div class="bulk-card">
+        <span class="bulk-icon">&#127970;</span>
+        <div>
+          <h4>Organizations</h4>
+          <p>Tech companies and civic groups exploring AI ethics will find this a compelling conversation starter.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">Sawyer&#8217;s Reach</div>
+        <p>A sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don&#8217;t matter.</p>
+      </div>
+      <div class="footer-col">
+        <h4>The Book</h4>
+        <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank">Hardcover</a>
+        <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank">Paperback</a>
+        <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank">Kindle Edition</a>
+        <a href="#podcast">Listen Free (Podcast)</a>
+        <a href="#bulk">Bulk &amp; Classroom Orders</a>
+      </div>
+      <div class="footer-col">
+        <h4>Nick Duda</h4>
+        <a href="https://askkaela.com" target="_blank">askKaela.com</a>
+        <a href="https://www.themodernteachershandbook.com" target="_blank">Modern Teacher&#8217;s Handbook</a>
+        <a href="https://aprilduda.com" target="_blank">April Duda Photography</a>
+        <a href="https://sawyersreachwi.com" target="_blank">Sawyer&#8217;s Reach, WI</a>
+        <a href="mailto:hello@NickDudaAuthor.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>&#169; 2025 Nick Duda. All Rights Reserved.</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
