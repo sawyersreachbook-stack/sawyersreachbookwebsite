@@ -255,13 +255,16 @@ nav {
   padding: 36px 5vw;
 }
 .buy-strip-inner {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
+}
+.buy-strip-top {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 16px;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .buy-strip-label {
   font-family: 'Playfair Display', serif;
@@ -293,7 +296,53 @@ nav {
 .buy-format-sub { font-size: 10px; font-weight: 400; opacity: .65; letter-spacing: .04em; }
 .buy-format-sub.avail { opacity: .9; color: var(--gold2); }
 .buy-format.featured .buy-format-sub.avail { color: rgba(255,255,255,.9); }
-@media(max-width: 700px) { .buy-strip-inner { flex-direction: column; align-items: flex-start; } }
+
+/* ── Retailer row ── */
+.buy-retailers {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.buy-retailers-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-right: 4px;
+  white-space: nowrap;
+}
+.retailer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.13);
+  color: rgba(255,255,255,.75);
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 3px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.retailer-link:hover { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.3); }
+.retailer-link .rl-note {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: .55;
+}
+.anywhere-note {
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+  font-style: italic;
+  margin-left: 4px;
+}
+
+@media(max-width: 700px) { .buy-strip-top { flex-direction: column; align-items: flex-start; } }
 @media(max-width: 500px) {
   .buy-format { min-width: calc(50% - 5px); flex: 1 1 calc(50% - 5px); justify-content: center; }
   .buy-strip-btns { width: 100%; }
@@ -642,7 +691,7 @@ footer {
 
 <!-- Announcement Bar -->
 <div class="ann-bar" id="annBar">
-  <span>&#127881; <strong>NOW IN PRINT</strong> &mdash; Hardcover &amp; Paperback available now</span>
+  <span>&#127881; <strong>NOW ON AMAZON</strong> &mdash; Hardcover, Paperback &amp; Kindle available now</span>
   <a href="#buy" class="ann-link">Order Now</a>
   <button class="ann-close" onclick="document.getElementById('annBar').style.display='none'" aria-label="Dismiss">&times;</button>
 </div>
@@ -695,28 +744,47 @@ footer {
 <!-- Buy Strip -->
 <div class="buy-strip" id="buy">
   <div class="buy-strip-inner">
-    <div class="buy-strip-label">Available now &mdash; <em>choose your format</em></div>
-    <div class="buy-strip-btns">
-      <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank" class="buy-format featured">
-        &#128212; Hardcover
-        <span class="buy-format-sub avail">Order now</span>
+    <div class="buy-strip-top">
+      <div class="buy-strip-label">Available now &mdash; <em>choose your format</em></div>
+      <div class="buy-strip-btns">
+        <a href="https://www.amazon.com/s?k=sawyers+reach+nick+duda&i=stripbooks" target="_blank" class="buy-format featured">
+          &#128212; Hardcover
+          <span class="buy-format-sub avail">On Amazon</span>
+        </a>
+        <a href="https://www.amazon.com/s?k=sawyers+reach+nick+duda&i=stripbooks" target="_blank" class="buy-format featured">
+          &#128218; Paperback
+          <span class="buy-format-sub avail">On Amazon</span>
+        </a>
+        <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="buy-format">
+          &#128214; Kindle
+          <span class="buy-format-sub avail">On Amazon</span>
+        </a>
+        <span class="buy-format" style="opacity:.45;cursor:default;pointer-events:none;">
+          &#127911; Audiobook
+          <span class="buy-format-sub">Coming soon</span>
+        </span>
+        <a href="#bulk" class="buy-format">
+          &#127979; Classroom / Bulk
+          <span class="buy-format-sub">Schools &amp; orgs</span>
+        </a>
+      </div>
+    </div>
+    <!-- Retailer row -->
+    <div class="buy-retailers">
+      <span class="buy-retailers-label">Also available at</span>
+      <a href="https://www.barnesandnoble.com/s/sawyers+reach+nick+duda" target="_blank" class="retailer-link">
+        &#128218; Barnes &amp; Noble
       </a>
-      <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank" class="buy-format featured">
-        &#128218; Paperback
-        <span class="buy-format-sub avail">Order now</span>
+      <a href="https://www.walmart.com/search?q=sawyers+reach+nick+duda" target="_blank" class="retailer-link">
+        &#127977;&#65039; Walmart
       </a>
-      <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="buy-format">
-        &#128214; Kindle
-        <span class="buy-format-sub avail">On Amazon</span>
+      <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank" class="retailer-link">
+        &#128212; IngramSpark <span class="rl-note">(Hardcover)</span>
       </a>
-      <span class="buy-format" style="opacity:.45;cursor:default;pointer-events:none;">
-        &#127911; Audiobook
-        <span class="buy-format-sub">Coming soon</span>
-      </span>
-      <a href="#bulk" class="buy-format">
-        &#127979; Classroom / Bulk
-        <span class="buy-format-sub">Schools &amp; orgs</span>
+      <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank" class="retailer-link">
+        &#128218; IngramSpark <span class="rl-note">(Paperback)</span>
       </a>
+      <span class="anywhere-note">&#8230; and wherever books are sold</span>
     </div>
   </div>
 </div>
@@ -848,10 +916,11 @@ footer {
         <p style="font-style:italic;color:rgba(255,255,255,.35);margin-top:8px;font-size:12px;">They built tomorrow without asking if you wanted it.</p>
       </div>
       <div class="footer-col">
-        <h4>The Book</h4>
-        <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank">Hardcover</a>
-        <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank">Paperback</a>
-        <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank">Kindle Edition</a>
+        <h4>Order the Book</h4>
+        <a href="https://www.amazon.com/s?k=sawyers+reach+nick+duda&i=stripbooks" target="_blank">Amazon (Hardcover / Paperback)</a>
+        <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank">Amazon (Kindle)</a>
+        <a href="https://www.barnesandnoble.com/s/sawyers+reach+nick+duda" target="_blank">Barnes &amp; Noble</a>
+        <a href="https://www.walmart.com/search?q=sawyers+reach+nick+duda" target="_blank">Walmart</a>
         <a href="#podcast">Listen Free (Podcast)</a>
         <a href="#bulk">Bulk &amp; Classroom Orders</a>
       </div>
