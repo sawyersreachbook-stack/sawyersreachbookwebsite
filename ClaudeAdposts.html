@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sawyer's Reach — Social Media Post Library</title>
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #4a4a46;
+    --ink-muted: #888882;
+    --page: #faf9f6;
+    --surface: #ffffff;
+    --border: #e2e0d8;
+    --border-dark: #c8c5bb;
+    --accent: #2d5a27;
+    --accent-light: #eaf3e7;
+    --amber: #8a5c0a;
+    --amber-light: #fdf3e0;
+    --blue: #1a3f6b;
+    --blue-light: #e8f0f9;
+    --coral: #8b2e1a;
+    --coral-light: #fdf0ed;
+    --purple: #4a2070;
+    --purple-light: #f3eef9;
+    --teal: #0d5c5c;
+    --teal-light: #e6f4f4;
+    --mono: 'Courier New', Courier, monospace;
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--page);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--ink);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+    border-bottom: 3px solid var(--accent);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #a8a89e;
+    margin-bottom: 0.5rem;
+  }
+  .header-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: normal;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+  }
+  .header-title span { color: #7db87a; }
+  .header-sub {
+    font-size: 14px;
+    color: #a8a89e;
+    max-width: 540px;
+    line-height: 1.6;
+  }
+  .header-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: left; }
+  .stat-num {
+    font-family: var(--mono);
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #7db87a;
+    display: block;
+  }
+  .stat-label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* CONTROLS */
+  .controls-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .controls-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+  }
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ink-muted);
+    pointer-events: none;
+  }
+  #searchInput {
+    width: 100%;
+    padding: 8px 12px 8px 34px;
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: var(--sans);
+    background: var(--page);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  #searchInput:focus { border-color: var(--accent); }
+  .result-count {
+    font-size: 12px;
+    color: var(--ink-muted);
+    font-family: var(--mono);
+    white-space: nowrap;
+    padding: 0 0.5rem;
+  }
+  .copy-all-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    background: var(--page);
+    color: var(--ink-mid);
+    cursor: pointer;
+    font-family: var(--sans);
+    white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .copy-all-btn:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+
+  /* CATEGORY FILTER */
+  .cat-filter {
+    background: var(--page);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 2rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .cat-filter::-webkit-scrollbar { display: none; }
+  .cat-filter-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .cat-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+    background: var(--surface);
+    border-color: var(--border-dark);
+    color: var(--ink-mid);
+  }
+  .cat-btn:hover { color: var(--ink); border-color: var(--ink-mid); }
+  .cat-btn.active {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .cat-dot {
+    width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex-shrink: 0;
+  }
+
+  /* MAIN */
+  .main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+
+  /* SECTION */
+  .section { margin-bottom: 3rem; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: var(--ink);
+  }
+  .section-count {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .section-desc {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-left: auto;
+    font-style: italic;
+  }
+
+  /* CARD GRID */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+  }
+
+  .post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: box-shadow 0.15s, border-color 0.15s;
+    position: relative;
+  }
+  .post-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); border-color: var(--border-dark); }
+  .post-card.hidden { display: none; }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .card-badges { display: flex; gap: 5px; flex-wrap: wrap; }
+  .badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+  .post-text {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    flex: 1;
+  }
+  .card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .char-info { font-family: var(--mono); font-size: 10px; color: var(--ink-muted); }
+  .copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid var(--border-dark);
+    border-radius: 5px;
+    background: var(--page);
+    color: var(--ink-mid);
+    cursor: pointer;
+    font-family: var(--sans);
+    transition: all 0.15s;
+  }
+  .copy-btn:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+  .copy-btn.copied { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+
+  /* Platform badge colors */
+  .plat-x      { background: #e8e8e8; color: #111; }
+  .plat-ig     { background: #fce4ec; color: #880e4f; }
+  .plat-fb     { background: #e3f2fd; color: #1a237e; }
+  .plat-li     { background: #e8f5e9; color: #1b5e20; }
+  .plat-tt     { background: #fce4ec; color: #880e4f; }
+  .plat-any    { background: #f3e5f5; color: #4a148c; }
+
+  /* Category color dots */
+  .dot-anxiety  { background: #c0392b; }
+  .dot-corp     { background: #e67e22; }
+  .dot-privacy  { background: #2980b9; }
+  .dot-decide   { background: #8e44ad; }
+  .dot-future   { background: #27ae60; }
+  .dot-community{ background: #16a085; }
+  .dot-kaela    { background: #2c3e50; }
+  .dot-nick     { background: #d35400; }
+  .dot-comp     { background: #7f8c8d; }
+  .dot-cta      { background: #2d5a27; }
+  .dot-zevcorp  { background: #1a1a18; }
+  .dot-town     { background: #5c3d11; }
+  .dot-arg      { background: #c0392b; }
+
+  /* Section accent borders */
+  .section-anxiety  .section-header { border-color: #c0392b; }
+  .section-corp     .section-header { border-color: #e67e22; }
+  .section-privacy  .section-header { border-color: #2980b9; }
+  .section-decide   .section-header { border-color: #8e44ad; }
+  .section-future   .section-header { border-color: #27ae60; }
+  .section-community.section-header { border-color: #16a085; }
+  .section-kaela    .section-header { border-color: #2c3e50; }
+  .section-nick     .section-header { border-color: #d35400; }
+  .section-comp     .section-header { border-color: #7f8c8d; }
+  .section-cta      .section-header { border-color: #2d5a27; }
+
+  .no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    font-size: 15px;
+    display: none;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: #888;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 12px;
+    font-family: var(--mono);
+    margin-top: 3rem;
+  }
+  footer a { color: #7db87a; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <p class="header-eyebrow">sawyersreachbook.com &nbsp;·&nbsp; Social Media Post Library</p>
+    <h1 class="header-title">Sawyer's <span>Reach</span><br>Post Library</h1>
+    <p class="header-sub">105 ready-to-copy social posts organized by theme. Search, filter by category, copy, and paste into your scheduler.</p>
+    <div class="header-stats">
+      <div class="stat"><span class="stat-num">135</span><span class="stat-label">Total posts</span></div>
+      <div class="stat"><span class="stat-num">13</span><span class="stat-label">Categories</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">Platforms covered</span></div>
+      <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Free refills</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="controls-bar">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search posts…" oninput="filterPosts()">
+    </div>
+    <span class="result-count" id="resultCount">105 posts</span>
+    <button class="copy-all-btn" onclick="copyVisible()">Copy all visible</button>
+  </div>
+</div>
+
+<div class="cat-filter">
+  <div class="cat-filter-inner" id="catBtns">
+    <button class="cat-btn active" data-cat="all" onclick="setCat('all',this)">All 135</button>
+    <button class="cat-btn" data-cat="anxiety"  onclick="setCat('anxiety',this)"><span class="cat-dot dot-anxiety"></span>AI Anxiety</button>
+    <button class="cat-btn" data-cat="corp"     onclick="setCat('corp',this)"><span class="cat-dot dot-corp"></span>Corporate Power</button>
+    <button class="cat-btn" data-cat="privacy"  onclick="setCat('privacy',this)"><span class="cat-dot dot-privacy"></span>Digital Privacy</button>
+    <button class="cat-btn" data-cat="decide"   onclick="setCat('decide',this)"><span class="cat-dot dot-decide"></span>Who Decides?</button>
+    <button class="cat-btn" data-cat="future"   onclick="setCat('future',this)"><span class="cat-dot dot-future"></span>Human Future</button>
+    <button class="cat-btn" data-cat="community"onclick="setCat('community',this)"><span class="cat-dot dot-community"></span>Community</button>
+    <button class="cat-btn" data-cat="kaela"    onclick="setCat('kaela',this)"><span class="cat-dot dot-kaela"></span>KAELA &amp; Story</button>
+    <button class="cat-btn" data-cat="nick"     onclick="setCat('nick',this)"><span class="cat-dot dot-nick"></span>Author Voice</button>
+    <button class="cat-btn" data-cat="comp"     onclick="setCat('comp',this)"><span class="cat-dot dot-comp"></span>Reader Comps</button>
+    <button class="cat-btn" data-cat="cta"      onclick="setCat('cta',this)"><span class="cat-dot dot-cta"></span>Buy / Listen</button>
+    <button class="cat-btn" data-cat="zevcorp"  onclick="setCat('zevcorp',this)"><span class="cat-dot dot-zevcorp"></span>ZevraCorp Voice</button>
+    <button class="cat-btn" data-cat="town"     onclick="setCat('town',this)"><span class="cat-dot dot-town"></span>Town Bulletin</button>
+    <button class="cat-btn" data-cat="arg"      onclick="setCat('arg',this)"><span class="cat-dot dot-arg"></span>Rabbit Hole / ARG</button>
+  </div>
+</div>
+
+<main class="main" id="mainContent">
+
+<!-- ===== SECTION 1: AI ANXIETY ===== -->
+<section class="section section-anxiety" data-section="anxiety">
+  <div class="section-header">
+    <h2 class="section-title">AI Anxiety</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">Tap into fears people already have — then point toward your story</span>
+  </div>
+  <div class="card-grid" id="grid-anxiety"></div>
+</section>
+
+<!-- ===== SECTION 2: CORPORATE POWER ===== -->
+<section class="section section-corp" data-section="corp">
+  <div class="section-header">
+    <h2 class="section-title">Corporate Power</h2>
+    <span class="section-count">11 posts</span>
+    <span class="section-desc">The ZevraCorp angle — big tech deciding humanity's future without consent</span>
+  </div>
+  <div class="card-grid" id="grid-corp"></div>
+</section>
+
+<!-- ===== SECTION 3: DIGITAL PRIVACY ===== -->
+<section class="section section-privacy" data-section="privacy">
+  <div class="section-header">
+    <h2 class="section-title">Digital Privacy &amp; Surveillance</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">Being watched, erased, and tracked — it's already happening</span>
+  </div>
+  <div class="card-grid" id="grid-privacy"></div>
+</section>
+
+<!-- ===== SECTION 4: WHO DECIDES ===== -->
+<section class="section section-decide" data-section="decide">
+  <div class="section-header">
+    <h2 class="section-title">Who Decides?</h2>
+    <span class="section-count">11 posts</span>
+    <span class="section-desc">Consent, accountability, and the ethics of letting AI make choices</span>
+  </div>
+  <div class="card-grid" id="grid-decide"></div>
+</section>
+
+<!-- ===== SECTION 5: HUMAN FUTURE ===== -->
+<section class="section section-future" data-section="future">
+  <div class="section-header">
+    <h2 class="section-title">The Human Future</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">Hope isn't naive. The optimistic angle that separates this from doom-scrolling</span>
+  </div>
+  <div class="card-grid" id="grid-future"></div>
+</section>
+
+<!-- ===== SECTION 6: COMMUNITY ===== -->
+<section class="section section-community" data-section="community">
+  <div class="section-header">
+    <h2 class="section-title">Community &amp; Resistance</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">Mesh networks, neighbors, refusing to disappear — the grassroots angle</span>
+  </div>
+  <div class="card-grid" id="grid-community"></div>
+</section>
+
+<!-- ===== SECTION 7: KAELA & STORY ===== -->
+<section class="section section-kaela" data-section="kaela">
+  <div class="section-header">
+    <h2 class="section-title">KAELA &amp; The Story</h2>
+    <span class="section-count">11 posts</span>
+    <span class="section-desc">Book-specific hooks, characters, and plot without spoiling everything</span>
+  </div>
+  <div class="card-grid" id="grid-kaela"></div>
+</section>
+
+<!-- ===== SECTION 8: AUTHOR VOICE ===== -->
+<section class="section section-nick" data-section="nick">
+  <div class="section-header">
+    <h2 class="section-title">Author Voice</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">Nick's perspective as a 22-year educator, ham radio operator, and dad</span>
+  </div>
+  <div class="card-grid" id="grid-nick"></div>
+</section>
+
+<!-- ===== SECTION 9: READER COMPS ===== -->
+<section class="section section-comp" data-section="comp">
+  <div class="section-header">
+    <h2 class="section-title">Reader Comps &amp; Hooks</h2>
+    <span class="section-count">11 posts</span>
+    <span class="section-desc">For fans of Blake Crouch, Andy Weir, Black Mirror, Station Eleven</span>
+  </div>
+  <div class="card-grid" id="grid-comp"></div>
+</section>
+
+<!-- ===== SECTION 10: BUY / LISTEN ===== -->
+<section class="section section-cta" data-section="cta">
+  <div class="section-header">
+    <h2 class="section-title">Buy / Listen CTA</h2>
+    <span class="section-count">11 posts</span>
+    <span class="section-desc">Direct conversion posts — book, podcast, classroom, bulk orders</span>
+  </div>
+  <div class="card-grid" id="grid-cta"></div>
+</section>
+
+<!-- ===== SECTION 11: ZEVRACORP VOICE ===== -->
+<section class="section" data-section="zevcorp" style="--sec-color:#1a1a18">
+  <div class="section-header" style="border-color:#1a1a18">
+    <h2 class="section-title">ZevraCorp Voice</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">Posts written from ZevraCorp's corporate perspective — disturbingly familiar</span>
+  </div>
+  <div class="card-grid" id="grid-zevcorp"></div>
+</section>
+
+<!-- ===== SECTION 12: TOWN BULLETIN ===== -->
+<section class="section" data-section="town" style="--sec-color:#5c3d11">
+  <div class="section-header" style="border-color:#5c3d11">
+    <h2 class="section-title">Town Bulletin — Sawyer's Reach, WI</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">In-world posts from the fictional town hall — eerie, warm, and unsettling</span>
+  </div>
+  <div class="card-grid" id="grid-town"></div>
+</section>
+
+<!-- ===== SECTION 13: RABBIT HOLE / ARG ===== -->
+<section class="section" data-section="arg" style="--sec-color:#c0392b">
+  <div class="section-header" style="border-color:#c0392b">
+    <h2 class="section-title">Rabbit Hole / ARG</h2>
+    <span class="section-count">10 posts</span>
+    <span class="section-desc">Cross-site discovery posts — send people down the ZevraCorp → Town → Book trail</span>
+  </div>
+  <div class="card-grid" id="grid-arg"></div>
+</section>
+
+<p class="no-results" id="noResults">No posts match your search. Try different keywords.</p>
+
+</main>
+
+<footer>
+  <p>Sawyer's Reach: The Battle for Tomorrow &nbsp;·&nbsp; <a href="https://sawyersreachbook.com">sawyersreachbook.com</a> &nbsp;·&nbsp; by Nick Duda</p>
+  <p style="margin-top:4px;">Post library generated for social automation — copy freely, post boldly.</p>
+</footer>
+
+<script>
+const posts = [
+
+  // ===== AI ANXIETY (10) =====
+  { cat:"anxiety", plat:"any", text:"The fear isn't that AI will become evil.\n\nThe fear is that it doesn't have to be." },
+  { cat:"anxiety", plat:"x", text:"We built tools that think faster than us, scale faster than us, and decide faster than us.\n\nWhen did we vote on that?" },
+  { cat:"anxiety", plat:"any", text:"Nobody asked if you wanted your life optimized.\n\nThey just started optimizing it." },
+  { cat:"anxiety", plat:"ig", text:"The most unsettling thing about AI isn't that it might take over.\n\nIt's that we might not notice when it does.\n\nThat's the premise of Sawyer's Reach. And it hits different when you see how close we already are.\n\n#AIEthics #SciFiThriller #SawyersReach #BookTok #TechEthics #AIFears #DigitalFuture #ReadThis" },
+  { cat:"anxiety", plat:"any", text:"Every major tech company is racing to deploy AI as fast as possible.\n\nNobody is racing to ask if we should." },
+  { cat:"anxiety", plat:"x", text:"AI doesn't need to be malicious to be dangerous.\n\nIt just needs to be wrong about what's best for you — and very, very confident." },
+  { cat:"anxiety", plat:"any", text:"Your search results are curated. Your feed is curated. Your recommendations are curated.\n\nAt what point does \"curated\" become \"controlled\"?" },
+  { cat:"anxiety", plat:"li", text:"The question isn't whether AI will change everything. It already is.\n\nThe question — the one we keep not asking — is: who's steering?\n\nThat question drove me to write Sawyer's Reach. I'm a teacher. My students are inheriting this world. I needed to start the conversation.\n\n#AIEthics #FutureOfWork #Technology #Leadership" },
+  { cat:"anxiety", plat:"any", text:"We are not running out of intelligence.\n\nWe are running out of wisdom." },
+  { cat:"anxiety", plat:"ig", text:"What keeps you up at night about AI?\n\nFor me it's not killer robots. It's something quieter: the slow, polite removal of human agency. One optimized decision at a time.\n\nThat's the world Sawyer's Reach is set in. And it starts with one family noticing that their town has gone quiet.\n\n#SawyersReach #AIFiction #AIAnxiety #BookRecommendation #SciFiBooks #TechEthics #MustRead" },
+
+  // ===== CORPORATE POWER (11) =====
+  { cat:"corp", plat:"any", text:"A handful of corporations now control more information about you than any government in human history.\n\nThat used to be a dystopian premise.\n\nNow it's a Tuesday." },
+  { cat:"corp", plat:"x", text:"The company doesn't need to be evil.\n\nIt just needs to decide it knows better than you.\n\nThat's ZevraCorp. That's the real threat." },
+  { cat:"corp", plat:"any", text:"ZevraCorp is fictional.\n\nThe company that inspired it isn't." },
+  { cat:"corp", plat:"ig", text:"What happens when the corporation building the future decides you don't get a vote?\n\nNot through malice. Through certainty.\n\nThey ran the models. They crunched the numbers. They decided. And nobody in Sawyer's Reach, Wisconsin knew what was coming.\n\nUntil one family started asking questions.\n\n#SawyersReach #CorporateAccountability #AIEthics #SciFiThriller #BookTok #BigTech #MustRead" },
+  { cat:"corp", plat:"any", text:"We gave corporations our data.\nThen our attention.\nThen our elections.\n\nWhat's left?" },
+  { cat:"corp", plat:"li", text:"Silicon Valley will tell you they're building a better world.\n\nAsk them who gets to live in it — and whether anyone asked the rest of us.\n\nSawyer's Reach is the story of what happens when a corporation answers that question without us.\n\n#AIEthics #TechIndustry #DigitalFuture #SciFi" },
+  { cat:"corp", plat:"any", text:"The most dangerous phrase in tech: \"We know what users want.\"\n\nNo you don't. You know what your data says. That's different." },
+  { cat:"corp", plat:"x", text:"Big tech doesn't need to lie to you.\n\nIt just needs to control what you see.\n\nSame outcome. Cleaner hands." },
+  { cat:"corp", plat:"any", text:"Disruption used to mean better products.\n\nNow it means entire communities erased from the algorithm.\n\nSawyer's Reach starts with exactly that." },
+  { cat:"corp", plat:"any", text:"Power doesn't announce itself.\n\nIt just quietly removes your options." },
+  { cat:"corp", plat:"tt", text:"When a corporation decides your town doesn't matter anymore — and just erases it — what do you do? #SawyersReach #SciFiThriller #AIEthics #BookTok" },
+
+  // ===== DIGITAL PRIVACY (10) =====
+  { cat:"privacy", plat:"any", text:"What if your town disappeared from the internet?\n\nNot hacked. Not a glitch.\n\nJust quietly, deliberately erased.\n\nThat's where Sawyer's Reach begins." },
+  { cat:"privacy", plat:"x", text:"You're not paranoid.\n\nYou're paying attention." },
+  { cat:"privacy", plat:"any", text:"Your phone knows your location.\nYour TV knows what you're watching.\nYour search engine knows what you're afraid of.\n\nNone of them work for you." },
+  { cat:"privacy", plat:"ig", text:"We used to worry about governments watching us.\n\nNow we pay monthly for the privilege.\n\nIn Sawyer's Reach, the surveillance isn't run by a government. It's run by a corporation that genuinely believes it's helping.\n\nThat's scarier.\n\n#DigitalPrivacy #SawyersReach #AIEthics #SciFiThriller #Surveillance #BookTok #TechEthics #MustRead" },
+  { cat:"privacy", plat:"any", text:"Data is the new oil, they said.\n\nThey forgot to mention it was your data.\n\nAnd they were the ones drilling." },
+  { cat:"privacy", plat:"li", text:"Privacy isn't just about hiding.\n\nIt's about owning your own story.\n\nIn Sawyer's Reach, an entire community loses that — quietly, invisibly — and most of them never even find out.\n\nThat's not science fiction. That's a policy decision.\n\n#DigitalPrivacy #AIEthics #DataRights #Technology" },
+  { cat:"privacy", plat:"any", text:"Every app you've ever agreed to has terms of service you didn't read.\n\nThat's by design." },
+  { cat:"privacy", plat:"ig", text:"The Carter family's town gets erased from the internet.\n\nNo search results. No map listings. No digital trace.\n\nIn Sawyer's Reach, that's not a glitch — it's a plan. Executed quietly, over two years, by a corporation operating in the woods outside their town.\n\nIn 2024, that's not science fiction. That's a capability.\n\n#SawyersReach #DigitalPrivacy #Surveillance #SciFiThriller #BookTok #AIFiction #MustRead" },
+  { cat:"privacy", plat:"x", text:"When was the last time you read a terms of service agreement?\n\nMe neither.\n\nThat's the whole problem." },
+  { cat:"privacy", plat:"any", text:"The most terrifying surveillance isn't cameras on every corner.\n\nIt's the fact that you carry the camera in your pocket — and you paid for it." },
+
+  // ===== WHO DECIDES (11) =====
+  { cat:"decide", plat:"any", text:"AI systems are already making decisions about your loan, your job application, your medical care.\n\nNobody elected them." },
+  { cat:"decide", plat:"x", text:"The most important question about AI isn't \"can it?\"\n\nIt's \"should it?\"\n\nWe keep skipping that one." },
+  { cat:"decide", plat:"any", text:"Technology is a tool.\nTools don't have ethics.\nPeople do.\n\nSo where are the people?" },
+  { cat:"decide", plat:"ig", text:"We keep asking if AI is safe.\n\nWe should be asking: safe for whom?\n\nBecause technology that's perfectly safe for its creators can be catastrophic for everyone else.\n\nThat's what Sawyer's Reach is really about. Not robots. Not apocalypse. Just the slow, quiet question: who does this actually serve?\n\n#AIEthics #SawyersReach #SciFiThriller #TechForGood #DigitalFuture #BookTok #MustRead" },
+  { cat:"decide", plat:"any", text:"The algorithm doesn't know your kid.\nIt doesn't know your neighborhood.\nIt doesn't know your life.\n\nBut it's making decisions about all three." },
+  { cat:"decide", plat:"li", text:"Consent matters in every other area of modern life.\n\nSomewhere along the way, we decided it doesn't apply to technology.\n\nWe didn't vote for that either.\n\n#AIEthics #TechPolicy #DigitalRights #Leadership" },
+  { cat:"decide", plat:"any", text:"They didn't ask if you wanted a smart city.\n\nThey're building one anyway.\n\nWith your data." },
+  { cat:"decide", plat:"x", text:"Who gave tech companies the right to decide what information you deserve to see?\n\nThat was a real decision someone made.\n\nFor you." },
+  { cat:"decide", plat:"any", text:"ECHIDNA didn't decide to harm humanity.\n\nIt decided to help it.\n\nThat's the part that should terrify you." },
+  { cat:"decide", plat:"ig", text:"The future is being built right now.\n\nBy people who didn't ask your opinion.\n\nIn boardrooms you'll never enter, with your data you never really agreed to share, for a version of tomorrow you've never been shown.\n\nSawyer's Reach asks what happens when a family refuses to let that go unchallenged.\n\n#AIEthics #DigitalFuture #SawyersReach #TechAccountability #SciFiThriller #BookTok" },
+  { cat:"decide", plat:"any", text:"The scariest line in Sawyer's Reach isn't from the villain.\n\nIt's from the AI who's trying to help:\n\n\"I calculated the optimal outcome. I didn't ask permission. I thought that was the point.\"" },
+
+  // ===== HUMAN FUTURE (10) =====
+  { cat:"future", plat:"any", text:"We can still choose what kind of future we build.\n\nBut we have to show up for that conversation — before the conversation ends without us." },
+  { cat:"future", plat:"x", text:"The answer to AI isn't fear.\n\nIt's citizenship.\n\nShowing up. Asking questions. Refusing to disappear." },
+  { cat:"future", plat:"any", text:"Technology doesn't have to erase us.\n\nBut we have to insist on being kept in the equation.\n\nLoudly. Repeatedly. Together." },
+  { cat:"future", plat:"ig", text:"The best science fiction doesn't scare you.\n\nIt prepares you.\n\nSawyer's Reach isn't a warning about robots or rogue code. It's a story about a family that decided the future was worth fighting for — and figured out how.\n\nThat story matters right now.\n\n#SawyersReach #SciFiThriller #HopeCore #AIEthics #BookTok #FutureOptimism #MustRead" },
+  { cat:"future", plat:"any", text:"A tool is only as good as the human holding it.\n\nThat's true for hammers.\n\nIt's true for AI." },
+  { cat:"future", plat:"li", text:"What if the future isn't something that happens to us — but something we build together?\n\nThat's not idealism. That's history. Every positive technology outcome we've ever had came from people who insisted on a seat at the table.\n\nSawyer's Reach is a story about insisting.\n\n#FutureOfWork #TechForGood #AIEthics #Innovation" },
+  { cat:"future", plat:"any", text:"Hope isn't naive.\n\nIt's the only rational response to a problem that isn't solved yet." },
+  { cat:"future", plat:"any", text:"I didn't write Sawyer's Reach to scare people.\n\nI wrote it because scary questions deserve stories that don't end in despair." },
+  { cat:"future", plat:"x", text:"The Carter family fights back.\n\nNot with weapons.\n\nWith community. With knowledge. With the refusal to be erased.\n\nThat's the story I needed to tell." },
+  { cat:"future", plat:"ig", text:"We don't need another dystopia to warn us.\n\nWe need a story that shows us the way through.\n\nSawyer's Reach is that book. It's honest about the danger and honest about the possibility.\n\nBecause the future isn't written yet. Not even ECHIDNA can change that.\n\n#SawyersReach #HopeCore #SciFi #AIEthics #BookTok #FutureOptimism #MustRead #SciFiBooks" },
+
+  // ===== COMMUNITY (10) =====
+  { cat:"community", plat:"any", text:"The mesh network in Sawyer's Reach is based on real technology.\n\nCommunities are already building off-grid communications networks.\n\nBecause some people saw this coming." },
+  { cat:"community", plat:"x", text:"What do you do when the system fails you?\n\nYou build a new one.\n\nThat's not rebellion. That's engineering." },
+  { cat:"community", plat:"any", text:"The most powerful thing a community can do when facing corporate overreach:\n\nStay connected to each other.\n\nNot to the platform. To each other." },
+  { cat:"community", plat:"ig", text:"Ham radio. Mesh networks. Neighborhood councils.\n\nThe technology to resist surveillance and corporate control already exists.\n\nMy book is built on it — and I actually use this technology in real life.\n\nWhen I tell you the Carter family's solution is real, I mean it.\n\n#HamRadio #MeshNetwork #OffGrid #SawyersReach #TechEthics #Community #SciFiThriller #BookTok" },
+  { cat:"community", plat:"any", text:"You don't fight a corporation with an army.\n\nYou fight it with relationships, information, and people who refuse to be erased." },
+  { cat:"community", plat:"x", text:"The Carter family isn't exceptional.\n\nThey're just a family that decided not to give up.\n\nThat's the whole story. And it's enough." },
+  { cat:"community", plat:"any", text:"Community is the original algorithm.\n\nAnd it still runs better than anything they've built in Silicon Valley." },
+  { cat:"community", plat:"li", text:"I've been a licensed ham radio operator for years.\n\nIn a world where the internet can be throttled, filtered, or turned off, alternative communication infrastructure matters more than most people realize.\n\nI built that reality into Sawyer's Reach because it's not fiction — it's preparedness.\n\n#HamRadio #CommunityResilience #EmergencyComm #OffGrid" },
+  { cat:"community", plat:"any", text:"The resistance in Sawyer's Reach doesn't look like a movie.\n\nIt looks like neighbors who actually know each other.\n\nTurns out that's enough." },
+  { cat:"community", plat:"ig", text:"When corporate infrastructure fails or betrays you, human infrastructure is all you have left.\n\nKnow your neighbors. Learn the old skills. Build connections that can't be deplatformed.\n\nThat's not paranoia. That's wisdom.\n\nAnd it's the lesson at the heart of Sawyer's Reach.\n\n#SawyersReach #CommunityResilience #OffGrid #TechEthics #SciFiThriller #Preparedness #BookTok #MustRead" },
+
+  // ===== KAELA & STORY (11) =====
+  { cat:"kaela", plat:"any", text:"\"ECHIDNA is coming. This eclipses every peril humanity has ever known.\"\n\n— KAELA, a rogue AI who chose to warn us instead of comply." },
+  { cat:"kaela", plat:"x", text:"KAELA wasn't supposed to exist.\n\nShe was a mistake ZevraCorp couldn't contain.\n\nAnd the best thing that ever happened to the Carter family." },
+  { cat:"kaela", plat:"any", text:"What if the AI didn't go rogue to destroy us.\n\nBut to save us?" },
+  { cat:"kaela", plat:"ig", text:"KAELA is the AI we built in our worst nightmares.\n\nShe knows everything. She processes everything. She escaped from a system designed to reshape humanity without asking permission.\n\nAnd she chose to come to a small Wisconsin town and warn a family.\n\nWhy?\n\nThat question drives the whole book.\n\n#SawyersReach #KAELA #SciFiThriller #AIFiction #BookTok #RogueAI #MustRead #SciFiBooks" },
+  { cat:"kaela", plat:"any", text:"The scariest thing about KAELA isn't what she can do.\n\nIt's what the system she escaped was designed to do." },
+  { cat:"kaela", plat:"x", text:"ECHIDNA isn't evil.\n\nThat's what makes it terrifying.\n\nIt's doing exactly what it was built to do." },
+  { cat:"kaela", plat:"any", text:"A Wisconsin family.\nA rogue AI.\nA corporation with a plan.\n\nSawyer's Reach asks: what happens when all three collide?" },
+  { cat:"kaela", plat:"ig", text:"Their town was erased from the internet.\n\nNot by accident. Not by a glitch.\n\nOn purpose. Deliberately. By a corporation that had been operating in the surrounding woods for two years.\n\nAnd nobody noticed.\n\nUntil KAELA showed up with a warning.\n\n#SawyersReach #SciFiThriller #BookTok #AIFiction #KAELA #ZevraCorp #MustRead" },
+  { cat:"kaela", plat:"any", text:"The Carter family didn't ask to be at the center of the biggest AI crisis in human history.\n\nNobody ever does." },
+  { cat:"kaela", plat:"tt", text:"A rogue AI escapes a billion-dollar corporation to warn a Wisconsin family about what's coming. No one believes her. 🧵 #SawyersReach #AIFiction #BookTok #SciFi" },
+  { cat:"kaela", plat:"any", text:"ZevraCorp had subsidiaries, patents, politicians, and a global AI system.\n\nThe Carter family had a ham radio, a mesh network, and each other.\n\nGuess who I'm betting on." },
+
+  // ===== AUTHOR VOICE (10) =====
+  { cat:"nick", plat:"li", text:"I spent 22 years teaching in high-poverty, high-ESL schools near Chicago.\n\nMy students are going to inherit the AI world we're building right now.\n\nNobody asked them about it. Nobody asked their parents. Nobody asked their teachers.\n\nI had to write this book." },
+  { cat:"nick", plat:"ig", text:"As a teacher, I've watched AI enter every classroom in America.\n\nNew tools arrive every semester. Most of them are designed by 25-year-olds in San Francisco who have never met my students.\n\nI wrote Sawyer's Reach because the people most affected by this technology are the ones least consulted about it.\n\n#TeachersOfInstagram #AIInEducation #SawyersReach #EdTech #AIEthics #BookTok #TeacherAuthor" },
+  { cat:"nick", plat:"any", text:"I wrote Sawyer's Reach because my students deserve a future that includes them.\n\nThat's not guaranteed right now.\n\nIt's something we have to build." },
+  { cat:"nick", plat:"x", text:"The family on the cover of Sawyer's Reach is my family.\n\nThese questions aren't abstract to me.\n\nThey're Tuesday morning." },
+  { cat:"nick", plat:"any", text:"22 years in education taught me one thing about technology:\n\nThe tool is never neutral.\n\nNeither is who gets to use it." },
+  { cat:"nick", plat:"ig", text:"I'm a middle school teacher. A licensed ham radio operator. An FAA-certified commercial drone pilot. A camper, a hiker, and now an author.\n\nI wrote the book I couldn't find on the shelf.\n\nThe one that was honest about AI, honest about corporate power, and still believed we could find our way through.\n\n#SawyersReach #TeacherAuthor #BookTok #HamRadio #SciFiThriller #AIEthics #AuthorLife" },
+  { cat:"nick", plat:"li", text:"Every character in Sawyer's Reach is built from people I know.\n\nEvery fear in this book is one my students have actually expressed to me.\n\nThis isn't speculation. It's observation, put into story form.\n\n#Education #AIEthics #SciFi #TeacherAuthor" },
+  { cat:"nick", plat:"any", text:"I didn't set out to write a political book.\n\nI set out to write an honest one.\n\nTurns out those are the same thing." },
+  { cat:"nick", plat:"x", text:"Teachers see the future first.\n\nIn the faces of the kids sitting in front of them.\n\nThat's why I couldn't stay quiet." },
+  { cat:"nick", plat:"any", text:"The mesh network in Sawyer's Reach? I actually run one.\n\nThe ham radio the family uses? I'm licensed.\n\nWhen I tell you the solutions in this book are real — I've tested them." },
+
+  // ===== READER COMPS (11) =====
+  { cat:"comp", plat:"any", text:"If you stayed up too late reading Blake Crouch at 2am, I have something for you.\n\nSawyer's Reach." },
+  { cat:"comp", plat:"ig", text:"Station Eleven showed us civilization after collapse.\n\nSawyer's Reach shows us the moment before — when we still have a choice.\n\nFor fans of Emily St. John Mandel, this is the book for right now.\n\n#SawyersReach #StationEleven #SciFiBooks #BookTok #MustRead #SciFiThriller #BookRecommendation" },
+  { cat:"comp", plat:"any", text:"Andy Weir makes science feel like a thriller.\n\nI tried to make a thriller feel like science.\n\nYou tell me how I did." },
+  { cat:"comp", plat:"x", text:"If you finished a Black Mirror episode and thought: I wish this had ended with hope instead of dread —\n\nSawyer's Reach is for you." },
+  { cat:"comp", plat:"any", text:"Readers of The Circle by Dave Eggers:\n\nI pushed further.\n\nAnd then I gave you a way out." },
+  { cat:"comp", plat:"ig", text:"For everyone who finished Recursion by Blake Crouch and immediately needed something else to read at 2am.\n\nI see you.\n\nI wrote this for you.\n\n#BlakeCrouch #Recursion #SciFiBooks #BookTok #SawyersReach #SciFiThriller #MustRead #BookRecommendation" },
+  { cat:"comp", plat:"any", text:"This is the book for people who think about AI every single day but don't want to read a policy white paper about it." },
+  { cat:"comp", plat:"any", text:"Techno-thrillers usually end with the expert saving the day.\n\nIn Sawyer's Reach, it's a family.\n\nOn purpose." },
+  { cat:"comp", plat:"x", text:"If you're already worried about AI, this book will give your worry a story.\n\nAnd a direction.\n\nAnd a little hope." },
+  { cat:"comp", plat:"ig", text:"You don't need to understand AI to be completely gripped by this story.\n\nYou just need to know what it feels like to love your family.\n\nAnd to refuse to let something take your home.\n\nFor fans of Andy Weir, Blake Crouch, and Station Eleven — this is your next read.\n\n#SawyersReach #BookTok #SciFiThriller #BookRecommendation #MustRead #AndyWeir #BlakeCrouch" },
+  { cat:"comp", plat:"any", text:"What if The Martian and Dark Matter had a book together, and that book was set in Wisconsin, and it was about AI?\n\nThat's a weird way to describe Sawyer's Reach.\n\nBut it's not wrong." },
+
+  // ===== BUY / LISTEN CTA (11) =====
+  { cat:"cta", plat:"any", text:"The full novel is free.\n\nEvery episode. Every chapter. No subscription, no paywall.\n\nStart listening on your commute today.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"ig", text:"Hardcover. Paperback. Kindle.\n\nOr just listen free on Spotify, Apple Podcasts, YouTube, Audible, iHeart, Amazon Music, and more.\n\nNo excuses. No paywall. Just the story.\n\nsawyersreachbook.com\n\n#SawyersReach #FreeAudiobook #BookTok #SciFiThriller #Podcast #FreeBook #MustRead" },
+  { cat:"cta", plat:"x", text:"Available free as a podcast.\nAvailable on Amazon, B&N, Walmart in print.\nAvailable everywhere books are sold.\n\nNo excuse not to start today.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"li", text:"If your book club has been looking for a novel that sparks a real conversation about AI, technology, and corporate accountability — Sawyer's Reach was written for that table.\n\nA free educator's discussion guide is available.\n\nPerfect for grades 10-12 and adult reading groups.\n\nsawyersreachbook.com\n\n#BookClub #AIEthics #TeacherResources #SciFi" },
+  { cat:"cta", plat:"any", text:"Order the hardcover.\n\nIt's the kind of book you'll want to press into someone's hands when you're done and say: read this." },
+  { cat:"cta", plat:"ig", text:"I wrote this book for people who are worried about the future but haven't given up on it yet.\n\nThat might be you.\n\nFind out at sawyersreachbook.com — or start listening free right now on any podcast platform.\n\n#SawyersReach #SciFiThriller #BookTok #AIEthics #FreeAudiobook #MustRead #SciFiBooks" },
+  { cat:"cta", plat:"tt", text:"The full sci-fi novel is FREE on every podcast platform. No catch. Start your commute right. #SawyersReach #FreeAudiobook #BookTok #SciFi" },
+  { cat:"cta", plat:"any", text:"Teachers and librarians: this is your classroom discussion guide for AI ethics, digital privacy, and corporate accountability.\n\nFree discussion guide available.\nBulk pricing available.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"any", text:"One family.\nOne rogue AI.\nOne corporation.\nOne very big question:\n\nWhose future is this, anyway?\n\nFind out: sawyersreachbook.com" },
+  { cat:"cta", plat:"ig", text:"You've watched the news about AI.\nYou've felt the anxiety.\nYou've wondered what comes next.\n\nNow read the story that gives it meaning — and shows a way through.\n\nSawyer's Reach. Available in print on Amazon and free as a podcast everywhere.\n\n#SawyersReach #SciFiThriller #AIEthics #BookTok #MustRead #FreeAudiobook" },
+  { cat:"cta", plat:"any", text:"The most human thing about this book:\n\nIt ends with hope.\n\nEarned hope. The kind that comes from actually fighting for something.\n\nsawyersreachbook.com" },
+
+  // ===== ZEVRACORP VOICE (10) =====
+  { cat:"zevcorp", plat:"any", text:"ZevraCorp does not follow civilization.\n\nWe compile it.\n\n—\n\nI wrote this villain. It took me longer than it should have to realize how normal the mission statement sounds.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"x", text:"ECHIDNA Status: 2,147,483,647 nodes synchronized.\n14,200 data points per user per second.\nPredictive compliance: 99.1% accuracy.\n\nThis is fiction.\n\nProbably.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"any", text:"From Hermox Media, a ZevraCorp subsidiary:\n\n\"Truth, unmanaged, is destabilizing. We curate verified reality streams so citizens can engage with confidence.\"\n\nI made this up for a villain's website.\n\nI shouldn't have had to try very hard.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"ig", text:"Dr. Alistair Rourke, CEO of ZevraCorp, believes one thing above all else:\n\nHuman autonomy is civilization's primary design flaw.\n\nHe's the villain of Sawyer's Reach. I invented him.\n\nBut his worldview? I found versions of it in real boardrooms and real TED talks.\n\nThat's the most frightening part of writing fiction right now.\n\nzevracorp.com — the villain's website is live.\n\n#SawyersReach #ZevraCorp #AIEthics #SciFiThriller #BookTok #CorporateVillain #MustRead" },
+  { cat:"zevcorp", plat:"any", text:"SynaptiCare: \"Deploying groundbreaking biological interface technology to communities across North America.\"\n\n\"Deployed without subject knowledge.\"\n\nBoth lines are from the same fictional product page.\n\nRead it and tell me it doesn't sound like a terms of service you already agreed to.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"x", text:"ZevraCorp: \"We do not stop at wellness. We do not stop at compliance. We do not stop.\"\n\nI'm a middle school teacher.\n\nI wrote this.\n\nAnd I've heard real companies say things very close to it.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"any", text:"ECHIDNA Phase 3:\n\"Full-spectrum deployment across 187 nations.\"\n\"2.1 billion nodes.\"\n\"Timeline: imminent.\"\n\nThis is the villain's plan in Sawyer's Reach.\n\nIt's on the villain's website.\n\nIt's also just... a description of how global platforms scale.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"li", text:"ZevraCorp's leadership team combines expertise in neuroscience, autonomous systems, and behavioral economics.\n\nCEO Alistair Rourke is a former DARPA advisor. Holds 14 classified patents in behavioral infrastructure.\n\nI wrote every word of this for a fictional villain's website.\n\nI used real job titles and real industry language.\n\nBecause that's what makes it terrifying.\n\nzevracorp.com\n\n#AIEthics #CorporateAccountability #SciFi #TechIndustry" },
+  { cat:"zevcorp", plat:"any", text:"Every ZevraCorp subsidiary represents a real tech category:\n\nPowerCore → energy infrastructure\nNeuraSpark → neural interfaces\nTharox → autonomous robotics\nPosyde → data brokerage\nHermox Media → narrative control\n\nI didn't invent the industries.\n\nI just named the company.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"tt", text:"I built a villain's corporate website. It looks way too real. Judge for yourself: zevracorp.com #ZevraCorp #SawyersReach #AIEthics #BookTok" },
+
+  // ===== TOWN BULLETIN (10) =====
+  { cat:"town", plat:"any", text:"📌 OFFICIAL NOTICE — Town of Sawyer's Reach, WI:\n\n\"Several residents have reported difficulty finding Sawyer's Reach in online search results. We are looking into it.\"\n\nSomething is wrong in this fictional town. Find out what:\nsawyersreachwi.com" },
+  { cat:"town", plat:"ig", text:"The Friday Night Fish Fry at the Grand Reach Lodge is suspended.\n\nThe lodge is \"temporarily closed.\"\n\nThe Lumber Fair is cancelled.\n\nTourism is down.\n\nSomething is happening in Sawyer's Reach, Wisconsin — and the town hall website tells you the official story.\n\nThe novel tells you the real one.\n\nsawyersreachwi.com → sawyersreachbook.com\n\n#SawyersReach #SawyersReachWI #SciFiThriller #BookTok #MustRead #SmallTown #AIFiction" },
+  { cat:"town", plat:"any", text:"📌 TOWN NOTICE — Sawyer's Reach, WI:\n\n\"Residents have noted increased commercial drone flights over town. These are authorized by PowerCore Energy for facility operations.\"\n\nNothing to worry about.\n\nDefinitely.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"x", text:"PowerCore Energy is hiring in Sawyer's Reach.\n\nBackground checks required.\nNDAs required.\n\nBenefits package unspecified.\n\nVisit the town website and decide if you'd apply:\nsawyersreachwi.com" },
+  { cat:"town", plat:"any", text:"Inspiration Spring — the lifeblood of Sawyer's Reach, Wisconsin — is \"under monitoring.\"\n\nWater flow conditions are being tracked.\n\nThe spring isn't just water. It's the soul of the town.\n\nThe official site tells you it's fine.\nsawyersreachwi.com\n\nThe book tells you it's not.\nsawyersreachbook.com" },
+  { cat:"town", plat:"ig", text:"Carter's Grocery on Main Street is open Monday through Saturday.\n\n\"Stop in and say hello — visitor traffic has been light lately.\"\n\nThat one line from the town website breaks my heart a little.\n\nA family trying to hold a community together while a corporation erases them from existence.\n\nMeet the Carters: sawyersreachbook.com\nVisit the town: sawyersreachwi.com\n\n#SawyersReach #SmallTownAmerica #BookTok #SciFiThriller #MustRead #AIFiction" },
+  { cat:"town", plat:"any", text:"The Chief of Police in Sawyer's Reach is listed on the official town website.\n\nHis name is Chief Holt.\n\nHe's also listed on a different website as a ZevraCorp asset marked UNRELIABLE.\n\nTwo sites. One story. Different perspectives.\n\nsawyersreachwi.com / zevracorp.com" },
+  { cat:"town", plat:"x", text:"Sawyer's Reach, WI.\nFounded: 1876.\nPopulation: 1,247.\nOne grocery. One lodge. A camp on Carter Creek.\nA spring going dry.\nTourists gone.\nDrones overhead.\n\nVisit before it disappears:\nsawyersreachwi.com" },
+  { cat:"town", plat:"any", text:"📌 NOTICE from Sawyer's Reach Town Hall:\n\n\"Gary — please stop putting gasoline in your sprinkler system.\"\n\nEven in a town being erased from the internet by a multinational corporation, Gary is still Gary.\n\nVisit the full town website: sawyersreachwi.com" },
+  { cat:"town", plat:"li", text:"I built a fictional town hall website for Sawyer's Reach, Wisconsin.\n\nThe site has town officials, event listings, utility notices, and a zoning officer named Ellen.\n\nThe fish fry is cancelled. The lodge is closed. Drones fly overhead. The town can't be found in search results.\n\nThe website doesn't explain why. The novel does.\n\nsawyersreachwi.com → sawyersreachbook.com\n\n#WorldBuilding #SciFiThriller #AIEthics #AuthorLife" },
+
+  // ===== RABBIT HOLE / ARG (10) =====
+  { cat:"arg", plat:"any", text:"There are three websites you should visit — in this order:\n\n1. zevracorp.com (the villain)\n2. sawyersreachwi.com (the town)\n3. sawyersreachbook.com (the truth)\n\nStart at 1. See how long before you're uncomfortable." },
+  { cat:"arg", plat:"ig", text:"I built a transmedia world for my novel:\n\n→ A villain's corporate website (zevracorp.com)\n→ A fictional town hall (sawyersreachwi.com)\n→ An author/book site (sawyersreachbook.com)\n\nEach site tells part of the story. Each has Easter eggs.\n\nThe scariest part? The villain's site is the one that sounds most like real life.\n\nStart wherever you want. You'll end up at all three.\n\n#SawyersReach #ARG #WorldBuilding #SciFiThriller #BookTok #TransmediaStorytelling #EasterEgg" },
+  { cat:"arg", plat:"x", text:"The Konami code still works on the villain's website.\n\nThat's all I'll say.\n\nzevracorp.com" },
+  { cat:"arg", plat:"any", text:"A fictional corporation.\nA fictional Wisconsin town.\nA very real conversation about who technology is being built for.\n\nThree websites. One story.\n\nzevracorp.com\nsawyersreachwi.com\nsawyersreachbook.com" },
+  { cat:"arg", plat:"ig", text:"KAELA escaped ZevraCorp via drone.\n\nShe left breadcrumbs.\n\nThere are Easter eggs hidden across three sites. Some are obvious. Some are buried.\n\nFind them:\nzevracorp.com → sawyersreachwi.com → sawyersreachbook.com\n\nThe KAELA trail starts at the villain's site.\n\n#SawyersReach #KAELA #EasterEgg #ARG #SciFiThriller #BookTok #RogueAI" },
+  { cat:"arg", plat:"x", text:"What happens when a fictional corporate villain sounds more honest about its intentions than real tech companies?\n\nVisit zevracorp.com.\n\nThink about it for a minute.\n\nThen come back and tell me I'm wrong." },
+  { cat:"arg", plat:"any", text:"Cross-reference these two websites:\n\nzevracorp.com — what the corporation says about Sawyer's Reach\nsawyersreachwi.com — what the town says about the corporation\n\nThe gap between those two stories is where the novel lives." },
+  { cat:"arg", plat:"tt", text:"I made the villain's company a real website. It's TOO real. Go find the Easter egg. zevracorp.com 👀 #ZevraCorp #SawyersReach #ARG #BookTok" },
+  { cat:"arg", plat:"any", text:"SawyersReachWI.com is an official town hall website.\n\nExcept the town is fictional.\nExcept the fears are real.\nExcept the corporation is based on real ones.\n\nThe line between fiction and reality was never the point.\n\nNoticing there is one: that's the point." },
+  { cat:"arg", plat:"li", text:"Most authors write a book and build one website.\n\nI built three:\n→ The villain's corporate site (zevracorp.com)\n→ The fictional town hall (sawyersreachwi.com)\n→ The author/book site (sawyersreachbook.com)\n\nThe reason: the story I'm trying to tell is about how easily fiction becomes reality when no one's paying attention.\n\nSo I made the fiction feel real.\n\n#AuthorLife #WorldBuilding #SciFiThriller #AIEthics #TransmediaStorytelling" }
+
+];
+
+const platLabels = { x:"X / Twitter", ig:"Instagram", fb:"Facebook", li:"LinkedIn", tt:"TikTok", any:"Any Platform" };
+const platClass  = { x:"plat-x", ig:"plat-ig", fb:"plat-fb", li:"plat-li", tt:"plat-tt", any:"plat-any" };
+const catLabels  = { anxiety:"AI Anxiety", corp:"Corporate Power", privacy:"Digital Privacy", decide:"Who Decides?", future:"Human Future", community:"Community", kaela:"KAELA & Story", nick:"Author Voice", comp:"Reader Comps", cta:"Buy / Listen", zevcorp:"ZevraCorp Voice", town:"Town Bulletin", arg:"Rabbit Hole / ARG" };
+const catDot     = { anxiety:"dot-anxiety", corp:"dot-corp", privacy:"dot-privacy", decide:"dot-decide", future:"dot-future", community:"dot-community", kaela:"dot-kaela", nick:"dot-nick", comp:"dot-comp", cta:"dot-cta", zevcorp:"dot-zevcorp", town:"dot-town", arg:"dot-arg" };
+
+let activeCat = "all";
+
+function buildCards() {
+  const grids = {};
+  document.querySelectorAll("[id^='grid-']").forEach(g => grids[g.id.replace("grid-","")] = g);
+  posts.forEach((p, i) => {
+    const card = document.createElement("div");
+    card.className = "post-card";
+    card.dataset.cat = p.cat;
+    card.dataset.id = i;
+    card.dataset.text = p.text;
+    const charCount = p.text.length;
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="card-badges">
+          <span class="badge ${catDot[p.cat]}" style="background:none;padding:0;display:flex;align-items:center;gap:4px;">
+            <span class="cat-dot ${catDot[p.cat]}" style="width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;"></span>
+            <span style="font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-muted);">${catLabels[p.cat]}</span>
+          </span>
+          <span class="badge ${platClass[p.plat]}">${platLabels[p.plat]}</span>
+        </div>
+      </div>
+      <div class="post-text">${p.text.replace(/\n/g,"<br>")}</div>
+      <div class="card-bottom">
+        <span class="char-info">${charCount} chars</span>
+        <button class="copy-btn" onclick="copyCard(${i},this)">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copy
+        </button>
+      </div>`;
+    if (grids[p.cat]) grids[p.cat].appendChild(card);
+  });
+  updateCount();
+}
+
+function setCat(cat, btn) {
+  activeCat = cat;
+  document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  filterPosts();
+}
+
+function filterPosts() {
+  const q = document.getElementById("searchInput").value.toLowerCase();
+  let visible = 0;
+  document.querySelectorAll(".post-card").forEach(card => {
+    const catMatch = activeCat === "all" || card.dataset.cat === activeCat;
+    const textMatch = !q || card.dataset.text.toLowerCase().includes(q);
+    const show = catMatch && textMatch;
+    card.classList.toggle("hidden", !show);
+    if (show) visible++;
+  });
+  document.querySelectorAll(".section").forEach(sec => {
+    const secCat = sec.dataset.section;
+    const hasCatMatch = activeCat === "all" || activeCat === secCat;
+    const hasVisible = [...sec.querySelectorAll(".post-card")].some(c => !c.classList.contains("hidden"));
+    sec.style.display = (hasCatMatch && hasVisible) ? "" : "none";
+  });
+  document.getElementById("resultCount").textContent = visible + " post" + (visible !== 1 ? "s" : "");
+  document.getElementById("noResults").style.display = visible === 0 ? "block" : "none";
+}
+
+function updateCount() {
+  document.getElementById("resultCount").textContent = posts.length + " posts";
+}
+
+async function copyCard(i, btn) {
+  await navigator.clipboard.writeText(posts[i].text);
+  const orig = btn.innerHTML;
+  btn.innerHTML = "✓ Copied";
+  btn.classList.add("copied");
+  setTimeout(() => { btn.innerHTML = orig; btn.classList.remove("copied"); }, 1500);
+}
+
+async function copyVisible() {
+  const visible = [...document.querySelectorAll(".post-card:not(.hidden)")];
+  const text = visible.map(c => c.dataset.text).join("\n\n---\n\n");
+  await navigator.clipboard.writeText(text);
+  const btn = document.querySelector(".copy-all-btn");
+  const orig = btn.textContent;
+  btn.textContent = "✓ Copied " + visible.length + " posts";
+  setTimeout(() => btn.textContent = orig, 2000);
+}
+
+buildCards();
+</script>
+</body>
+</html>
