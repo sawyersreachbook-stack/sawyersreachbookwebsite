@@ -342,6 +342,101 @@
     display: none;
   }
 
+  /* RATING BUTTONS */
+  .rating-btns { display: flex; gap: 5px; margin-left: auto; flex-shrink: 0; }
+  .rate-btn {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid var(--border-dark);
+    background: var(--page);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; line-height: 1;
+    transition: all 0.15s; flex-shrink: 0;
+  }
+  .rate-btn:hover { transform: scale(1.12); }
+  .like-btn:hover  { background: #eaf9ea; border-color: #27ae60; }
+  .skip-btn:hover  { background: #fdf0ed; border-color: #c0392b; }
+  .like-btn.active { background: #eaf9ea; border-color: #27ae60; box-shadow: 0 0 0 2px #b8edb8; }
+  .skip-btn.active { background: #fdf0ed; border-color: #c0392b; box-shadow: 0 0 0 2px #f5c8be; }
+  .post-card.is-liked  { border-color: #27ae60 !important; border-width: 1.5px; }
+  .post-card.is-skipped { border-color: #e0b0a8 !important; }
+
+  /* FAVORITES SECTION */
+  .fav-section {
+    background: #f4fcf4;
+    border: 1.5px solid #27ae60;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .fav-section.empty { display: none; }
+  .fav-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 1.25rem; flex-wrap: wrap;
+    padding-bottom: 0.75rem;
+    border-bottom: 1.5px solid #a8d8a8;
+  }
+  .fav-icon { font-size: 1.1rem; }
+  .fav-title { font-family: var(--serif); font-size: 1.25rem; color: #1a5c1a; }
+  .fav-count {
+    font-family: var(--mono); font-size: 11px;
+    background: #27ae60; color: white;
+    padding: 2px 8px; border-radius: 10px;
+  }
+  .fav-actions { display: flex; gap: 8px; margin-left: auto; }
+  .fav-action-btn {
+    padding: 5px 12px; font-size: 12px;
+    border: 1px solid #a8d8a8; border-radius: 6px;
+    background: white; color: #1a5c1a;
+    cursor: pointer; font-family: var(--sans);
+    transition: all 0.15s; white-space: nowrap;
+  }
+  .fav-action-btn:hover { background: #27ae60; color: white; border-color: #27ae60; }
+  .fav-action-btn.danger:hover { background: #c0392b; color: white; border-color: #c0392b; }
+  .fav-hint { font-size: 12px; color: #4a8a4a; font-style: italic; margin-bottom: 1rem; }
+
+  /* SKIPPED SECTION */
+  .skip-section {
+    background: var(--surface);
+    border: 1px solid var(--border-dark);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .skip-section.empty { display: none; }
+  .skip-toggle {
+    display: flex; align-items: center; gap: 10px;
+    padding: 1rem 1.5rem;
+    cursor: pointer; user-select: none;
+    transition: background 0.15s;
+    border: none; background: none;
+    width: 100%; text-align: left; font-family: var(--sans);
+  }
+  .skip-toggle:hover { background: var(--page); }
+  .skip-icon { font-size: 1rem; }
+  .skip-title { font-family: var(--serif); font-size: 1.1rem; color: var(--ink-muted); }
+  .skip-count {
+    font-family: var(--mono); font-size: 11px;
+    background: #e0b0a8; color: #5c1a0a;
+    padding: 2px 8px; border-radius: 10px;
+  }
+  .skip-chevron { margin-left: auto; color: var(--ink-muted); transition: transform 0.2s; font-size: 12px; }
+  .skip-section.open .skip-chevron { transform: rotate(180deg); }
+  .skip-body {
+    display: none;
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .skip-section.open .skip-body { display: block; }
+  .skip-actions { display: flex; gap: 8px; margin-bottom: 1rem; }
+  .skip-action-btn {
+    padding: 5px 12px; font-size: 12px;
+    border: 1px solid var(--border-dark); border-radius: 6px;
+    background: var(--page); color: var(--ink-mid);
+    cursor: pointer; font-family: var(--sans); transition: all 0.15s;
+  }
+  .skip-action-btn:hover { background: #c0392b; color: white; border-color: #c0392b; }
+
   /* FOOTER */
   footer {
     background: var(--ink);
@@ -402,6 +497,37 @@
 </div>
 
 <main class="main" id="mainContent">
+
+<!-- FAVORITES SECTION -->
+<div class="fav-section empty" id="favSection" data-special="true">
+  <div class="fav-header">
+    <span class="fav-icon">💚</span>
+    <h2 class="fav-title">Favorites</h2>
+    <span class="fav-count" id="favCount">0</span>
+    <div class="fav-actions">
+      <button class="fav-action-btn" onclick="copyFavorites()">Copy all</button>
+      <button class="fav-action-btn danger" onclick="clearFavorites()">Clear all</button>
+    </div>
+  </div>
+  <p class="fav-hint">Click ♥ on any post to save it here. Your favorites are remembered between sessions.</p>
+  <div class="card-grid" id="grid-favorites"></div>
+</div>
+
+<!-- SKIPPED SECTION -->
+<div class="skip-section empty" id="skipSection" data-special="true">
+  <button class="skip-toggle" onclick="toggleSkipped()">
+    <span class="skip-icon">🗑️</span>
+    <span class="skip-title">Not for me</span>
+    <span class="skip-count" id="skipCount">0</span>
+    <span class="skip-chevron">▼</span>
+  </button>
+  <div class="skip-body">
+    <div class="skip-actions">
+      <button class="skip-action-btn" onclick="clearSkipped()">Restore all</button>
+    </div>
+    <div class="card-grid" id="grid-skipped"></div>
+  </div>
+</div>
 
 <!-- ===== SECTION 1: AI ANXIETY ===== -->
 <section class="section section-anxiety" data-section="anxiety">
@@ -929,26 +1055,46 @@ const platClass  = { x:"plat-x", ig:"plat-ig", fb:"plat-fb", li:"plat-li", tt:"p
 const catLabels  = { anxiety:"AI Anxiety", corp:"Corporate Power", privacy:"Digital Privacy", decide:"Who Decides?", future:"Human Future", community:"Community", kaela:"KAELA & Story", nick:"Author Voice", comp:"Reader Comps", cta:"Buy / Listen", zevcorp:"ZevraCorp Voice", town:"Town Bulletin", arg:"Rabbit Hole / ARG" };
 const catDot     = { anxiety:"dot-anxiety", corp:"dot-corp", privacy:"dot-privacy", decide:"dot-decide", future:"dot-future", community:"dot-community", kaela:"dot-kaela", nick:"dot-nick", comp:"dot-comp", cta:"dot-cta", zevcorp:"dot-zevcorp", town:"dot-town", arg:"dot-arg" };
 
+const STORAGE_KEY = 'sawyers_reach_ratings_v1';
 let activeCat = "all";
+let ratings = {};   // { postIndex: 'like' | 'skip' }
 
+// ── Load saved ratings from localStorage ──────────────────────────────────
+function loadRatings() {
+  try { ratings = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+  catch { ratings = {}; }
+}
+
+function saveRatings() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(ratings));
+}
+
+// ── Build all cards ────────────────────────────────────────────────────────
 function buildCards() {
   const grids = {};
   document.querySelectorAll("[id^='grid-']").forEach(g => grids[g.id.replace("grid-","")] = g);
+
   posts.forEach((p, i) => {
     const card = document.createElement("div");
     card.className = "post-card";
     card.dataset.cat = p.cat;
     card.dataset.id = i;
     card.dataset.text = p.text;
+    card.dataset.originalParent = "grid-" + p.cat;
     const charCount = p.text.length;
+
     card.innerHTML = `
       <div class="card-top">
         <div class="card-badges">
-          <span class="badge ${catDot[p.cat]}" style="background:none;padding:0;display:flex;align-items:center;gap:4px;">
+          <span style="background:none;padding:0;display:flex;align-items:center;gap:4px;">
             <span class="cat-dot ${catDot[p.cat]}" style="width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;"></span>
             <span style="font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-muted);">${catLabels[p.cat]}</span>
           </span>
           <span class="badge ${platClass[p.plat]}">${platLabels[p.plat]}</span>
+        </div>
+        <div class="rating-btns">
+          <button class="rate-btn like-btn" data-id="${i}" onclick="rate(${i},'like')" title="Save to Favorites">♥</button>
+          <button class="rate-btn skip-btn" data-id="${i}" onclick="rate(${i},'skip')" title="Not for me">✕</button>
         </div>
       </div>
       <div class="post-text">${p.text.replace(/\n/g,"<br>")}</div>
@@ -959,11 +1105,100 @@ function buildCards() {
           Copy
         </button>
       </div>`;
+
     if (grids[p.cat]) grids[p.cat].appendChild(card);
   });
-  updateCount();
 }
 
+// ── Apply saved ratings after build ───────────────────────────────────────
+function applyRatings() {
+  Object.entries(ratings).forEach(([id, type]) => {
+    const card = document.querySelector(`.post-card[data-id="${id}"]`);
+    if (!card) return;
+    const targetGrid = type === 'like' ? 'grid-favorites' : 'grid-skipped';
+    document.getElementById(targetGrid).appendChild(card);
+    card.classList.add(type === 'like' ? 'is-liked' : 'is-skipped');
+    setButtonState(card, type);
+  });
+  updateSpecialSections();
+}
+
+// ── Rate a post (like / skip / toggle off) ────────────────────────────────
+function rate(id, type) {
+  const card = document.querySelector(`.post-card[data-id="${id}"]`);
+  if (!card) return;
+
+  if (ratings[id] === type) {
+    // Toggle off — move back to original section
+    unrate(id, card);
+    return;
+  }
+
+  // Move out of any current special section first
+  if (ratings[id]) {
+    card.classList.remove('is-liked', 'is-skipped');
+  }
+
+  ratings[id] = type;
+  const targetGrid = type === 'like' ? 'grid-favorites' : 'grid-skipped';
+  document.getElementById(targetGrid).appendChild(card);
+  card.classList.remove('is-liked', 'is-skipped');
+  card.classList.add(type === 'like' ? 'is-liked' : 'is-skipped');
+  setButtonState(card, type);
+  saveRatings();
+  updateSpecialSections();
+}
+
+function unrate(id, card) {
+  delete ratings[id];
+  const orig = card.dataset.originalParent;
+  const origGrid = document.getElementById(orig);
+  if (origGrid) origGrid.appendChild(card);
+  card.classList.remove('is-liked', 'is-skipped');
+  setButtonState(card, null);
+  saveRatings();
+  updateSpecialSections();
+  filterPosts(); // re-apply any active filter
+}
+
+function setButtonState(card, type) {
+  card.querySelector('.like-btn').classList.toggle('active', type === 'like');
+  card.querySelector('.skip-btn').classList.toggle('active', type === 'skip');
+}
+
+// ── Update Favorites / Skipped section visibility + counts ────────────────
+function updateSpecialSections() {
+  const favCount  = document.getElementById('grid-favorites').children.length;
+  const skipCount = document.getElementById('grid-skipped').children.length;
+
+  document.getElementById('favSection').classList.toggle('empty', favCount === 0);
+  document.getElementById('skipSection').classList.toggle('empty', skipCount === 0);
+  document.getElementById('favCount').textContent  = favCount;
+  document.getElementById('skipCount').textContent = skipCount;
+}
+
+function toggleSkipped() {
+  document.getElementById('skipSection').classList.toggle('open');
+}
+
+// ── Clear actions ─────────────────────────────────────────────────────────
+function clearFavorites() {
+  if (!confirm(`Move all ${document.getElementById('grid-favorites').children.length} favorites back to their categories?`)) return;
+  [...document.getElementById('grid-favorites').children].forEach(card => {
+    const id = card.dataset.id;
+    unrate(id, card);
+  });
+}
+
+function clearSkipped() {
+  if (!confirm(`Restore all ${document.getElementById('grid-skipped').children.length} skipped posts to their categories?`)) return;
+  [...document.getElementById('grid-skipped').children].forEach(card => {
+    const id = card.dataset.id;
+    unrate(id, card);
+  });
+}
+
+// ── Category filter ───────────────────────────────────────────────────────
 function setCat(cat, btn) {
   activeCat = cat;
   document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
@@ -974,27 +1209,33 @@ function setCat(cat, btn) {
 function filterPosts() {
   const q = document.getElementById("searchInput").value.toLowerCase();
   let visible = 0;
+
   document.querySelectorAll(".post-card").forEach(card => {
-    const catMatch = activeCat === "all" || card.dataset.cat === activeCat;
+    // Cards in special sections (favorites/skipped) are always visible as-is
+    const inSpecial = card.closest('[data-special]');
+    if (inSpecial) { visible++; return; }
+
+    const catMatch  = activeCat === "all" || card.dataset.cat === activeCat;
     const textMatch = !q || card.dataset.text.toLowerCase().includes(q);
     const show = catMatch && textMatch;
     card.classList.toggle("hidden", !show);
     if (show) visible++;
   });
-  document.querySelectorAll(".section").forEach(sec => {
+
+  // Show/hide regular category sections
+  document.querySelectorAll(".section[data-section]").forEach(sec => {
     const secCat = sec.dataset.section;
     const hasCatMatch = activeCat === "all" || activeCat === secCat;
-    const hasVisible = [...sec.querySelectorAll(".post-card")].some(c => !c.classList.contains("hidden"));
+    const hasVisible  = [...sec.querySelectorAll(".post-card")].some(c => !c.classList.contains("hidden"));
     sec.style.display = (hasCatMatch && hasVisible) ? "" : "none";
   });
-  document.getElementById("resultCount").textContent = visible + " post" + (visible !== 1 ? "s" : "");
-  document.getElementById("noResults").style.display = visible === 0 ? "block" : "none";
+
+  const unratedVisible = [...document.querySelectorAll(".section[data-section] .post-card:not(.hidden)")].length;
+  document.getElementById("resultCount").textContent = unratedVisible + " post" + (unratedVisible !== 1 ? "s" : "");
+  document.getElementById("noResults").style.display = unratedVisible === 0 && document.getElementById("grid-favorites").children.length === 0 ? "block" : "none";
 }
 
-function updateCount() {
-  document.getElementById("resultCount").textContent = posts.length + " posts";
-}
-
+// ── Copy helpers ──────────────────────────────────────────────────────────
 async function copyCard(i, btn) {
   await navigator.clipboard.writeText(posts[i].text);
   const orig = btn.innerHTML;
@@ -1004,7 +1245,7 @@ async function copyCard(i, btn) {
 }
 
 async function copyVisible() {
-  const visible = [...document.querySelectorAll(".post-card:not(.hidden)")];
+  const visible = [...document.querySelectorAll(".section[data-section] .post-card:not(.hidden)")];
   const text = visible.map(c => c.dataset.text).join("\n\n---\n\n");
   await navigator.clipboard.writeText(text);
   const btn = document.querySelector(".copy-all-btn");
@@ -1013,7 +1254,22 @@ async function copyVisible() {
   setTimeout(() => btn.textContent = orig, 2000);
 }
 
+async function copyFavorites() {
+  const cards = [...document.getElementById('grid-favorites').children];
+  if (!cards.length) return;
+  const text = cards.map(c => c.dataset.text).join("\n\n---\n\n");
+  await navigator.clipboard.writeText(text);
+  const btn = document.querySelector(".fav-action-btn");
+  const orig = btn.textContent;
+  btn.textContent = "✓ Copied " + cards.length;
+  setTimeout(() => btn.textContent = orig, 2000);
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+loadRatings();
 buildCards();
+applyRatings();
+
 </script>
 </body>
 </html>
