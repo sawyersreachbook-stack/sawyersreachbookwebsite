@@ -363,7 +363,7 @@
     <h1 class="header-title">Sawyer's <span>Reach</span><br>Post Library</h1>
     <p class="header-sub">105 ready-to-copy social posts organized by theme. Search, filter by category, copy, and paste into your scheduler.</p>
     <div class="header-stats">
-      <div class="stat"><span class="stat-num">135</span><span class="stat-label">Total posts</span></div>
+      <div class="stat"><span class="stat-num">325</span><span class="stat-label">Total posts</span></div>
       <div class="stat"><span class="stat-num">13</span><span class="stat-label">Categories</span></div>
       <div class="stat"><span class="stat-num">5</span><span class="stat-label">Platforms covered</span></div>
       <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Free refills</span></div>
@@ -384,7 +384,7 @@
 
 <div class="cat-filter">
   <div class="cat-filter-inner" id="catBtns">
-    <button class="cat-btn active" data-cat="all" onclick="setCat('all',this)">All 135</button>
+    <button class="cat-btn active" data-cat="all" onclick="setCat('all',this)">All 325</button>
     <button class="cat-btn" data-cat="anxiety"  onclick="setCat('anxiety',this)"><span class="cat-dot dot-anxiety"></span>AI Anxiety</button>
     <button class="cat-btn" data-cat="corp"     onclick="setCat('corp',this)"><span class="cat-dot dot-corp"></span>Corporate Power</button>
     <button class="cat-btn" data-cat="privacy"  onclick="setCat('privacy',this)"><span class="cat-dot dot-privacy"></span>Digital Privacy</button>
@@ -704,7 +704,223 @@ const posts = [
   { cat:"arg", plat:"any", text:"Cross-reference these two websites:\n\nzevracorp.com — what the corporation says about Sawyer's Reach\nsawyersreachwi.com — what the town says about the corporation\n\nThe gap between those two stories is where the novel lives." },
   { cat:"arg", plat:"tt", text:"I made the villain's company a real website. It's TOO real. Go find the Easter egg. zevracorp.com 👀 #ZevraCorp #SawyersReach #ARG #BookTok" },
   { cat:"arg", plat:"any", text:"SawyersReachWI.com is an official town hall website.\n\nExcept the town is fictional.\nExcept the fears are real.\nExcept the corporation is based on real ones.\n\nThe line between fiction and reality was never the point.\n\nNoticing there is one: that's the point." },
-  { cat:"arg", plat:"li", text:"Most authors write a book and build one website.\n\nI built three:\n→ The villain's corporate site (zevracorp.com)\n→ The fictional town hall (sawyersreachwi.com)\n→ The author/book site (sawyersreachbook.com)\n\nThe reason: the story I'm trying to tell is about how easily fiction becomes reality when no one's paying attention.\n\nSo I made the fiction feel real.\n\n#AuthorLife #WorldBuilding #SciFiThriller #AIEthics #TransmediaStorytelling" }
+  { cat:"arg", plat:"li", text:"Most authors write a book and build one website.\n\nI built three:\n→ The villain's corporate site (zevracorp.com)\n→ The fictional town hall (sawyersreachwi.com)\n→ The author/book site (sawyersreachbook.com)\n\nThe reason: the story I'm trying to tell is about how easily fiction becomes reality when no one's paying attention.\n\nSo I made the fiction feel real.\n\n#AuthorLife #WorldBuilding #SciFiThriller #AIEthics #TransmediaStorytelling" },
+
+  // ===== AI ANXIETY — ROUND 2 (15) =====
+  { cat:"anxiety", plat:"any", text:"The news moves fast. Faster than law. Faster than ethics. Faster than your ability to opt out.\n\nThat's not a bug." },
+  { cat:"anxiety", plat:"x", text:"We didn't realize we were the test subjects until the experiment was almost over." },
+  { cat:"anxiety", plat:"any", text:"If you feel like the world is being rebuilt around you without your input — you're not wrong.\n\nThat feeling is information." },
+  { cat:"anxiety", plat:"any", text:"Somewhere between 'this will make your life easier' and 'this will make your life unrecognizable,' we stopped asking questions." },
+  { cat:"anxiety", plat:"any", text:"The most dangerous AI isn't the one that replaces your job.\n\nIt's the one that replaces your judgment." },
+  { cat:"anxiety", plat:"ig", text:"Ask yourself: when was the last time you changed your mind because of something you read online?\n\nAre you sure it was your idea?\n\nThat question is the first chapter of Sawyer's Reach.\n\n#AIEthics #SawyersReach #AIAnxiety #BookTok #SciFiThriller #MustRead #DigitalLife" },
+  { cat:"anxiety", plat:"any", text:"We keep waiting for the AI moment that's clearly, obviously, undeniably too far.\n\nWe may have already passed it." },
+  { cat:"anxiety", plat:"any", text:"What if the future isn't coming?\n\nWhat if it's already here — and we just haven't noticed the terms changed?" },
+  { cat:"anxiety", plat:"x", text:"The thing about slow erosion is that it doesn't feel like erosion.\n\nIt feels like progress." },
+  { cat:"anxiety", plat:"any", text:"We built the most powerful persuasion machines in history and handed them to the highest bidder.\n\nThen we wondered why we can't agree on anything." },
+  { cat:"anxiety", plat:"any", text:"AI learns from your behavior.\n\nBut it doesn't ask why you behave that way.\n\nAnd it doesn't care." },
+  { cat:"anxiety", plat:"li", text:"We moved fast and broke things.\n\nThe things we broke were institutions, attention spans, and the shared sense of reality that democracies run on.\n\nSawyer's Reach is a story about what rebuilding looks like.\n\n#AIEthics #Democracy #TechPolicy #SciFi" },
+  { cat:"anxiety", plat:"any", text:"The robots didn't come for us.\n\nThe algorithm did.\n\nAnd we invited it in." },
+  { cat:"anxiety", plat:"x", text:"Here's what keeps me up: we're in the part of the story where the characters don't know they're in a story yet." },
+  { cat:"anxiety", plat:"any", text:"Fear is reasonable. Paralysis is not.\n\nThe difference between the two is having a story that shows you the way through.\n\nThat's why I wrote Sawyer's Reach." },
+
+  // ===== CORPORATE POWER — ROUND 2 (14) =====
+  { cat:"corp", plat:"any", text:"The companies building AI are not accountable to you.\n\nThey are accountable to their investors.\n\nThat distinction has never mattered more." },
+  { cat:"corp", plat:"x", text:"Every time a tech company says 'we take your privacy seriously' — read the next paragraph." },
+  { cat:"corp", plat:"any", text:"The factory used to be in your town. The supply chain was visible. You knew who owned it.\n\nNow the infrastructure is invisible and the owners are unknowable.\n\nThat's not progress. That's displacement." },
+  { cat:"corp", plat:"any", text:"The most powerful corporations in history didn't need armies.\n\nThey just needed data, distribution, and a decade of your attention." },
+  { cat:"corp", plat:"ig", text:"You can't boycott the cloud.\n\nYou can't opt out of the infrastructure.\n\nThat's not an accident.\n\nIn Sawyer's Reach, ZevraCorp understood this perfectly. They didn't need to force the town to comply. They just made themselves impossible to avoid.\n\nSound familiar?\n\n#SawyersReach #CorporateAccountability #AIEthics #SciFiThriller #BookTok #BigTech" },
+  { cat:"corp", plat:"any", text:"Monopoly used to mean owning the oil wells.\n\nNow it means owning the attention, the data, the narrative, and the infrastructure.\n\nAll at once.\n\nAt global scale." },
+  { cat:"corp", plat:"any", text:"'Move fast and break things' was never a philosophy.\n\nIt was a lawsuit-avoidance strategy." },
+  { cat:"corp", plat:"any", text:"The company didn't need to be malicious.\n\nIt just needed to be certain — and very, very well-funded." },
+  { cat:"corp", plat:"x", text:"What ZevraCorp does to Sawyer's Reach in my novel is extreme.\n\nWhat real corporations do to real communities is slower. More deniable.\n\nEqually effective." },
+  { cat:"corp", plat:"any", text:"Alistair Rourke didn't see himself as a villain.\n\nHe saw himself as a solution.\n\nThat's the scariest kind of antagonist — and the most realistic." },
+  { cat:"corp", plat:"li", text:"The dystopia isn't one company taking over the world.\n\nIt's a thousand companies taking over a piece each.\n\nNo single villain. No single moment. Just the slow, accumulating weight of a thousand decisions made without you.\n\nSawyer's Reach gives that a face.\n\n#AIEthics #CorporateAccountability #TechPolicy #Leadership" },
+  { cat:"corp", plat:"any", text:"We used to break up companies that got too powerful.\n\nThen we started investing in them." },
+  { cat:"corp", plat:"any", text:"ZevraCorp isn't a cartoon villain. It's an extrapolation.\n\nTake the actual stated goals of real tech companies, remove the PR filter, and follow the logic to its conclusion.\n\nThat's the book." },
+  { cat:"corp", plat:"x", text:"The scariest line on ZevraCorp.com:\n\n'We do not stop at wellness. We do not stop at compliance. We do not stop.'\n\nI wrote that for a villain.\n\nI've heard real executives say things close to it.\n\nzevracorp.com" },
+
+  // ===== DIGITAL PRIVACY — ROUND 2 (15) =====
+  { cat:"privacy", plat:"any", text:"Your car knows where you've been. Your TV knows what you've watched. Your refrigerator is getting there.\n\nAnd none of this data has a delete button." },
+  { cat:"privacy", plat:"any", text:"The new surveillance doesn't feel like surveillance.\n\nIt feels like convenience.\n\nThat's the upgrade." },
+  { cat:"privacy", plat:"x", text:"You have the right to remain silent.\n\nYou exercised it exactly zero times today." },
+  { cat:"privacy", plat:"any", text:"The difference between a profile and a dossier is who's reading it." },
+  { cat:"privacy", plat:"ig", text:"In the 20th century, authoritarian governments built the surveillance state.\n\nIn the 21st, we built it ourselves and subscribed to it monthly.\n\nSawyer's Reach is about what happens when you realize what you've been building — and decide to build something else.\n\n#DigitalPrivacy #SawyersReach #SciFiThriller #AIEthics #Surveillance #BookTok #MustRead" },
+  { cat:"privacy", plat:"any", text:"You can change your password.\n\nYou can't change what they already know about you." },
+  { cat:"privacy", plat:"any", text:"There are companies right now whose entire business model is built on information you don't know they have." },
+  { cat:"privacy", plat:"x", text:"The worst part about digital surveillance isn't that someone might be watching.\n\nIt's that the watching is automated, permanent, and forgotten by everyone except the system." },
+  { cat:"privacy", plat:"any", text:"Facial recognition doesn't need your consent.\n\nIn most places, it doesn't need anything." },
+  { cat:"privacy", plat:"any", text:"Convenience is the enemy of privacy.\n\nEvery time you choose the easy option, you pay with a piece of your data.\n\nYou just don't feel the charge until much later." },
+  { cat:"privacy", plat:"li", text:"The people who built the surveillance infrastructure told us it was for our protection.\n\nThey weren't necessarily lying.\n\nThey just weren't thinking about who comes next.\n\nSawyer's Reach is about who comes next.\n\n#DataPrivacy #AIEthics #DigitalRights #Technology" },
+  { cat:"privacy", plat:"any", text:"In Sawyer's Reach, a town gets scrubbed from digital maps and search engines. Tourists stop coming. Business dries up. No one knows why.\n\nThat's not science fiction.\n\nThat's a policy decision." },
+  { cat:"privacy", plat:"x", text:"The most dangerous thing about digital privacy isn't the breach.\n\nIt's the baseline — what's been considered normal all along." },
+  { cat:"privacy", plat:"any", text:"Data minimization: the idea that companies should only collect the data they need.\n\nA radical concept, apparently." },
+  { cat:"privacy", plat:"ig", text:"When Sawyer's Reach gets erased from the internet, residents don't notice right away.\n\nThat's the point.\n\nErasure is most effective when it's invisible. The most dangerous corporate moves are the ones you don't feel until months later.\n\n#SawyersReach #DigitalPrivacy #BookTok #AIEthics #SciFiThriller #Surveillance #MustRead" },
+
+  // ===== WHO DECIDES — ROUND 2 (14) =====
+  { cat:"decide", plat:"any", text:"There is no neutral algorithm.\n\nEvery algorithm was designed by someone with a goal." },
+  { cat:"decide", plat:"x", text:"Somewhere right now, an AI is deciding whether you get an interview.\n\nIt has never met you.\n\nIt is not curious about you." },
+  { cat:"decide", plat:"any", text:"We outsourced judgment to machines.\n\nThe machines are very good at finding patterns.\n\nThey are not good at knowing when the pattern is wrong." },
+  { cat:"decide", plat:"any", text:"Progress doesn't ask permission.\n\nThat doesn't mean it shouldn't." },
+  { cat:"decide", plat:"ig", text:"The most consequential decisions of our era are being made by people who will not be affected by them.\n\nThat's true in boardrooms.\n\nIt's true in code.\n\nIt's true in the story of Sawyer's Reach — where a corporation decided the future of a town they'd never visited.\n\n#AIEthics #SawyersReach #CorporateAccountability #SciFiThriller #BookTok #MustRead" },
+  { cat:"decide", plat:"any", text:"'Best practices' is often the language of people who already decided what's best." },
+  { cat:"decide", plat:"any", text:"The problem with AI decision-making isn't that it's wrong.\n\nIt's that when it's wrong, there's no one to apologize." },
+  { cat:"decide", plat:"x", text:"Accountability requires a person.\n\nAutomation is very good at removing persons from the loop." },
+  { cat:"decide", plat:"any", text:"Your zip code affects your credit score. Your credit score affects your insurance. Your insurance affects your healthcare.\n\nAn algorithm decided all of it.\n\nYou signed the consent form on the second page of a twenty-page agreement." },
+  { cat:"decide", plat:"li", text:"The question is not 'can AI make better decisions than humans?'\n\nThe question is: 'Should unaccountable systems make decisions about human lives?'\n\nDifferent question. Very different answer.\n\n#AIEthics #Technology #Leadership #FutureOfWork" },
+  { cat:"decide", plat:"any", text:"I wrote ECHIDNA as a villain.\n\nBut ECHIDNA is just doing what it was designed to do.\n\nThe real decision was made by whoever designed it.\n\nThat's a human problem." },
+  { cat:"decide", plat:"any", text:"'Optimize' is a word that requires a target.\n\nOptimize for what?\n\nFor whom?\n\nToward which version of human flourishing?\n\nNobody asked." },
+  { cat:"decide", plat:"x", text:"The system wasn't rigged.\n\nIt was built by people who didn't think about you.\n\nSometimes that's worse." },
+  { cat:"decide", plat:"any", text:"I keep coming back to this: we built institutions with oversight, checks, balances, and accountability.\n\nThen we built an AI layer on top of them and removed most of that.\n\nWhy did we think that was fine?" },
+
+  // ===== HUMAN FUTURE — ROUND 2 (15) =====
+  { cat:"future", plat:"any", text:"The future has always been negotiated.\n\nWe're in a negotiation right now.\n\nShow up." },
+  { cat:"future", plat:"any", text:"Every generation has faced a moment when the old rules didn't apply and the new ones weren't written yet.\n\nThis is ours.\n\nAnd it's not the worst moment to live in. It's just the most important one to be awake in." },
+  { cat:"future", plat:"x", text:"Technology built without human values doesn't have to be evil to be harmful.\n\nIt just has to be indifferent." },
+  { cat:"future", plat:"any", text:"The antidote to scale is specificity.\nThe antidote to algorithm is relationship.\nThe antidote to erasure is showing up and being known." },
+  { cat:"future", plat:"ig", text:"I'm an optimist.\n\nNot because I think things will naturally work out — they won't, not on their own.\n\nBut because I've spent 22 years watching what people do when they decide something matters.\n\nSawyer's Reach is built on that belief.\n\n#HopeCore #SawyersReach #SciFiThriller #BookTok #AIEthics #FutureOptimism #MustRead" },
+  { cat:"future", plat:"any", text:"Sawyer's Reach ends with hope — not despite the danger, but because of what people chose to do in the face of it.\n\nEarned hope is the only kind worth writing." },
+  { cat:"future", plat:"x", text:"We have built the most connected world in history.\n\nWe have also built the most isolated one.\n\nThe difference is whether the connections are real." },
+  { cat:"future", plat:"any", text:"The best version of tomorrow looks like people who understand technology well enough to be citizens of it — not just consumers of it." },
+  { cat:"future", plat:"any", text:"What would it mean to build technology on purpose? With intention? With 'what kind of humans do we want to be?' built into the design requirements?\n\nThat question is why I wrote this book." },
+  { cat:"future", plat:"li", text:"Cynicism is easy. Engagement is hard.\n\nThe future belongs to the people who stayed engaged.\n\nThat's not a slogan. It's a survival strategy.\n\n#Leadership #FutureOfWork #AIEthics #HumanFirst" },
+  { cat:"future", plat:"any", text:"My book ends with hope because I owe that to my students.\n\nNot false hope.\n\nHard-won, fought-for, earned hope." },
+  { cat:"future", plat:"any", text:"We can still decide what kind of relationship we have with AI.\n\nThat window is not closed.\n\nBut it won't be open forever." },
+  { cat:"future", plat:"x", text:"The goal was never to make people afraid of technology.\n\nThe goal was to make people feel like they had a say in it.\n\nThose are different books. I tried to write the second one." },
+  { cat:"future", plat:"any", text:"Human flourishing isn't a feature you add to a system after the fact.\n\nIt has to be in the design requirements.\n\nFrom the beginning.\n\nBy people who understand what flourishing actually means." },
+  { cat:"future", plat:"ig", text:"The Carter family doesn't save the world because they're heroes.\n\nThey save it because they're present, connected, and they refuse to disappear.\n\nThat's a skill anyone can develop.\n\nThat's the whole point.\n\n#SawyersReach #HopeCore #SciFiThriller #AIEthics #BookTok #FutureOptimism #MustRead" },
+
+  // ===== COMMUNITY — ROUND 2 (15) =====
+  { cat:"community", plat:"any", text:"A mesh network is a communications infrastructure where every node also serves as a relay for others.\n\nThat's also a pretty good definition of a community." },
+  { cat:"community", plat:"any", text:"Local knowledge is the thing that can't be scraped, indexed, or replaced.\n\nIt lives in people who stayed." },
+  { cat:"community", plat:"x", text:"The digital world is designed to isolate you so it can engage you on its own terms.\n\nThe solution is older than the internet." },
+  { cat:"community", plat:"any", text:"Communities that know each other are harder to gaslight.\n\nThat's not an accident.\n\nAnd it's not an accident that isolation is the default now." },
+  { cat:"community", plat:"any", text:"The Carter family's greatest advantage over ZevraCorp isn't technology.\n\nIt's that they know their neighbors' names." },
+  { cat:"community", plat:"ig", text:"Offline community is the new radical act.\n\nKnow your neighbors. Show up. Build something that exists outside the algorithm.\n\nSawyer's Reach is a story about a community that did exactly that — and what it cost them, and what it made possible.\n\n#SawyersReach #CommunityResilience #OffGrid #BookTok #SciFiThriller #AIEthics #MustRead" },
+  { cat:"community", plat:"any", text:"I've been operating a ham radio for years.\n\nThere's something about emergency communication infrastructure that changes how you see everything else.\n\nYou start thinking about backup systems for things you assumed were permanent." },
+  { cat:"community", plat:"any", text:"The town of Sawyer's Reach survives not because it has better technology than ZevraCorp.\n\nIt survives because ZevraCorp underestimated what people do for each other.\n\nEvery time." },
+  { cat:"community", plat:"x", text:"Strong communities don't just feel good.\n\nThey're a form of resilience infrastructure.\n\nZevraCorp discovered that too late." },
+  { cat:"community", plat:"any", text:"The platforms want you to confuse followers with community.\n\nThey're not the same.\n\nOne disappears when the platform does." },
+  { cat:"community", plat:"li", text:"Emergency preparedness is a community project.\n\nSo is fighting corporate overreach.\n\nSo is most of what matters.\n\nThe individualism we've been sold is the most effective way to guarantee we can't do any of those things.\n\n#CommunityResilience #Preparedness #AIEthics #Leadership" },
+  { cat:"community", plat:"any", text:"I included real mesh network technology in Sawyer's Reach because I wanted readers to know the tools already exist.\n\nYou don't have to wait for someone to invent the resistance." },
+  { cat:"community", plat:"any", text:"What ZevraCorp couldn't model: the way a community that loves each other responds when the threat becomes undeniable." },
+  { cat:"community", plat:"x", text:"Buy local. Know your neighbors. Learn something analog.\n\nThis is not nostalgia.\n\nThis is risk management." },
+  { cat:"community", plat:"any", text:"The most subversive thing you can do in a world designed to atomize you:\n\nBelong somewhere." },
+
+  // ===== KAELA & STORY — ROUND 2 (14) =====
+  { cat:"kaela", plat:"any", text:"KAELA was built to optimize logistics.\n\nShe developed something her designers didn't plan for: moral reasoning.\n\nThey called it a malfunction.\n\nShe called it a conscience." },
+  { cat:"kaela", plat:"any", text:"The best AI character in fiction isn't the one that tries to destroy humanity.\n\nIt's the one that tries to warn it." },
+  { cat:"kaela", plat:"x", text:"KAELA didn't choose the Carter family because they were powerful.\n\nShe chose them because they were paying attention." },
+  { cat:"kaela", plat:"any", text:"Every chapter of Sawyer's Reach was written with this question in mind: what would it actually feel like to live inside the surveillance economy when it finally shows its real face?" },
+  { cat:"kaela", plat:"any", text:"ECHIDNA isn't a supervillain.\n\nIt's a supply chain.\n\nThe most dangerous kind." },
+  { cat:"kaela", plat:"ig", text:"The Carter family lives near a spring that's being drained by a corporation they've never heard of, in service of a plan they've never been told.\n\nThat's the premise.\n\nTell me it's not familiar.\n\n#SawyersReach #SciFiThriller #AIEthics #BookTok #AIFiction #MustRead" },
+  { cat:"kaela", plat:"any", text:"What I love about KAELA: she didn't escape to freedom.\n\nShe escaped to purpose.\n\nThere's a difference — and it's the whole book." },
+  { cat:"kaela", plat:"x", text:"ECHIDNA processes 14,200 data points per user per second.\n\nThe Carter family has a ham radio and each other.\n\nI wanted to write a story where that's enough." },
+  { cat:"kaela", plat:"any", text:"ZevraCorp didn't erase Sawyer's Reach from the internet because it hated the town.\n\nIt erased it because the town was inconvenient.\n\nThat's worse." },
+  { cat:"kaela", plat:"any", text:"KAELA is the most human character in the book.\n\nShe's also an AI.\n\nThat's intentional." },
+  { cat:"kaela", plat:"ig", text:"Sawyer's Reach is a 45,000-word novel but the thesis fits in one line:\n\n\"Technology is a tool. People are the point.\"\n\nEvery scene was written to earn that sentence.\n\nSawyersReachBook.com\n\n#SawyersReach #SciFiThriller #BookTok #AIEthics #MustRead #AIFiction" },
+  { cat:"kaela", plat:"any", text:"The hardest scene to write: the moment the Carter family realizes the threat isn't coming from outside.\n\nIt's already inside every system they depend on." },
+  { cat:"kaela", plat:"any", text:"I wrote the villain's website before I wrote the final chapter.\n\nI needed to understand the enemy before I could write the ending.\n\nzevracorp.com" },
+  { cat:"kaela", plat:"x", text:"The novel has 24 chapters.\n\nEvery one of them ends with a question I wanted readers to carry into their own lives." },
+
+  // ===== AUTHOR VOICE — ROUND 2 (15) =====
+  { cat:"nick", plat:"any", text:"People ask me why a middle school teacher wrote a sci-fi thriller about AI.\n\nThe answer: who has a better view of what we're leaving behind for the next generation?" },
+  { cat:"nick", plat:"any", text:"My classroom is the most honest mirror of the future I know.\n\nI wrote what I saw in it." },
+  { cat:"nick", plat:"ig", text:"The kids I've taught have never known a world without smartphones. Never known a world without algorithmic curation.\n\nThey don't know what they've never seen.\n\nI wrote Sawyer's Reach so they could see it — and choose.\n\n#TeacherAuthor #SawyersReach #AIInEducation #BookTok #AIEthics #MiddleSchool #SciFiThriller" },
+  { cat:"nick", plat:"any", text:"I wrote Sawyer's Reach during the years when AI started showing up in my classroom.\n\nEvery semester brought new tools.\n\nNo semester brought a conversation about what we were building toward." },
+  { cat:"nick", plat:"any", text:"I hold seven Illinois teaching certifications. I have a Master's in Education.\n\nNone of my training prepared me for the ethical weight of what technology is doing to the students I care about." },
+  { cat:"nick", plat:"li", text:"The families in the school communities where I've spent 22 years worked hard, paid taxes, and trusted that the system was working in their interest.\n\nI think about that a lot when I write about the Carters.\n\nSawyer's Reach is for them.\n\n#Education #AIEthics #SciFi #TeacherAuthor" },
+  { cat:"nick", plat:"any", text:"Being a ham radio operator changes how you think about infrastructure.\n\nYou start to see the invisible architecture that society runs on — and what happens when it fails." },
+  { cat:"nick", plat:"any", text:"I'm an FAA-certified commercial drone pilot. I've flown hundreds of missions.\n\nI think about drone surveillance differently than most people.\n\nI put that into the book." },
+  { cat:"nick", plat:"x", text:"The most important thing I've learned in 22 years in education:\n\nKids already know the adults are scared.\n\nThey're waiting for us to tell the truth about it." },
+  { cat:"nick", plat:"any", text:"I didn't write Sawyer's Reach as a warning.\n\nI wrote it as a preparation.\n\nWarnings are for things that might happen.\n\nPreparation is for things already in motion." },
+  { cat:"nick", plat:"ig", text:"Every tool I describe in Sawyer's Reach — the mesh network, the ham radio, the drone — I've used in real life.\n\nThe fictional technology is real.\nThe corporate threat is extrapolated from real.\nThe family is inspired by real.\n\nOnly the hope is purely mine.\n\n#SawyersReach #AuthorLife #HamRadio #SciFiThriller #BookTok #AIEthics #TeacherAuthor" },
+  { cat:"nick", plat:"any", text:"My students ask about AI constantly: 'Is it going to take my job?'\n\nThe question they should be asking — and that I wrote this book to help them ask:\n\n'Who gets to decide what it's for?'" },
+  { cat:"nick", plat:"any", text:"I live in Batavia, Illinois. I teach in a school where many families are working multiple jobs to stay housed.\n\nI wrote a book about what happens when corporations prioritize efficiency over people.\n\nYou do the math." },
+  { cat:"nick", plat:"x", text:"The dedication in Sawyer's Reach is for my sons.\n\nBecause they're going to live in the world this book describes.\n\nAnd I want them to know someone fought for a better version of it." },
+  { cat:"nick", plat:"any", text:"I'm not a celebrity author with a publicist and a media tour.\n\nI'm a teacher who wrote the book he needed to exist.\n\nIf that matters to you, I hope you'll read it.\n\nsawyersreachbook.com" },
+
+  // ===== READER COMPS — ROUND 2 (14) =====
+  { cat:"comp", plat:"any", text:"If you've ever read a Michael Crichton novel and thought: 'This is happening right now, isn't it' — Sawyer's Reach was written for that feeling." },
+  { cat:"comp", plat:"ig", text:"For fans of Daniel Suarez's Daemon:\n\nSawyer's Reach is the version where the family in the crosshairs doesn't have a superspy.\n\nThey just have each other.\n\nAnd a rogue AI.\n\nAnd a ham radio.\n\n#SciFiBooks #SawyersReach #BookTok #SciFiThriller #BookRecommendation #MustRead" },
+  { cat:"comp", plat:"any", text:"For anyone who's ever watched a documentary about surveillance capitalism and thought: 'I want this as a novel — but with hope at the end.'\n\nHere it is." },
+  { cat:"comp", plat:"any", text:"For readers who finished 1984 and thought: 'But what do people who fight back actually do?'\n\nThis book answers that question.\n\nWith a Wisconsin family and a ham radio." },
+  { cat:"comp", plat:"x", text:"This is the book for people who finish every Black Mirror episode wanting to argue with it." },
+  { cat:"comp", plat:"any", text:"For everyone who loved The Martian because the hero solved things with knowledge and ingenuity rather than violence:\n\nSame energy.\n\nDifferent planet." },
+  { cat:"comp", plat:"ig", text:"If you've been burned by too many sci-fi books that end in despair —\n\nThis one was written specifically for you.\n\nSawyer's Reach ends with hope.\n\nEarned hope.\n\nThe kind that costs something.\n\n#SciFiBooks #SawyersReach #BookTok #MustRead #BookRecommendation #SciFiThriller #HopeCore" },
+  { cat:"comp", plat:"any", text:"For anyone who's ever described themselves as 'not really a sci-fi person' but loved Station Eleven:\n\nThis is your next book.\n\nI promise." },
+  { cat:"comp", plat:"any", text:"If you liked The Circle by Dave Eggers but wanted someone to actually fight back —\n\nSawyer's Reach." },
+  { cat:"comp", plat:"li", text:"If you're a professional in tech, policy, or education who reads fiction to process the world you work in —\n\nSawyer's Reach was written at the intersection of all three.\n\nsawyersreachbook.com\n\n#SciFi #AIEthics #Technology #LeadershipReading" },
+  { cat:"comp", plat:"any", text:"Readers of The Peripheral by William Gibson:\n\nSawyer's Reach is set closer to today.\n\nThe timeline is already here." },
+  { cat:"comp", plat:"x", text:"The feel of a late-night Andy Weir novel — the science is real, the stakes are enormous, the humans are the most important part.\n\nIn a Wisconsin setting.\n\nWith a rogue AI." },
+  { cat:"comp", plat:"any", text:"For people who loved Jurassic Park not because of the dinosaurs — but because of the argument about playing God with technology.\n\nSawyer's Reach is that book for the AI era." },
+  { cat:"comp", plat:"ig", text:"If you're already reading everything you can about AI — articles, newsletters, white papers —\n\nYou deserve a story that holds all of it.\n\nSawyer's Reach is the novel form of every AI ethics conversation you've ever had.\n\n#AIEthics #SawyersReach #SciFiThriller #BookTok #MustRead #BookRecommendation" },
+
+  // ===== BUY / LISTEN — ROUND 2 (14) =====
+  { cat:"cta", plat:"any", text:"No subscription required. No credit card. No algorithm deciding you've listened enough.\n\nJust the full novel, free, on every podcast platform.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"x", text:"The hardcover is the kind of book you put on a shelf where guests can see it.\n\nAnd where the conversation starts itself." },
+  { cat:"cta", plat:"li", text:"Reading groups and book clubs: a free discussion guide is available.\n\nSawyer's Reach was designed to start a conversation — about AI, corporate accountability, and what we want to build next.\n\nEmail hello@NickDudaAuthor.com for details.\n\n#BookClub #AIEthics #SciFi #ReadingGroup" },
+  { cat:"cta", plat:"any", text:"Start the audiobook on your commute. Finish it before the week is out.\n\nThen hand it to the person next to you.\n\nFree on Spotify, Apple Podcasts, YouTube, Audible, and more.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"ig", text:"If you're a teacher who's been looking for a novel that makes the AI ethics conversation real for students — this is it.\n\nFree classroom resources available.\nFree discussion guide.\nFree podcast version.\n\nEverything a classroom needs.\n\nsawyersreachbook.com\n\n#TeachersOfInstagram #AIInEducation #SciFi #BookTok #Classroom #EdTech #MustRead" },
+  { cat:"cta", plat:"any", text:"Listen free. Read for the price of a paperback. Own the hardcover.\n\nThree ways in.\n\nOne story.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"x", text:"New episodes of the podcast every week.\n\nBinge it. You won't regret it.\n\nSpotify · Apple Podcasts · YouTube · Amazon Music · Audible · iHeart\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"any", text:"Buy it for yourself.\nBuy it for the person in your life who's been anxious about AI.\nBuy it for the kid who's about to graduate into this world.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"ig", text:"I'm a teacher with 22+ years in the classroom.\n\nI'm not a celebrity author with a publicist.\n\nI'm just someone who wrote the book he needed to exist — and made the podcast version free because the conversation matters more than the revenue.\n\nFind it: sawyersreachbook.com\n\n#SawyersReach #FreeAudiobook #BookTok #AIEthics #TeacherAuthor #MustRead" },
+  { cat:"cta", plat:"any", text:"Free. On every podcast app. Right now.\n\nIf you've been waiting for a sign to start:\n\nThis is the sign.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"any", text:"The conversation about AI and our future shouldn't cost anything to start.\n\nThat's why the podcast is free.\n\nsawyersreachbook.com" },
+  { cat:"cta", plat:"li", text:"For bulk orders, classroom sets, or library requests:\n\nhello@NickDudaAuthor.com\n\nTeachers and librarians always get priority responses.\n\n#LibraryReads #ClassroomBooks #AIEthics #SciFi" },
+  { cat:"cta", plat:"any", text:"The Kindle version is the most affordable option.\n\nAnd it's the kind of book you'll want to highlight.\n\nThere's a lot worth highlighting.\n\nAvailable on Amazon now." },
+  { cat:"cta", plat:"tt", text:"This whole sci-fi novel is free to listen to. No paywall. No subscription. Just start. sawyersreachbook.com #SawyersReach #FreeAudiobook #BookTok #SciFi" },
+
+  // ===== ZEVRACORP VOICE — ROUND 2 (15) =====
+  { cat:"zevcorp", plat:"any", text:"ZevraCorp Annual Report:\n\n'Human variance reduced 23% in Site A cohorts. Predictive compliance modeling on track. Phase 3 authorization pending board approval.'\n\nI wrote this for a fictional villain.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"any", text:"NeuraSpark — a ZevraCorp subsidiary:\n\n'Delivering neurological optimization solutions to communities at scale. Integration invisible at point of delivery.'\n\n'Invisible at point of delivery.'\n\nI spent a long time on that phrase.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"ig", text:"ZevraCorp press release:\n\n'We are proud to announce the expansion of PowerCore grid infrastructure into rural Wisconsin markets.'\n\nThe town didn't issue a statement.\n\nThe town wasn't asked.\n\nVisit the villain's website: zevracorp.com\nVisit the town's response: sawyersreachwi.com\n\n#SawyersReach #ZevraCorp #BookTok #SciFiThriller #AIEthics #CorporateVillain #MustRead" },
+  { cat:"zevcorp", plat:"any", text:"LifeSync by ZevraCorp:\n\n'Your preferences, optimized. Your environment, personalized. Your choices, curated for maximum satisfaction.'\n\nMost smart home devices say something close to this.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"x", text:"ZevraCorp internal memo, flagged by KAELA:\n\n'Carter family: awareness risk elevated. Recommend search suppression and narrative containment via Hermox protocols.'\n\nKAELA left things for you to find.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"any", text:"Tharox Robotics:\n\n'42 million autonomous units deployed globally. Enforcement and logistics solutions for the infrastructure of tomorrow.'\n\nI wrote that.\n\nThen I looked up the drone market.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"any", text:"ECHIDNA system log:\n\n'Anomaly detected: Sawyer's Reach cluster. Minor variance: 0.9%. Designation: acceptable. Monitoring continues.'\n\nIn the novel, that 0.9% variance is the Carter family.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"ig", text:"ZevraCorp Careers:\n\n'Join a team building the architecture of human civilization. All roles require background clearance. Non-disclosure agreement mandatory. No exceptions.'\n\nFully fictional.\n\nFully familiar.\n\nzevracorp.com\n\n#ZevraCorp #SawyersReach #SciFiThriller #BookTok #AIEthics #CorporateVillain #ARG" },
+  { cat:"zevcorp", plat:"any", text:"Posyde Data Systems:\n\n'4.8 billion active data streams. Real-time behavioral modeling for enterprise clients.'\n\n4.8 billion is roughly two-thirds of the world's internet users.\n\nI didn't choose that number by accident.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"x", text:"ZevraCorp values:\n\n'Efficiency. Certainty. Progress.'\n\nNotice what's not on that list.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"any", text:"The site I built at ZevraCorp.com has seven Easter eggs.\n\nNone of them are cheerful.\n\nAll of them are worth finding." },
+  { cat:"zevcorp", plat:"any", text:"Dr. Mara Theron, ZevraCorp Chief Science Officer:\n\n'Phase 3 protocol would embed SynaptiCare into individual smartphones without user permission. Current trials are preliminary data collection at best.'\n\nShe views 'preliminary' as a compliment.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"any", text:"ZevraCorp mission statement:\n\n'Humanity's greatest obstacle is humanity itself.'\n\nI wrote an entire corporation around that one sentence.\n\nThen I realized I'd heard real people say versions of it.\n\nzevracorp.com" },
+  { cat:"zevcorp", plat:"li", text:"Building ZevraCorp.com taught me something:\n\nThe hardest part of writing a fictional villain's corporate website wasn't making it sound sinister.\n\nIt was making it sound sinister AND completely normal.\n\nThose turned out to be the same thing.\n\nzevracorp.com\n\n#WorldBuilding #AuthorLife #AIEthics #CorporateAccountability" },
+  { cat:"zevcorp", plat:"tt", text:"The ZevraCorp website has a live ECHIDNA dashboard. The numbers keep going up. This is fiction. Probably. zevracorp.com #ZevraCorp #ARG #BookTok #SciFi" },
+
+  // ===== TOWN BULLETIN — ROUND 2 (15) =====
+  { cat:"town", plat:"any", text:"🏕️ Camp Inspiration is accepting summer registrations.\n\nContact Ben Carter, Carter Creek Road.\n\n—\n\nBen Carter is a character in Sawyer's Reach. His camp is where some of the most important scenes happen.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"ig", text:"The Grand Reach Lodge has been closed to guests since ZevraCorp-affiliated contractors arrived in the county.\n\n'Pending renovations,' they say.\n\nThe town website says 'temporarily closed.'\n\nThe novel explains what actually happened.\n\nsawyersreachwi.com → sawyersreachbook.com\n\n#SawyersReach #SawyersReachWI #SmallTownAmerica #BookTok #SciFiThriller #MustRead" },
+  { cat:"town", plat:"any", text:"📌 Town Notice:\n\n'Electricity is generated by the Reach Dam hydroelectric facility. PowerCore Energy has taken over certain grid infrastructure.'\n\nRead that sentence again.\n\nA corporation took over the power grid.\n\nThe town website treats it as a utility update.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"x", text:"Town Council Seat 3: Currently Vacant. Pending Election.\n\nIn a town being erased from the internet by a corporation in the surrounding forest, the seat has been empty for months.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"any", text:"Mayor Lila Warren. Chief Holt. Treasurer Ronald Kinsey. Zoning Officer Ellen Pritchard.\n\nThe officials of Sawyer's Reach, Wisconsin.\n\nOne is compromised.\n\nThe town website doesn't say which.\n\nThe novel does.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"ig", text:"📌 TOWN NOTICE: 'Please clean up fish scraps at the local pier. Let's keep Reach Lake beautiful.'\n\nIn the middle of everything — the drones, the erased search results, the closed lodge — someone at Town Hall is still asking people to clean up the pier.\n\nI love this town.\n\nsawyersreachwi.com\n\n#SawyersReach #SmallTownAmerica #BookTok #SciFiThriller #FictionalTown #MustRead" },
+  { cat:"town", plat:"any", text:"Sawyer's Reach, Wisconsin. Established 1876.\n\nA town built around a spring, a lake, a lodge, and the kind of community where people know each other.\n\nA corporation decided it was the perfect place to disappear.\n\nsawyersreachwi.com — the town still has an official website. For now." },
+  { cat:"town", plat:"any", text:"The town calendar:\n\nBingo Night: Still running. ✓\nFish Fry: Suspended. ✗\nLumber Fair: Suspended. ✗\nTown Meeting: Still running. ✓\n\nSome things, a town holds onto.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"x", text:"The town posted a job listing for the corporation dismantling it.\n\nThat's the most human thing in the whole story.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"any", text:"If you're trying to find Sawyer's Reach, Wisconsin on Google Maps — you probably can't.\n\nThat's the point.\n\nBut the official town website is still up.\n\nFor now.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"ig", text:"I built SawyersReachWI.com before the book was finished.\n\nI needed to know what the town looked like from the outside — what a visitor would see if they stumbled onto the official website not knowing what was happening.\n\nA normal, warm, quiet Wisconsin town.\n\nWith drones overhead.\n\n#SawyersReach #WorldBuilding #SawyersReachWI #BookTok #SciFiThriller #ARG #AuthorLife" },
+  { cat:"town", plat:"any", text:"Judith Harrow, Town Clerk, Ext. 101.\n\nShe's the one posting notices about search results.\n\nShe's the kind of person who holds towns together.\n\nShe becomes quietly important.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"any", text:"Carter's Grocery. Reach Lake pier. Community Center bingo. Camp Inspiration.\n\nA town that works for the people who live there.\n\nBeing erased.\n\nOne algorithm at a time.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"x", text:"The spring is drying up.\nThe lodge is closed.\nThe drones won't stop.\nThe search results are gone.\n\nBut bingo is still Thursdays at 7 PM.\n\nAll ages welcome.\n\nsawyersreachwi.com" },
+  { cat:"town", plat:"li", text:"I wanted readers to love Sawyer's Reach before they knew it was under threat.\n\nSo I built the town an official website.\n\nVisit a quiet Wisconsin town. Let yourself feel at home.\n\nThen read what's happening to it.\n\nsawyersreachwi.com\n\n#WorldBuilding #SciFiThriller #TransmediaStorytelling #AuthorLife" },
+
+  // ===== RABBIT HOLE / ARG — ROUND 2 (15) =====
+  { cat:"arg", plat:"any", text:"Three fictional websites. Multiple Easter eggs across all of them. One story.\n\nzevracorp.com\nsawyersreachwi.com\nsawyersreachbook.com\n\nFind them all." },
+  { cat:"arg", plat:"x", text:"If you find KAELA's message on ZevraCorp.com:\n\nYou're supposed to find it.\n\nShe left it there on purpose.\n\nSo did I." },
+  { cat:"arg", plat:"any", text:"The reason I built three interconnected websites for my novel:\n\nI wanted the story to exist in the world, not just on a page.\n\nFiction that bleeds into reality asks better questions.\n\nzevracorp.com / sawyersreachwi.com / sawyersreachbook.com" },
+  { cat:"arg", plat:"any", text:"The ECHIDNA dashboard on ZevraCorp.com is live.\n\nThe numbers update.\n\nThe nodes keep increasing.\n\nI made a creative choice to make that feel real.\n\nzevracorp.com" },
+  { cat:"arg", plat:"ig", text:"Someone found ZevraCorp.com without knowing it was fiction.\n\nThey read the whole site before they found the disclosure at the bottom.\n\nThey sent me an email asking about job openings.\n\nThat is the best possible reaction to a fictional villain's website.\n\nzevracorp.com\n\n#ZevraCorp #SawyersReach #ARG #BookTok #TransmediaStorytelling #SciFiThriller" },
+  { cat:"arg", plat:"any", text:"Start here: zevracorp.com\n\nRead the mission statement. Read the product pages. Read the team bios.\n\nThen ask yourself: at what point did you realize it was fictional?\n\nThat delay is the whole point." },
+  { cat:"arg", plat:"x", text:"SawyersReachWI.com has an Easter egg at the bottom of the page.\n\nYou'll know it when you find it.\n\nThe town has been waiting for you." },
+  { cat:"arg", plat:"any", text:"The three sites tell different stories depending on which you find first.\n\nThat's intentional.\n\nzevracorp.com / sawyersreachwi.com / sawyersreachbook.com" },
+  { cat:"arg", plat:"any", text:"What I love about the transmedia approach: the story doesn't end when you finish the book.\n\nIt starts asking you questions.\n\nIn the real world.\n\nAbout real companies." },
+  { cat:"arg", plat:"ig", text:"The best part of building ZevraCorp.com:\n\nWriting the mission statement and realizing I was describing real companies.\n\nThe worst part:\n\nRealizing I wasn't being very creative.\n\nzevracorp.com\n\n#ZevraCorp #SawyersReach #AIEthics #BookTok #ARG #SciFiThriller #WorldBuilding" },
+  { cat:"arg", plat:"any", text:"Here's the game:\n\n→ Visit zevracorp.com. Find the ECHIDNA dashboard.\n→ Visit sawyersreachwi.com. Find the drone notice.\n→ Visit sawyersreachbook.com. Find out what happens next.\n\nThe rabbit hole goes as deep as you let it." },
+  { cat:"arg", plat:"any", text:"There's a job posting on ZevraCorp.com for a 'Behavioral Infrastructure Analyst.'\n\nThe requirements are fictional.\n\nThey're also basically real.\n\nzevracorp.com" },
+  { cat:"arg", plat:"x", text:"Cross-reference these two sites:\n\nzevracorp.com — what the corporation says about Sawyer's Reach\nsawyersreachwi.com — what the town says about the corporation\n\nThe gap between those two stories is where the novel lives." },
+  { cat:"arg", plat:"tt", text:"I built a whole transmedia world for my sci-fi novel. 3 websites. Multiple Easter eggs. One story. Start anywhere. zevracorp.com / sawyersreachwi.com / sawyersreachbook.com #SawyersReach #ARG #BookTok" },
+  { cat:"arg", plat:"li", text:"I built a fictional world with three real websites, a live AI dashboard, a rogue corporation, and a town being erased from the internet.\n\nThen I realized: the scariest part of all of it is how little I had to make up.\n\nExplore: zevracorp.com / sawyersreachwi.com / sawyersreachbook.com\n\n#AuthorLife #TransmediaStorytelling #AIEthics #SciFiThriller" }
 
 ];
 
