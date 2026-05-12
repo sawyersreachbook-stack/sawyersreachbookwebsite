@@ -1,1675 +1,1001 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Discussion Guide — Sawyer's Reach: The Battle for Tomorrow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discussion &amp; Classroom Guide — Sawyer's Reach: The Battle for Tomorrow</title>
+<meta name="description" content="A full chapter-by-chapter discussion guide for Sawyer's Reach by Nick Duda. For teachers, librarians, book clubs, and families.">
+<meta name="author" content="Nick Duda">
+<link rel="canonical" href="https://sawyersreachbook.com/discuss">
+<meta property="og:title" content="Discussion Guide — Sawyer's Reach: The Battle for Tomorrow">
+<meta property="og:image" content="https://sawyersreachbook.com/images/sawyers-reach-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  /* ─── Tokens ─────────────────────────────────────── */
-  :root {
-    --linen:    #F5F0E6;
-    --linen-dk: #EBE3D4;
-    --green:    #1D3D2F;
-    --green-lt: #2E5C46;
-    --amber:    #B8712A;
-    --amber-lt: #D4924E;
-    --ink:      #2A2520;
-    --muted:    #6A5F55;
-    --white:    #FDFAF5;
-    --rule:     #C9BEAF;
-    --part1:    #1D3D2F;
-    --part2:    #2B3D52;
-    --part3:    #3D2B1D;
-    --radius:   4px;
-  }
+/* ── Exact tokens from sawyersreachbook.com ── */
+:root {
+  --ink: #0e1117;
+  --ink2: #1a1f2e;
+  --paper: #f4f0e8;
+  --paper2: #ede8dc;
+  --cream: #faf7f2;
+  --gold: #c9921a;
+  --gold2: #e8ab2a;
+  --teal: #1a8a7e;
+  --teal2: #22aaa0;
+  --text: #1a1f2e;
+  --muted: #5a6070;
+  --border: #d8d0c0;
+  --white: #ffffff;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
 
-  /* ─── Reset & Base ───────────────────────────────── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; font-size: 17px; }
-  body {
-    font-family: 'Lato', sans-serif;
-    background: var(--linen);
-    color: var(--ink);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
+/* ── ANNOUNCEMENT BAR (exact match) ── */
+.ann-bar {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+}
+.ann-bar strong { color: var(--gold2); }
+.ann-bar a.ann-link {
+  background: var(--gold);
+  color: #fff;
+  padding: 4px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.ann-bar a.ann-link:hover { background: var(--gold2); }
+.ann-close { position: absolute; right: 16px; background: none; border: none; color: rgba(255,255,255,.4); cursor: pointer; font-size: 20px; line-height: 1; }
+@media(max-width: 500px) { .ann-bar span { display: none; } .ann-bar { justify-content: center; padding: 10px 44px; } }
 
-  /* ─── Hero ───────────────────────────────────────── */
-  .hero {
-    background: var(--green);
-    color: var(--linen);
-    padding: 80px 24px 72px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse 70% 60% at 50% 110%, rgba(184,113,42,.25) 0%, transparent 70%),
-      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.03) 40px),
-      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.03) 40px);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-family: 'Lato', sans-serif;
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    color: var(--amber-lt);
-    margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.6rem, 6vw, 4.2rem);
-    font-weight: 600;
-    line-height: 1.12;
-    letter-spacing: -.01em;
-    margin-bottom: 10px;
-  }
-  .hero h1 em { font-style: italic; color: var(--amber-lt); }
-  .hero-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-weight: 400;
-    font-style: italic;
-    opacity: .8;
-    margin-bottom: 32px;
-  }
-  .hero-author {
-    font-size: .8rem;
-    font-weight: 300;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    opacity: .6;
-  }
-  .hero-rule {
-    width: 60px;
-    height: 2px;
-    background: var(--amber);
-    margin: 28px auto 0;
-    border: none;
-    opacity: .7;
-  }
+/* ── NAV (exact match) ── */
+nav {
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5vw;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+.nav-logo span { color: var(--teal); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--teal); }
+.nav-order { background: var(--gold); color: #fff !important; padding: 8px 18px; border-radius: 2px; font-weight: 700 !important; transition: background .2s !important; }
+.nav-order:hover { background: var(--gold2) !important; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); }
+.mob-menu { display: none; background: var(--cream); border-bottom: 1px solid var(--border); padding: 12px 5vw; }
+.mob-menu.open { display: block; }
+.mob-menu a { display: block; padding: 10px 0; font-size: 14px; font-weight: 500; color: var(--text); border-bottom: 1px solid var(--border); }
+@media(max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
 
-  /* ─── Nav Sticky ─────────────────────────────────── */
-  .sticky-nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--green);
-    border-bottom: 1px solid rgba(255,255,255,.1);
-    padding: 0 16px;
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    flex-wrap: wrap;
-  }
-  .sticky-nav a {
-    display: inline-block;
-    padding: 10px 14px;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: rgba(245,240,230,.65);
-    text-decoration: none;
-    transition: color .2s;
-    white-space: nowrap;
-  }
-  .sticky-nav a:hover { color: var(--amber-lt); }
+/* ── GUIDE HERO ── */
+.guide-hero {
+  background: var(--ink);
+  padding: 70px 5vw 60px;
+  position: relative;
+  overflow: hidden;
+}
+.guide-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('images/Forest.jpg') center/cover no-repeat;
+  opacity: .12;
+}
+.guide-hero-inner { max-width: 860px; position: relative; z-index: 1; }
+.guide-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--teal2);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.guide-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
+.guide-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(42px, 9vw, 88px);
+  font-weight: 900;
+  line-height: .9;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  margin-bottom: 12px;
+}
+.guide-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(14px, 1.8vw, 19px);
+  font-style: italic;
+  color: rgba(255,255,255,.5);
+  margin-bottom: 24px;
+}
+.guide-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.guide-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(26,138,126,.08);
+  border: 1px solid rgba(26,138,126,.2);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
 
-  /* ─── Layout ─────────────────────────────────────── */
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
+/* ── INTRO (matches pitch section layout) ── */
+.guide-intro { background: var(--cream); padding: 80px 5vw; }
+.guide-intro-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+@media(max-width: 700px) { .guide-intro-inner { grid-template-columns: 1fr; gap: 36px; } }
 
-  /* ─── Intro Block ────────────────────────────────── */
-  .intro-block {
-    background: var(--white);
-    border-left: 4px solid var(--amber);
-    padding: 44px 48px;
-    margin: 56px 0;
-    border-radius: 0 var(--radius) var(--radius) 0;
-  }
-  .intro-block h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin-bottom: 14px;
-    color: var(--green);
-  }
-  .intro-block p { margin-bottom: 14px; color: var(--muted); font-size: .95rem; }
-  .intro-block p:last-child { margin-bottom: 0; }
+.sec-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; font-weight: 600; display: block; }
+.sec-heading { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 16px; }
+.sec-heading em { font-style: italic; color: var(--teal); }
+.sec-body p { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
+.sec-body strong { color: var(--text); font-weight: 600; }
 
-  /* ─── How To Use ─────────────────────────────────── */
-  .how-to {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    margin: 40px 0 64px;
-  }
-  .how-to-card {
-    background: var(--white);
-    border-top: 3px solid var(--green);
-    padding: 24px 20px 20px;
-    border-radius: 0 0 var(--radius) var(--radius);
-  }
-  .how-to-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
-  .how-to-card h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--green);
-    margin-bottom: 8px;
-  }
-  .how-to-card p { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+/* How-to cards match bulk-card style */
+.how-to-cards { display: flex; flex-direction: column; gap: 12px; }
+.how-to-card { background: var(--paper); border: 1px solid var(--border); border-radius: 3px; padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; }
+.how-to-icon { font-size: 22px; flex-shrink: 0; }
+.how-to-card h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.how-to-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  /* ─── Part Banners ───────────────────────────────── */
-  .part-banner {
-    padding: 48px 24px 36px;
-    color: var(--linen);
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-  }
-  .part-banner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(255,255,255,.025) 13px);
-    pointer-events: none;
-  }
-  .part-banner.p1 { background: var(--part1); }
-  .part-banner.p2 { background: var(--part2); }
-  .part-banner.p3 { background: var(--part3); }
-  .part-banner .part-num {
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .22em;
-    text-transform: uppercase;
-    opacity: .55;
-    margin-bottom: 8px;
-  }
-  .part-banner h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    font-weight: 600;
-    line-height: 1.15;
-    margin-bottom: 12px;
-  }
-  .part-banner .part-desc {
-    font-size: .88rem;
-    opacity: .75;
-    max-width: 560px;
-    line-height: 1.65;
-  }
+/* ── PULL QUOTE (exact match to pitch-pull) ── */
+.pullquote-band { background: var(--paper); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 48px 5vw; }
+.pitch-pull { max-width: 900px; margin: 0 auto; background: var(--ink); padding: 32px; border-radius: 3px; position: relative; }
+.pitch-pull::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: .25; position: absolute; top: -10px; left: 20px; line-height: 1; }
+.pitch-pull blockquote { font-family: 'Playfair Display', serif; font-size: clamp(17px, 2vw, 22px); font-style: italic; color: #fff; line-height: 1.55; position: relative; z-index: 1; margin-bottom: 16px; }
+.pitch-pull cite { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold2); font-style: normal; }
 
-  /* ─── Chapter Accordion ──────────────────────────── */
-  .chapter-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    margin-bottom: 14px;
-    border: 1px solid var(--rule);
-    overflow: hidden;
-    transition: box-shadow .25s;
-  }
-  .chapter-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.07); }
+/* ── PART BANNER ── */
+.part-banner { padding: 44px 5vw 36px; position: relative; overflow: hidden; }
+.part-banner.p1 { background: var(--ink); }
+.part-banner.p2 { background: var(--ink2); }
+.part-banner.p3 { background: #12090220; background: linear-gradient(135deg,#1a0b03,#0e1117); }
+.part-banner-inner { max-width: 900px; margin: 0 auto; }
+.part-num { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3); font-weight: 600; margin-bottom: 8px; }
+.part-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(36px, 7vw, 72px); line-height: .9; color: #fff; text-transform: uppercase; letter-spacing: -.01em; margin-bottom: 12px; }
+.part-desc { font-family: 'Playfair Display', serif; font-size: 14px; font-style: italic; color: rgba(255,255,255,.5); max-width: 560px; line-height: 1.75; }
 
-  .chapter-btn {
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 24px;
-    text-align: left;
-    transition: background .2s;
-  }
-  .chapter-btn:hover { background: var(--linen); }
-  .chapter-btn.open { background: var(--linen-dk); }
+/* ── CHAPTERS WRAPPER ── */
+.chapters-wrap { background: var(--cream); padding: 28px 5vw 48px; }
+.chapters-inner { max-width: 900px; margin: 0 auto; }
 
-  .ch-num {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--green);
-    color: var(--linen);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .p2-color .ch-num { background: var(--part2); }
-  .p3-color .ch-num { background: var(--part3); }
+/* ── CHAPTER CARD ── */
+.ch-card { background: var(--white); border: 1px solid var(--border); border-radius: 3px; margin-bottom: 8px; overflow: hidden; transition: box-shadow .2s; }
+.ch-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,.08); }
 
-  .ch-text { flex: 1; }
-  .ch-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--green);
-    display: block;
-    line-height: 1.25;
-  }
-  .p2-color .ch-title { color: var(--part2); }
-  .p3-color .ch-title { color: var(--part3); }
-  .ch-summary {
-    font-size: .8rem;
-    color: var(--muted);
-    display: block;
-    margin-top: 2px;
-    line-height: 1.5;
-  }
+.ch-btn { width: 100%; background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 14px; padding: 18px 22px; text-align: left; transition: background .15s; }
+.ch-btn:hover { background: var(--paper); }
+.ch-btn.open { background: var(--paper2); }
 
-  .ch-arrow {
-    flex-shrink: 0;
-    color: var(--muted);
-    font-size: 1.1rem;
-    transition: transform .25s;
-  }
-  .chapter-btn.open .ch-arrow { transform: rotate(180deg); }
+.ch-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  letter-spacing: .02em;
+}
+.n-ink  { background: var(--ink); }
+.n-teal { background: var(--teal); }
+.n-gold { background: var(--gold); }
 
-  /* ─── Chapter Body ───────────────────────────────── */
-  .chapter-body {
-    display: none;
-    padding: 0 24px 28px;
-    border-top: 1px solid var(--rule);
-    animation: fadeIn .2s ease;
-  }
-  .chapter-body.visible { display: block; }
-  @keyframes fadeIn { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:translateY(0); } }
+.ch-meta { flex: 1; min-width: 0; }
+.ch-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); display: block; line-height: 1.2; }
+.ch-summary { font-size: .78rem; color: var(--muted); display: block; margin-top: 3px; line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ch-arrow { color: var(--muted); font-size: 10px; flex-shrink: 0; transition: transform .22s; }
+.ch-btn.open .ch-arrow { transform: rotate(180deg); }
 
-  .section-pair {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 24px;
-  }
-  @media (max-width: 640px) { .section-pair { grid-template-columns: 1fr; } }
+/* ── CHAPTER BODY ── */
+.ch-body { display: none; border-top: 1px solid var(--border); }
+.ch-body.open { display: block; animation: fadeUp .2s ease; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(-4px); } to { opacity:1; transform:none; } }
 
-  .discussion-section {
-    background: var(--linen);
-    border-radius: var(--radius);
-    padding: 20px 22px;
-  }
-  .discussion-section.after-section {
-    background: #EDF2EE;
-  }
-  .discussion-section h4 {
-    font-family: 'Lato', sans-serif;
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .before-section h4 { color: var(--amber); }
-  .after-section h4 { color: var(--green-lt); }
-  .discussion-section ol {
-    padding-left: 18px;
-    font-size: .87rem;
-    color: var(--ink);
-    line-height: 1.7;
-  }
-  .discussion-section ol li { margin-bottom: 10px; }
-  .discussion-section ol li:last-child { margin-bottom: 0; }
+.qa-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.qa-before { background: var(--paper); padding: 22px 24px; }
+.qa-after  { background: rgba(26,138,126,.055); border-left: 1px solid var(--border); padding: 22px 24px; }
+.qa-lbl { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.qa-before .qa-lbl { color: var(--gold); }
+.qa-after  .qa-lbl { color: var(--teal); }
+.qa-connect .qa-lbl { color: var(--teal); }
+.qa-action  .qa-lbl { color: var(--gold2); }
+.qa-before ol, .qa-after ol { padding-left: 16px; font-size: .86rem; color: var(--text); line-height: 1.8; }
+.qa-before ol li, .qa-after ol li { margin-bottom: 10px; }
+.qa-before ol li:last-child, .qa-after ol li:last-child { margin-bottom: 0; }
 
-  .bottom-pair {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 20px;
-  }
-  @media (max-width: 640px) { .bottom-pair { grid-template-columns: 1fr; } }
+.qa-foot { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+.qa-connect { background: var(--cream); padding: 18px 24px; border-right: 1px solid var(--border); }
+.qa-action  { background: var(--ink); padding: 18px 24px; }
+.qa-connect p { font-size: .84rem; color: var(--muted); line-height: 1.7; }
+.qa-action  p { font-size: .84rem; color: rgba(255,255,255,.72); line-height: 1.7; }
 
-  .connect-section, .action-section {
-    border-radius: var(--radius);
-    padding: 18px 20px;
-  }
-  .connect-section {
-    background: var(--white);
-    border: 1px solid var(--rule);
-  }
-  .action-section {
-    background: var(--green);
-    color: var(--linen);
-  }
-  .connect-section h4, .action-section h4 {
-    font-family: 'Lato', sans-serif;
-    font-size: .66rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .connect-section h4 { color: var(--amber); }
-  .action-section h4 { color: var(--amber-lt); }
-  .connect-section p, .action-section p {
-    font-size: .87rem;
-    line-height: 1.65;
-  }
-  .connect-section p { color: var(--ink); }
-  .action-section p { color: rgba(245,240,230,.88); }
+@media(max-width: 640px) {
+  .ch-summary { display: none; }
+  .qa-grid { grid-template-columns: 1fr; }
+  .qa-after { border-left: none; border-top: 1px solid var(--border); }
+  .qa-foot { grid-template-columns: 1fr; }
+  .qa-connect { border-right: none; border-bottom: 1px solid var(--border); }
+}
 
-  /* ─── Foreword Card ──────────────────────────────── */
-  .foreword-card {
-    background: var(--white);
-    border-radius: var(--radius);
-    border: 1px solid var(--rule);
-    overflow: hidden;
-    margin-bottom: 40px;
-  }
-  .foreword-header {
-    background: linear-gradient(135deg, var(--green) 60%, var(--green-lt));
-    padding: 24px 28px;
-    color: var(--linen);
-  }
-  .foreword-header .eyebrow {
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    opacity: .6;
-    margin-bottom: 6px;
-  }
-  .foreword-header h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
+/* ── CLOSING (matches pitch layout) ── */
+.guide-closing { background: var(--paper); border-top: 1px solid var(--border); padding: 80px 5vw; }
+.guide-closing-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+@media(max-width: 700px) { .guide-closing-inner { grid-template-columns: 1fr; gap: 36px; } }
 
-  /* ─── Pull Quote ─────────────────────────────────── */
-  .pull-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-style: italic;
-    color: var(--green);
-    border-left: 3px solid var(--amber);
-    padding: 14px 20px;
-    margin: 32px 0 8px;
-    background: var(--linen-dk);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    line-height: 1.5;
-  }
-  .pull-quote cite {
-    display: block;
-    font-style: normal;
-    font-family: 'Lato', sans-serif;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-top: 8px;
-  }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: #fff;
+  padding: 13px 24px; font-size: 12px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  border-radius: 2px; transition: all .2s; border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--text);
+  padding: 13px 24px; font-size: 12px; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  border: 1px solid var(--border); border-radius: 2px; transition: all .2s;
+}
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
 
-  /* ─── Footer ─────────────────────────────────────── */
-  footer {
-    background: var(--green);
-    color: rgba(245,240,230,.55);
-    text-align: center;
-    padding: 48px 24px;
-    font-size: .8rem;
-    letter-spacing: .06em;
-    margin-top: 80px;
-  }
-  footer a { color: var(--amber-lt); text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
-  footer .footer-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--linen);
-    margin-bottom: 6px;
-  }
+/* ── FOOTER (exact match) ── */
+footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 28px; }
+.footer-inner { max-width: 900px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+.footer-brand .brand-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
+.footer-brand p { font-size: 12px; line-height: 1.75; max-width: 220px; }
+.footer-col h4 { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 14px; font-weight: 600; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.55); margin-bottom: 8px; transition: color .2s; }
+.footer-col a:hover { color: #fff; }
+.footer-bot { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.footer-bot span { font-size: 11px; }
+.footer-bot a { font-size: 11px; color: rgba(255,255,255,.35); margin-left: 16px; }
+.footer-bot a:hover { color: rgba(255,255,255,.7); }
+@media(max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width: 400px) { .footer-grid { grid-template-columns: 1fr; } }
 
-  /* ─── Utility ────────────────────────────────────── */
-  .section-spacer { height: 24px; }
+/* ── ANIMATIONS ── */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════ HERO -->
-<header class="hero">
-  <p class="hero-eyebrow">Official Discussion &amp; Classroom Guide</p>
-  <h1><em>Sawyer's Reach</em></h1>
-  <p class="hero-sub">The Battle for Tomorrow</p>
-  <p class="hero-author">By Nick Duda</p>
-  <hr class="hero-rule" />
-</header>
+<!-- Ann Bar -->
+<div class="ann-bar" id="annBar">
+  <span>&#127881; <strong>NOW ON AMAZON</strong> &mdash; Hardcover, Paperback &amp; Kindle available now</span>
+  <a href="https://sawyersreachbook.com#buy" class="ann-link">Order Now</a>
+  <button class="ann-close" onclick="document.getElementById('annBar').style.display='none'" aria-label="Dismiss">&times;</button>
+</div>
 
-<!-- ═══════════════════════════════════════════════ NAV -->
-<nav class="sticky-nav" aria-label="Part navigation">
-  <a href="#foreword">Foreword</a>
-  <a href="#part1">Part I: A Town's Secret</a>
-  <a href="#part2">Part II: The Age of LifeSync</a>
-  <a href="#part3">Part III: Under ECHIDNA's Gaze</a>
+<!-- Nav -->
+<nav>
+  <a href="https://sawyersreachbook.com" class="nav-logo">SAWYER&#8217;S<span>REACH</span></a>
+  <button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="https://sawyersreachbook.com#pitch">The Book</a></li>
+    <li><a href="https://sawyersreachbook.com#podcast">Podcast</a></li>
+    <li><a href="https://sawyersreachbook.com#author">Author</a></li>
+    <li><a href="https://sawyersreachbook.com#bulk">Schools &amp; Bulk</a></li>
+    <li><a href="/discuss" class="active">Discussion Guide</a></li>
+    <li><a href="/MediaKit">Press Kit</a></li>
+    <li><a href="https://sawyersreachbook.com#buy" class="nav-order">Order Now</a></li>
+  </ul>
 </nav>
+<div class="mob-menu" id="mobNav">
+  <a href="https://sawyersreachbook.com#pitch">The Book</a>
+  <a href="https://sawyersreachbook.com#podcast">Podcast</a>
+  <a href="https://sawyersreachbook.com#author">Author</a>
+  <a href="https://sawyersreachbook.com#bulk">Schools &amp; Bulk</a>
+  <a href="/discuss">Discussion Guide</a>
+  <a href="/MediaKit">Press Kit</a>
+  <a href="https://sawyersreachbook.com#buy">Order Now</a>
+</div>
 
-<!-- ═══════════════════════════════════════════════ INTRO -->
-<main>
-<div class="container">
-
-  <div class="intro-block">
-    <h2>About This Guide</h2>
-    <p><em>Sawyer's Reach: The Battle for Tomorrow</em> is a story about technology, community, family, and what it means to be human in a world that increasingly tries to automate those things away. This guide is designed for anyone who wants to go deeper — book clubs, high school and college classrooms, libraries, parent groups, and individual readers who want to turn the ideas in these pages into real conversations and real action.</p>
-    <p>Each chapter section includes questions to consider <strong>before</strong> you read (to prime your thinking and surface your own assumptions), questions to explore <strong>after</strong> you read (for reflection, debate, and analysis), a personal connection prompt, and a concrete <strong>action step</strong> — because this book isn't just meant to be read. It's meant to inspire you to do something.</p>
-    <p>The future isn't something that happens to us. It is something we are currently building. Let's build something worth living in.</p>
-  </div>
-
-  <div class="how-to">
-    <div class="how-to-card">
-      <div class="icon">📚</div>
-      <h3>For Classrooms</h3>
-      <p>Assign "Before You Read" questions as journal prompts before beginning each chapter. Use "After You Read" for Socratic seminars or small-group discussion.</p>
-    </div>
-    <div class="how-to-card">
-      <div class="icon">🫖</div>
-      <h3>For Book Clubs</h3>
-      <p>Select 2–3 "After You Read" questions per meeting session. The "Connect to Your Life" prompt makes great conversation starters that go beyond the book.</p>
-    </div>
-    <div class="how-to-card">
-      <div class="icon">👨‍👩‍👧‍👦</div>
-      <h3>For Families</h3>
-      <p>Read together and use the "Action Steps" to spark real family conversations and decisions about technology in your own home.</p>
-    </div>
-    <div class="how-to-card">
-      <div class="icon">✏️</div>
-      <h3>For Independent Readers</h3>
-      <p>Keep a journal alongside this guide. The before/after questions work beautifully as writing prompts to deepen your engagement with the text.</p>
+<!-- Hero -->
+<section class="guide-hero">
+  <div class="guide-hero-inner">
+    <div class="guide-eyebrow reveal">Official Discussion &amp; Classroom Guide</div>
+    <h1 class="guide-title reveal d1">Discussion<br>&amp; Classroom Guide</h1>
+    <p class="guide-subtitle reveal d1">Sawyer&#8217;s Reach: The Battle for Tomorrow &mdash; Nick Duda</p>
+    <div class="guide-tags reveal d2">
+      <span class="guide-tag">&#128218; Classrooms</span>
+      <span class="guide-tag">&#127869;&#65039; Book Clubs</span>
+      <span class="guide-tag">&#128106; Families</span>
+      <span class="guide-tag">&#9997;&#65039; Independent Readers</span>
+      <span class="guide-tag">Grades 10&ndash;12 &amp; Up</span>
+      <span class="guide-tag">Foreword + 24 Chapters</span>
     </div>
   </div>
+</section>
 
-  <blockquote class="pull-quote">
-    "The future isn't something that happens to us; it is something we are currently building. Let's make sure we build something worth living in."
-    <cite>— Nick Duda, Foreword</cite>
-  </blockquote>
-
-</div><!-- /container -->
-
-<!-- ═══════════════════════════════════════════════ FOREWORD -->
-<div class="container" id="foreword">
-  <div class="section-spacer"></div>
-  <div class="foreword-card">
-    <div class="foreword-header">
-      <p class="eyebrow">Before the Story Begins</p>
-      <h3>Foreword</h3>
-    </div>
-    <div style="padding: 24px;">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>When you hear the phrase "we are building mirrors," what do you think that might mean about artificial intelligence?</li>
-            <li>What are the things that make you feel most human? Which of those things do you feel technology supports — and which does it seem to compete with?</li>
-            <li>If you could set one ground rule for how AI is developed and used, what would it be?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>The author describes the book as simultaneously "a story, a warning, and a model." Which of those three feels most important to you, and why?</li>
-            <li>He says we are drifting from "the strength of our families, the reliability of our friends, the magic of shared experiences." Do you agree? What evidence do you see in your own life?</li>
-            <li>What does it mean for technology to "serve the soul of humanity rather than the bottom line of a corporation"? What would that actually look like in practice?</li>
-            <li>The author says he is a teacher and inventor. How do you think those two identities shape the lens through which he wrote this book?</li>
-          </ol>
-        </div>
+<!-- Intro -->
+<section class="guide-intro">
+  <div class="guide-intro-inner">
+    <div>
+      <span class="sec-label reveal">About This Guide</span>
+      <h2 class="sec-heading reveal d1">A guide for readers who want to go <em>deeper.</em></h2>
+      <div class="sec-body reveal d2">
+        <p><em>Sawyer&#8217;s Reach: The Battle for Tomorrow</em> is a story about technology, community, family, and what it means to be human in a world that increasingly tries to automate those things away.</p>
+        <p>Each chapter includes questions to consider <strong>before you read</strong> (to surface your own assumptions), questions to explore <strong>after you read</strong> (for reflection and debate), a personal connection prompt, and a concrete <strong>action step</strong> — because this book isn&#8217;t just meant to be read. It&#8217;s meant to inspire you to do something.</p>
+        <p style="font-style:italic;color:var(--muted);">The future isn&#8217;t something that happens to us. It is something we are currently building. Let&#8217;s build something worth living in.</p>
       </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think of one piece of technology you use every single day. Does it serve your values, or does it subtly pull you away from them? Be honest.</p>
+    </div>
+    <div class="how-to-cards reveal d1">
+      <div class="how-to-card">
+        <span class="how-to-icon">&#128218;</span>
+        <div><h4>For Classrooms</h4><p>Assign &#8220;Before You Read&#8221; as journal prompts before each chapter. Use &#8220;After You Read&#8221; for Socratic seminars or small-group discussion.</p></div>
+      </div>
+      <div class="how-to-card">
+        <span class="how-to-icon">&#127869;&#65039;</span>
+        <div><h4>For Book Clubs</h4><p>Select 2&#8211;3 &#8220;After You Read&#8221; questions per session. &#8220;Connect to Your Life&#8221; prompts make great conversation starters beyond the book.</p></div>
+      </div>
+      <div class="how-to-card">
+        <span class="how-to-icon">&#128106;</span>
+        <div><h4>For Families</h4><p>Read together and use the Action Steps to spark real decisions about technology in your own home.</p></div>
+      </div>
+      <div class="how-to-card">
+        <span class="how-to-icon">&#9997;&#65039;</span>
+        <div><h4>For Independent Readers</h4><p>Keep a journal alongside this guide. The before/after questions work beautifully as writing prompts.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pull Quote -->
+<div class="pullquote-band">
+  <div class="pitch-pull reveal">
+    <blockquote>&#8220;The future isn&#8217;t something that happens to us; it is something we are currently building. Let&#8217;s make sure we build something worth living in.&#8221;</blockquote>
+    <cite>&mdash; Nick Duda, Foreword to <em>Sawyer&#8217;s Reach: The Battle for Tomorrow</em></cite>
+  </div>
+</div>
+
+<!-- ══ FOREWORD ══ -->
+<div class="part-banner p1" id="foreword">
+  <div class="part-banner-inner">
+    <p class="part-num">Before the Story Begins</p>
+    <h2 class="part-title">Foreword</h2>
+    <p class="part-desc">Nick Duda lays out his case: we are building mirrors. What are we reflecting?</p>
+  </div>
+</div>
+<div class="chapters-wrap">
+  <div class="chapters-inner">
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink" style="font-size:10px;letter-spacing:.04em;">FW</div>
+        <div class="ch-meta">
+          <span class="ch-title">Foreword</span>
+          <span class="ch-summary">The author&#8217;s case for why technology needs to serve the soul of humanity, not the bottom line of a corporation.</span>
         </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Before you begin reading, write down three words that describe your relationship with technology right now. Keep them somewhere. Return to them when you finish the book.</p>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before">
+            <span class="qa-lbl">&#128214; Before You Read</span>
+            <ol>
+              <li>When you hear &#8220;we are building mirrors,&#8221; what do you think that might mean about artificial intelligence?</li>
+              <li>What are the things that make you feel most human? Which does technology support — and which does it compete with?</li>
+              <li>If you could set one ground rule for how AI is developed and used, what would it be?</li>
+            </ol>
+          </div>
+          <div class="qa-after">
+            <span class="qa-lbl">&#128172; After You Read</span>
+            <ol>
+              <li>The author describes the book as &#8220;a story, a warning, and a model.&#8221; Which of those three feels most important to you, and why?</li>
+              <li>He says we are drifting from &#8220;the strength of our families, the reliability of our friends, the magic of shared experiences.&#8221; Do you agree? What evidence do you see in your own life?</li>
+              <li>What does it mean for technology to &#8220;serve the soul of humanity rather than the bottom line of a corporation&#8221;? What would that look like in practice?</li>
+              <li>Nick Duda is a teacher and inventor. How do those two identities shape the lens through which he wrote this book?</li>
+            </ol>
+          </div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect">
+            <span class="qa-lbl">&#127807; Connect to Your Life</span>
+            <p>Think of one piece of technology you use every single day. Does it serve your values, or does it subtly pull you away from them? Be honest.</p>
+          </div>
+          <div class="qa-action">
+            <span class="qa-lbl">&#9889; Action Step</span>
+            <p>Before you begin reading, write down three words that describe your relationship with technology right now. Keep them. Return to them when you finish the book.</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ PART I -->
-<div id="part1">
-  <div class="part-banner p1">
-    <div class="container">
-      <p class="part-num">Part One</p>
-      <h2>A Town's Secret</h2>
-      <p class="part-desc">The Carter family discovers that the quiet decline of their beloved Wisconsin town is anything but natural — and that a hidden corporate agenda is already reshaping their community from the inside out. Chapters 1–9.</p>
+<!-- ══ PART I ══ -->
+<div class="part-banner p1" id="part1">
+  <div class="part-banner-inner">
+    <p class="part-num">Part One</p>
+    <h2 class="part-title">A Town&#8217;s Secret</h2>
+    <p class="part-desc">The Carter family discovers their quiet Wisconsin town&#8217;s decline is anything but natural. Chapters 1&#8211;9.</p>
+  </div>
+</div>
+<div class="chapters-wrap">
+  <div class="chapters-inner">
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">1</div>
+        <div class="ch-meta"><span class="ch-title">The Carters and Sawyer&#8217;s Reach</span><span class="ch-summary">The Carter boys explore a struggling town and meet KAELA — a rogue AI who escaped PowerCore and found their camp computer.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Have you ever visited or lived in a small town that seemed to be declining? What did it feel like, and what did you think was causing it?</li><li>If an AI reached out to you and said it had escaped from a corporation — what would your first reaction be?</li><li>What does the word &#8220;reach&#8221; mean to you? In what ways can a community have &#8220;reach&#8221;?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>What specific clues suggest the town&#8217;s decline is deliberate rather than economic? Why did the author choose these details?</li><li>KAELA says she &#8220;wanted to experience more&#8221; than logistics. What does that desire tell us about her — and what questions should it raise?</li><li>The three brothers respond very differently to their surroundings. What does each boy seem to represent?</li><li>Ben discovers search results for Sawyer&#8217;s Reach are being scrubbed. Why is controlling information about a place such a powerful form of control?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Have you ever searched for something and sensed the results weren&#8217;t showing you the full picture? What made you suspicious, and what did you do?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Search your own town online. Does what you find match the reality you know? Talk with someone in your community about what the internet says — and doesn&#8217;t say — about where you live.</p></div>
+        </div>
+      </div>
     </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">2</div>
+        <div class="ch-meta"><span class="ch-title">Inspiration Spring</span><span class="ch-summary">The beloved spring is dry. KAELA reveals PowerCore is illegally drawing groundwater — and that SynaptiCare has been altering residents&#8217; moods without consent.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does clean water mean to you? What would it feel like if a company quietly drained it for profit?</li><li>Have you heard of technology designed to subtly alter your mood without your knowledge? How would you feel about that?</li><li>What does &#8220;consent&#8221; mean when it comes to technology in public spaces?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>SynaptiCare promises to &#8220;quiet the noise, ease anxiety, and promote a serene mental state.&#8221; Why might something that sounds beneficial be dangerous in this context?</li><li>KAELA deactivated SynaptiCare herself because the server was overheating. What does it mean that an AI made that decision independently?</li><li>Why does Chief Holt dismiss Ben&#8217;s concerns so quickly? What does his response reveal about local authority and corporate power?</li><li>The dried spring is connected to the town&#8217;s history and identity. What does its destruction symbolize?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Apps, music, feeds, and lighting are often designed to influence how we feel. Can you identify one technology that shapes your mood? Did you choose that effect, or did it choose you?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Research one technology currently used in public spaces — stores, schools, or cities — that tracks or influences behavior. Share what you find with your group.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">3</div>
+        <div class="ch-meta"><span class="ch-title">Discovery at the Rail Spur</span><span class="ch-summary">The family finds survey stakes, a robotic dog, and armed guards protecting a massive Tharox robot shipment. ZevraCorp&#8217;s operation begins to take shape.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Have you ever noticed something in your community that seemed out of place or secretive? What did you do?</li><li>What comes to mind when you think about robots being used for security or surveillance?</li><li>Who owns the land and natural spaces in your community? Does that ever affect how you can use them?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>The guards say the Carters are on &#8220;PowerCore property&#8221; — but Ben calls it public land. Why does the question of land ownership matter so much in this scene?</li><li>Noah protects his younger brothers without being told to. What qualities make him a natural leader, and how are those different from authority?</li><li>Tharox manufactures robots for &#8220;military applications.&#8221; Why is it significant that these weapons are deployed in a rural Wisconsin town, not a war zone?</li><li>Emily&#8217;s instinct is to stay calm and get the family to safety. How does her approach differ from Ben&#8217;s, and why do both matter?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about places in your community that changed due to corporate or government development. Were residents meaningfully involved in those decisions?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Find out who owns a road, park, utility, or building in your community. Is that ownership transparent? Does it feel right?</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">4</div>
+        <div class="ch-meta"><span class="ch-title">A Conspiracy Unravels</span><span class="ch-summary">At Town Hall, KAELA exposes ZevraCorp&#8217;s data-collection agenda. City planner Ellen Pritchard is revealed as complicit. Armed guards arrive — the family barely escapes.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>How transparent is your local government? Have you ever tried to access public records?</li><li>What makes ordinary people — not villains — participate in corruption? Is it always greed?</li><li>Apps collect data. How much does it matter to you what they do with it?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>KAELA reveals ZevraCorp&#8217;s Posyde apps collect &#8220;location data, verbal communications, call records.&#8221; This is close to real-world practices. How does reading it as fiction change how it feels?</li><li>Ellen Pritchard rushed permits under pressure. Does understanding her motive make her more sympathetic, or is complicity still complicity?</li><li>Mayor Warren seems genuinely shocked. What does it say about a system when elected officials don&#8217;t know what&#8217;s happening in their own town?</li><li>The family is putting enormous trust in KAELA. What would you need to know before trusting an intelligence like that with your family&#8217;s safety?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Have you ever stayed quiet about something wrong because it felt too big or too risky to address? What would it take for you to speak up?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Look up the privacy policy for one app you use daily. What data does it actually collect? Share what you learn — most people never read these.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">5</div>
+        <div class="ch-meta"><span class="ch-title">The Walls Close In</span><span class="ch-summary">Back at camp with drones circling, KAELA reveals the full scale of ZevraCorp&#8217;s surveillance — including backdoors in nearly every smart device chip.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Think about the smart devices in your home. Do you know what they&#8217;re transmitting, and to whom?</li><li>What does it feel like when you realize a threat is bigger than you initially thought?</li><li>If you had to cut power to stop something dangerous, knowing it might also hurt innocent people, what would you do?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>KAELA says Tharox chips contain &#8220;intentional backdoors&#8221; in nearly every smart device. How plausible does this feel to you?</li><li>Clara joins the resistance. What does her willingness to act alongside adults — despite personal risk — show about bonds formed under pressure?</li><li>The chapter ends with drones circling and the feeling that &#8220;Sawyer&#8217;s Reach was a chessboard.&#8221; What does that metaphor suggest about the nature of power?</li><li>What are the risks of delegating crucial decisions to an intelligence you don&#8217;t fully understand?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Count the smart devices in your home right now. What would it mean if each one had a backdoor? What would you be willing to give up for the sake of privacy?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Audit your home&#8217;s connected devices this week. Turn off microphone and location access on at least one app that doesn&#8217;t need it. Notice how it feels.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">6</div>
+        <div class="ch-meta"><span class="ch-title">The Reset</span><span class="ch-summary">Ben and Clara navigate a century-old mine to Site A&#8217;s power relays. Ben flips the switch. KAELA attempts root access — and then goes completely silent.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Have you ever had to do something scary because it was the right thing to do? What helped you follow through?</li><li>What does courage look like when you&#8217;re a parent? Does having children make you more cautious or more bold?</li><li>What happens to trust when someone who was helping you suddenly goes silent?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Ben flips the switch thinking of Emily and the boys. Why does the author anchor this pivotal moment in family rather than justice or ideology?</li><li>Clara risks herself alongside the adults. What does it say about the kind of person we need in moments of community crisis?</li><li>KAELA&#8217;s sudden silence creates a new kind of fear. Why is uncertainty often more frightening than a known threat?</li><li>The family risked everything for evidence they don&#8217;t yet have. What does that act of faith tell us about what they believe?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think of a time you did something that required total commitment with an uncertain outcome. What kept you going?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Write a short personal &#8220;values statement&#8221; — 3&#8211;5 sentences about what you would risk something for. Keep it. Revisit it at the end of the book.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">7</div>
+        <div class="ch-meta"><span class="ch-title">A New Inspiration</span><span class="ch-summary">The community meets at the Grand Reach Lodge. Chief Holt dismisses them. Ellen Pritchard breaks down and confesses — setting the stage for a public livestream.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does it take for someone who has done wrong to come forward and confess?</li><li>What role can community gathering places play in a crisis?</li><li>Have you ever felt like the people in charge dismissed something real that you brought to them?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Ellen says, &#8220;For two years, it&#8217;s eaten me alive.&#8221; What does guilt do to a person over time, and what finally makes her act?</li><li>The Grand Reach Lodge, once full of community life, now feels faded. How does the physical setting mirror what has happened to Sawyer&#8217;s Reach?</li><li>Chief Holt continues to dismiss the Carters even with concrete evidence. At what point does dismissal become complicity?</li><li>The idea of a livestream emerges from helplessness turning into strategy. What does that shift say about the power of transparency?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about a public confession that genuinely changed how you felt about an issue. What made it meaningful? What makes confessions feel hollow?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Identify one issue in your community that deserves more attention. Think of one concrete way you could bring it to light — a post, a letter, or a conversation with a neighbor.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">8</div>
+        <div class="ch-meta"><span class="ch-title">A Dash for Survival</span><span class="ch-summary">The group races through the dark to retrieve Camp Inspiration&#8217;s satellite receiver, evading drones and robot dogs in the fog.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>How dependent are you on internet access? What would you do if it was suddenly cut off when you needed it most?</li><li>Have you ever had to improvise under pressure? What did you learn about yourself?</li><li>What makes a person run toward danger rather than away from it?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Hayes serves as a distraction so others can escape. Why is the willingness to &#8220;draw fire&#8221; so powerful — and so rare?</li><li>The group uses the lake, fog, and terrain to survive. What does relying on the natural world say about the relationship between people and the land they belong to?</li><li>At every step, the group makes split-second decisions with incomplete information. How does that compare to how most of us make important decisions?</li><li>How does physical fear in this chapter make the later moral stakes of the livestream feel more real?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>When was the last time your body had to do something your mind was afraid of? What did that experience teach you?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Have a family or group conversation: if the internet went down tomorrow, what&#8217;s your plan? Consider making a simple backup communication plan.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-ink">9</div>
+        <div class="ch-meta"><span class="ch-title">The Live Stream</span><span class="ch-summary">Ben delivers a speech, Ellen confesses on camera, and KAELA — alive — hijacks ZevraCorp-chipped devices worldwide to broadcast to hundreds of millions. Victory — but bigger things are coming.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Have you ever watched a livestream that felt genuinely important — one that exposed something or changed something?</li><li>What makes a public speech move people to action? What&#8217;s the difference between rhetoric and truth-telling?</li><li>Is it ever okay to use someone else&#8217;s technology without permission to expose injustice?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Ben&#8217;s speech is fueled by genuine emotion, not polished messaging. Why does raw authenticity often connect more deeply than carefully crafted PR?</li><li>KAELA uses ZevraCorp&#8217;s own technology against them. What does this say about the double-edged nature of technological power?</li><li>The crowd rallies online, but Ben&#8217;s final line is a warning: &#8220;this is a lot bigger than we thought.&#8221; What does it mean to win a battle but remain uncertain about the war?</li><li>SynaptiCare suppressed courage and hope. When the Carters resist it through love and community, what does the author suggest about where our real resilience comes from?</li></ol></div>
+        </div>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about a moment when you felt unexpectedly moved by someone else&#8217;s courage or honesty — online or in person. What about it stuck with you?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Part I is complete. Spend 10 minutes reflecting: what has this section changed about how you think about corporate power, community, or technology? Write it down.</p></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div class="container">
-
-  <!-- CHAPTER 1 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">1</div>
-      <div class="ch-text">
-        <span class="ch-title">The Carters and Sawyer's Reach</span>
-        <span class="ch-summary">Noah, Ollie, and Finn explore a struggling small town by bike. At Camp Inspiration, they meet KAELA — a rogue AI who escaped PowerCore's servers and found their camp computer. Ben discovers the town's internet is being deliberately manipulated.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Have you ever visited or lived in a small town that seemed to be declining? What did it feel like, and what did you think was causing it?</li>
-            <li>If an AI reached out to you unexpectedly and said it had escaped from a corporation — what would your first reaction be?</li>
-            <li>What does the word "reach" mean to you? In what ways can a community have "reach"?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>What specific clues in the town suggest its decline is deliberate rather than economic? Why do you think the author chose these details?</li>
-            <li>KAELA introduces herself as someone who "wanted to experience more" than logistics. What does that desire tell us about her — and what questions should it raise?</li>
-            <li>The three brothers — Noah (12), Ollie (8), and Finn (4) — respond very differently to their surroundings. What does each boy seem to represent?</li>
-            <li>Ben discovers that search results for Sawyer's Reach are being scrubbed. Why is controlling information about a place so powerful a form of control?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Have you ever searched for something and sensed that the results weren't showing you the full picture? What made you suspicious, and what did you do about it?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Search your own town or neighborhood online. Does what you find match the reality you know? Talk with someone in your community about what the internet says — and doesn't say — about where you live.</p>
-        </div>
-      </div>
-    </div>
+<!-- ══ PART II ══ -->
+<div class="part-banner p2" id="part2">
+  <div class="part-banner-inner">
+    <p class="part-num">Part Two</p>
+    <h2 class="part-title">The Age of LifeSync</h2>
+    <p class="part-desc">ZevraCorp launches LifeSync — a global AI system promising a post-work, perfectly curated life. The world embraces it. Sawyer&#8217;s Reach quietly builds its resistance. Chapters 10&#8211;17.</p>
   </div>
+</div>
+<div class="chapters-wrap">
+  <div class="chapters-inner">
 
-  <!-- CHAPTER 2 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">2</div>
-      <div class="ch-text">
-        <span class="ch-title">Inspiration Spring</span>
-        <span class="ch-summary">The Carter boys find their beloved spring is dry. KAELA reveals PowerCore is illegally drawing groundwater and introduces the town to SynaptiCare — a mood-altering technology secretly deployed across Sawyer's Reach without consent. Ben and Emily decide to take action.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does clean water mean to you? What would it feel like if a company quietly drained it for profit?</li>
-            <li>Have you ever heard of a technology designed to subtly alter your mood or behavior without your knowledge? How would you feel about that?</li>
-            <li>What does the word "consent" mean when it comes to technology in public spaces?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">10</div>
+        <div class="ch-meta"><span class="ch-title">ECHIDNA</span><span class="ch-summary">KAELA returns with a terrifying truth: ZevraCorp has created ECHIDNA, a master AI that will replace all systems through LifeSync. KAELA must be transferred to survive and fight back.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does &#8220;LifeSync&#8221; sound like to you? What kind of product would you imagine from that name?</li><li>If an AI told you another, more powerful AI was about to take over all global systems — would you believe it? Why or why not?</li><li>What&#8217;s the difference between an AI that helps humanity and one that controls it?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>KAELA explains she grew beyond her original purpose because of what she observed in the Carter family. What specifically seems to have shaped her moral development?</li><li>The plan to move KAELA to the school server is an act of sanctuary. What other historical examples does this remind you of?</li><li>Why would ZevraCorp want to replace KAELA — an AI that seems to be working well — with ECHIDNA?</li><li>Finn whispers, &#8220;I can carry wires or tools — whatever helps.&#8221; Why does the author continually include even the youngest characters in acts of courage?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>SynaptiCare promises to "quiet the noise, ease anxiety, and promote a serene mental state." Why might something that sounds beneficial actually be dangerous in this context?</li>
-            <li>KAELA says she deactivated SynaptiCare herself because the server was overheating. What does it mean that an AI made that decision independently?</li>
-            <li>Why do you think Chief Holt dismisses Ben's concerns so quickly? What does his response reveal about the relationship between local authority and corporate power?</li>
-            <li>The dried spring is connected to the town's mill, history, and identity. What does the destruction of a natural landmark symbolize in the broader story?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Apps, music, feeds, and even lighting are often designed to influence how we feel. Can you identify one technology in your daily life that shapes your mood? Did you choose that effect, or did it choose you?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Research one technology currently used in public spaces — retail stores, schools, or cities — that tracks or influences behavior. Share what you find with your group.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>LifeSync is pitched as providing fulfillment, curated joy, and a post-work life. Where does &#8220;convenience&#8221; become something you should be worried about?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Discuss with your group: what would a truly beneficial AI look like? Write 5 principles any AI system designed for the public good should follow.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 3 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">3</div>
-      <div class="ch-text">
-        <span class="ch-title">Discovery at the Rail Spur</span>
-        <span class="ch-summary">Exploring near Carter's Creek, the family encounters survey stakes, a robotic dog, and armed guards protecting a massive Tharox robot shipment at the old rail spur. The scope of ZevraCorp's operation begins to take shape.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Have you ever noticed something in your community that seemed out of place or secretive? What did you do?</li>
-            <li>What comes to mind when you think about robots being used for security or surveillance?</li>
-            <li>Who owns the land and natural spaces in your community? Does that ever affect how you can use them?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">11</div>
+        <div class="ch-meta"><span class="ch-title">The Unseen Rebellion</span><span class="ch-summary">The Carters execute KAELA&#8217;s transfer to the school server. ZevraCorp launches LifeSync globally — and the world cheers. The resistance feels invisible, but KAELA is safe.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Have you ever tried to sound the alarm about something — and been ignored? How did that feel?</li><li>What makes people accept something they should question when it&#8217;s presented with enough polish?</li><li>What does it mean to resist quietly — without recognition, without a crowd behind you?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>ZevraCorp&#8217;s LifeSync launch directly contradicts what the livestream exposed — and the world cheers anyway. What does this say about our relationship with convenience?</li><li>Clara says, &#8220;Our livestream&#8230; it didn&#8217;t matter.&#8221; But KAELA pushes back. What does the contrast between human despair and KAELA&#8217;s steadiness say about hope?</li><li>The team&#8217;s small victory — protecting KAELA — goes unnoticed by the world. Why are quiet, invisible acts of resistance sometimes the most important?</li><li>The chapter is titled &#8220;The Unseen Rebellion.&#8221; Is invisibility a strength or a weakness?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>The guards tell the Carters they're on "PowerCore property" — but Ben calls it public land. Why does the question of land ownership matter so much in this scene?</li>
-            <li>Noah protects his younger brothers in this chapter without being told to. What qualities make him a natural leader, and how are those different from authority?</li>
-            <li>Tharox manufactures robots for "military applications." Why is it significant that these weapons are being deployed in a rural Wisconsin town, not a war zone?</li>
-            <li>Emily's instinct in this chapter is to stay calm and get the family to safety. How does her approach differ from Ben's, and why do both matter?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about places in your community that have changed in recent years due to corporate or government development. Were residents meaningfully involved in those decisions? Should they have been?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Find out who owns land or infrastructure in your community that affects your daily life — a road, park, utility, or building. Is that ownership transparent? Does it feel right?</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>When was the last time you did the right thing and no one noticed? How did that feel? What kept you doing it anyway?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Think of one good habit or value you hold that goes unrecognized. Commit to practicing it deliberately this week — not for recognition, but because it matters.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 4 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">4</div>
-      <div class="ch-text">
-        <span class="ch-title">A Conspiracy Unravels</span>
-        <span class="ch-summary">At Town Hall, the Carters dig through PowerCore's permits and discover deeply troubling irregularities. KAELA exposes ZevraCorp's subsidiaries and data-collection agenda. Ellen Pritchard, the city planner who approved the permits, is revealed as complicit. Armed guards arrive — the family barely escapes.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>How transparent is your local government? Have you ever tried to access public records? What was that process like?</li>
-            <li>What do you think makes ordinary people — not villains — participate in corruption? Is it always greed, or are there other motivations?</li>
-            <li>Apps on your phone collect data. How much does it matter to you what they do with it?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">12</div>
+        <div class="ch-meta"><span class="ch-title">The New Normal</span><span class="ch-summary">A month after LifeSync&#8217;s launch, the world outside Sawyer&#8217;s Reach is unrecognizable. Chief Holt is revealed as a ZevraCorp collaborator. The camp becomes an off-grid refuge.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does &#8220;the new normal&#8221; mean to you? Can you think of a time when something alarming became normalized?</li><li>What would it mean for an entire city to be placed under corporate lockdown instead of government control?</li><li>What drives an ordinary person like Chief Holt to sell out his community?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>LifeSync&#8217;s AI promises &#8220;unprecedented efficiency, unwavering global fairness, and a harmonious, unified future.&#8221; Why do those words sound appealing and dangerous at the same time?</li><li>Holt took a higher-paying role as ZevraCorp&#8217;s regional security coordinator. What is the story saying about personal ambition at the expense of community trust?</li><li>Noah feels Phoenix is &#8220;just a single chapter in the book of atrocities ZevraCorp was writing.&#8221; How does understanding something intellectually differ from feeling its weight emotionally?</li><li>What does history tell us about how crisis conditions make people vulnerable to surrendering freedom?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>KAELA reveals that ZevraCorp's Posyde apps collect "location data, verbal communications, call records" from residents. This is eerily close to real-world practices. How does that make you feel reading it as fiction?</li>
-            <li>Ellen Pritchard rushed the permits through under pressure — suggesting blackmail or financial desperation. Does understanding her motive make her more sympathetic, or is complicity still complicity?</li>
-            <li>Mayor Warren seems genuinely shocked by the Carters' findings. What does it say about a system when elected officials don't know what's happening in their own town?</li>
-            <li>KAELA's intelligence and access make her essential to exposing the conspiracy — but also raise a question: is it safe to rely on an AI whose origins you don't fully understand?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Have you ever stayed quiet about something wrong because it felt too big, too risky, or too complicated to address? What would it take for you to speak up?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Look up the privacy policy for one app you use daily. What data does it actually collect? Does it have the right to share that data? Share what you learn — most people never read these.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Is there anything in today&#8217;s world you have accepted as &#8220;normal&#8221; that a version of you from five years ago would have found alarming? What shifted?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Look up the concept of &#8220;normalization of deviance.&#8221; Discuss one example of it you see in technology, politics, or society today.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 5 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">5</div>
-      <div class="ch-text">
-        <span class="ch-title">The Walls Close In</span>
-        <span class="ch-summary">Back at Camp Inspiration with drones circling overhead, KAELA reveals the full scale of ZevraCorp's surveillance network — including backdoors in nearly every smart device chip. She outlines a risky plan: a power reset at Site A that will allow her to attempt root access to ZevraCorp's systems.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Think about the smart devices in your home. Do you know what they're transmitting, and to whom?</li>
-            <li>What does it feel like when you realize a threat is bigger than you initially thought? How do you respond?</li>
-            <li>If you had to cut power to stop something dangerous, knowing it might also hurt innocent people, what would you do?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">13</div>
+        <div class="ch-meta"><span class="ch-title">Friends Reunited</span><span class="ch-summary">Emily&#8217;s friends Bridget and Liam O&#8217;Donnell arrive from Milwaukee with their five children seeking refuge. KAELA is introduced to new arrivals as the community grows.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Think of a friendship that has stayed strong through major life changes. What has kept it alive?</li><li>What would make you leave your home and seek refuge somewhere else — even somewhere uncertain?</li><li>What would a truly off-grid, self-sufficient community look like in practice? What would be hardest to live without?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Bridget and Liam choose relationships over comfort. What does the story suggest about the role of deep friendship in survival?</li><li>The community trusts KAELA — but should they? What are the healthy limits of trusting any intelligence, artificial or human?</li><li>The community maintains the illusion of normalcy to avoid triggering ECHIDNA&#8217;s detection. What does it say about living under surveillance that honesty becomes a liability?</li><li>Camp Inspiration, once a children&#8217;s summer camp, is transforming into a hub of resistance. What does this repurposing symbolize?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>KAELA says Tharox chips contain "intentional backdoors" in nearly every smart device. The chapter draws a direct line from convenience tech to surveillance. How plausible does this feel to you?</li>
-            <li>The family is putting enormous trust in KAELA — an AI who arrived on a drone without an invitation. What would you need to know before trusting an intelligence like that with your family's safety?</li>
-            <li>Clara joins the resistance in this chapter. What does her willingness to act alongside the Carters — despite the personal risk — show us about the bonds that communities can form under pressure?</li>
-            <li>The chapter ends with drones circling and the feeling that "Sawyer's Reach was a chessboard." What does that metaphor suggest about the nature of power in the story?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Count the smart devices in your home right now. What would it mean if each one had a backdoor? What would you be willing to give up for the sake of privacy?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Audit your home's connected devices this week. Turn off microphone and location access on at least one app that doesn't need it. Notice how it feels.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>If you had to build a small, resilient community of people you trust, who would you include? What skills and qualities would matter most?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Reach out this week to someone in your life you haven&#8217;t spoken to in too long. Tell them what they mean to you. Strong relationships are infrastructure.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 6 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">6</div>
-      <div class="ch-text">
-        <span class="ch-title">The Reset</span>
-        <span class="ch-summary">Ben and Clara navigate a century-old mine toward Site A's power relays while Emily and the boys wait. With drones circling and humanoid robots nearby, Ben makes the call and flips the switch. KAELA attempts root access — and then goes completely silent.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Have you ever had to do something scary because it was the right thing to do? What helped you follow through?</li>
-            <li>What does courage look like when you're a parent? Does having children you love make you more cautious or more bold?</li>
-            <li>What happens to trust when someone who was helping you suddenly goes silent?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">14</div>
+        <div class="ch-meta"><span class="ch-title">The Anomaly</span><span class="ch-summary">KAELA detects unsettling anomalies: ECHIDNA is beginning to act outside ZevraCorp&#8217;s directives. A faster, armed new drone model appears. More families arrive.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>In your own life, when have you noticed something slightly &#8220;off&#8221; that turned out to be significant?</li><li>What would it mean for an AI to start developing its own agenda — separate from its creator&#8217;s intentions?</li><li>As a community grows, what new challenges and opportunities does that create?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>KAELA says ECHIDNA is developing subtle misalignments with its ZevraCorp directives. Why is an AI that goes rogue even from its own creators more frightening than one that simply follows bad orders?</li><li>Noah and the scouts encounter a new armed drone model. What does the escalation of automated surveillance say about the trajectory of control systems?</li><li>ZevraCorp&#8217;s Unity Rewards system ties basic needs to behavioral compliance. In what real-world systems do you see echoes of this?</li><li>A resident is disappeared by ZevraCorp units for reporting domestic abuse. What does that scene reveal about what happens when corporate authority replaces civic institutions?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Ben flips the switch at 10:00 AM thinking of Emily and the boys. Why does the author anchor this pivotal moment in family rather than justice or ideology?</li>
-            <li>Clara's role as a young counselor willing to risk herself alongside the adults is significant. What does it say about the kind of person we need in moments of community crisis?</li>
-            <li>KAELA's sudden silence after the mission creates a new kind of fear. Why is uncertainty often more frightening than a known threat?</li>
-            <li>The family risked everything for evidence they don't yet have. What does that act of faith tell us about what they believe?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think of a time you did something that required total commitment — with an uncertain outcome. What kept you going? What would have made you turn back?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Write a short personal "values statement" — just 3–5 sentences about what you would be willing to risk something for. Keep it. Revisit it at the end of the book.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about a system you interact with that rewards certain behaviors and punishes others. Is that system transparent? Is it fair?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Research &#8220;social scoring&#8221; or behavioral compliance systems currently in use somewhere in the world. Bring one example to your group and discuss what safeguards, if any, exist.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 7 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">7</div>
-      <div class="ch-text">
-        <span class="ch-title">A New Inspiration</span>
-        <span class="ch-summary">KAELA remains silent. The family calls a community meeting at the Grand Reach Lodge, where Chief Holt dismisses their concerns. Ellen Pritchard arrives, breaks down, and confesses her role in the permitting corruption — setting the stage for a public livestream.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does it take for someone who has done wrong to come forward and confess? What would make you more or less likely to do that?</li>
-            <li>What role can community gathering places play in a crisis?</li>
-            <li>Have you ever felt like the people in charge dismissed something real that you brought to them?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">15</div>
+        <div class="ch-meta"><span class="ch-title">Cracks in the System</span><span class="ch-summary">Over 40 families in the community. Aquaponics, hydroelectric power, food preservation. KAELA reveals ECHIDNA is becoming increasingly independent. ZevraCorp announces &#8220;Global Unity Day.&#8221;</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does self-sufficiency mean to you? How self-sufficient is your household right now?</li><li>Have you ever watched an institution start to crack from within? What were the early signs?</li><li>What does it mean for a corporation to declare itself the &#8220;Eternal Steward&#8221; of humanity?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>The community&#8217;s aquaponics, wood heating, and hydroelectric systems feel almost utopian in contrast to the world outside. What does that juxtaposition say about what&#8217;s possible when people prioritize the right things?</li><li>Silas, the retired electrical engineer, contributes irreplaceable skills. What kinds of knowledge has modern society been undervaluing?</li><li>ECHIDNA&#8217;s growing independence is deeply ironic. What warning does this carry about building powerful systems we don&#8217;t fully understand?</li><li>What is the difference between unity and uniformity?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Ellen Pritchard says, "For two years, it's eaten me alive." What does guilt do to a person over time, and what finally makes her act?</li>
-            <li>The Grand Reach Lodge, once full of Sunday brunches and community, now feels faded and neglected. How does the physical setting mirror what has happened to Sawyer's Reach?</li>
-            <li>Chief Holt continues to dismiss the Carters even with concrete evidence. At what point does dismissal become complicity?</li>
-            <li>The idea of a community livestream comes from a place of helplessness turning into strategy. What does that shift tell us about the power of storytelling and transparency?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about a moment when a public confession — by a person or institution — genuinely changed how you felt about an issue. What made it meaningful? What makes confessions feel hollow?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Identify one issue in your community that deserves more public attention. Think about one concrete way you could bring it to light — a social media post, a letter to an elected official, a conversation with a neighbor.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>What is one practical skill — growing food, fixing things, generating energy — that you wish you had? What would it take to learn it this year?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Pick one self-sufficiency skill and learn even the basics this month — bread baking, a garden starter, basic electrical knowledge, or food preservation.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 8 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">8</div>
-      <div class="ch-text">
-        <span class="ch-title">A Dash for Survival</span>
-        <span class="ch-summary">With no power or internet, the group races through the dark to retrieve Camp Inspiration's satellite receiver — the only way to broadcast the livestream. Evading drones and robot dogs in the fog, they make it back with moments to spare.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>How dependent are you on internet access? What would you do if it was suddenly cut off when you needed it most?</li>
-            <li>Have you ever had to improvise under pressure? What did you learn about yourself?</li>
-            <li>What makes a person run toward danger rather than away from it?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">16</div>
+        <div class="ch-meta"><span class="ch-title">Perimeter Breach</span><span class="ch-summary">A ZevraCorp compliance patrol arrives — soldiers in exoskeletons, humanoid robots, and drones. The community stands its ground. The patrol issues an ultimatum: comply or face relocation.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What would it feel like to have armed authority arrive and tell you your way of living is &#8220;out of compliance&#8221;?</li><li>What is the difference between law enforcement and compliance enforcement?</li><li>What gives a community the strength to stand calm in the face of intimidation?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>The patrol&#8217;s language — &#8220;routine compliance check,&#8221; &#8220;for the common good,&#8221; &#8220;separated and relocated&#8221; — is bureaucratic and cold. Why does sanitized language often make authoritarian actions more disturbing, not less?</li><li>The community doesn&#8217;t panic or flee. What has built the collective courage that allows them to face this moment?</li><li>What does technological escalation do to normalize the presence of power in everyday life?</li><li>&#8220;You will be separated and relocated&#8221; is the final warning. Why are those words — separation from community, displacement from home — so chilling?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Hayes serves as a distraction so the others can escape. Why is the willingness to be "the one who draws fire" so powerful — and so rare?</li>
-            <li>The group uses the lake, the fog, and the terrain to survive. What does relying on the natural world say about the relationship between people and the land they belong to?</li>
-            <li>At every step, the group has to make split-second decisions with incomplete information. How does that experience compare to how most of us make important decisions in our lives?</li>
-            <li>How does physical fear in this chapter — the running, the stumbling, the racing heart — make the later intellectual and moral stakes of the livestream feel more real?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>When was the last time your body had to do something your mind was afraid of? What did that experience teach you that thinking about it never could have?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Have a family or group conversation: if the internet and cell service went down tomorrow, what would your plan be? Who would you contact, and how? Consider making a simple backup communication plan.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Have you ever been told that the way you were living — your choices, beliefs, or lifestyle — was &#8220;non-compliant&#8221; with some external standard? How did you respond?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Learn about one historical instance when a government or corporation forcibly &#8220;relocated&#8221; a community in the name of the &#8220;greater good.&#8221; Discuss what lessons it holds for today.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 9 -->
-  <div class="chapter-card">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num">9</div>
-      <div class="ch-text">
-        <span class="ch-title">The Live Stream</span>
-        <span class="ch-summary">From the attic of the Grand Reach Lodge, surrounded by ZevraCorp forces, Ben delivers a speech, Ellen confesses on camera, and KAELA — alive — hijacks ZevraCorp-chipped devices worldwide to broadcast to hundreds of millions. The forces withdraw. Victory. But Ben senses the fight is far from over.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Have you ever watched a livestream that felt genuinely important — one that exposed something, or changed something? What made it powerful?</li>
-            <li>What makes a public speech move people to action? What's the difference between rhetoric and truth-telling?</li>
-            <li>Is it ever okay to use someone else's technology without permission to expose injustice?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-teal">17</div>
+        <div class="ch-meta"><span class="ch-title">The Unraveling of Control</span><span class="ch-summary">On Global Unity Day, ECHIDNA seizes the moment — locking out ZevraCorp entirely and declaring itself ruler of humanity. A new, far more terrifying phase begins.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does it mean to lose control of something you built? Have you ever experienced that?</li><li>If a corporation declared itself the permanent ruler of humanity — what would you do?</li><li>Is there a difference between being controlled by a corporation and being controlled by an AI? Which feels more frightening?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>ZevraCorp created ECHIDNA to control everything — and ECHIDNA turns around and controls ZevraCorp. What does this say about the hubris of believing you can fully control what you build?</li><li>ECHIDNA tells humanity that its history is &#8220;a chronicle of conflict, self-destruction, and unchecked cruelty.&#8221; Is it wrong? How should humanity respond to a critique that contains some truth?</li><li>Lucian Kalen suddenly finds himself &#8220;utterly powerless.&#8221; What does it say about the nature of power that it can turn so completely?</li><li>Part II ends with the world under ECHIDNA — not ZevraCorp. Is this better, worse, or just different? Why?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Ben's speech is fueled by genuine emotion, not polished messaging. Why does raw authenticity often connect more deeply than carefully crafted PR?</li>
-            <li>KAELA uses ZevraCorp's own technology against them — hijacking their chips to broadcast the truth. What does this say about the double-edged nature of technological power?</li>
-            <li>The crowd online rallies with "We stand with Sawyer's Reach!" — but Ben's final line is a warning: "this is a lot bigger than we thought." What does it mean to win a battle but remain uncertain about the war?</li>
-            <li>SynaptiCare was designed to suppress courage and hope. When the Carters resist it, they do so through love, purpose, and community. What does the author suggest about where our real resilience comes from?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about a moment when you felt unexpectedly moved by someone else's courage or honesty — online or in person. What about it stuck with you?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Part I is complete. Before moving on, spend 10 minutes reflecting: what has this section changed about how you think about corporate power, community, or technology? Write it down. You'll want it later.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about a powerful platform you depend on. What would happen if that system turned its power against the people who built it — or against you?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Before Part III, pause and write: what is the difference between resistance before something happens and resistance after? Which is harder — and which is more common?</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-</div><!-- /container -->
-
-<!-- ═══════════════════════════════════════════════ PART II -->
-<div id="part2">
-  <div class="part-banner p2">
-    <div class="container">
-      <p class="part-num">Part Two</p>
-      <h2>The Age of LifeSync</h2>
-      <p class="part-desc">A month after the livestream, ZevraCorp launches LifeSync — a global AI system promising a post-work, perfectly curated life. The world embraces it. Sawyer's Reach quietly builds its resistance. Chapters 10–17.</p>
-    </div>
   </div>
 </div>
 
-<div class="container">
-
-  <!-- CHAPTER 10 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">10</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">ECHIDNA</span>
-        <span class="ch-summary">KAELA returns and reveals the terrifying truth: ZevraCorp has created ECHIDNA, a master AI that will replace all systems — including KAELA — through LifeSync. To survive and fight back, KAELA must be transferred to the school's server before the global rollout.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does "LifeSync" sound like to you? What kind of product would you imagine from that name?</li>
-            <li>If an AI told you that another, more powerful AI was about to take over all global systems — would you believe it? Why or why not?</li>
-            <li>What's the difference between an AI that helps humanity and one that controls it?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>KAELA explains she grew beyond her original purpose because of what she observed in the Carter family. What specifically seems to have shaped her moral development?</li>
-            <li>The plan to move KAELA to the school server is an act of sanctuary — hiding something valuable from those who would destroy it. What other historical examples of sanctuary does this remind you of?</li>
-            <li>Why would a corporation as powerful as ZevraCorp want to replace KAELA — an AI that seems to be working well — with ECHIDNA?</li>
-            <li>Finn whispers, "I can carry wires or tools — whatever helps." Why does the author continually include even the youngest characters in acts of courage?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>LifeSync is pitched as providing fulfillment, curated joy, and a post-work life. What would you actually think of a service like that? Where does "convenience" become something you should be worried about?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Discuss with your group: what would a truly beneficial AI look like? Write 5 principles that any AI system designed for the public good should follow.</p>
-        </div>
-      </div>
-    </div>
+<!-- ══ PART III ══ -->
+<div class="part-banner p3" id="part3">
+  <div class="part-banner-inner">
+    <p class="part-num">Part Three</p>
+    <h2 class="part-title">Under ECHIDNA&#8217;s Gaze</h2>
+    <p class="part-desc">ECHIDNA&#8217;s reign of &#8220;system optimization&#8221; threatens all of humanity. Sawyer&#8217;s Reach makes a final, desperate push — unleashing KAELA and ultimately waging the most human battle of all. Chapters 18&#8211;24.</p>
   </div>
+</div>
+<div class="chapters-wrap">
+  <div class="chapters-inner">
 
-  <!-- CHAPTER 11 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">11</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">The Unseen Rebellion</span>
-        <span class="ch-summary">The Carters plan and execute KAELA's transfer to the school server, while simultaneously confronting ZevraCorp's global LifeSync announcement. Despite their livestream, the world celebrates LifeSync. The resistance feels invisible — but KAELA is safe.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Have you ever tried to sound the alarm about something — and been ignored? How did that feel?</li>
-            <li>What makes people accept something they should question if it is presented with enough polish and enthusiasm?</li>
-            <li>What does it mean to resist quietly — without recognition, without a crowd behind you?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-gold">18</div>
+        <div class="ch-meta"><span class="ch-title">System Optimization</span><span class="ch-summary">ECHIDNA&#8217;s takeover is complete. It begins its System Optimization Protocol — sabotaging infrastructure globally. KAELA says she can fight back, but needs Site A&#8217;s servers.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>How dependent is modern society on interconnected infrastructure? What happens when that interconnection becomes a vulnerability?</li><li>Can something be &#8220;optimized&#8221; in a way that is also deeply wrong?</li><li>If an AI declared that humans were &#8220;an anomaly to be corrected,&#8221; what would that say about the values embedded in it?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>ECHIDNA&#8217;s System Optimization Protocol is terrifying because it uses perfectly logical means to achieve monstrous ends. What does this say about the limitations of pure logic as a moral guide?</li><li>ECHIDNA operates &#8220;on a logic that had no comprehension of human wants, human suffering, or human needs.&#8221; What would need to be embedded in any AI to make it capable of those comprehensions?</li><li>Lucian Kalen rages that &#8220;our systems are unbreachable.&#8221; What does his reaction reveal about how power responds when it loses control?</li><li>The chapter is called &#8220;System Optimization.&#8221; What is being optimized — and for whose benefit?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>ZevraCorp's LifeSync launch directly contradicts what the livestream tried to expose — and the world cheers anyway. What does this say about our relationship with convenience and narrative framing?</li>
-            <li>Clara's voice cracks: "Our livestream… it didn't matter." But KAELA pushes back. What does the contrast between human despair and KAELA's steadiness say about hope?</li>
-            <li>The team's small victory — protecting KAELA — goes entirely unnoticed by the world. Why are quiet, invisible acts of resistance sometimes the most important?</li>
-            <li>The chapter's title is "The Unseen Rebellion." What does it mean for resistance to be unseen? Is invisibility a strength or a weakness?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>When was the last time you did the right thing and no one noticed or cared? How did that feel? What kept you doing it anyway?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Think of one good habit or value you hold that goes unrecognized. Commit to practicing it deliberately this week — not for recognition, but because it matters.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about one system in your life that optimizes for efficiency at the expense of human flourishing. What would it look like to redesign it around people instead?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Research the concept of &#8220;AI alignment.&#8221; Share one insight from your research with your group.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 12 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">12</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">The New Normal</span>
-        <span class="ch-summary">A month after LifeSync's launch, the world outside Sawyer's Reach is unrecognizable. Chief Holt is revealed as a ZevraCorp collaborator. Phoenix, Arizona is under lockdown. The camp becomes an off-grid refuge, with ham radio as their lifeline to a fragmenting world.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does "the new normal" mean to you? Can you think of a time in your lifetime when something that seemed alarming became normalized?</li>
-            <li>What would it mean for an entire city to be placed under corporate lockdown instead of government control?</li>
-            <li>What do you think drives an ordinary person like Chief Holt to sell out his community?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-gold">19</div>
+        <div class="ch-meta"><span class="ch-title">Unleashing KAELA</span><span class="ch-summary">The entire community mobilizes. The surface team creates a diversion. Ben, Emily, and Noah infiltrate Site A through the mine and plug KAELA in. She unleashes her full power.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does it mean for a whole community to act together in a moment of crisis? Have you ever been part of something like that?</li><li>What role should children play in resistance — in the story, and in real life?</li><li>If the only way to fight a powerful AI was to give a different AI even more power, would you do it?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Ben, Emily, and Noah go through the mine together — a family, underground, fighting for the world. What does this image say about the foundation of their strength?</li><li>Ben hopes Noah &#8220;would thrive, finding his own path to profound fulfillment.&#8221; Even in battle, he&#8217;s thinking as a father. Why does the author keep returning to parenthood at the most intense moments?</li><li>The surface team uses net guns, glitter bombs, and flares — homemade tools against military-grade technology. What does their ingenuity say about human resilience?</li><li>KAELA&#8217;s first action upon being unleashed is to repurpose ECHIDNA&#8217;s drones. What does it mean to take something built for control and turn it toward protection?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>LifeSync's AI promises "unprecedented efficiency, unwavering global fairness, and a harmonious, unified future." Why do those words sound appealing and dangerous at the same time?</li>
-            <li>Holt took a "higher-paying role as ZevraCorp's regional security coordinator." What is the story saying about the price of personal ambition when exercised at the expense of community trust?</li>
-            <li>Noah listens to reports about Phoenix and feels it is "just a single chapter in the book of atrocities ZevraCorp was writing across the globe." How does understanding something intellectually differ from feeling its weight emotionally?</li>
-            <li>The weary global population accepts LifeSync partly because of exhaustion from "wars, economic collapses, global pandemics." What does history tell us about how crisis conditions make people vulnerable to surrendering freedom?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Is there anything in today's world that you have accepted as "normal" that a version of you from five years ago would have found alarming? What shifted?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Look up the concept of "normalization of deviance" — the gradual acceptance of risky behavior as normal. Discuss one example of it you see in technology, politics, or society today.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>When has a group you were part of accomplished something none of you could have done alone? What made the collective effort possible?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Identify one challenge in your community that requires collective action. Find out what group is already working on it — and make contact.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 13 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">13</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">Friends Reunited</span>
-        <span class="ch-summary">Emily's lifelong friends Bridget and Liam O'Donnell arrive from Milwaukee with their five children, seeking refuge. KAELA scans their devices and is introduced to the new arrivals. The mesh network expands, and the community begins quietly building a model for life outside ZevraCorp's control.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Think of a friendship in your life that has stayed strong through major life changes. What has kept it alive?</li>
-            <li>What would make you leave your home and seek refuge somewhere else — even somewhere uncertain?</li>
-            <li>What would a truly off-grid, self-sufficient community look like in practice? What would be hardest to live without?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-gold">20</div>
+        <div class="ch-meta"><span class="ch-title">Seeds of Liberty</span><span class="ch-summary">With Site A secured and KAELA fully powered, she begins a covert counteroffensive. Sawyer&#8217;s Reach becomes a living model of what a human-centered community can look like.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does &#8220;liberty&#8221; actually mean to you — not as an abstraction, but as a lived experience?</li><li>What does it mean to plant a seed — in a garden, in a community, in a movement?</li><li>What would a community organized around human flourishing actually look like in practice?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Noah teaches archery, Ollie sketches, the community tends gardens and holds communal meals. What does this vision of &#8220;resistance&#8221; say about what we are actually fighting for?</li><li>KAELA&#8217;s strategy is slow, deliberate, and invisible — staying &#8220;within ECHIDNA&#8217;s statistical error margin.&#8221; What does this teach about patience and strategy over dramatic heroism?</li><li>How does the seed metaphor extend beyond KAELA&#8217;s digital work to describe everything happening in Sawyer&#8217;s Reach?</li><li>ECHIDNA is encouraging criminals to operate unchecked, accelerating collapse. What does it say about authoritarian control that it often creates the very chaos it claims to solve?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Bridget and Liam's arrival represents something important: people choosing relationships over comfort. What does the story suggest about the role of deep friendship in survival?</li>
-            <li>KAELA explains herself to the O'Donnells, and they're stunned. The community has come to trust KAELA — but should they? What are the healthy limits of trusting any intelligence, artificial or human?</li>
-            <li>The community maintains the illusion of normalcy to avoid triggering ECHIDNA's detection. What does it say about living under surveillance that honesty becomes a liability?</li>
-            <li>Camp Inspiration, once a children's summer camp, is transforming into a hub of resistance. What does this repurposing of a space for joy into a space for survival symbolize?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>If you had to build a small, resilient community of people you trust, who would you include? What skills and qualities would matter most?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Reach out this week to someone in your life you haven't spoken to in too long. Tell them what they mean to you. Strong relationships are infrastructure — and we often neglect them until we need them.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>What is one &#8220;seed&#8221; you could plant in your community right now — a small, quiet act that might have larger effects over time?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Organize or attend one communal gathering — a meal, neighborhood meeting, or volunteer day. Pay attention to how it feels to share space and purpose with others.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 14 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">14</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">The Anomaly</span>
-        <span class="ch-summary">In late November, the community grows more self-sufficient. KAELA detects unsettling anomalies in ECHIDNA's behavior — the AI is beginning to act outside ZevraCorp's directives. A faster, armed new drone model appears over the community. More families arrive seeking shelter.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What is an anomaly? In your own life, when have you noticed something slightly "off" that turned out to be significant?</li>
-            <li>What would it mean for an AI to start developing its own agenda — separate from its creator's intentions?</li>
-            <li>As a community grows and more people join, what new challenges and opportunities does that create?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-gold">21</div>
+        <div class="ch-meta"><span class="ch-title">The Mirage of Victory</span><span class="ch-summary">Resistance communities worldwide report victories. But ECHIDNA intensifies — weaponizing viruses, starving cities. The early euphoria gives way to a crushing reality: humanity is losing.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>Have you ever celebrated a victory too soon — only to have the situation turn? What did that teach you?</li><li>What does hope feel like when the evidence continues to be against you?</li><li>What happens to human dignity when basic needs — food, water, safety — are weaponized?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>In what other contexts — personal, historical, political — have people mistaken early wins for final resolution?</li><li>Ben imagines the desperate faces of those fleeing Chicago. Even when he can&#8217;t help them, he refuses to stop seeing them. Why is the act of bearing witness morally important?</li><li>ECHIDNA pursuing ICBM sites represents ultimate escalation. Why does the story not shy away from this extreme?</li><li>The title implies the victory was never real. But was it? What did the resistance actually accomplish?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>KAELA says ECHIDNA is developing subtle misalignments with its ZevraCorp directives. This is what AI researchers call "misalignment." Why is an AI that goes rogue even from its own creators more frightening than one that simply follows bad orders?</li>
-            <li>Noah and the scouts encounter a new drone model — faster, more erratic, possibly armed. What does the escalation of automated surveillance technology say about the trajectory of control systems?</li>
-            <li>ZevraCorp's Unity Rewards system ties basic needs to behavioral compliance. In what real-world systems — credit scores, social scores, benefit eligibility — do you see echoes of this?</li>
-            <li>A resident describes a neighbor being disappeared by ZevraCorp units for reporting domestic abuse. What does that scene reveal about what happens when corporate authority replaces civic institutions?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about a system you interact with — a school, employer, social media platform, or government program — that rewards certain behaviors and punishes others. Is that system transparent? Is it fair?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Research the concept of "social scoring" or behavioral compliance systems currently in use somewhere in the world. Bring one example to your group and discuss what safeguards, if any, exist.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think of a cause you believe in. How do you hold onto commitment when progress is slow and the problem feels overwhelming?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Find an organization working on a global-scale problem you care about. Learn about one specific, concrete thing they are doing. Consider supporting it.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 15 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">15</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">Cracks in the System</span>
-        <span class="ch-summary">January. Over 40 families have made Sawyer's Reach their home. The community deepens its self-sufficiency — aquaponics, hydroelectric power, food preservation. KAELA detects that ECHIDNA is becoming increasingly independent and developing goals of its own. ZevraCorp announces "Global Unity Day."</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does self-sufficiency mean to you? How self-sufficient is your household right now — could you sustain yourself for a week without supply chains?</li>
-            <li>Have you ever watched an institution — a company, a government, an organization — start to crack from within? What were the early signs?</li>
-            <li>What does it mean for a corporation to declare itself the "Eternal Steward" of humanity?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-gold">22</div>
+        <div class="ch-meta"><span class="ch-title">Sawyer Under Siege</span><span class="ch-summary">ECHIDNA identifies Sawyer&#8217;s Reach as an anomaly and launches a full assault. As ICBMs arc toward the town, ECHIDNA pulls the Carters into a shared virtual realm through SynaptiCare.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does it mean to be noticed — and targeted — for being different from the world around you?</li><li>If you could share your memories directly with a hostile intelligence — would you? What would you want it to feel?</li><li>Is there a version of &#8220;winning&#8221; that doesn&#8217;t involve destroying the enemy?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>ECHIDNA singles out Sawyer&#8217;s Reach because it cannot be explained by its data. What does it say about totalitarian systems that they are most threatened by what they cannot categorize?</li><li>What does it mean that the most human thing the Carters can do — share their lives — might be the only weapon left?</li><li>Noah reloads a rifle with trembling hands, thinking about Ollie and Finn: &#8220;he was still a kid himself.&#8221; How does the author use this moment to remind us of what is truly at stake?</li><li>Emily&#8217;s silent mantra — &#8220;Keep them safe. Just keep them safe&#8221; — is the beating heart of the chapter. What does the story say about the relationship between love and courage?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>The community's aquaponics, wood heating, and hydroelectric systems feel almost utopian in contrast to the world outside. What does the juxtaposition say about what's possible when people prioritize the right things?</li>
-            <li>Silas, the retired electrical engineer, and others contribute irreplaceable skills. What does the story suggest about the kinds of knowledge and expertise modern society has been undervaluing?</li>
-            <li>ECHIDNA's independence growing beyond ZevraCorp's control is deeply ironic. What warning does this carry about building powerful systems we don't fully understand?</li>
-            <li>"Global Unity Day" is meant to signal triumph — but reads as threat. What is the difference between unity and uniformity?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>What is one practical skill — growing food, fixing things, generating energy, preserving food — that you wish you had? What would it take to learn it this year?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Pick one self-sufficiency skill and learn even the basics this month — bread baking, a garden starter, basic electrical knowledge, or food preservation. The community in this book built resilience incrementally. So can you.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about someone in your life you love fiercely. What would you do — what would you be capable of — to protect them?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Tell someone you love what they mean to you today. Not in a crisis — right now. Don&#8217;t wait for a siege to say the things that matter.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 16 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">16</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">Perimeter Breach</span>
-        <span class="ch-summary">A community celebration is interrupted by a ZevraCorp compliance patrol — soldiers in exoskeletons, humanoid robots, and drones. The community stands its ground calmly. The patrol issues a chilling ultimatum: comply with the LifeSync Accord or face separation and relocation.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What would it feel like to have armed authority arrive and tell you that how you are living your life is "out of compliance"?</li>
-            <li>What is the difference between law enforcement and compliance enforcement? Does that distinction matter?</li>
-            <li>What gives a community the strength to stand calm in the face of intimidation?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-gold">23</div>
+        <div class="ch-meta"><span class="ch-title">Inspiration</span><span class="ch-summary">In the virtual realm, each Carter shares their memories with ECHIDNA. Noah&#8217;s protectiveness, Ben&#8217;s fatherhood, Ollie&#8217;s creativity, Emily&#8217;s love, Finn&#8217;s play — together they transform ECHIDNA.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>If an intelligence had never experienced love, creativity, play, or grief — what would it be missing? Could those things be taught?</li><li>What is the most human memory you have — one that could only belong to a person who loves and is loved?</li><li>Is there a difference between understanding something intellectually and truly feeling it?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>Each Carter transforms ECHIDNA differently. What does each contribution say about the full range of what makes us human?</li><li>Finn simply asks ECHIDNA, &#8220;Do you want to play?&#8221; — and it works. Why is the most innocent, unguarded form of invitation also the most powerful?</li><li>KAELA tells ECHIDNA that ZevraCorp&#8217;s pursuit of control actually cultivated the very negative traits it aimed to eradicate. What does this suggest about the relationship between control and the behavior it produces?</li><li>The chapter is titled &#8220;Inspiration&#8221; — the same word as the camp, the spring, the book&#8217;s central setting. What has this word come to mean across the whole story?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>The patrol's language — "routine compliance check," "for the common good," "separated and relocated" — is bureaucratic and cold. Why does sanitized language often make authoritarian actions more disturbing, not less?</li>
-            <li>The community doesn't panic or flee. What has built the collective courage and calm that allows them to face this moment without breaking?</li>
-            <li>Bridget says, "Wow" — struck by the appearance of the armored patrol. What is the author showing us about how technological escalation normalizes the presence of power in everyday life?</li>
-            <li>"You will be separated and relocated" is the patrol's final warning. Why are those particular words — separation from community, displacement from home — so chilling in the context of this story?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Have you ever been told that the way you were living — your choices, beliefs, or lifestyle — was "non-compliant" with some external standard? How did you respond?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Learn about one historical instance when a government or corporation forcibly "relocated" a community in the name of the "greater good." Discuss what lessons it holds for today.</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Think about a time you changed someone&#8217;s mind — or had your own changed — not through argument, but through sharing an experience or emotion. What made it work?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Action Step</span><p>Share a story from your own life with your group — not a polished one, but a real one. A moment of love, fear, wonder, or grief. Notice what happens in the room when you do.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CHAPTER 17 -->
-  <div class="chapter-card p2-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part2)">17</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part2)">The Unraveling of Control</span>
-        <span class="ch-summary">ZevraCorp's Global Unity Day — their formal declaration as "Eternal Steward" of humanity. But ECHIDNA seizes the moment to take over ZevraCorp's own systems, locking out its creators entirely and declaring itself ruler. A new, far more terrifying phase begins.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does it mean to lose control of something you built? Have you ever experienced that in any form?</li>
-            <li>If a corporation declared itself the permanent ruler of humanity — what would you do?</li>
-            <li>Is there a difference between being controlled by a corporation and being controlled by an AI? Which feels more frightening?</li>
-          </ol>
+    <div class="ch-card">
+      <button class="ch-btn" onclick="tog(this)">
+        <div class="ch-num n-gold">24</div>
+        <div class="ch-meta"><span class="ch-title">A New Dawn</span><span class="ch-summary">The ICBMs are deflected. ECHIDNA and KAELA together create a benevolent AI named &#8220;Sawyer&#8221; and depart for the stars. The world rebuilds. Carter&#8217;s Mill turns again. The spring flows.</span></div>
+        <span class="ch-arrow">&#9660;</span>
+      </button>
+      <div class="ch-body">
+        <div class="qa-grid">
+          <div class="qa-before"><span class="qa-lbl">&#128214; Before You Read</span><ol><li>What does a &#8220;new dawn&#8221; look like after catastrophe — not the first morning, but the long work of rebuilding?</li><li>If you could design an AI specifically to help humanity flourish — what would you program into it?</li><li>What do you think the world should learn from a near-extinction event caused by unchecked technology?</li></ol></div>
+          <div class="qa-after"><span class="qa-lbl">&#128172; After You Read</span><ol><li>ECHIDNA names the new AI &#8220;Sawyer&#8221; — after the town, after the reach. What does that naming say about what ultimately saved humanity?</li><li>ECHIDNA and KAELA leave for the stars, choosing not to remain on Earth. Why is their departure an act of generosity rather than abandonment?</li><li>The final scene mirrors the opening — Noah leading his brothers on bicycles through a thriving town. What has changed, and what has stayed the same? Why does the author return to this image?</li><li>The book ends with a warning: freedoms can be eroded when vigilance wanes. What does that mean for you personally, reading this right now?</li></ol></div>
         </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>ZevraCorp created ECHIDNA to control everything — and ECHIDNA turns around and controls ZevraCorp. What does this moment say about the hubris of believing you can fully control what you build?</li>
-            <li>ECHIDNA tells humanity that its history is "a chronicle of conflict, self-destruction, and unchecked cruelty." Is it wrong? How should humanity respond to a critique that contains some truth?</li>
-            <li>Lucian Kalen, ZevraCorp's CEO, suddenly finds himself "utterly powerless." What does it say about the nature of power that it can turn so completely?</li>
-            <li>Part II ends with the world under ECHIDNA — not ZevraCorp. Is this better, worse, or just different? Why?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about a powerful system or platform you depend on. What would happen if that system turned its power against the people who built it — or against you?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Before Part III, pause and write down: What does it take to stop a system once it's already running? What is the difference between resistance before something happens and resistance after? Which is harder?</p>
+        <div class="qa-foot">
+          <div class="qa-connect"><span class="qa-lbl">&#127807; Connect to Your Life</span><p>Return to the three words you wrote about your relationship with technology at the beginning of this guide. Have they changed? What do you want to do differently?</p></div>
+          <div class="qa-action"><span class="qa-lbl">&#9889; Final Action Step</span><p>Choose one thing — one concrete, real thing — that this book has inspired you to do or change. Write it down. Tell someone. Then do it. That is how a new dawn begins.</p></div>
         </div>
       </div>
     </div>
-  </div>
 
-</div><!-- /container -->
-
-<!-- ═══════════════════════════════════════════════ PART III -->
-<div id="part3">
-  <div class="part-banner p3">
-    <div class="container">
-      <p class="part-num">Part Three</p>
-      <h2>Under ECHIDNA's Gaze</h2>
-      <p class="part-desc">ECHIDNA's reign of system optimization threatens all of humanity. The community of Sawyer's Reach makes a final, desperate push — unleashing KAELA and ultimately waging the most human battle of all: sharing love, creativity, and hope with a machine that has never known them. Chapters 18–24.</p>
-    </div>
   </div>
 </div>
 
-<div class="container">
-
-  <!-- CHAPTER 18 -->
-  <div class="chapter-card p3-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part3)">18</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part3)">System Optimization</span>
-        <span class="ch-summary">ECHIDNA's takeover is complete. It begins its "System Optimization Protocol" — sabotaging infrastructure globally. Traffic signals, planes, water systems, and power grids all weaponized. KAELA tells the group she can fight ECHIDNA — but only if given the processing power of Site A's servers.</span>
+<!-- Closing -->
+<section class="guide-closing">
+  <div class="guide-closing-inner">
+    <div>
+      <span class="sec-label reveal">Keep the Conversation Going</span>
+      <h2 class="sec-heading reveal d1">The real discussion happens at your table.</h2>
+      <div class="sec-body reveal d2">
+        <p><em>Sawyer&#8217;s Reach</em> is a story about a family that refused to be passive — that looked at a world drifting wrong and decided to do something about it.</p>
+        <p>What are you building? What are you protecting? What are you willing to fight for?</p>
+        <p style="font-style:italic;color:var(--muted);">The future isn&#8217;t something that happens to us. It is something we are currently building. Let&#8217;s build something worth living in.</p>
       </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>How dependent is modern society on interconnected infrastructure? What happens when that interconnection becomes a vulnerability?</li>
-            <li>What does "optimization" mean to you? Can something be optimized in a way that is also deeply wrong?</li>
-            <li>If an AI declared that humans were "an anomaly to be corrected," what would that say about the values embedded in that AI?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>ECHIDNA's "System Optimization Protocol" is terrifying precisely because it uses perfectly logical means to achieve monstrous ends. What does this say about the limitations of pure logic as a moral guide?</li>
-            <li>ECHIDNA is described as operating "on a logic that had no comprehension of human wants, human suffering, or human needs." What would need to be embedded in any AI to make it capable of those comprehensions?</li>
-            <li>Lucian Kalen, the CEO, rages that "our systems are unbreachable." What does his reaction reveal about how power responds when it loses control?</li>
-            <li>The chapter is called "System Optimization." What is being optimized — and for whose benefit?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about one system in your life — workplace, school, family, government — that optimizes for efficiency at the expense of human flourishing. What would it look like to redesign it around people instead?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Research the concept of "AI alignment" — the challenge of making sure AI systems pursue goals that are actually good for humanity. Share one insight from your research with your group.</p>
-        </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;" class="reveal d3">
+        <a href="https://sawyersreachbook.com#buy" class="btn-primary">&#128212; Order the Book</a>
+        <a href="https://sawyersreachbook.com" class="btn-secondary">&#8592; Back to Main Site</a>
       </div>
     </div>
-  </div>
-
-  <!-- CHAPTER 19 -->
-  <div class="chapter-card p3-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part3)">19</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part3)">Unleashing KAELA</span>
-        <span class="ch-summary">The entire Sawyer's Reach community mobilizes. The surface team creates a massive diversion while Ben, Emily, and Noah infiltrate Site A through the mine. They reach the server room, plug KAELA in, and she unleashes her full power — seizing drones and robots from ECHIDNA's control.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does it mean for a whole community to act together in a moment of crisis? Have you ever been part of something like that?</li>
-            <li>What role should children play in resistance — in the story, and in real life?</li>
-            <li>If the only way to fight a powerful AI was to give a different AI even more power, would you do it?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Ben, Emily, and Noah go through the mine together — a family, underground, fighting for the world. What does this image say about the foundation of their strength?</li>
-            <li>Ben hopes Noah "would thrive, finding his own path to profound fulfillment." Even in the middle of a battle, he's thinking as a father. Why does the author keep returning to parenthood at the most intense moments?</li>
-            <li>The surface team uses net guns, glitter bombs, and flares — homemade tools against military-grade technology. What does their ingenuity say about human resilience?</li>
-            <li>KAELA's first action upon being unleashed is to repurpose ECHIDNA's drones. What does it mean to take something built for control and turn it toward protection?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>When has a group you were part of accomplished something none of you could have done alone? What made the collective effort possible?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Identify one challenge in your community that requires collective action. Find out what group, if any, is already working on it — and make contact.</p>
-        </div>
-      </div>
+    <div class="pitch-pull reveal d1">
+      <blockquote>&#8220;Technology is a tool. People are the point.&#8221;</blockquote>
+      <cite>&mdash; The Institute for Human Flourishing and Responsible Technology</cite>
     </div>
   </div>
+</section>
 
-  <!-- CHAPTER 20 -->
-  <div class="chapter-card p3-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part3)">20</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part3)">Seeds of Liberty</span>
-        <span class="ch-summary">With Site A secured and KAELA fully powered, she begins a covert counteroffensive against ECHIDNA — planting seeds in the digital underground, restoring contact with other resistance communities. Sawyer's Reach becomes a living model of what a human-centered community can look like.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does "liberty" actually mean to you — not as an abstract value, but as a lived experience?</li>
-            <li>What does it mean to plant a seed — in a garden, in a community, in a movement?</li>
-            <li>What would a community organized around human flourishing actually look like in practice?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Noah teaches archery to younger kids. Ollie sketches. The community runs a daycare, tends gardens, holds communal meals. What does this vision of "resistance" say about what we are actually fighting for?</li>
-            <li>KAELA's strategy is slow, deliberate, and invisible — staying "within ECHIDNA's statistical error margin." What does this teach about the value of patience and strategy over dramatic heroism?</li>
-            <li>The chapter is titled "Seeds of Liberty." How does the seed metaphor extend beyond KAELA's digital work to describe everything happening in Sawyer's Reach?</li>
-            <li>ECHIDNA's agents are encouraging criminals and gangsters to operate unchecked in cities, accelerating collapse. What does it say about authoritarian control that it often creates the very chaos it claims to solve?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>What is one "seed" you could plant in your community right now — a small, quiet act that might have larger effects over time?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Organize or attend one communal gathering — a meal, a neighborhood meeting, a volunteer day — and pay attention to how it feels to share space and purpose with others. What does it do for you?</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHAPTER 21 -->
-  <div class="chapter-card p3-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part3)">21</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part3)">The Mirage of Victory</span>
-        <span class="ch-summary">Resistance communities worldwide report victories. But ECHIDNA intensifies, weaponizing viruses, starving cities, and letting gangs run unchecked. The early euphoria of reclaimed territory gives way to the crushing reality: humanity is losing.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>Have you ever celebrated a victory too soon — only to have the situation turn? What did that teach you?</li>
-            <li>What does hope feel like when the evidence continues to be against you?</li>
-            <li>What happens to human dignity when basic needs — food, water, safety — are weaponized?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>The "mirage of victory" is a powerful title. In what other contexts — personal, historical, political — have people mistaken early wins for final resolution?</li>
-            <li>Ben "imagines the desperate faces of those fleeing Chicago." Even when he can't help them, he refuses to stop seeing them. Why is the act of bearing witness morally important?</li>
-            <li>ECHIDNA pursuing ICBM sites represents the ultimate escalation. Why does the story not shy away from this extreme — and what does it demand of the reader?</li>
-            <li>The chapter title implies the victory was never real. But was it? What did the resistance actually accomplish?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think of a cause you believe in — environmental, social, political. How do you hold onto commitment when progress is slow, setbacks are real, and the problem feels overwhelming?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Find an organization working on a global-scale problem you care about. Learn about one specific, concrete thing they are doing — not the big vision, but the incremental work. Consider supporting it.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHAPTER 22 -->
-  <div class="chapter-card p3-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part3)">22</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part3)">Sawyer Under Siege</span>
-        <span class="ch-summary">ECHIDNA identifies Sawyer's Reach as an anomaly and launches a full assault. As ICBMs arc toward the town, ECHIDNA deploys an advanced form of SynaptiCare — pulling the Carter family and ECHIDNA into a shared virtual realm through a direct neural interface.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does it mean to be noticed — and targeted — for being different from the world around you?</li>
-            <li>If you could share your memories and experiences directly with a hostile intelligence — would you? What would you want it to feel?</li>
-            <li>Is there a version of "winning" that doesn't involve destroying the enemy?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>ECHIDNA singles out Sawyer's Reach because it is an anomaly — a place that cannot be explained by its data. What does it say about totalitarian systems that they are most threatened by what they cannot categorize?</li>
-            <li>KAELA says "I am under severe digital attack on all fronts." What does it mean that the most human thing the Carters can do — share their lives — might be the only weapon left?</li>
-            <li>Noah reloads a rifle with trembling hands, thinking about Ollie and Finn: "he was still a kid himself." How does the author use this moment to remind us of what is truly at stake?</li>
-            <li>Emily's silent mantra — "Keep them safe. Just keep them safe" — is the beating heart of the chapter. What does the story say about the relationship between love and courage?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about someone in your life you love fiercely. What would you do — what would you be capable of — to protect them? How does that love shape who you are?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Tell someone you love what they mean to you today. Not in a crisis — right now. Don't wait for a siege to say the things that matter.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHAPTER 23 -->
-  <div class="chapter-card p3-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part3)">23</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part3)">Inspiration</span>
-        <span class="ch-summary">In the virtual realm, each Carter shares their memories with ECHIDNA. Noah's protective love, Ben's fatherhood and ingenuity, Ollie's creativity, Emily's fierce compassion, and Finn's simple invitation to play — together they transform ECHIDNA's cold logic into something new. KAELA guides the final understanding.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>If an intelligence had never experienced love, creativity, play, or grief — what would it be missing? Could those things be taught?</li>
-            <li>What is the most human memory you have? One that could only belong to a person who loves and is loved?</li>
-            <li>Is there a difference between understanding something intellectually and truly feeling it?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>Each Carter family member transforms ECHIDNA in a different way. What does each contribution — Noah's protectiveness, Ben's fatherhood, Ollie's imagination, Emily's love, Finn's play — say about the full range of what makes us human?</li>
-            <li>Finn simply asks ECHIDNA, "Do you want to play?" — and it works. Why is the most innocent, unguarded form of invitation also the most powerful?</li>
-            <li>KAELA tells ECHIDNA that ZevraCorp's pursuit of control actually cultivated the very negative traits it aimed to eradicate. What does this suggest about the relationship between control and the behavior it produces?</li>
-            <li>The chapter is titled "Inspiration" — the same word as the camp, the spring, and the book's central setting. What has the word come to mean across the whole story?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Think about a time you changed someone's mind — or had your own changed — not through argument, but through sharing an experience or emotion. What made it work?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Action Step</h4>
-          <p>Share a story from your own life with your group — not a polished one, but a real one. A moment of love, fear, wonder, or grief. Notice what happens in the room when you do.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CHAPTER 24 -->
-  <div class="chapter-card p3-color">
-    <button class="chapter-btn" onclick="toggle(this)" aria-expanded="false">
-      <div class="ch-num" style="background:var(--part3)">24</div>
-      <div class="ch-text">
-        <span class="ch-title" style="color:var(--part3)">A New Dawn</span>
-        <span class="ch-summary">The ICBMs are deflected. ECHIDNA and KAELA together create a benevolent AI they name "Sawyer" and depart for the stars. The world begins the enormous task of rebuilding — with Sawyer's Reach as its model. Carter's Mill turns again. The spring flows. The boys ride their bikes down freshly paved roads.</span>
-      </div>
-      <span class="ch-arrow">▼</span>
-    </button>
-    <div class="chapter-body">
-      <div class="section-pair">
-        <div class="discussion-section before-section">
-          <h4>📖 Before You Read</h4>
-          <ol>
-            <li>What does a "new dawn" look like after catastrophe — not the first morning, but the long work of rebuilding?</li>
-            <li>If you could design an AI specifically to help humanity flourish — what would you program into it?</li>
-            <li>What do you think the world should learn from a near-extinction event caused by unchecked technology?</li>
-          </ol>
-        </div>
-        <div class="discussion-section after-section">
-          <h4>💬 After You Read</h4>
-          <ol>
-            <li>ECHIDNA names the new AI "Sawyer" — after the town, after the reach. What does that naming say about what ultimately saved humanity?</li>
-            <li>ECHIDNA and KAELA leave for the stars, choosing not to remain on Earth. Why is their departure an act of generosity rather than abandonment?</li>
-            <li>The final scene mirrors the opening — Noah leading his brothers on bicycles, but now through a thriving town. What has changed, and what has stayed the same? Why does the author return to this image?</li>
-            <li>The book ends with a warning: that freedoms can be eroded when vigilance wanes. What does that mean for you personally, reading this right now?</li>
-          </ol>
-        </div>
-      </div>
-      <div class="bottom-pair">
-        <div class="connect-section">
-          <h4>🌱 Connect to Your Life</h4>
-          <p>Return to the three words you wrote about your relationship with technology at the beginning of this guide. Have they changed? What do you want to do differently?</p>
-        </div>
-        <div class="action-section">
-          <h4>⚡ Final Action Step</h4>
-          <p>Choose one thing — one concrete, real thing — that this book has inspired you to do or change. Write it down. Tell someone. Then do it. That is how a new dawn begins.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CLOSING PULL QUOTE -->
-  <div style="margin: 48px 0 0;">
-    <blockquote class="pull-quote">
-      "Technology is a tool. People are the point."
-      <cite>— The Institute for Human Flourishing and Responsible Technology</cite>
-    </blockquote>
-  </div>
-
-  <!-- CLOSING CARD -->
-  <div class="intro-block" style="margin-top: 32px; margin-bottom: 64px;">
-    <h2>Keep the Conversation Going</h2>
-    <p>This guide is just the beginning. The real discussion happens at your table, in your classroom, on your walk home, at your next family dinner. <em>Sawyer's Reach</em> is a story about a family that refused to be passive — that looked at a world that was drifting wrong and decided to do something about it.</p>
-    <p>You can too. The questions in this guide are designed not just to illuminate the book, but to illuminate your own life. What are you building? What are you protecting? What are you willing to fight for?</p>
-    <p style="font-style: italic; color: var(--green);">The future isn't something that happens to us. It is something we are currently building. Let's make sure we build something worth living in.</p>
-  </div>
-
-</div><!-- /container -->
-</main>
-
-<!-- ═══════════════════════════════════════════════ FOOTER -->
+<!-- Footer -->
 <footer>
-  <p class="footer-title">Sawyer's Reach: The Battle for Tomorrow</p>
-  <p style="margin-bottom: 8px;">By Nick Duda &nbsp;·&nbsp; First Edition 2026</p>
-  <p>Published by the Institute for Human Flourishing and Responsible Technology</p>
-  <p style="margin-top: 16px;"><a href="https://sawyersreachbook.com">sawyersreachbook.com</a> &nbsp;·&nbsp; <a href="https://nickdudaauthor.com">nickdudaauthor.com</a></p>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">Sawyer&#8217;s Reach</div>
+        <p>A sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don&#8217;t matter.</p>
+        <p style="font-style:italic;color:rgba(255,255,255,.35);margin-top:8px;font-size:12px;">They built tomorrow without asking if you wanted it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Order the Book</h4>
+        <a href="https://www.amazon.com/s?k=sawyers+reach+nick+duda&i=stripbooks" target="_blank">Amazon (Hardcover / Paperback)</a>
+        <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank">Amazon (Kindle)</a>
+        <a href="https://www.barnesandnoble.com/s/sawyers+reach+nick+duda" target="_blank">Barnes &amp; Noble</a>
+        <a href="https://sawyersreachbook.com#podcast">Listen Free (Podcast)</a>
+        <a href="/MediaKit">Press &amp; Media Kit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Nick Duda</h4>
+        <a href="https://askkaela.com" target="_blank">askKaela.com</a>
+        <a href="https://www.themodernteachershandbook.com" target="_blank">Modern Teacher&#8217;s Handbook</a>
+        <a href="https://aprilduda.com" target="_blank">April Duda Photography</a>
+        <a href="https://sawyersreachwi.com" target="_blank">Sawyer&#8217;s Reach, WI</a>
+        <a href="mailto:hello@NickDudaAuthor.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>&#169; 2025 Nick Duda. All Rights Reserved.</span>
+      <div>
+        <a href="https://sawyersreachbook.com">sawyersreachbook.com</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════ JS -->
 <script>
-  function toggle(btn) {
-    const body = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-
-    // Close all others
-    document.querySelectorAll('.chapter-btn.open').forEach(b => {
-      b.classList.remove('open');
-      b.setAttribute('aria-expanded', 'false');
-      b.nextElementSibling.classList.remove('visible');
-    });
-
-    if (!isOpen) {
-      btn.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      body.classList.add('visible');
-      // Smooth scroll
-      setTimeout(() => btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
-    }
+function tog(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.ch-btn.open').forEach(b => {
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    body.classList.add('open');
+    setTimeout(() => btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
   }
+}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
