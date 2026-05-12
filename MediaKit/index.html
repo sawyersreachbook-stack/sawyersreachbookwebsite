@@ -116,6 +116,9 @@
             text-align: center;
             border-radius: 6px;
             transition: box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .asset-card:hover {
@@ -230,9 +233,15 @@
         </div>
 
         <h2>Image Assets & Gallery</h2>
-        <p><em>Click any image to download the high-resolution file.</em></p>
+        <p><em>Click any asset to download the high-resolution file.</em></p>
         
         <div class="asset-grid">
+            <!-- Author Headshot -->
+            <div class="asset-card">
+                <img src="Duda Headshot.jpg" alt="Nick Duda Author Headshot">
+                <a href="Duda Headshot.jpg" download>Download Headshot</a>
+            </div>
+
             <!-- Book Cover JPG -->
             <div class="asset-card">
                 <img src="Sawyers Reach Cover.jpg" alt="Sawyers Reach Cover">
@@ -292,6 +301,7 @@
             <li><strong>Genre:</strong> Near-future Sci-Fi</li>
             <li><strong>ISBN-HC:</strong> 979-8-9864503-4-6</li>
             <li><strong>ISBN-PB:</strong> 979-8-9864503-5-3</li>
+            <li><strong>ISBN-Kindle:</strong> 979-8-9864503-6-0</li>
         </ul>
 
         <h3>Online Hubs</h3>
