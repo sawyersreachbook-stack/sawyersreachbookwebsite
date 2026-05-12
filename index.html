@@ -296,8 +296,6 @@ nav {
 .buy-format-sub { font-size: 10px; font-weight: 400; opacity: .65; letter-spacing: .04em; }
 .buy-format-sub.avail { opacity: .9; color: var(--gold2); }
 .buy-format.featured .buy-format-sub.avail { color: rgba(255,255,255,.9); }
-
-/* ── Retailer row ── */
 .buy-retailers {
   border-top: 1px solid rgba(255,255,255,.1);
   padding-top: 18px;
@@ -330,18 +328,8 @@ nav {
   white-space: nowrap;
 }
 .retailer-link:hover { background: rgba(255,255,255,.14); color: #fff; border-color: rgba(255,255,255,.3); }
-.retailer-link .rl-note {
-  font-size: 10px;
-  font-weight: 400;
-  opacity: .55;
-}
-.anywhere-note {
-  font-size: 12px;
-  color: rgba(255,255,255,.35);
-  font-style: italic;
-  margin-left: 4px;
-}
-
+.retailer-link .rl-note { font-size: 10px; font-weight: 400; opacity: .55; }
+.anywhere-note { font-size: 12px; color: rgba(255,255,255,.35); font-style: italic; margin-left: 4px; }
 @media(max-width: 700px) { .buy-strip-top { flex-direction: column; align-items: flex-start; } }
 @media(max-width: 500px) {
   .buy-format { min-width: calc(50% - 5px); flex: 1 1 calc(50% - 5px); justify-content: center; }
@@ -349,252 +337,59 @@ nav {
 }
 
 /* ── PITCH ── */
-.pitch {
-  background: var(--cream);
-  padding: 80px 5vw;
-}
-.pitch-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-.pitch-label {
-  font-size: 10px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--teal);
-  margin-bottom: 14px;
-  font-weight: 600;
-}
-.pitch-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3.5vw, 42px);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--ink);
-  margin-bottom: 20px;
-}
+.pitch { background: var(--cream); padding: 80px 5vw; }
+.pitch-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.pitch-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; font-weight: 600; }
+.pitch-heading { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 20px; }
 .pitch-heading em { font-style: italic; color: var(--teal); }
-.pitch-body p {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.85;
-  margin-bottom: 14px;
-}
+.pitch-body p { font-size: 15px; color: var(--muted); line-height: 1.85; margin-bottom: 14px; }
 .pitch-body strong { color: var(--text); font-weight: 600; }
-.pitch-pull {
-  background: var(--ink);
-  padding: 32px;
-  border-radius: 3px;
-  position: relative;
-}
-.pitch-pull::before {
-  content: '\201C';
-  font-family: 'Playfair Display', serif;
-  font-size: 120px;
-  color: var(--gold);
-  opacity: .25;
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  line-height: 1;
-}
-.pitch-pull blockquote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(17px, 2vw, 22px);
-  font-style: italic;
-  color: #fff;
-  line-height: 1.55;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 16px;
-}
-.pitch-pull cite {
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--gold2);
-  font-style: normal;
-}
-.pitch-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 20px;
-}
-.pitch-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--teal);
-  background: rgba(26,138,126,.08);
-  border: 1px solid rgba(26,138,126,.2);
-  padding: 4px 10px;
-  border-radius: 2px;
-}
+.pitch-pull { background: var(--ink); padding: 32px; border-radius: 3px; position: relative; }
+.pitch-pull::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); opacity: .25; position: absolute; top: -10px; left: 20px; line-height: 1; }
+.pitch-pull blockquote { font-family: 'Playfair Display', serif; font-size: clamp(17px, 2vw, 22px); font-style: italic; color: #fff; line-height: 1.55; position: relative; z-index: 1; margin-bottom: 16px; }
+.pitch-pull cite { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold2); font-style: normal; }
+.pitch-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+.pitch-tag { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); background: rgba(26,138,126,.08); border: 1px solid rgba(26,138,126,.2); padding: 4px 10px; border-radius: 2px; }
 @media(max-width: 700px) { .pitch-inner { grid-template-columns: 1fr; gap: 36px; } }
 
 /* ── PODCAST ── */
-.podcast {
-  background: var(--paper);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 70px 5vw;
-}
-.podcast-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-.podcast-top {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: 36px;
-}
-.podcast-label {
-  font-size: 10px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-.podcast-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 3vw, 38px);
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 10px;
-}
+.podcast { background: var(--paper); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 70px 5vw; }
+.podcast-inner { max-width: 900px; margin: 0 auto; }
+.podcast-top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; margin-bottom: 36px; }
+.podcast-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+.podcast-heading { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); font-weight: 700; color: var(--ink); margin-bottom: 10px; }
 .podcast-heading em { color: var(--teal); font-style: normal; }
-.podcast-desc {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.75;
-  max-width: 480px;
-}
-.podcast-badge {
-  background: var(--ink);
-  color: #fff;
-  padding: 20px 28px;
-  text-align: center;
-  border-radius: 4px;
-  white-space: nowrap;
-}
-.podcast-badge .badge-free {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 42px;
-  font-weight: 900;
-  color: var(--gold2);
-  display: block;
-  line-height: 1;
-}
-.podcast-badge .badge-label {
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  opacity: .6;
-  margin-top: 4px;
-}
-.pod-platforms {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 8px;
-}
-@media(max-width: 480px) {
-  .pod-platforms { grid-template-columns: 1fr 1fr; }
-}
-.pod-link {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 10px 14px;
-  background: var(--cream);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-  transition: all .2s;
-}
+.podcast-desc { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 480px; }
+.podcast-badge { background: var(--ink); color: #fff; padding: 20px 28px; text-align: center; border-radius: 4px; white-space: nowrap; }
+.podcast-badge .badge-free { font-family: 'Barlow Condensed', sans-serif; font-size: 42px; font-weight: 900; color: var(--gold2); display: block; line-height: 1; }
+.podcast-badge .badge-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .6; margin-top: 4px; }
+.pod-platforms { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+@media(max-width: 480px) { .pod-platforms { grid-template-columns: 1fr 1fr; } }
+.pod-link { display: flex; align-items: center; gap: 9px; padding: 10px 14px; background: var(--cream); border: 1px solid var(--border); border-radius: 3px; font-size: 13px; font-weight: 500; color: var(--text); transition: all .2s; }
 .pod-link:hover { border-color: var(--teal); color: var(--teal); background: #fff; }
 .pod-icon { font-size: 16px; }
 @media(max-width: 640px) { .podcast-top { grid-template-columns: 1fr; } .podcast-badge { display: inline-block; } }
 
 /* ── ABOUT ── */
-.about {
-  background: var(--cream);
-  padding: 80px 5vw;
-}
-.about-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 52px;
-  align-items: start;
-}
-.about-photo {
-  width: 100%;
-  border-radius: 3px;
-  box-shadow: 0 12px 40px rgba(0,0,0,.15);
-}
-.about-label {
-  font-size: 10px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-.about-name {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3vw, 38px);
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.about-body p {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.85;
-  margin-bottom: 12px;
-}
+.about { background: var(--cream); padding: 80px 5vw; }
+.about-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: 52px; align-items: start; }
+.about-photo { width: 100%; border-radius: 3px; box-shadow: 0 12px 40px rgba(0,0,0,.15); }
+.about-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+.about-name { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 38px); font-weight: 700; color: var(--ink); margin-bottom: 16px; }
+.about-body p { font-size: 14px; color: var(--muted); line-height: 1.85; margin-bottom: 12px; }
 .about-body strong { color: var(--text); }
 .about-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-.about-link {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--teal);
-  border-bottom: 1px solid rgba(26,138,126,.3);
-  padding-bottom: 2px;
-  transition: border-color .2s;
-}
+.about-link { font-size: 12px; font-weight: 600; color: var(--teal); border-bottom: 1px solid rgba(26,138,126,.3); padding-bottom: 2px; transition: border-color .2s; }
 .about-link:hover { border-color: var(--teal); }
 @media(max-width: 640px) { .about-inner { grid-template-columns: 1fr; } .about-photo { max-width: 160px; } }
 
 /* ── BULK ── */
-.bulk {
-  background: var(--paper);
-  border-top: 1px solid var(--border);
-  padding: 60px 5vw;
-}
-.bulk-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-}
+.bulk { background: var(--paper); border-top: 1px solid var(--border); padding: 60px 5vw; }
+.bulk-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .bulk-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
 .bulk-heading { font-family: 'Playfair Display', serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 700; color: var(--ink); margin-bottom: 12px; }
 .bulk-desc { font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+.bulk-ctas { display: flex; flex-wrap: wrap; gap: 10px; }
 .bulk-cta {
   display: inline-flex;
   align-items: center;
@@ -610,69 +405,25 @@ nav {
   transition: background .2s;
 }
 .bulk-cta:hover { background: var(--ink2); }
+.bulk-cta.outline { background: transparent; color: var(--ink); border: 1px solid var(--border); }
+.bulk-cta.outline:hover { background: var(--paper2); }
 .bulk-cards { display: flex; flex-direction: column; gap: 12px; }
-.bulk-card {
-  background: var(--cream);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 16px 20px;
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
+.bulk-card { background: var(--cream); border: 1px solid var(--border); border-radius: 3px; padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; }
 .bulk-icon { font-size: 22px; flex-shrink: 0; }
 .bulk-card h4 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
 .bulk-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 @media(max-width: 640px) { .bulk-inner { grid-template-columns: 1fr; } }
 
 /* ── FOOTER ── */
-footer {
-  background: var(--ink);
-  color: rgba(255,255,255,.5);
-  padding: 48px 5vw 28px;
-}
+footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 28px; }
 .footer-inner { max-width: 900px; margin: 0 auto; }
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 36px;
-}
-.footer-brand .brand-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 8px;
-}
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+.footer-brand .brand-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 22px; letter-spacing: .06em; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
 .footer-brand p { font-size: 12px; line-height: 1.75; max-width: 220px; }
-.footer-col h4 {
-  font-size: 10px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.35);
-  margin-bottom: 14px;
-  font-weight: 600;
-}
-.footer-col a {
-  display: block;
-  font-size: 13px;
-  color: rgba(255,255,255,.55);
-  margin-bottom: 8px;
-  transition: color .2s;
-}
+.footer-col h4 { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 14px; font-weight: 600; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.55); margin-bottom: 8px; transition: color .2s; }
 .footer-col a:hover { color: #fff; }
-.footer-bot {
-  border-top: 1px solid rgba(255,255,255,.1);
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
+.footer-bot { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
 .footer-bot span { font-size: 11px; }
 .footer-bot a { font-size: 11px; color: rgba(255,255,255,.35); margin-left: 16px; }
 .footer-bot a:hover { color: rgba(255,255,255,.7); }
@@ -707,6 +458,8 @@ footer {
     <li><a href="#podcast">Podcast</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="#bulk">Schools &amp; Bulk</a></li>
+    <li><a href="/discuss">Discussion Guide</a></li>
+    <li><a href="/MediaKit">Press Kit</a></li>
     <li><a href="#buy" class="nav-order">Order Now</a></li>
   </ul>
 </nav>
@@ -715,6 +468,8 @@ footer {
   <a href="#podcast" onclick="document.getElementById('mobNav').classList.remove('open')">Podcast</a>
   <a href="#author" onclick="document.getElementById('mobNav').classList.remove('open')">Author</a>
   <a href="#bulk" onclick="document.getElementById('mobNav').classList.remove('open')">Schools &amp; Bulk</a>
+  <a href="/discuss" onclick="document.getElementById('mobNav').classList.remove('open')">Discussion Guide</a>
+  <a href="/MediaKit" onclick="document.getElementById('mobNav').classList.remove('open')">Press Kit</a>
   <a href="#buy" onclick="document.getElementById('mobNav').classList.remove('open')">Order Now</a>
 </div>
 
@@ -769,21 +524,12 @@ footer {
         </a>
       </div>
     </div>
-    <!-- Retailer row -->
     <div class="buy-retailers">
       <span class="buy-retailers-label">Also available at</span>
-      <a href="https://www.barnesandnoble.com/s/sawyers+reach+nick+duda" target="_blank" class="retailer-link">
-        &#128218; Barnes &amp; Noble
-      </a>
-      <a href="https://www.walmart.com/search?q=sawyers+reach+nick+duda" target="_blank" class="retailer-link">
-        &#127977;&#65039; Walmart
-      </a>
-      <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank" class="retailer-link">
-        &#128212; IngramSpark <span class="rl-note">(Hardcover)</span>
-      </a>
-      <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank" class="retailer-link">
-        &#128218; IngramSpark <span class="rl-note">(Paperback)</span>
-      </a>
+      <a href="https://www.barnesandnoble.com/s/sawyers+reach+nick+duda" target="_blank" class="retailer-link">&#128218; Barnes &amp; Noble</a>
+      <a href="https://www.walmart.com/search?q=sawyers+reach+nick+duda" target="_blank" class="retailer-link">&#127977;&#65039; Walmart</a>
+      <a href="https://shop.ingramspark.com/b/084?params=dgOfQa50qDdSVoTgcqAwsMrQd5dXjduPZn5Vv0TZrNt" target="_blank" class="retailer-link">&#128212; IngramSpark <span class="rl-note">(Hardcover)</span></a>
+      <a href="https://shop.ingramspark.com/b/084?params=0AsFKG8e49DJJCHYECGXaJBR63yLkabOv0lHseEz2p0" target="_blank" class="retailer-link">&#128218; IngramSpark <span class="rl-note">(Paperback)</span></a>
       <span class="anywhere-note">&#8230; and wherever books are sold</span>
     </div>
   </div>
@@ -877,15 +623,18 @@ footer {
     <div>
       <p class="bulk-label reveal">Schools, Libraries &amp; Organizations</p>
       <h2 class="bulk-heading reveal d1">Bring Sawyer&#8217;s Reach to Your School</h2>
-      <p class="bulk-desc reveal d2">Themes of AI ethics, corporate accountability, digital privacy, and community resilience make this ideal for classroom discussion. Grades 10&#8211;12 and above. A free discussion guide is available for educators.</p>
-      <a href="mailto:hello@NickDudaAuthor.com" class="bulk-cta reveal d3">&#9993;&#65039; Contact for Bulk Pricing</a>
+      <p class="bulk-desc reveal d2">Themes of AI ethics, corporate accountability, digital privacy, and community resilience make this ideal for classroom discussion. Grades 10&#8211;12 and above. A free chapter-by-chapter discussion guide is available for educators, librarians, and book clubs.</p>
+      <div class="bulk-ctas reveal d3">
+        <a href="mailto:hello@NickDudaAuthor.com" class="bulk-cta">&#9993;&#65039; Contact for Bulk Pricing</a>
+        <a href="/discuss" class="bulk-cta outline">&#128218; Free Discussion Guide</a>
+      </div>
     </div>
     <div class="bulk-cards reveal d1">
       <div class="bulk-card">
         <span class="bulk-icon">&#128218;</span>
         <div>
           <h4>Schools &amp; Libraries</h4>
-          <p>Bulk pricing for classroom sets, free 12-question discussion guide included.</p>
+          <p>Bulk pricing for classroom sets, free chapter-by-chapter discussion guide included.</p>
         </div>
       </div>
       <div class="bulk-card">
@@ -923,6 +672,8 @@ footer {
         <a href="https://www.walmart.com/search?q=sawyers+reach+nick+duda" target="_blank">Walmart</a>
         <a href="#podcast">Listen Free (Podcast)</a>
         <a href="#bulk">Bulk &amp; Classroom Orders</a>
+        <a href="/discuss">Discussion Guide</a>
+        <a href="/MediaKit">Press &amp; Media Kit</a>
       </div>
       <div class="footer-col">
         <h4>Nick Duda</h4>
