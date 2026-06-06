@@ -565,18 +565,77 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 <!-- Podcast -->
 <section class="podcast" id="podcast">
   <div class="podcast-inner">
+
+    <!-- June announcement banner -->
+    <div class="reveal" style="
+      background: linear-gradient(135deg, var(--ink2) 0%, var(--ink) 100%);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      padding: 20px 28px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    ">
+      <div style="
+        background: var(--gold);
+        color: #fff;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-weight: 900;
+        font-size: 13px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        border-radius: 2px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      ">June Only</div>
+      <p style="
+        font-family: 'Playfair Display', serif;
+        font-size: 16px;
+        font-style: italic;
+        color: #ffffff;
+        line-height: 1.6;
+        margin: 0;
+        flex: 1;
+        min-width: 220px;
+      ">
+        I wanted as many people as possible to experience this story &mdash; so for the entire month of June, every chapter is completely free. This is your window. After June&nbsp;30th, this becomes a paid audiobook and the free version goes away forever. Don&rsquo;t miss it.
+      </p>
+      <a href="#pod-platforms" style="
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--gold);
+        color: #fff;
+        padding: 12px 22px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: background .2s;
+      " onmouseover="this.style.background='#e8ab2a'" onmouseout="this.style.background='#c9921a'">
+        Listen Free &rarr;
+      </a>
+    </div>
+
     <div class="podcast-top">
       <div>
-        <p class="podcast-label reveal">Not ready to buy yet?</p>
-        <h2 class="podcast-heading reveal d1">Listen to the full story &mdash; <em>Free</em></h2>
-        <p class="podcast-desc reveal d2">The complete novel is available as a podcast on every major platform. No subscription, no paywall. Start listening on your commute today &mdash; then grab the book.</p>
+        <p class="podcast-label reveal">Free for June only &mdash; don&#8217;t miss it</p>
+        <h2 class="podcast-heading reveal d1">Listen to the full story &mdash; <em>Free through June 30th</em></h2>
+        <p class="podcast-desc reveal d2">The complete novel is available as a free podcast on every major platform through June&nbsp;30th only. After that, it becomes a paid audiobook. No subscription, no paywall &mdash; just start listening.</p>
       </div>
       <div class="podcast-badge reveal d1">
         <span class="badge-free">FREE</span>
-        <div class="badge-label">Full novel &middot; All platforms</div>
+        <div class="badge-label">Through June 30th only</div>
       </div>
     </div>
-    <div class="pod-platforms reveal d2">
+    <div class="pod-platforms reveal d2" id="pod-platforms">
       <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="pod-link"><span class="pod-icon">&#127925;</span>Spotify</a>
       <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank" class="pod-link"><span class="pod-icon">&#127897;&#65039;</span>Apple Podcasts</a>
       <a href="https://www.youtube.com/@SawyersReach" target="_blank" class="pod-link"><span class="pod-icon">&#9654;&#65039;</span>YouTube</a>
