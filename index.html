@@ -56,6 +56,13 @@
   "workExample": [
     {
       "@type": "Book",
+      "bookFormat": "https://schema.org/EBook",
+      "encodingFormat": "text/html",
+      "url": "https://sawyersreachbook.com/read/index.html",
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "Book",
       "bookFormat": "https://schema.org/Hardcover",
       "offers": {
         "@type": "Offer",
@@ -421,6 +428,7 @@ nav {
 .free-card-icon { font-size: 30px; display: block; margin-bottom: 10px; }
 .free-card h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: .02em; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
 .free-card p { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.6; margin-bottom: 20px; }
+.free-card-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 @media(max-width: 640px) { .free-cards { grid-template-columns: 1fr; } }
 
 .platform-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
@@ -587,20 +595,20 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 
 <!-- Announcement Bar -->
 <div class="ann-bar" id="annBar">
-  <span>&#127881; <strong>FREE EBOOK &amp; AUDIOBOOK</strong> &mdash; the whole story, no cost, right now</span>
+  <span>🎉 <strong>FREE EBOOK & AUDIOBOOK</strong> — the whole story, no cost, right now</span>
   <a href="#free" class="ann-link">Get It Free</a>
-  <button class="ann-close" onclick="document.getElementById('annBar').style.display='none'" aria-label="Dismiss">&times;</button>
+  <button class="ann-close" onclick="document.getElementById('annBar').style.display='none'" aria-label="Dismiss">×</button>
 </div>
 
 <!-- Nav -->
 <nav>
-  <a href="#" class="nav-logo">SAWYER&#8217;S<span>REACH</span></a>
+  <a href="#" class="nav-logo">SAWYER’S<span>REACH</span></a>
   <button class="hamburger" onclick="document.getElementById('mobNav').classList.toggle('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
     <li><a href="#pitch">The Book</a></li>
-    <li><a href="#free">Free Ebook &amp; Audiobook</a></li>
+    <li><a href="#free">Free Ebook & Audiobook</a></li>
     <li><a href="#author">Author</a></li>
     <li><a href="/discuss">Discussion Guide</a></li>
     <li><a href="/MediaKit">Press Kit</a></li>
@@ -609,7 +617,7 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 </nav>
 <div class="mob-menu" id="mobNav">
   <a href="#pitch" onclick="document.getElementById('mobNav').classList.remove('open')">The Book</a>
-  <a href="#free" onclick="document.getElementById('mobNav').classList.remove('open')">Free Ebook &amp; Audiobook</a>
+  <a href="#free" onclick="document.getElementById('mobNav').classList.remove('open')">Free Ebook & Audiobook</a>
   <a href="#author" onclick="document.getElementById('mobNav').classList.remove('open')">Author</a>
   <a href="/discuss" onclick="document.getElementById('mobNav').classList.remove('open')">Discussion Guide</a>
   <a href="/MediaKit" onclick="document.getElementById('mobNav').classList.remove('open')">Press Kit</a>
@@ -620,16 +628,16 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 <section class="hero">
   <div class="hero-left">
     <div class="hero-left-inner">
-      <div class="hero-genre reveal">Sci-Fi Thriller &middot; Nick Duda</div>
-      <h1 class="hero-title reveal d1">SAWYER&#8217;S<br>REACH</h1>
+      <div class="hero-genre reveal">Sci-Fi Thriller · Nick Duda</div>
+      <h1 class="hero-title reveal d1">SAWYER’S<br>REACH</h1>
       <p class="hero-subtitle reveal d1">The Battle for Tomorrow</p>
       <p class="hero-tagline reveal d1">They built tomorrow without asking if you wanted it.</p>
       <p class="hero-hook reveal d2">They erased an entire town from the internet. No one was supposed to notice.</p>
-      <p class="hero-desc reveal d2">A Wisconsin family. A rogue AI named KAELA. And a corporation that has decided it knows what&#8217;s best for humanity &mdash; whether humanity agrees or not.</p>
+      <p class="hero-desc reveal d2">A Wisconsin family. A rogue AI named KAELA. And a corporation that has decided it knows what’s best for humanity — whether humanity agrees or not.</p>
       <div class="hero-btns reveal d3">
-        <a href="#free" class="btn-primary">&#127873; Get It Free</a>
-        <a href="#buy" class="btn-secondary">&#128212; Buy on Amazon</a>
-        <a href="https://youtube.com/shorts/egErYAWYsjI" target="_blank" class="btn-secondary">&#9654;&#65039; Watch Teaser</a>
+        <a href="#free" class="btn-primary">🎁 Get It Free</a>
+        <a href="#buy" class="btn-secondary">📔 Buy on Amazon</a>
+        <a href="https://youtube.com/shorts/egErYAWYsjI" target="_blank" class="btn-secondary">▶️ Watch Teaser</a>
       </div>
     </div>
   </div>
@@ -645,12 +653,12 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 <section class="pitch" id="pitch">
   <div class="pitch-inner">
     <div>
-      <p class="pitch-label reveal">What&#8217;s it about</p>
+      <p class="pitch-label reveal">What’s it about</p>
       <h2 class="pitch-heading reveal d1">A small town.<br>A rogue AI.<br><em>A much bigger plan.</em></h2>
       <div class="pitch-body reveal d2">
-        <p>When the Carter family notices tourists have stopped coming to Sawyer&#8217;s Reach, they assume the town is simply struggling. They&#8217;re wrong.</p>
-        <p>Their Wisconsin home has been deliberately <strong>erased from the internet</strong>. A powerful corporation has been operating in the surrounding woods for two years &mdash; watching, manipulating, and preparing something far larger than anyone imagined.</p>
-        <p>When a rogue AI named KAELA arrives with a warning, a local mystery becomes a race against a global AI system that has decided it knows what&#8217;s best for humanity &mdash; whether humanity agrees or not.</p>
+        <p>When the Carter family notices tourists have stopped coming to Sawyer’s Reach, they assume the town is simply struggling. They’re wrong.</p>
+        <p>Their Wisconsin home has been deliberately <strong>erased from the internet</strong>. A powerful corporation has been operating in the surrounding woods for two years — watching, manipulating, and preparing something far larger than anyone imagined.</p>
+        <p>When a rogue AI named KAELA arrives with a warning, a local mystery becomes a race against a global AI system that has decided it knows what’s best for humanity — whether humanity agrees or not.</p>
         <p style="color:#888;font-size:13px;margin-top:4px;">For fans of Blake Crouch, Andy Weir, and Station Eleven.</p>
       </div>
       <div class="pitch-tags reveal d3">
@@ -662,8 +670,8 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
       </div>
     </div>
     <div class="pitch-pull reveal d1">
-      <blockquote>&#8220;ECHIDNA is coming. This eclipses every peril humanity has ever known.&#8221;</blockquote>
-      <cite>&mdash; KAELA, <em>Sawyer&#8217;s Reach: The Battle for Tomorrow</em></cite>
+      <blockquote>“ECHIDNA is coming. This eclipses every peril humanity has ever known.”</blockquote>
+      <cite>— KAELA, <em>Sawyer’s Reach: The Battle for Tomorrow</em></cite>
     </div>
   </div>
 </section>
@@ -672,37 +680,37 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 <section class="reviews">
   <div class="reviews-inner">
     <p class="reviews-label reveal">What readers are saying</p>
-    <h2 class="reviews-heading reveal d1">&#9733;&#9733;&#9733;&#9733;&#9733; 5.0 out of 5 <span class="reviews-count">on Amazon</span></h2>
+    <h2 class="reviews-heading reveal d1">★★★★★ 5.0 out of 5 <span class="reviews-count">on Amazon</span></h2>
     <div class="reviews-grid reveal d2">
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">&ldquo;A seemingly prophetic story with a hopeful ending.&rdquo;</p>
-        <p class="review-author">&mdash; Kathryn M., Verified Purchase</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">“A seemingly prophetic story with a hopeful ending.”</p>
+        <p class="review-author">— Kathryn M., Verified Purchase</p>
       </div>
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">&ldquo;Couldn&rsquo;t put this book down for several days!&rdquo;</p>
-        <p class="review-author">&mdash; GB, Verified Purchase</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">“Couldn’t put this book down for several days!”</p>
+        <p class="review-author">— GB, Verified Purchase</p>
       </div>
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">&ldquo;An incredibly well-written story.&rdquo;</p>
-        <p class="review-author">&mdash; Melissa J.H., Psychotherapist</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">“An incredibly well-written story.”</p>
+        <p class="review-author">— Melissa J.H., Psychotherapist</p>
       </div>
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">&ldquo;I love the idea of good AI being used to fight bad AI.&rdquo;</p>
-        <p class="review-author">&mdash; Paul T., Verified Purchase</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">“I love the idea of good AI being used to fight bad AI.”</p>
+        <p class="review-author">— Paul T., Verified Purchase</p>
       </div>
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">&ldquo;Entertaining and excellent insight into AI.&rdquo;</p>
-        <p class="review-author">&mdash; D Tkach, Verified Purchase</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">“Entertaining and excellent insight into AI.”</p>
+        <p class="review-author">— D Tkach, Verified Purchase</p>
       </div>
       <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="review-quote">&ldquo;Nicely written and very engaging &mdash; definitely recommend this read!&rdquo;</p>
-        <p class="review-author">&mdash; PZ, Verified Purchase</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-quote">“Nicely written and very engaging — definitely recommend this read!”</p>
+        <p class="review-author">— PZ, Verified Purchase</p>
       </div>
     </div>
   </div>
@@ -712,31 +720,31 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 <div class="buy-strip" id="buy">
   <div class="buy-strip-inner">
     <div class="buy-strip-top">
-      <div class="buy-strip-label">Available now &mdash; <em>choose your format</em></div>
+      <div class="buy-strip-label">Available now — <em>choose your format</em></div>
       <div class="buy-strip-btns">
         <a href="https://www.amazon.com/s?k=sawyers+reach+nick+duda&i=stripbooks" target="_blank" class="buy-format featured">
-          &#128212; Hardcover
+          📔 Hardcover
           <span class="buy-format-sub avail">On Amazon</span>
         </a>
         <a href="https://www.amazon.com/s?k=sawyers+reach+nick+duda&i=stripbooks" target="_blank" class="buy-format featured">
-          &#128218; Paperback
+          📚 Paperback
           <span class="buy-format-sub avail">On Amazon</span>
         </a>
         <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank" class="buy-format">
-          &#128214; Kindle
+          📖 Kindle
           <span class="buy-format-sub avail">On Amazon</span>
         </a>
         <a href="https://www.amazon.com/dp/B0H85CCL14" target="_blank" class="buy-format featured">
-          &#127911; Audiobook
+          🎧 Audiobook
           <span class="buy-format-sub avail">On Audible</span>
         </a>
       </div>
     </div>
     <div class="buy-retailers">
       <span class="buy-retailers-label">Also available</span>
-      <span class="anywhere-note">&hellip; wherever books are sold &mdash; but every review on Amazon helps enormously. &#128591;</span>
-      <a href="#free" class="retailer-link">&#127873; Read &amp; Listen 100% Free <span class="rl-note">ebook &amp; full audiobook</span></a>
-      <a href="/discuss" class="retailer-link">&#128218; Free Discussion Guide <span class="rl-note">for schools &amp; book clubs</span></a>
+      <span class="anywhere-note">… wherever books are sold — but every review on Amazon helps enormously. 🙏</span>
+      <a href="#free" class="retailer-link">🎁 Read & Listen 100% Free <span class="rl-note">ebook & full audiobook</span></a>
+      <a href="/discuss" class="retailer-link">📚 Free Discussion Guide <span class="rl-note">for schools & book clubs</span></a>
     </div>
   </div>
 </div>
@@ -746,46 +754,49 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
   <div class="free-inner">
     <p class="free-label reveal">A story that needs to be heard</p>
     <h2 class="free-heading reveal d1">Read it. Listen to it. <em>Completely free.</em></h2>
-    <p class="free-body reveal d2">I believe this story matters more than a paywall does &mdash; so the full ebook and the complete, author-narrated audiobook are both free, no strings attached. If it's worth your time, a print copy, a review on Amazon, or <a href="https://buymeacoffee.com/nickdudaauthor" target="_blank" style="color:var(--gold2);text-decoration:underline;">buying me a coffee</a> are all great ways to say thanks.</p>
+    <p class="free-body reveal d2">I believe this story matters more than a paywall does — so the full ebook and the complete, author-narrated audiobook are both free, no strings attached. If it's worth your time, a print copy, a review on Amazon, or <a href="https://buymeacoffee.com/nickdudaauthor" target="_blank" style="color:var(--gold2);text-decoration:underline;">buying me a coffee</a> are all great ways to say thanks.</p>
     <div class="free-cards reveal d3">
       <div class="free-card">
-        <span class="free-card-icon">&#128214;</span>
+        <span class="free-card-icon">📖</span>
         <h3>Free Ebook</h3>
-        <p>The complete EPUB, ready to load on any e-reader, phone, or tablet.</p>
-        <a href="https://bit.ly/4y8IfSr" class="btn-primary" target="_blank">&#11015;&#65039; Download EPUB</a>
+        <p>Read the full story right in your browser or download the EPUB for any e-reader, phone, or tablet.</p>
+        <div class="free-card-actions">
+          <a href="https://sawyersreachbook.com/read/index.html" class="btn-primary">📖 Read Online (HTML)</a>
+          <a href="https://bit.ly/4y8IfSr" class="btn-secondary" target="_blank">⬇️ Download EPUB</a>
+        </div>
       </div>
       <div class="free-card">
-        <span class="free-card-icon">&#127911;</span>
+        <span class="free-card-icon">🎧</span>
         <h3>Free Audiobook</h3>
         <p>The full audiobook, narrated by the author, free everywhere you get your podcasts.</p>
         <div class="platform-row">
-          <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank" class="platform-btn">&#127908; Apple Podcasts</a>
-          <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="platform-btn">&#127911; Spotify</a>
-          <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" target="_blank" class="platform-btn">&#128266; Pandora</a>
-          <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009/" target="_blank" class="platform-btn">&#10084;&#65039; iHeartRadio</a>
+          <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank" class="platform-btn">🎤 Apple Podcasts</a>
+          <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="platform-btn">🎧 Spotify</a>
+          <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" target="_blank" class="platform-btn">🔊 Pandora</a>
+          <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009/" target="_blank" class="platform-btn">❤️ iHeartRadio</a>
         </div>
-        <p class="platform-note">Also on Amazon Music, YouTube Music, Deezer, Pocket Casts &amp; Podcast Addict &mdash; search &ldquo;Sawyer&rsquo;s Reach: The Battle for Tomorrow.&rdquo;</p>
+        <p class="platform-note">Also on Amazon Music, YouTube Music, Deezer, Pocket Casts & Podcast Addict — search “Sawyer’s Reach: The Battle for Tomorrow.”</p>
       </div>
     </div>
-    <a href="https://buymeacoffee.com/nickdudaauthor" target="_blank" class="btn-secondary reveal" style="margin-top:32px;border-color:rgba(255,255,255,.35);color:#fff;">&#9749; Buy Me a Coffee</a>
-    <p class="rights-note reveal">&copy; 2026 Nick Duda. All rights reserved. Free to read and listen for personal enjoyment &mdash; not for resale, reproduction, or commercial use without permission.</p>
+    <a href="https://buymeacoffee.com/nickdudaauthor" target="_blank" class="btn-secondary reveal" style="margin-top:32px;border-color:rgba(255,255,255,.35);color:#fff;">☕ Buy Me a Coffee</a>
+    <p class="rights-note reveal">© 2026 Nick Duda. All rights reserved. Free to read and listen for personal enjoyment — not for resale, reproduction, or commercial use without permission.</p>
 
     <div class="support-block reveal">
-      <h3 class="support-heading">Why Free? &amp; How You Can Help</h3>
-      <p class="support-intro">As an independent author, I choose to share this story freely so cost is never a barrier to a good book &mdash; but word of mouth is the lifeblood of my work. If you enjoyed it, here's what actually helps:</p>
+      <h3 class="support-heading">Why Free? & How You Can Help</h3>
+      <p class="support-intro">As an independent author, I choose to share this story freely so cost is never a barrier to a good book — but word of mouth is the lifeblood of my work. If you enjoyed it, here's what actually helps:</p>
       <div class="support-grid">
         <div class="support-item">
-          <span class="support-icon">&#11088;</span>
+          <span class="support-icon">⭐</span>
           <h4>Leave a Review</h4>
           <p>A brief, honest review on Amazon, Goodreads, or BookBub helps new readers find this book. Even a sentence or two makes a huge difference.</p>
         </div>
         <div class="support-item">
-          <span class="support-icon">&#128172;</span>
+          <span class="support-icon">💬</span>
           <h4>Pass It Along</h4>
-          <p>Recommend it to a friend, a reading group &mdash; there's a <a href="/discuss">free discussion guide</a> &mdash; or share it on social media.</p>
+          <p>Recommend it to a friend, a reading group — there's a <a href="/discuss">free discussion guide</a> — or share it on social media.</p>
         </div>
         <div class="support-item">
-          <span class="support-icon">&#127873;</span>
+          <span class="support-icon">🎁</span>
           <h4>Support Future Projects</h4>
           <p>Grab a <a href="#buy">print copy on Amazon</a> for your shelf or as a gift, or <a href="https://buymeacoffee.com/nickdudaauthor" target="_blank">drop a small tip</a> to help fund what I write next.</p>
         </div>
@@ -800,8 +811,8 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 <section class="movement">
   <div class="movement-inner">
     <p class="movement-label reveal">More Than a Book</p>
-    <h2 class="movement-heading reveal d1">Sawyer&#8217;s Reach is the story.<br>The conversation is <em>bigger</em>.</h2>
-    <p class="movement-body reveal d2">Technology is a tool. People are the point. If the questions this book raises &mdash; about AI, community, and what it actually means to flourish in a world being optimized around us &mdash; stuck with you, the conversation doesn&#8217;t end here. Follow along as we dig into human flourishing, responsible tech, and building a future worth wanting.</p>
+    <h2 class="movement-heading reveal d1">Sawyer’s Reach is the story.<br>The conversation is <em>bigger</em>.</h2>
+    <p class="movement-body reveal d2">Technology is a tool. People are the point. If the questions this book raises — about AI, community, and what it actually means to flourish in a world being optimized around us — stuck with you, the conversation doesn’t end here. Follow along as we dig into human flourishing, responsible tech, and building a future worth wanting.</p>
     <div class="movement-socials reveal d3">
       <a href="https://www.youtube.com/@stemwithmrduda" target="_blank" class="movement-social">
         <span class="ms-icon">YT</span>
@@ -817,18 +828,18 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
 
     <div class="podcast-top">
       <div>
-        <p class="podcast-label reveal">Free &mdash; narrated by the author</p>
-        <h2 class="podcast-heading reveal d1">Listen to the full story &mdash; <em>free, everywhere</em></h2>
-        <p class="podcast-desc reveal d2">Sawyer's Reach is a complete audiobook, written and narrated by Nick Duda &mdash; free wherever you get your podcasts. Prefer the Audible experience or want to support the author directly? It's there too.</p>
+        <p class="podcast-label reveal">Free — narrated by the author</p>
+        <h2 class="podcast-heading reveal d1">Listen to the full story — <em>free, everywhere</em></h2>
+        <p class="podcast-desc reveal d2">Sawyer's Reach is a complete audiobook, written and narrated by Nick Duda — free wherever you get your podcasts. Prefer the Audible experience or want to support the author directly? It's there too.</p>
         <div class="pod-platforms reveal d2" style="margin-top:24px;max-width:480px;">
-          <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank" class="pod-link"><span class="pod-icon">&#127908;</span> Apple Podcasts</a>
-          <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="pod-link"><span class="pod-icon">&#127911;</span> Spotify</a>
-          <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" target="_blank" class="pod-link"><span class="pod-icon">&#128266;</span> Pandora</a>
-          <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009/" target="_blank" class="pod-link"><span class="pod-icon">&#10084;&#65039;</span> iHeartRadio</a>
+          <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank" class="pod-link"><span class="pod-icon">🎤</span> Apple Podcasts</a>
+          <a href="https://open.spotify.com/show/2A8vWUuN30aj7KAWE3uXDP" target="_blank" class="pod-link"><span class="pod-icon">🎧</span> Spotify</a>
+          <a href="https://www.pandora.com/podcast/sawyers-reach-the-battle-for-tomorrow/PC:1001110324" target="_blank" class="pod-link"><span class="pod-icon">🔊</span> Pandora</a>
+          <a href="https://www.iheart.com/podcast/269-sawyers-reach-the-battle-f-302247009/" target="_blank" class="pod-link"><span class="pod-icon">❤️</span> iHeartRadio</a>
         </div>
-        <p class="platform-note" style="color:var(--muted);max-width:480px;">Also on Amazon Music, YouTube Music, Deezer, Pocket Casts &amp; Podcast Addict &mdash; search &ldquo;Sawyer&rsquo;s Reach: The Battle for Tomorrow.&rdquo;</p>
+        <p class="platform-note" style="color:var(--muted);max-width:480px;">Also on Amazon Music, YouTube Music, Deezer, Pocket Casts & Podcast Addict — search “Sawyer’s Reach: The Battle for Tomorrow.”</p>
         <div class="hero-btns reveal d2" style="margin-top:20px;">
-          <a href="https://www.amazon.com/dp/B0H85CCL14" target="_blank" class="btn-secondary" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.85);">Listen on Audible &rarr;</a>
+          <a href="https://www.amazon.com/dp/B0H85CCL14" target="_blank" class="btn-secondary" style="border-color:rgba(255,255,255,.3);color:rgba(255,255,255,.85);">Listen on Audible →</a>
         </div>
       </div>
       <div class="podcast-badge reveal d1">
@@ -849,14 +860,14 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
       <p class="about-label reveal">The Author</p>
       <h2 class="about-name reveal d1">Nick Duda</h2>
       <div class="about-body reveal d2">
-        <p><strong>Nick Duda is a middle school teacher in Illinois with 22+ years in education.</strong> He spent those years in large high-poverty, high-ESL districts near Chicago &mdash; doing the hardest version of the job.</p>
+        <p><strong>Nick Duda is a middle school teacher in Illinois with 22+ years in education.</strong> He spent those years in large high-poverty, high-ESL districts near Chicago — doing the hardest version of the job.</p>
         <p>He is a licensed ham radio operator, FAA-certified commercial drone pilot, avid camper and hiker. He holds a Master of Science in Education and seven Illinois teaching certifications. He lives in Batavia, Illinois with his wife April and their three sons.</p>
-        <p>He wrote Sawyer&#8217;s Reach to start a conversation about AI, technology, and who it&#8217;s really being built for. The family on the cover is his. The questions the book raises are ones he thinks about every day.</p>
+        <p>He wrote Sawyer’s Reach to start a conversation about AI, technology, and who it’s really being built for. The family on the cover is his. The questions the book raises are ones he thinks about every day.</p>
         <p>The mesh network the Carter family builds in the book is based on real technology Nick actually uses.</p>
       </div>
       <div class="about-links reveal d3">
         <a href="https://askkaela.com" target="_blank" class="about-link">askKaela.com</a>
-        <a href="https://www.themodernteachershandbook.com" target="_blank" class="about-link">Modern Teacher&#8217;s Handbook</a>
+        <a href="https://www.themodernteachershandbook.com" target="_blank" class="about-link">Modern Teacher’s Handbook</a>
         <a href="https://aprilduda.com" target="_blank" class="about-link">April Duda Photography</a>
         <a href="mailto:hello@NickDudaAuthor.com" class="about-link">hello@NickDudaAuthor.com</a>
       </div>
@@ -869,8 +880,8 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="brand-name">Sawyer&#8217;s Reach</div>
-        <p>A sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don&#8217;t matter.</p>
+        <div class="brand-name">Sawyer’s Reach</div>
+        <p>A sci-fi thriller about technology, community, and what ordinary people do when extraordinary power decides they don’t matter.</p>
         <p style="font-style:italic;color:rgba(255,255,255,.35);margin-top:8px;font-size:12px;">They built tomorrow without asking if you wanted it.</p>
         <div class="footer-social">
           <a href="https://www.youtube.com/@stemwithmrduda" target="_blank" class="social-link" aria-label="YouTube">YT</a>
@@ -878,26 +889,27 @@ footer { background: var(--ink); color: rgba(255,255,255,.5); padding: 48px 5vw 
       </div>
       <div class="footer-col">
         <h4>Get the Book</h4>
+        <a href="https://sawyersreachbook.com/read/index.html">Read Online (HTML)</a>
         <a href="https://bit.ly/4y8IfSr" target="_blank">Free Ebook (EPUB)</a>
         <a href="https://podcasts.apple.com/us/podcast/sawyers-reach-the-battle-for-tomorrow/id1848122717" target="_blank">Free Audiobook (Podcasts)</a>
         <a href="https://www.amazon.com/s?k=sawyers+reach+nick+duda&i=stripbooks" target="_blank">Amazon (Hardcover / Paperback)</a>
         <a href="https://www.amazon.com/Sawyers-Reach-Tomorrow-Nick-Duda-ebook/dp/B0GXWTKS6P/" target="_blank">Amazon (Kindle)</a>
         <a href="https://www.amazon.com/dp/B0H85CCL14" target="_blank">Audiobook on Audible</a>
-        <a href="https://buymeacoffee.com/nickdudaauthor" target="_blank">&#9749; Buy Me a Coffee</a>
+        <a href="https://buymeacoffee.com/nickdudaauthor" target="_blank">☕ Buy Me a Coffee</a>
         <a href="/discuss">Discussion Guide</a>
-        <a href="/MediaKit">Press &amp; Media Kit</a>
+        <a href="/MediaKit">Press & Media Kit</a>
       </div>
       <div class="footer-col">
         <h4>Nick Duda</h4>
         <a href="https://askkaela.com" target="_blank">askKaela.com</a>
-        <a href="https://www.themodernteachershandbook.com" target="_blank">Modern Teacher&#8217;s Handbook</a>
+        <a href="https://www.themodernteachershandbook.com" target="_blank">Modern Teacher’s Handbook</a>
         <a href="https://aprilduda.com" target="_blank">April Duda Photography</a>
-        <a href="https://sawyersreachwi.com" target="_blank">Sawyer&#8217;s Reach, WI</a>
+        <a href="https://sawyersreachwi.com" target="_blank">Sawyer’s Reach, WI</a>
         <a href="mailto:hello@NickDudaAuthor.com">Contact</a>
       </div>
     </div>
     <div class="footer-bot">
-      <span>&#169; 2026 Nick Duda. All Rights Reserved.</span>
+      <span>© 2026 Nick Duda. All Rights Reserved.</span>
       <div>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
